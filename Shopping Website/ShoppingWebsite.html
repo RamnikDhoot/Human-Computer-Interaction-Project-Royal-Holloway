@@ -2,33 +2,194 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="ZKAC269"/>
-<!--    <link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Shopping website</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
-
 <body>
-<script src="js/bootstrap.js"></script>
-<h1>Shopping Website</h1>
-<hr>
-<div class="navbar">
-    <a href="#Menu">Menu</a>
-    <a href="#home">Home</a>
-    <a href="#notifications">Notifications</a>
-    <a>
-        <input type="search" id="query" placeholder="Search">
-        <button>Go</button>
-    </a>
-    <a href="#account">Account</a>
-    <a href="#cart">Cart</a>
-</div>
-<hr>
-<div class="column">
-    <div class="sort">Sort</div>
-    <div class="filter">Filter</div>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-gradient fixed-top">
+        <div class="container">
+          <a class="navbar-brand fs-4" href="#">Shopping</a>
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header text-white border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+              <ul class="navbar-nav justify-content-centre align-items-center fs-5 flex-grow-1 pe-3">
+                <i class="fa-solid fa-house fa-2xl"></i>
+                <li class="nav-item mx-2">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <i class="fa-solid fa-bell fa-2xl"></i>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="#notifications">Notifications</a>
+                </li>
+              </ul>
+              <form class="form-inline mx-auto my-2 d-flex flex-column flex-lg-row justify-content-centre align-items-center">
+                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+             </form>
+              <div class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3">
+                <a href="#login" class="text-white">Login</a>
+                <a href="#signup" class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2">Sign Up</a>
+              </div>
+              <button type = "button" class = "btn position-relative">
+                <i class = "fa fa-shopping-cart fa-2xl"></i>
+                <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+            </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container mt-5 mt-md-7">
+        <div class="row">
+          <!-- Row 1 -->
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <!-- Row 2 -->
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <img src="https://placehold.it/300x300" class="card-img-top" alt="Product Image">
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Product Description</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+    
+    
+      <footer class="py-3 my-4 overflow-hidden border-top text-muted text-center position-fixed bottom-0 start-0 end-0">
+        <p class="mb-0">-------</p>
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <nav class="navbar fixed-top navbar-expand-sm bg-body-tertiary navbar-gradient container-fluid">
+        
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav justify-content-center align-items-center">
+            <li class="nav-item active">
+                <i class="fa-solid fa-house fa-2xl"></i>
+            </li>
+            <li class="nav-item active">
+                <i class="fa-solid fa-bell fa-2xl"></i>
+            </li>
+            <li class="nav-item active">
+                <div class="input-group">
+                    <input class="form-control border-end-0 border rounded-pill" type="text" value="search" id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+             </div>
+                  
+            </li>
+            <li class="nav-item active">
+              <i class="fa-solid fa-user fa-2xl"></i>
+            </li>
+            <li class="nav-item active1">
+                <button type = "button" class = "btn position-relative">
+                    <i class = "fa fa-shopping-cart fa-2xl"></i>
+                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+                </button>
+            </li>
+          </ul>
+        </div>
+
+
+
+        
+      </nav> -->
+      
+      
+      
+      
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
