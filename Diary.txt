@@ -8,3 +8,9 @@ Week 2 02/10/23 - 08/10/23
 - I have read chapters 3 and 4 of Human-Computer Interaction by Alan Dix
 - Next week I will begin Part 2 of Human-Computer Interaction by Alan Dix
 - I will also add css to my website, I may use Bootstrap as just css would take very long.
+Week 3, 09/10/23 - 15/10/23
+- I have created a basic shopping website and included the styling
+- I have also read Part 2 of Human-Computer Interaction by Alan Dix, chapters 5 to 9
+- I had some isues learning how to use bootstrap but this vedo really sped up my progress: https://www.youtube.com/watch?v=-qfEOE4vtxE
+- There was dificulty using intellij as my own css files would not load into my html website, to fix this i moved all my code to vs code. This seems like a problem with the intellij editor
+- Next week i will begin my database interface, i will first make an empty database using MySQL
