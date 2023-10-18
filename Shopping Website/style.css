@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+   
+    font-size: 50px;
+}
+
+body {
+    background-color: papayawhip;
+}
+
+ h1{
+    font-size: 100px;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    background-color: blueviolet;
+    border: 10px double blue;
+ }
+
+ .nav-bar {
+    font-size: 50px;
+    background-color: aliceblue;
+    display: flex;
+
+ }
+ .nav-bar li {
+    list-style: none;
+    padding: 15px;
+    margin: auto;
+    border: 5px solid black;
+
+ }
+
+ .nav-bar a {
+    color: blueviolet;
+    text-decoration: none;
+ }
+
+ .nav-bar a:visited {
+    color: grey;
+    text-decoration: none;
+ }
+
+ .nav-bar a:hover {
+    font-size: 60px;
+    color: greenyellow;
+    text-decoration: none;
+ }
