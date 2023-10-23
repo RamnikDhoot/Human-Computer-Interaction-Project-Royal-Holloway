@@ -14,3 +14,7 @@ Week 3, 09/10/23 - 15/10/23
 - I had some isues learning how to use bootstrap but this vedo really sped up my progress: https://www.youtube.com/watch?v=-qfEOE4vtxE
 - There was dificulty using intellij as my own css files would not load into my html website, to fix this i moved all my code to vs code. This seems like a problem with the intellij editor
 - Next week i will begin my database interface, i will first make an empty database using MySQL
+Week 16/10/23 - 22/10/22
+- I have created the databse for my inventory management system, as well as the schema for the database
+- I have also read chapters 10-11 of Human-Computer interaction
+- Next week i will begin learning swing as well as begin the interface for the database
