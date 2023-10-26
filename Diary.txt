@@ -1,20 +1,31 @@
-Week 1, 25/09/23 - 01/09/23:
+Week 2, 25/09/23 - 01/09/23:
 - I have read chapters 1 and 2 of Human computer interaction by alan Dix.
 - I have also created my Project Plan
 - Next Week I will begin creating the website interface
-Week 2 02/10/23 - 08/10/23
+
+Week 3, 02/10/23 - 08/10/23
 - I hev created the designs of all 3 UI's
 - I have Created basic website layout
 - I have read chapters 3 and 4 of Human-Computer Interaction by Alan Dix
 - Next week I will begin Part 2 of Human-Computer Interaction by Alan Dix
 - I will also add css to my website, I may use Bootstrap as just css would take very long.
-Week 3, 09/10/23 - 15/10/23
+
+Week 4, 09/10/23 - 15/10/23
 - I have created a basic shopping website and included the styling
 - I have also read Part 2 of Human-Computer Interaction by Alan Dix, chapters 5 to 9
-- I had some isues learning how to use bootstrap but this vedo really sped up my progress: https://www.youtube.com/watch?v=-qfEOE4vtxE
+- I had some isues learning how to use bootstrap but this viedo really sped up my progress: https://www.youtube.com/watch?v=-qfEOE4vtxE
 - There was dificulty using intellij as my own css files would not load into my html website, to fix this i moved all my code to vs code. This seems like a problem with the intellij editor
 - Next week i will begin my database interface, i will first make an empty database using MySQL
-Week 16/10/23 - 22/10/22
+
+Week 5, 16/10/23 - 22/10/22
 - I have created the databse for my inventory management system, as well as the schema for the database
 - I have also read chapters 10-11 of Human-Computer interaction
 - Next week i will begin learning swing as well as begin the interface for the database
+
+Week 6, 23/10/23 - 29/10/23
+24/10/23
+-Watched and made notes on Scott Klemmers lectures. Design Heuristics parts 1 and 2, Visual Design
+25/10/23
+-Watched and made notes on Scott Klemmers lectures. Typography, Grids and Alignment, Reading and Navigation, Designing Studies
+26/10/23
+- 
