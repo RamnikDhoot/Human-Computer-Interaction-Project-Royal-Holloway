@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1st Project</title>
+    <title>Items</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -18,84 +18,94 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top bg-black">
-      <!--navbar-gradient-->
-      <div class="container">
-        <a class="navbar-brand fs-4" href="#">Shopping</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Shopping</a>
         <button
-          class="navbar-toggler shadow-none border-0"
+          class="navbar-toggler"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div
-          class="sidebar offcanvas offcanvas-start"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header text-white border-bottom">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white shadow-none"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
-            <ul
-              class="navbar-nav justify-content-centre align-items-center fs-5 flex-grow-1 pe-3"
-            >
-              <i class="fa-solid fa-house fa-2xl"></i>
-              <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <i class="fa-solid fa-bell fa-2xl"></i>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#notifications">Notifications</a>
-              </li>
-            </ul>
-            <form
-              class="form-inline mx-auto my-2 d-flex flex-column flex-lg-row justify-content-centre align-items-center"
-            >
-              <input
-                class="form-control mr-sm-1"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                class="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!--d-flex flex-row me-1-->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-house-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"
+                  />
+                  <path
+                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"
+                  />
+                </svg>
+                Home</a
               >
-                Search
-              </button>
-            </form>
-            <div
-              class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3"
-            >
-              <a href="#login" class="text-white">Login</a>
-              <a
-                href="#signup"
-                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2"
-                >Sign Up</a
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-bell-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+                  />
+                </svg>
+                Notifications</a
               >
-            </div>
-            <button type="button" class="btn position-relative">
-              <i class="fa fa-shopping-cart fa-2xl"></i>
-              <span
-                class="position-absolute top-0 start-100 translate-middle badge bg-primary"
-                >5</span
-              >
+            </li>
+          </ul>
+          <form class="d-flex me-auto" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
             </button>
+          </form>
+          <div class="d-flex flex-row me-1">
+            
+          <div
+            class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3"
+          >
+            <a href="#login" class="text-white">Login</a>
+            <a
+              href="#signup"
+              class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2"
+              >Sign Up</a
+            >
           </div>
+          <button type="button" class="btn position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge bg-primary"
+              >5</span
+            >
+          </button>
+        </div>
         </div>
       </div>
     </nav>

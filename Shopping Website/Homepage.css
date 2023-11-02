@@ -1,0 +1,29 @@
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+  }
+  
+  .flex-equal > * {
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      flex: 1;
+    }
+  }
+
+  .student-shopping {
+    background-image: url("images/john-schnobrich-2FPjlAyMQTA-unsplash.jpg");
+    background-size: 100%; 
+    background-repeat: no-repeat; 
+    background-position: center 60%;
+}
+
+.home-box{
+    background-color: black;
+    padding: 20px; 
+    color: white;
+    border: 1px solid black;
+
+}
+  
+ 
