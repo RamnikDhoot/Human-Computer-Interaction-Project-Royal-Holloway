@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class Main implements ActionListener {
 
@@ -14,27 +15,39 @@ public class Main implements ActionListener {
 
         // Create navigation bar
         navigationBar = new JPanel();
-        navigationBar.setLayout(new FlowLayout(FlowLayout.LEFT));
+        navigationBar.setLayout(new BorderLayout());
+        navigationBar.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        // Add styling to navigation bar
+        navigationBar.setBackground(Color.WHITE);
+        navigationBar.setForeground(Color.BLACK);
+        navigationBar.setFont(new Font("Arial", Font.BOLD, 16));
 
         newButton = new JButton("New");
         newButton.addActionListener(this);
-        navigationBar.add(newButton);
+        navigationBar.add(newButton, BorderLayout.WEST);
 
         openButton = new JButton("Open");
         openButton.addActionListener(this);
-        navigationBar.add(openButton);
+        navigationBar.add(openButton, BorderLayout.CENTER);
 
         saveButton = new JButton("Save");
         saveButton.addActionListener(this);
-        navigationBar.add(saveButton);
+        navigationBar.add(saveButton, BorderLayout.EAST);
 
         frame.add(navigationBar, BorderLayout.NORTH);
 
-        // Create page area with beige color and white background
+        // Create page area
         pageArea = new JPanel();
-        pageArea.setBackground(new Color(245, 245, 220));
+        pageArea.setBackground(new Color(145, 245, 220));
         pageArea.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pageArea.setPreferredSize(new Dimension(600, 400));
+
+        // Add lines to page area
+        Graphics g = pageArea.getGraphics();
+        for (int i = 0; i < pageArea.getHeight(); i += 10) {
+            g.drawLine(0, i, pageArea.getWidth(), i);
+        }
 
         JPanel backgroundPanel = new JPanel();
         backgroundPanel.setBackground(Color.WHITE);
