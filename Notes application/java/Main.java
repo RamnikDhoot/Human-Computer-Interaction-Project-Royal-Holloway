@@ -69,6 +69,8 @@ public class Main implements ActionListener {
         backgroundPanel.add(sidebarRight, BorderLayout.EAST);
 
         frame.add(backgroundPanel, BorderLayout.CENTER);
+        // Add the hamburger menu panel to the main GUI panel
+        frame.add(new HamburgerMenuPanel(), BorderLayout.WEST);
 
         frame.pack();
         frame.setVisible(true);
