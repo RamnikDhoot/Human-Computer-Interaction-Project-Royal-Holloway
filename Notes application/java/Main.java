@@ -7,7 +7,7 @@ public class Main implements ActionListener {
 
     private JFrame frame;
     private JPanel navigationBar, pageArea, sidebarLeft, sidebarRight;
-    private JButton newButton, openButton, saveButton;
+    private JButton fileButton, viewButton, homeButton, editButton, helpButton;
 
     public Main() {
         frame = new JFrame("Notes App");
@@ -23,17 +23,25 @@ public class Main implements ActionListener {
         navigationBar.setForeground(Color.BLACK);
         navigationBar.setFont(new Font("Arial", Font.BOLD, 16));
 
-        newButton = new JButton("New");
-        newButton.addActionListener(this);
-        navigationBar.add(newButton, BorderLayout.WEST);
+        fileButton = new JButton("File");
+        fileButton.addActionListener(this);
+        navigationBar.add(fileButton, BorderLayout.WEST);
 
-        openButton = new JButton("Open");
-        openButton.addActionListener(this);
-        navigationBar.add(openButton, BorderLayout.CENTER);
+        editButton = new JButton("Edit");
+        editButton.addActionListener(this);
+        navigationBar.add(editButton, BorderLayout.CENTER);
 
-        saveButton = new JButton("Save");
-        saveButton.addActionListener(this);
-        navigationBar.add(saveButton, BorderLayout.EAST);
+        viewButton = new JButton("View");
+        viewButton.addActionListener(this);
+        navigationBar.add(viewButton, BorderLayout.EAST);
+
+        homeButton = new JButton("Home");
+        homeButton.addActionListener(this);
+        navigationBar.add(homeButton, BorderLayout.EAST);
+
+        helpButton = new JButton("Help");
+        helpButton.addActionListener(this);
+        navigationBar.add(helpButton, BorderLayout.EAST);
 
         frame.add(navigationBar, BorderLayout.NORTH);
 
@@ -77,12 +85,16 @@ public class Main implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == newButton) {
-            System.out.println("New button clicked");
-        } else if (e.getSource() == openButton) {
-            System.out.println("Open button clicked");
-        } else if (e.getSource() == saveButton) {
-            System.out.println("Save button clicked");
+        if (e.getSource() == fileButton) {
+            System.out.println("File button clicked");
+        } else if (e.getSource() == viewButton) {
+            System.out.println("View button clicked");
+        } else if (e.getSource() == editButton) {
+            System.out.println("Edit button clicked");
+        } else if (e.getSource() == homeButton) {
+            System.out.println("Home button clicked");
+        } else if (e.getSource() == helpButton) {
+            System.out.println("Helps button clicked");
         }
     }
 
