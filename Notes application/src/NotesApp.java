@@ -1,3 +1,5 @@
+package src;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -33,21 +35,19 @@ public class NotesApp {
         fileMenu.add(newMenuItem);
         fileMenu.add(openMenuItem);
         fileMenu.add(saveMenuItem);
-        fileMenu.addSeparator(); 
+        fileMenu.addSeparator();
         fileMenu.add(exitMenuItem);
 
-        menuBar.add(Box.createHorizontalGlue()); 
+        menuBar.add(Box.createHorizontalGlue());
         menuBar.add(fileMenu);
         menuBar.add(editMenu);
         menuBar.add(viewMenu);
         menuBar.add(homeMenu);
         menuBar.add(helpMenu);
-        menuBar.add(Box.createHorizontalGlue()); 
+        menuBar.add(Box.createHorizontalGlue());
 
-        
         frame.setJMenuBar(menuBar);
 
-        /
         JPanel contentPanel = new JPanel();
         contentPanel.setBackground(Color.WHITE);
         contentPanel.setBorder(BorderFactory.createCompoundBorder(
@@ -55,30 +55,27 @@ public class NotesApp {
                 BorderFactory.createEmptyBorder(10, 10, 10, 10) // Set padding inside the borders
         ));
 
-        
         frame.getContentPane().setLayout(new BorderLayout());
 
-        
         frame.getContentPane().add(contentPanel, BorderLayout.CENTER);
 
-        
         frame.setVisible(true);
     }
 
-    private static JMenu createHighlightedMenu(String text) {
+    public static JMenu createHighlightedMenu(String text) {
         JMenu menu = new JMenu(text);
         menu.addMouseListener(new HighlightMouseListener(menu));
         return menu;
     }
 
-    static JMenuItem createHighlightedMenuItem(String text) {
+    public static JMenuItem createHighlightedMenuItem(String text) {
         JMenuItem menuItem = new JMenuItem(text);
         menuItem.addMouseListener(new HighlightMouseListener(menuItem));
         menuItem.setPreferredSize(new Dimension(80, menuItem.getPreferredSize().height));
         return menuItem;
     }
 
-    private static class HighlightMouseListener extends MouseAdapter {
+    public static class HighlightMouseListener extends MouseAdapter {
         private final Component component;
         private final Color originalColor;
 
