@@ -1,6 +1,6 @@
 Week 2, 25/09/23 - 01/09/23:
 Project meeting:
-    - Taled about my project plan, I need to consider who is going to use my Interfaces. Also which HCI principles i will use in each Interface. Talk about liklihood of each risk in project plan.
+    - Talked about my project plan, I need to consider who is going to use my Interfaces. Also which HCI principles i will use in each Interface. Talk about liklihood of each risk in project plan.
 - I have read chapters 1 and 2 of Human computer interaction by alan Dix.
 - I have also created my Project Plan
 - Next Week I will begin creating the website interface
@@ -47,6 +47,7 @@ Project meeting:
 26/10/23
 - I have read chapters 16.2, 16.3, 16.6, 16.7 of Human-computer interaction by alan Dix
 - I will focus on the interim report Next week and make sure i have a draft ready to show to my supervisor before our meeting
+-Created draft of introduction and abstract for interim report
 
 Week 7, 30/10/23 - 05/11/23
 30/10/23
@@ -55,8 +56,23 @@ Week 7, 30/10/23 - 05/11/23
 - Read and made notes on Designing for the Web: An Introduction to Human-Computer Interaction by Jakob Nielsen: https://santhosh-adiga-u.medium.com/jakob-nielsens-heuristics-for-interaction-design-guidelines-for-user-centered-excellence-609b270c7e6a	    
 and https://www.interaction-design.org/literature/article/user-interface-design-guidelines-10-rules-of-thumb
 
-- Begun Hope page for Shopping website
+- Begun Home page for Shopping website
 - I have also completed HCI by alan dix 
 - I have been continuing my interim report
 - I have finished the Swing GUI course
 - Next week i will continue the report and Begin my java Gui for the notes application
+- Finished abstract draft
+- Finished introduction draft
+
+Week 8, 06/11/23 - 12/11/23
+- Created template for GUI application
+- Created draft of project specification
+- Continued Notes application by adding page and navbar, and making it more visually appealing than first prototype
+- Completed draft of literatire review
+- Completed draft of Aims, objectives
+- Made notes fot theory section of report
+- Remade inventory interface by making new sidebar and navbar more visually appealing, taken away colour from first prototype
+- Next week i plan to Complete a draft of the report to give to my supervisor before the end of the week
+- I will complete The inventory interface 
+- Add new frnot page for shopping website showing preview of items
+- Continue notes application, adding toolbar and Tooltips, then adding more hci principles
