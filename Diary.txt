@@ -19,7 +19,7 @@ Week 4, 09/10/23 - 15/10/23
 - I had some isues learning how to use bootstrap but this viedo really sped up my progress: https://www.youtube.com/watch?v=-qfEOE4vtxE
 - There was dificulty using intellij as my own css files would not load into my html website, to fix this i moved all my code to vs code. This seems like a problem with the intellij editor
 - Next week i will begin my database interface, i will first make an empty database using MySQL
-
+- Begun reading and making notes on Designing the User Interface: Strategies for Effective Human-Computer Interaction (6th Edition)
 Week 5, 16/10/23 - 22/10/22
 - I have begun Learning Swing using this course: https://www.youtube.com/watch?v=Kmgo00avvEw&t=3s
 - I have created the databse for my inventory management system, as well as the schema for the database
@@ -74,5 +74,7 @@ Week 8, 06/11/23 - 12/11/23
 - Remade inventory interface by making new sidebar and navbar more visually appealing, taken away colour from first prototype
 - Next week i plan to Complete a draft of the report to give to my supervisor before the end of the week
 - I will complete The inventory interface 
-- Add new frnot page for shopping website showing preview of items
+- Add new front page for shopping website showing preview of items
 - Continue notes application, adding toolbar and Tooltips, then adding more hci principles
+
+Week 9, 13/11/23 - 19/11/23 :
