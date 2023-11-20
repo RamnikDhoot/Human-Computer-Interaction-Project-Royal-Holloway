@@ -44,6 +44,7 @@ Project meeting:
 -Watched and made notes on Scott Klemmers lectures. Typography, Grids and Alignment, Reading and Navigation, Designing Studies
 -Read Sumarry of chapter 15 of Human-Computer Interaction
 -Continued spring tutorial, parts 10 to 15
+- Created contents page of reoprt, finalized sections i will include
 26/10/23
 - I have read chapters 16.2, 16.3, 16.6, 16.7 of Human-computer interaction by alan Dix
 - I will focus on the interim report Next week and make sure i have a draft ready to show to my supervisor before our meeting
@@ -77,4 +78,19 @@ Week 8, 06/11/23 - 12/11/23
 - Add new front page for shopping website showing preview of items
 - Continue notes application, adding toolbar and Tooltips, then adding more hci principles
 
-Week 9, 13/11/23 - 19/11/23 :
+Week 9, 13/11/23 - 19/11/23 
+- Created separate shopping basket page for shopping website
+- Added placeholder items for inventory system UI
+14/11/23
+- Completed HCI goals for uis in report
+- Finished Target audience section for report
+- Completed Section on HCI theory draft for report
+16/11/23
+- Finished Work completed section draft of report
+- Written conlusion for report
+- Finished hompepage for shopping website
+- Begun presentation, decided which sections i am going to have
+
+Week 10, 20/11/23 - 26/11/23
+
+
