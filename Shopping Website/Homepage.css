@@ -1,16 +1,8 @@
+/* Adds bar at the top of page so nav-bar look like it touches the top */
 .site-header {
     background-color: rgba(0, 0, 0, .85);
   }
   
-  .flex-equal > * {
-    flex: 1;
-  }
-  @media (min-width: 768px) {
-    .flex-md-equal > * {
-      flex: 1;
-    }
-  }
-
   .student-shopping {
     background-image: url("images/john-schnobrich-2FPjlAyMQTA-unsplash.jpg");
     background-size: 100%; 
@@ -18,21 +10,19 @@
     background-position: center 60%;
 }
 
+/* Box that says shop now */
 .home-box{
-    background-color: black;
+    background-color: rgb(56, 56, 56);
     padding: 20px; 
     color: white;
-    border: 1px solid black;
+    border-radius: 11px;
 
 }
-  
+
+/* Styling for each secton of the homepage -- Created with the help of https://www.w3schools.com/TAgs/tag_section.asp*/
 section {
   padding: 60px 0;
   overflow: hidden;
-}
-
-.section-bg {
-  background-color: #f3f5fa;
 }
 
 .section-title {
@@ -43,13 +33,13 @@ section {
 .section-title h2 {
   font-size: 32px;
   font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   padding-bottom: 20px;
   position: relative;
-  color: #37517e;
+  color: #000000;
 }
 
+/* I got this little bar under the title from https://stackoverflow.com/questions/36912620/h2-tag-overlapping-text */
 .section-title h2::before {
   content: "";
   position: absolute;
@@ -67,10 +57,13 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #47b2e4;
+  background: #a0a0a0;
   bottom: 0;
   left: calc(50% - 20px);
 }
+/* End of bar section */
+
+
 
 .section-title p {
   margin-bottom: 0;
@@ -219,9 +212,6 @@ section {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
 }
