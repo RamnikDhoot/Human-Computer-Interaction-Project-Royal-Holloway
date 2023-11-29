@@ -90,7 +90,32 @@ Week 9, 13/11/23 - 19/11/23
 - Written conlusion for report
 - Finished hompepage for shopping website
 - Begun presentation, decided which sections i am going to have
+-Next week i plan to finish my report
+- I aslo plan do remake the homepage basted on feedback from testing
+- I will also created the settings page
 
 Week 10, 20/11/23 - 26/11/23
+- Created basic structure and layout for Presentation to show to supervisor
+- Added new footer section to all pages that has quick links for website
+Project meeting
+- Add timescale section to report with how i have deviated from the original plan
+- Talk more about the theory og HCI and chnage the section with HCI principles to refference back to the theory
+- Add more functionality to the websites
+
+- I have created the settings page with all of the accessibility options
+- I have Added a homepage to the inventory managemant system
+- I have completed the Abstract, aims and objectives, motivation, my progress, work completed, HCI theory and principles, software engineering section sfor the project report
+- Written conclusion and literature review
+- Created drafts for presentation, aims and objectives section, background importance of HCI, description of the project
+- Next week i plan to add more pages for the shopping website
+- Also i plan to add functionality to the notes application, e.g. ability to type
+- Then i will add functionality to the inventory interface by adding the ability to add and customize inventorys,
+Also adding setting and other extra pages for users where i can implement different HCI principles and methodologies
+
+
+Week 11, 27/11/23 - 03/12/23
+- Created conclusion, section explaing the individual parts of the project, defend and justify desicions, and sumarry sections of the powerpoint
+- Moved project report to Latex template
+- Worked on Notes application by Adding more comonents such as save, edit ect
 
 
