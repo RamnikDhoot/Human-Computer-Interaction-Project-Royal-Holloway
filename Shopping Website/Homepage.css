@@ -133,3 +133,98 @@ section {
 .portfolio .portfolio-item:hover .portfolio-img img {
   transform: scale(1.15); /* Increses the size of the image when it is hovered over*/
 }
+
+/*Footer*/
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+
+/*Footer*/
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+h3,
+h5 {
+  color: #f8f9fa;
+}
+
+ul.list-unstyled li a {
+  color: #adb5bd;
+}
+
+ul.list-unstyled li a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a.text-light {
+  color: #adb5bd;
+}
+
+a.text-light:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #adb5bd;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+} body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+h3,
+h5 {
+  color: #f8f9fa;
+}
+
+ul.list-unstyled li a {
+  color: #adb5bd;
+}
+
+ul.list-unstyled li a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a.text-light {
+  color: #adb5bd;
+}
+
+a.text-light:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #adb5bd;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
