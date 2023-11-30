@@ -10,7 +10,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="Settings.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css">
   </head>
   <body>
@@ -114,8 +114,9 @@
                             <label class="form-check-label" for="screenReader">Screen Reader</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="highContrast">
-                            <label class="form-check-label" for="highContrast">High Contrast Mode</label>
+                            <input class="form-check-input high-contrast" type="checkbox" id="highContrast"
+                            onchange="toggleHighContrast()">
+                        <label class="form-check-label" for="highContrast">High Contrast Mode</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="largerText">
@@ -137,7 +138,15 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- JS for high contrast mode which transitions iin to make it easier on the eyes -->
+    <script>
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            document.querySelector('.sidebar').classList.toggle('high-contrast');
+            document.querySelector('.main-content').classList.toggle('high-contrast');
+            document.querySelectorAll('.btn-primary').forEach(btn => btn.classList.toggle('high-contrast'));
+        }
+    </script>
 
   </body>
   </html>
