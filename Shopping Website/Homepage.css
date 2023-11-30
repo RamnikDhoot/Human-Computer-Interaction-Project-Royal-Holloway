@@ -228,3 +228,40 @@ a.text-light:hover {
 .social-icons a:hover {
   color: #ffffff;
 }
+
+/* High Contrast Mode Styles */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #ffa500 !important;
+}
+
+.sidebar.high-contrast {
+  background-color: #000 !important;
+  color: #ffa500 !important;
+}
+
+.main-content.high-contrast {
+  background-color: #000 !important;
+  color: #ffa500 !important;
+}
+
+h2.high-contrast {
+  color: #ffa500 !important;
+}
+
+.btn-primary.high-contrast {
+  background-color: #ffa500 !important;
+  border-color: #ffa500 !important;
+}
+
+.btn-primary.high-contrast:hover {
+  background-color: #ff8c00 !important;
+  border-color: #ff8c00 !important;
+}
+/* High contrast styling end */
+
+/* Larger Text Styles */
+body.larger-text {
+  font-size: 30px;
+}
+/* Larger test styling end */

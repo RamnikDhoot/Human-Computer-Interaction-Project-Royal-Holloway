@@ -390,5 +390,31 @@ With compatibility for screen readers, keyboard navigation features, and adjusta
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // This is to check what settings the user has selected to apply it to other pages
+      window.onload = function () {
+          if (localStorage.getItem('highContrast') === 'true') {
+              toggleHighContrast();
+          }
+
+          if (localStorage.getItem('largerText') === 'true') {
+              toggleLargerText();
+          }
+      };
+
+      function toggleHighContrast() {
+          document.body.classList.toggle('high-contrast');
+          document.querySelector('.sidebar').classList.toggle('high-contrast');
+          document.querySelector('.main-content').classList.toggle('high-contrast');
+          document.querySelector('h2').classList.toggle('high-contrast');
+          document.querySelectorAll('.btn-primary').forEach(btn => btn.classList.toggle('high-contrast'));
+
+      }
+
+      function toggleLargerText() {
+          document.body.classList.toggle('larger-text');
+
+      }
+  </script>
   </body>
 </html>

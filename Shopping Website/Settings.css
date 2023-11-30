@@ -11,6 +11,9 @@ body {
     background-color: #343a40;
     color: #ffffff;
     transition: background-color 0.5s ease; /*Transition for high contrast mode*/
+    height: 100%;
+    position: fixed;
+    top: 0; 
 }
 
 .nav-link {
@@ -64,6 +67,10 @@ body.high-contrast {
     color: #ffa500 !important;
 }
 
+h2.high-contrast {
+    color: #ffa500 !important;
+}
+
 .btn-primary.high-contrast {
     background-color: #ffa500 !important;
     border-color: #ffa500 !important;
@@ -74,3 +81,9 @@ body.high-contrast {
     border-color: #ff8c00 !important;
 }
 /* End of high-constast styling */
+
+/* Larger Text Styles */
+body.larger-text {
+    font-size: 30px;
+}
+/* End of larger text */
