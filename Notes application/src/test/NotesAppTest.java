@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 
 public class NotesAppTest {
+    
 
     @Test
     void createHighlightedMenu() {
