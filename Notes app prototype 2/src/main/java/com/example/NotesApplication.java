@@ -1,8 +1,7 @@
 package com.example;
 
 import javax.swing.*;
-
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -38,8 +37,28 @@ public class NotesApplication {
             }
         });
 
+        // Create menu bar
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+
+        // Add action listener to the exit menu item
+        exitMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Add menu items to menus
+        fileMenu.add(exitMenuItem);
+        menuBar.add(fileMenu);
+
         // Set layout
         frame.setLayout(new BorderLayout());
+
+        // Set menu bar to the frame
+        frame.setJMenuBar(menuBar);
 
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);

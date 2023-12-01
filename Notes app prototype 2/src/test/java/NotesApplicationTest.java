@@ -67,6 +67,18 @@ public class NotesApplicationTest {
         assertThat(fileMenu).isNotNull();
     }
 
+    @Test
+    void testExitMenuItemExists() {
+        // Check if the "Exit" menu item exists in the "File" menu
+        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+        assertThat(menuBar).isNotNull();
+
+        JMenu fileMenu = findMenuByName(menuBar, "File");
+        assertThat(fileMenu).isNotNull();
+
+        JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
+        assertThat(exitMenuItem).isNotNull();
+    }
 
 
 
@@ -99,4 +111,15 @@ private JMenu findMenuByName(JMenuBar menuBar, String menuName) {
     return null;
 } //https://joel-costigliola.github.io/assertj/assertj-swing.html For the assertj methods to do this
 
+// Helper method to find a menu item by name, does the same thing as the upper menu but goes through the items inside of the file menu instead of the whole menu bar
+private JMenuItem findMenuItemByName(JMenu menu, String menuItemName) {
+    for (int i = 0; i < menu.getItemCount(); i++) {
+        JMenuItem menuItem = menu.getItem(i);
+        if (menuItem.getText().equals(menuItemName)) {
+            return menuItem;
+        }
+    }
+    return null;
+}
+    
 }
