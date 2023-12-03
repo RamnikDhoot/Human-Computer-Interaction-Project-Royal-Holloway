@@ -19,7 +19,7 @@ public class NotesApplicationTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize the application and GUI in the EDT (Event Dispatch Thread)
+        // Initialize the application and GUI iside of the Event Dispatch Thread
         GuiActionRunner.execute(() -> {
             notesApp = new NotesApplication();
             frame = new FrameFixture(notesApp.getFrame());
@@ -32,21 +32,21 @@ public class NotesApplicationTest {
 
     @AfterEach
     void tearDown() {
-        // Clean up resources
+        // Clean up resources, close the frame
         frame.cleanUp();
     }
     
 
     @Test
     void testAddNote() {
-        // Given
+        // The note that is written 
         String testNote = "This is a test note.";
 
-        // When
+        // Put the note in the writing area and clicking add note
         frame.textBox("noteTextArea").enterText(testNote);
         frame.button("addNoteButton").click();
 
-        // Then
+        // Making sure that the note just made exists
         assertThat(notesApp.getNotes()).containsExactly(testNote);
     }
 
@@ -59,7 +59,7 @@ public class NotesApplicationTest {
 
     @Test
     void testFileMenuExists() {
-        // Check if the "File" menu exists in the menu bar
+        // Check if the File menu exists in the menu bar
         JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
         assertThat(menuBar).isNotNull();
 
@@ -69,7 +69,7 @@ public class NotesApplicationTest {
 
     @Test
     void testExitMenuItemExists() {
-        // Check if the "Exit" menu item exists in the "File" menu
+        // Check if the Exit menu item exists in the "File" menu
         JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
         assertThat(menuBar).isNotNull();
 
@@ -79,6 +79,53 @@ public class NotesApplicationTest {
         JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
         assertThat(exitMenuItem).isNotNull();
     }
+
+    @Test
+    void testViewMenuExists() {
+        // Check if the View menu  exists 
+        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+        assertThat(menuBar).isNotNull();
+
+        JMenu fileMenu = findMenuByName(menuBar, "View");
+        assertThat(fileMenu).isNotNull();
+    }
+
+    @Test
+    void testEditMenuExists() {
+        // Check if the Edit menu exists
+        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+        assertThat(menuBar).isNotNull();
+
+        JMenu fileMenu = findMenuByName(menuBar, "Edit");
+        assertThat(fileMenu).isNotNull();
+
+        JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
+        assertThat(exitMenuItem).isNotNull();
+    }
+
+    @Test
+    void testHomeMenuExists() {
+        // Check if the Home menu exists 
+        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+        assertThat(menuBar).isNotNull();
+
+        JMenu fileMenu = findMenuByName(menuBar, "Home");
+        assertThat(fileMenu).isNotNull();
+
+    }
+
+    @Test
+    void testHelpMenuExists() {
+        // Check if the Help menu exists 
+        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+        assertThat(menuBar).isNotNull();
+
+        JMenu fileMenu = findMenuByName(menuBar, "Help");
+        assertThat(fileMenu).isNotNull();
+
+    }
+
+    
 
 
 
