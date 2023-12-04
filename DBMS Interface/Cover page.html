@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background: url('port-1845350_1280.jpg') center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .cover-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 42em;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .cover-heading {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .middle-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .middle-text {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .middle-image {
+            max-width: 30%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="text-center">
+
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Inventory System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Help Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="helpModalLabel">Helpful Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to our Inventory Management System! Here are some helpful tips:</p>
+                <ul>
+                    <li>To add a new item to your inventory, click on the "Create Item" button in the dashboard.</li>
+                    <li>You can edit item details, such as name and photo, by clicking on the item and selecting the "Edit" option.</li>
+                    <li>If you need assistance, please contact our support team at support@inventorysystem.com.</li>
+                </ul>
+                <p>Thank you for using our system!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main class="px-3">
+            <h1 class="cover-heading">Welcome to Inventory Management</h1>
+            <p class="lead">Efficiently manage your warehouse inventory with our user-friendly system.</p>
+
+            <button class="w-100 btn btn-lg btn-primary" onclick="location.href='login.html'">Login</button>
+            <button class="w-100 btn btn-lg btn-secondary" onclick="location.href='signup.html'">Create Account</button>
+        </main>
+
+        <div class="middle-section">
+            <p class="middle-text">Our website provides a seamless experience for managing your inventory. Whether you're a small business or a large enterprise, our user-friendly system is designed to meet your needs.</p>
+            <img src="vector60-745-01.jpg" alt="Clipboard Image" class="middle-image">
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

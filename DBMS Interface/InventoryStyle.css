@@ -1,0 +1,40 @@
+/* .navbar-gradient {
+    background-image: linear-gradient(to right, #FF66C4, #FFDE59);
+  } */
+
+.sidenav {
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+}
+
+.sidenav ul {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.sidenav .nav-item {
+    margin-bottom: 70px; 
+    margin-top: 70px;
+}
+
+.sidenav .nav-link {
+    font-size: 35px; 
+}
+.sidenav i.fa-2xl {
+    font-size: 40px; 
+}
+
+.input-group {
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  
+  .input-group-text {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  #search-icon {
+    margin: 0 5px;
+  }
