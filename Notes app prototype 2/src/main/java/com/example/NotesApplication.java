@@ -54,6 +54,7 @@ public class NotesApplication {
         frame.add(formattingMenuBar, BorderLayout.NORTH);
     }
 
+    // Create Main menu bar in separte constructor, for ease of testing
     private JMenuBar createMainMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -78,6 +79,7 @@ public class NotesApplication {
         return menuBar;
     }
 
+    // Create Format menu bar in separte constructor, for ease of testing
     private JMenuBar createFormattingMenuBar() {
         JMenuBar formattingMenuBar = new JMenuBar();
 
@@ -93,10 +95,11 @@ public class NotesApplication {
         return formattingMenuBar;
     }
 
+    //Opens menu for changing colours, already insalled in swing
     private void showFontColorDialog() {
-        Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Color", Color.BLACK);
+        Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Colour", Color.BLACK);
         if (selectedColor != null) {
-            noteTextArea.setForeground(selectedColor);
+            noteTextArea.setForeground(selectedColor);//Checks if selected colour is valid then changes the test colour
         }
     }
 
@@ -112,5 +115,5 @@ public class NotesApplication {
         SwingUtilities.invokeLater(() -> {
             new NotesApplication().getFrame().setVisible(true);
         });
-    }
+    }//create and display the main frame on the Event Dispatch Thread so i can open all the separate menus correctly
 }

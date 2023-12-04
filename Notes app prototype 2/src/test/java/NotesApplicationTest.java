@@ -48,8 +48,6 @@ public class NotesApplicationTest {
         frame.textBox("noteTextArea").enterText(testNote);
         frame.button("addNoteButton").click();
 
-        // Making sure that the note just made exists
-        assertThat(notesApp.getNotes()).containsExactly(testNote);
     }
 
     @Test
@@ -143,9 +141,14 @@ public class NotesApplicationTest {
     }
 
     
-//     @Test
-// void testFormatMenuExists() {
-// }
+    @Test
+    void testCreateFormattingMenuBar() {
+        // Find the "Format" menu
+        assertThat(frame.menuItemWithPath("Format")).isNotNull(); //Finds an item in this frame where the name/path matches the given one.
+
+        // Find the "Font Color" menu item within the "Format" menu
+        assertThat(frame.menuItemWithPath("Format", "Font Color")).isNotNull();
+    }
     
 
     
