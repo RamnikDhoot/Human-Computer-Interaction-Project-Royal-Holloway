@@ -137,10 +137,19 @@ public class NotesApplicationTest {
         JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
         assertThat(menuBar).isNotNull();
 
-        JMenu fileMenu = findMenuByName(menuBar, "Help");
-        assertThat(fileMenu).isNotNull();
+        JMenu HelpMenu = findMenuByName(menuBar, "Help");
+        assertThat(HelpMenu).isNotNull();
 
     }
+
+    
+//     @Test
+// void testFormatMenuExists() {
+// }
+    
+
+    
+    
 
 //     @Test
 // void testPrintOptionsExistInFileMenu() {
