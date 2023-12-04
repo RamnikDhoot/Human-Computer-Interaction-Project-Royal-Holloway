@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.example","c":"NotesApplication","l":"getFrame()"},{"p":"com.example","c":"NotesApplication","l":"getNotes()"},{"p":"com.example","c":"NotesApplication","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"com.example","c":"NotesApplication","l":"NotesApplication()","u":"%3Cinit%3E()"}];updateSearchResults();

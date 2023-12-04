@@ -10,6 +10,12 @@ import java.awt.print.PrinterJob;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The NotesApplication class represents a simple notes application with GUI using Java Swing.
+ * It allows users to add, view, and print notes, as well as toggle between full-screen and touch-screen modes.
+ *
+ * @author zkac269
+ */
 public class NotesApplication {
 
     private final JFrame frame;
@@ -17,6 +23,10 @@ public class NotesApplication {
     private final JTextArea noteTextArea;
     private boolean isFullScreen = false;
 
+    /**
+     * Constructs a new NotesApplication object with a graphical user interface.
+     * Initializes the main frame, components, menus, and toolbar.
+     */
     public NotesApplication() {
         frame = new JFrame("Notes Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,6 +106,12 @@ public class NotesApplication {
          frame.add(createSideToolbar(), BorderLayout.WEST);
     }
 
+
+    /**
+     * Creates a side toolbar with undo and redo buttons.
+     *
+     * @return A JToolBar object containing undo and redo buttons.
+     */
     private JToolBar createSideToolbar() {
         JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
         toolbar.setFloatable(false); // Make the toolbar non-floatable
@@ -113,28 +129,52 @@ public class NotesApplication {
         return toolbar;
     }
 
+    /**
+     * Performs the undo operation (currently empty).
+     */
     private void undo() {
         //Empty for now
         System.out.println("Undo");
     }
 
+    /**
+     * Performs the redo operation (currently empty).
+     */
     private void redo() {
         //Empty for now
         System.out.println("Redo");
     }
 
+    /**
+     * Gets the main JFrame of the application.
+     *
+     * @return The main JFrame of the application.
+     */
     public JFrame getFrame() {
         return frame;
     }
 
+    /**
+     * Gets the list of notes stored in the application.
+     *
+     * @return A List object containing the notes.
+     */    
     public List<String> getNotes() {
         return notes;
     }
 
+    /**
+     * Adds a new note to the list of notes.
+     *
+     * @param note The note to be added.
+     */
     private void addNoteToList(String note) {
         notes.add(note);
     }
 
+    /**
+     * Displays the print options dialog when the "Print" menu item is selected.
+     */
     private void showPrintMenu() {
         JDialog printDialog = new JDialog(frame, "Print Options", true);
         printDialog.setSize(200, 100);
@@ -158,31 +198,49 @@ public class NotesApplication {
         printDialog.setVisible(true);
     }
 
+    /**
+     * Prints the note to the printer (currently empty).
+     */
     private void printNoteToPrinter() {
         // Empty for now
 
         System.out.println("Printing to Printer");
     }
 
+    /**
+     * Displays the print preview (currently empty).
+     */
     private void showPrintPreview() {
         // Empty for now
         System.out.println("Show Print Preview");
     }
 
-    // Opens menu for changing colors, already installed in swing
+
+    /**
+     * Displays the font color dialog for selecting text color.
+     */
     private void showFontColorDialog() {
         Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Color", Color.BLACK);
         if (selectedColor != null) {
             noteTextArea.setForeground(selectedColor);//Checks if selected color is valid then changes the text color
         }
-    }
+    }    // Opens menu for changing colors, already installed in swing
 
+    /**
+     * Enables touch-screen mode by displaying an on-screen keyboard dialog.
+     */
     private void enableTouchScreenMode() {
         JDialog keyboardDialog = createKeyboardDialog(frame);
         keyboardDialog.setLocationRelativeTo(frame);
         keyboardDialog.setVisible(true);
     }
 
+    /**
+     * Creates an on-screen keyboard dialog.
+     *
+     * @param parent The JFrame parent of the dialog.
+     * @return A JDialog object representing the on-screen keyboard dialog.
+     */    
     private JDialog createKeyboardDialog(JFrame parent) {
         JDialog keyboardDialog = new JDialog(parent, "On-Screen Keyboard", true);
         keyboardDialog.setSize(400, 200);
@@ -205,6 +263,9 @@ public class NotesApplication {
         return keyboardDialog;
     }
 
+    /**
+     * Toggles between full-screen and windowed mode.
+     */
     private void toggleFullScreen() {
         GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         if (isFullScreen) {
@@ -214,6 +275,12 @@ public class NotesApplication {
         }
         isFullScreen = !isFullScreen;
     }
+
+    /**
+     * The main method to launch the NotesApplication.
+     *
+     * @param args Command-line arguments (not used).
+     */
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new NotesApplication().getFrame().setVisible(true));
