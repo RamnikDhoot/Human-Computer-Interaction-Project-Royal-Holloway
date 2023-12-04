@@ -39,20 +39,30 @@ public class NotesApplication {
 
         // Create menu bar
         JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
 
-        // Add action listener to the exit menu item
+        // Create menus
+        JMenu fileMenu = new JMenu("File");
+        JMenu editMenu = new JMenu("Edit");
+        JMenu viewMenu = new JMenu("View");
+        JMenu homeMenu = new JMenu("Home");
+        JMenu helpMenu = new JMenu("Help");
+
+        // Add menus to the menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(viewMenu);
+        menuBar.add(homeMenu);
+        menuBar.add(helpMenu);
+
+        // Add "Exit" menu item to "File" menu
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-
-        // Add menu items to menus
         fileMenu.add(exitMenuItem);
-        menuBar.add(fileMenu);
 
         // Set layout
         frame.setLayout(new BorderLayout());
