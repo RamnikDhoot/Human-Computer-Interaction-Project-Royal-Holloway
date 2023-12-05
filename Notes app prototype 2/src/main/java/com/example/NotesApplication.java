@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.util.ArrayList;
@@ -38,7 +39,39 @@ public class NotesApplication {
         });
 
         // Create main menu bar
-        JMenuBar mainMenuBar = createMainMenuBar();
+        JMenuBar mainMenuBar = new JMenuBar();
+
+        // Create menus for the main menu bar
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem printMenuItem = new JMenuItem("Print");
+        printMenuItem.addActionListener(e -> showPrintMenu());
+        fileMenu.add(printMenuItem);
+
+        JMenu editMenu = new JMenu("Edit");
+
+        // Add "Font Color" option to "Edit" menu
+        JMenuItem fontColorMenuItem = new JMenuItem("Font Color");
+        fontColorMenuItem.addActionListener(e -> showFontColorDialog());
+        editMenu.add(fontColorMenuItem);
+
+        JMenu viewMenu = new JMenu("View");
+        JMenu homeMenu = new JMenu("Home");
+        JMenu helpMenu = new JMenu("Help");
+
+        // Add menus to the main menu bar
+        mainMenuBar.add(fileMenu);
+        mainMenuBar.add(editMenu);
+        mainMenuBar.add(viewMenu);
+        mainMenuBar.add(homeMenu);
+        mainMenuBar.add(helpMenu);
+
+        // Add "Exit" menu item to "File" menu
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        exitMenuItem.addActionListener(e -> System.exit(0));
+        fileMenu.add(exitMenuItem);
+
+        // Set layout
+        frame.setLayout(new BorderLayout());
 
         // Set main menu bar to the frame
         frame.setJMenuBar(mainMenuBar);
@@ -46,74 +79,62 @@ public class NotesApplication {
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
         frame.add(addNoteButton, BorderLayout.SOUTH);
-
-        // Create formatting menu bar
-        JMenuBar formattingMenuBar = createFormattingMenuBar();
-
-        // Add formatting menu bar to the frame
-        frame.add(formattingMenuBar, BorderLayout.NORTH);
-    }
-
-    // Create Main menu bar in separte constructor, for ease of testing
-    private JMenuBar createMainMenuBar() {
-        JMenuBar menuBar = new JMenuBar();
-
-        // Create menus for the main menu bar
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
-        exitMenuItem.addActionListener(e -> System.exit(0));
-        fileMenu.add(exitMenuItem);
-
-        JMenu editMenu = new JMenu("Edit");
-        JMenu viewMenu = new JMenu("View");
-        JMenu homeMenu = new JMenu("Home");
-        JMenu helpMenu = new JMenu("Help");
-
-        // Add menus to the main menu bar
-        menuBar.add(fileMenu);
-        menuBar.add(editMenu);
-        menuBar.add(viewMenu);
-        menuBar.add(homeMenu);
-        menuBar.add(helpMenu);
-
-        return menuBar;
-    }
-
-    // Create Format menu bar in separte constructor, for ease of testing
-    private JMenuBar createFormattingMenuBar() {
-        JMenuBar formattingMenuBar = new JMenuBar();
-
-        // Create menus for the formatting menu bar
-        JMenu formatMenu = new JMenu("Format");
-        JMenuItem fontColorMenuItem = new JMenuItem("Font Color");
-        fontColorMenuItem.addActionListener(e -> showFontColorDialog());
-        formatMenu.add(fontColorMenuItem);
-
-        // Add formatting menu to the formatting menu bar
-        formattingMenuBar.add(formatMenu);
-
-        return formattingMenuBar;
-    }
-
-    //Opens menu for changing colours, already insalled in swing
-    private void showFontColorDialog() {
-        Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Colour", Color.BLACK);
-        if (selectedColor != null) {
-            noteTextArea.setForeground(selectedColor);//Checks if selected colour is valid then changes the test colour
-        }
-    }
-
-    private void addNoteToList(String note) {
-        notes.add(note);
     }
 
     public JFrame getFrame() {
         return frame;
     }
 
+    public List<String> getNotes() {
+        return notes;
+    }
+
+    private void addNoteToList(String note) {
+        notes.add(note);
+    }
+
+    private void showPrintMenu() {
+        JDialog printDialog = new JDialog(frame, "Print Options", true);
+        printDialog.setSize(200, 100);
+        printDialog.setLayout(new FlowLayout());
+
+        JButton printToPrinterButton = new JButton("Print to Printer");
+        JButton printPreviewButton = new JButton("Print Preview");
+
+        // Add action listeners to the print options
+        printToPrinterButton.addActionListener(e -> printNoteToPrinter());
+        printPreviewButton.addActionListener(e -> showPrintPreview());
+
+        // Add buttons to the dialog
+        printDialog.add(printToPrinterButton);
+        printDialog.add(printPreviewButton);
+
+        // Set dialog location relative to the main frame
+        printDialog.setLocationRelativeTo(frame);
+
+        // Make the dialog visible
+        printDialog.setVisible(true);
+    }
+
+    private void printNoteToPrinter() {
+        // Empty for now
+
+        System.out.println("Printing to Printer");
+    }
+
+    private void showPrintPreview() {
+        // Empty for now
+        System.out.println("Show Print Preview");
+    }
+    //Opens menu for changing colours, already insalled in swing
+    private void showFontColorDialog() {
+        Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Color", Color.BLACK);
+        if (selectedColor != null) {
+            noteTextArea.setForeground(selectedColor);//Checks if selected colour is valid then changes the test colour
+        }
+    }
+
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new NotesApplication().getFrame().setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> new NotesApplication().getFrame().setVisible(true));
     }//create and display the main frame on the Event Dispatch Thread so i can open all the separate menus correctly
 }
