@@ -167,6 +167,12 @@ void testTouchScreenModeMenuItemExistsInViewMenu() {
     assertThat(touchScreenModeMenuItem).isNotNull();
 }
     
+@Test
+public void testOnScreenKeyboardDialog() {
+    // Click the "Touch Screen Mode" menu item to show the on-screen keyboard
+    frame.menuItemWithPath("View", "Touch Screen Mode").click();
+// Need to make it check that the keybaord shows up
+}
 
     
 
