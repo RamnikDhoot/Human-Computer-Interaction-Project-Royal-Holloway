@@ -117,5 +117,23 @@ Week 11, 27/11/23 - 03/12/23
 - Created conclusion, section explaing the individual parts of the project, defend and justify desicions, and sumarry sections of the powerpoint
 - Moved project report to Latex template
 - Worked on Notes application by Adding more comonents such as save, edit ect
+- Completed presentation and submitted
+- Encountered problems with TDD testing as i was not able to find the buttons that are embeded within menus to test using the robot finder, so i have skipped a few tests for now
+- I had problems with assertj for swing testing tdd, so i had to restart the whole notes application using maven and a pom file where i could then put the dependencies for junit 5 and assertj. 
+- I was unable to activate Junit 5 testing for this project after installing the java extension pack, it would only work in a different project so had to move code to new project.
+- For the test where i used robot: https://www.tabnine.com/code/java/methods/org.assertj.swing.core.Robot/finder
+- Added more components to the application such as font colour changing and Listners for all buttons
+- Next week i will continue to add more components
+- Add screen reading functionality to shopping website, only the interface options
+- Add account management for DBMS interface
+- And finalise my report to submit next week
+
+Week 12, 04/12/23 - 10/12/23
+- I have added a touch screen mode option for notes application and keyboard popup
+- I have finalises the theory section of my report
+- I have practiced my presentation and made a script
+- I have given my presentation at university
+- I have had to fix my notes application code as none of the TDD tests would pass, this is beacuse I had used constructors to make the 2 menu bars so the tdd test could not access them. To fix this i 
+moved the format manu into the home menu as when i had 2 separate menus the robot.finder could not differentiate between them and test each one
 
 
