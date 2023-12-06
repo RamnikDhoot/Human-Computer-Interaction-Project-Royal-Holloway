@@ -98,10 +98,38 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Help Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="helpModalLabel">Helpful Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to our Inventory Management System! Here are some helpful tips:</p>
+                <ul>
+                    <li>To add a new item to your inventory, click on the "Create Item" button in the dashboard.</li>
+                    <li>You can edit item details, such as name and photo, by clicking on the item and selecting the "Edit" option.</li>
+                    <li>If you need assistance, please contact our support team at support@inventorysystem.com.</li>
+                </ul>
+                <p>Thank you for using our system!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <main class="px-3">
