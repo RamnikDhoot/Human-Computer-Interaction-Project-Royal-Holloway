@@ -26,6 +26,8 @@ Week 5, 16/10/23 - 22/10/22
 - I have also read chapters 8-10 of Human-Computer interaction
 - Next week i will begin the interface for the database and have my meeting 
 - I have also read and made notes on articles and other resources about: Designing for the Web: An Introduction to Human-Computer Interaction by Jakob Nielsen, https://santhosh-adiga-u.medium.com/jakob-nielsens-heuristics-for-interaction-design-guidelines-for-user-centered-excellence-609b270c7e6a, https://www.heurio.co/nielsens-10-usability-heuristics
+- Completed testing for all 3 UIs with users and made notes to implement chnages
+
 
 Week 6, 23/10/23 - 29/10/23
 - I have read 10 and 11 of Human-Computer Interaction 
@@ -64,6 +66,8 @@ and https://www.interaction-design.org/literature/article/user-interface-design-
 - Next week i will continue the report and Begin my java Gui for the notes application
 - Finished abstract draft
 - Finished introduction draft
+- Completed testing for all 3 UIs with users and made notes to implement chnages
+
 
 Week 8, 06/11/23 - 12/11/23
 - Created template for GUI application
@@ -101,6 +105,7 @@ Project meeting
 - Add timescale section to report with how i have deviated from the original plan
 - Talk more about the theory og HCI and chnage the section with HCI principles to refference back to the theory
 - Add more functionality to the websites
+- Completed testing for all 3 UIs with users and made notes to implement chnages
 
 - I have created the settings page with all of the accessibility options
 - I have Added a homepage to the inventory managemant system
@@ -135,5 +140,14 @@ Week 12, 04/12/23 - 10/12/23
 - I have given my presentation at university
 - I have had to fix my notes application code as none of the TDD tests would pass, this is beacuse I had used constructors to make the 2 menu bars so the tdd test could not access them. To fix this i 
 moved the format manu into the home menu as when i had 2 separate menus the robot.finder could not differentiate between them and test each one
-
+- Notes app: 
+Added touch screen mode with mock keyboard
+Added side menu with undo and redo buttons
+Added full screen mode with functionality
+- Database interface:
+Made login and signup pages
+Made two factor authentication page
+Made Cover page
+Changed main dashboard to have inventory items and made submeny for customizing the menus
+Added simple help button and popup in home page
 
