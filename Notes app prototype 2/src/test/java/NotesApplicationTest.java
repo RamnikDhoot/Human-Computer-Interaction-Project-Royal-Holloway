@@ -174,6 +174,37 @@ public void testOnScreenKeyboardDialog() {
 // Need to make it check that the keybaord shows up
 }
 
+@Test
+void testFullScreenItemExistsInViewMenu() {
+    // Check if the Full screen mode menu item exists in the View menu
+    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+    assertThat(menuBar).isNotNull();
+
+    JMenu viewMenu = findMenuByName(menuBar, "View");
+    assertThat(viewMenu).isNotNull();
+
+    JMenuItem touchScreenModeMenuItem = findMenuItemByName(viewMenu, "Full Screen");
+    assertThat(touchScreenModeMenuItem).isNotNull();
+}
+
+@Test
+    public void testToggleFullScreen() {
+        // Click the "Full Screen" menu item to toggle full-screen mode
+        frame.menuItemWithPath("View", "Full Screen").click();
+
+
+        // Verify that the full-screen window is set
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        assertThat(device.getFullScreenWindow()).isNotNull();
+
+        // Click the "Full Screen" menu item again to toggle back
+        frame.menuItemWithPath("View", "Full Screen").click();
+
+
+        // Verify that the full-screen window is cleared
+        assertThat(device.getFullScreenWindow()).isNull();
+    }
+
     
 
     
