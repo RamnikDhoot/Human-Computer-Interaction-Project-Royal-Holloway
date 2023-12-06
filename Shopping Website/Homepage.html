@@ -407,6 +407,10 @@ With compatibility for screen readers, keyboard navigation features, and adjusta
           if (localStorage.getItem('largerText') === 'true') {
               toggleLargerText();
           }
+
+          if (localStorage.getItem('darkMode') === 'true') {
+            toggleDarkMode();
+        }
       };
 
       function toggleHighContrast() {
@@ -416,6 +420,14 @@ With compatibility for screen readers, keyboard navigation features, and adjusta
           document.querySelector('h2').classList.toggle('high-contrast');
           document.querySelectorAll('.btn-primary').forEach(btn => btn.classList.toggle('high-contrast'));
 
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('.sidebar').classList.toggle('dark-mode');
+        document.querySelector('.main-content').classList.toggle('dark-mode');
+        document.querySelector('h2').classList.toggle('dark-mode');
+        document.querySelectorAll('.btn-primary').forEach(btn => btn.classList.toggle('dark-mode'));
       }
 
       function toggleLargerText() {

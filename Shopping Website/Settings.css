@@ -87,3 +87,14 @@ body.larger-text {
     font-size: 30px;
 }
 /* End of larger text */
+
+/* Light mode styles */
+body, .sidebar, .main-content, h2, .btn-primary {
+    transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode, .sidebar.dark-mode, .main-content.dark-mode, h2.dark-mode, .btn-primary.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
