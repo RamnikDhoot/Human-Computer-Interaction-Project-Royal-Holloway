@@ -91,6 +91,36 @@ public class NotesApplication {
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
         frame.add(addNoteButton, BorderLayout.SOUTH);
+
+         // Add undo and redo buttons to the side
+         frame.add(createSideToolbar(), BorderLayout.WEST);
+    }
+
+    private JToolBar createSideToolbar() {
+        JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
+        toolbar.setFloatable(false); // Make the toolbar non-floatable
+
+        // Create undo button
+        JButton undoButton = new JButton("Undo");
+        undoButton.addActionListener(e -> undo());
+        toolbar.add(undoButton);
+
+        // Create redo button
+        JButton redoButton = new JButton("Redo");
+        redoButton.addActionListener(e -> redo());
+        toolbar.add(redoButton);
+
+        return toolbar;
+    }
+
+    private void undo() {
+        //Empty for now
+        System.out.println("Undo");
+    }
+
+    private void redo() {
+        //Empty for now
+        System.out.println("Redo");
     }
 
     public JFrame getFrame() {

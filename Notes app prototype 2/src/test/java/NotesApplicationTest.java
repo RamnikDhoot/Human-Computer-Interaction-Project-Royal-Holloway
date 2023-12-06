@@ -1,5 +1,6 @@
 import org.assertj.swing.core.GenericTypeMatcher; //To be used later for other tests
 import org.assertj.swing.core.Robot;
+import org.assertj.swing.core.matcher.JButtonMatcher;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JMenuItemFixture;
@@ -204,6 +205,18 @@ void testFullScreenItemExistsInViewMenu() {
         // Verify that the full-screen window is cleared
         assertThat(device.getFullScreenWindow()).isNull();
     }
+
+    @Test
+    public void testUndoRedoButtonsExist() {
+        // Use the robot's finder to locate the undo button
+        JButtonMatcher undoMatcher = JButtonMatcher.withText("Undo");
+        assertThat(frame.robot().finder().find(undoMatcher)).isNotNull();
+
+        // Use the robot's finder to locate the redo button
+        JButtonMatcher redoMatcher = JButtonMatcher.withText("Redo");
+        assertThat(frame.robot().finder().find(redoMatcher)).isNotNull();
+    }
+
 
     
 
