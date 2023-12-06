@@ -15,11 +15,12 @@ public class NotesApplication {
     private final JFrame frame;
     private final List<String> notes;
     private final JTextArea noteTextArea;
+    private boolean isFullScreen = false;
 
     public NotesApplication() {
         frame = new JFrame("Notes Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(700, 500);
 
         notes = new ArrayList<>();
 
@@ -63,6 +64,11 @@ public class NotesApplication {
 
         JMenu homeMenu = new JMenu("Home");
         JMenu helpMenu = new JMenu("Help");
+
+        // Add "Full Screen" toggle button to "View" menu
+        JMenuItem fullScreenMenuItem = new JMenuItem("Full Screen");
+        fullScreenMenuItem.addActionListener(e -> toggleFullScreen());
+        viewMenu.add(fullScreenMenuItem);
 
         // Add menus to the main menu bar
         mainMenuBar.add(fileMenu);
@@ -167,6 +173,16 @@ public class NotesApplication {
         }
     
         return keyboardDialog;
+    }
+
+    private void toggleFullScreen() {
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        if (isFullScreen) {
+            device.setFullScreenWindow(null); // Exit full screen
+        } else {
+            device.setFullScreenWindow(frame); // Enter full screen
+        }
+        isFullScreen = !isFullScreen;
     }
 
     public static void main(String[] args) {
