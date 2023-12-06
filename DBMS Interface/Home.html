@@ -11,8 +11,42 @@
     <link href="dashboard.css" rel="stylesheet">
 
     <style>
-        /* Add your custom styles here if needed */
+        /* Additional styles for the popup menu */
+        .inventory-popup {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        /* Style to show the popup menu on hover */
+        .col:hover .inventory-popup {
+            display: block;
+        }
     </style>
+    
+<script>
+    function showInventoryDetails(inventoryId) {
+        // Replace this alert with your custom logic to show details
+        alert("Details for Inventory " + inventoryId);
+    }
+
+    function changeInventoryName(inventoryId) {
+        // Get the new name from the input field
+        var newName = document.getElementById('newName' + inventoryId).value;
+
+        // Replace this alert with your logic for changing the name
+        alert("Changing name for Inventory " + inventoryId + " to: " + newName);
+    }
+
+    function changeInventoryPhoto(inventoryId) {
+        // Replace this logic with your code to handle photo upload
+        alert("Changing photo for Inventory " + inventoryId);
+    }
+</script>
 </head>
 
 <body>
@@ -139,207 +173,159 @@
     <!-- Inventory Grid -->
     <div class="row row-cols-3 g-4">
         <!-- Inventory Item 1 -->
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 1">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 1</h5>
-                    <p class="card-text">Description of Inventory 1.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Inventory Item 2 -->
-        <div class="col">
+        <div class="col position-relative">
             <div class="card h-100">
                 <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
                 <div class="card-body">
                     <h5 class="card-title">Inventory 2</h5>
                     <p class="card-text">Description of Inventory 2.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Inventory Item 3 -->
-        <div class="col">
-            <div class="card h-100">
-                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 3">
-                <div class="card-body">
-                    <h5 class="card-title">Inventory 3</h5>
-                    <p class="card-text">Description of Inventory 3.</p>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
                 </div>
             </div>
         </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col position-relative">
+            <div class="card h-100">
+                <img src="vector60-745-01.jpg" class="card-img-top" alt="Inventory 2">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory 2</h5>
+                    <p class="card-text">Description of Inventory 2.</p>
+                </div>
+                <!-- Popup menu -->
+                <div class="inventory-popup">
+                    <label for="newName1">New Name:</label>
+                    <input type="text" id="newName1" placeholder="Enter new name">
+                    <button onclick="changeInventoryName(1)">Change Name</button>
+                
+                    <label for="newPhoto1">New Photo:</label>
+                    <input type="file" id="newPhoto1" accept="image/*">
+                    <button onclick="changeInventoryPhoto(1)">Change Photo</button>
+                </div>
+            </div>
+        </div>
+        
 
 
     </div>
@@ -352,6 +338,9 @@
 
         </div>
     </div>
+
+
+    
 
     <!-- JavaScript files -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
