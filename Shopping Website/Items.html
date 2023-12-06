@@ -16,8 +16,75 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <style>
+      /* Custom styles for better appearance */
+      .categories-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .category-list {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+      }
+  
+      .category-item {
+        background-color: #007bff;
+        color: #fff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+  
+      .category-item:hover {
+        background-color: #0056b3;
+      }
+
+      /* Sidebar Styles */
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #343a40; /* Bootstrap dark background color */
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #555; /* Bootstrap darker background color on hover */
+    }
+    </style>
   </head>
   <body>
+
+    <div
+    class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3">
+    <div class="sidebar">
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Special Offers</a>
+      <a href="#">Contact Us</a>
+    </div></div>
+
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Shopping</a>
@@ -111,6 +178,26 @@
     </nav>
 
     <main class="container mt-5 mt-md-7">
+      <div class="row mb-4">
+        <div class="col">
+          <h2>Categories</h2>
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item"><a href="#">Category 1</a></li>
+            <li class="list-group-item"><a href="#">Category 2</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+            <li class="list-group-item"><a href="#">Category 3</a></li>
+          </ul>
+        </div>
+      </div>
+
+      
+
       <div class="row">
         <!-- Row 1 -->
         <div class="col-md-4">
@@ -207,7 +294,7 @@
     <footer
       class="py-3 my-4 overflow-hidden border-top text-muted text-center position-fixed bottom-0 start-0 end-0"
     >
-      <p class="mb-0">-------</p>
+      <p class="mb-0">Shopping website, Accessibility, Visual impairments</p>
     </footer>
 
     <!-- <nav class="navbar fixed-top navbar-expand-sm bg-body-tertiary navbar-gradient container-fluid">
