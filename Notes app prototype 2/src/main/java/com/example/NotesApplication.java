@@ -15,11 +15,12 @@ public class NotesApplication {
     private final JFrame frame;
     private final List<String> notes;
     private final JTextArea noteTextArea;
+    private boolean isFullScreen = false;
 
     public NotesApplication() {
         frame = new JFrame("Notes Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(700, 500);
 
         notes = new ArrayList<>();
 
@@ -64,6 +65,11 @@ public class NotesApplication {
         JMenu homeMenu = new JMenu("Home");
         JMenu helpMenu = new JMenu("Help");
 
+        // Add "Full Screen" toggle button to "View" menu
+        JMenuItem fullScreenMenuItem = new JMenuItem("Full Screen");
+        fullScreenMenuItem.addActionListener(e -> toggleFullScreen());
+        viewMenu.add(fullScreenMenuItem);
+
         // Add menus to the main menu bar
         mainMenuBar.add(fileMenu);
         mainMenuBar.add(editMenu);
@@ -85,6 +91,36 @@ public class NotesApplication {
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
         frame.add(addNoteButton, BorderLayout.SOUTH);
+
+         // Add undo and redo buttons to the side
+         frame.add(createSideToolbar(), BorderLayout.WEST);
+    }
+
+    private JToolBar createSideToolbar() {
+        JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
+        toolbar.setFloatable(false); // Make the toolbar non-floatable
+
+        // Create undo button
+        JButton undoButton = new JButton("Undo");
+        undoButton.addActionListener(e -> undo());
+        toolbar.add(undoButton);
+
+        // Create redo button
+        JButton redoButton = new JButton("Redo");
+        redoButton.addActionListener(e -> redo());
+        toolbar.add(redoButton);
+
+        return toolbar;
+    }
+
+    private void undo() {
+        //Empty for now
+        System.out.println("Undo");
+    }
+
+    private void redo() {
+        //Empty for now
+        System.out.println("Redo");
     }
 
     public JFrame getFrame() {
@@ -167,6 +203,16 @@ public class NotesApplication {
         }
     
         return keyboardDialog;
+    }
+
+    private void toggleFullScreen() {
+        GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        if (isFullScreen) {
+            device.setFullScreenWindow(null); // Exit full screen
+        } else {
+            device.setFullScreenWindow(frame); // Enter full screen
+        }
+        isFullScreen = !isFullScreen;
     }
 
     public static void main(String[] args) {
