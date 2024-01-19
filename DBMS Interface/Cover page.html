@@ -77,15 +77,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
                         <a class="nav-link active" href="#">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
                         <a class="nav-link" href="#">Pricing</a>
                     </li>
                     <li class="nav-item">
@@ -122,13 +119,9 @@
         <main class="px-3">
             <h1 class="cover-heading">Welcome to Inventory Management</h1>
             <p class="lead">Efficiently manage your warehouse inventory with our user-friendly system.</p>
-
-            <button class="w-100 btn btn-lg btn-primary" onclick="location.href='login.html'">Login</button>
-            <button class="w-100 btn btn-lg btn-secondary" onclick="location.href='signup.html'">Create Account</button>
             <button class="w-100 btn btn-lg btn-primary" onclick="location.href='Signin.html'">Login</button>
             <button class="w-100 btn btn-lg btn-secondary" onclick="location.href='Signup.html'">Create Account</button>
         </main>
-
         <div class="middle-section">
             <p class="middle-text">Our website provides a seamless experience for managing your inventory. Whether you're a small business or a large enterprise, our user-friendly system is designed to meet your needs.</p>
             <img src="vector60-745-01.jpg" alt="Clipboard Image" class="middle-image">
@@ -137,7 +130,26 @@
             <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
         </footer>
     </div>
+
+    <div class="loading-spinner" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Bring up signed out message when sign out is clicked from any other page
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('signedOut') === 'true') {
+                alert('Successfully signed out');
+            }
+        };
+    </script>
+
 </body>
+
 </html>
