@@ -151,3 +151,14 @@ Made Cover page
 Changed main dashboard to have inventory items and made submeny for customizing the menus
 Added simple help button and popup in home page
 
+Term 2
+Week 18, 15/01/24 - 21/01/24
+- Begun planning for final version of my website as i will be focusing on that this term.
+I have been making designs using figma
+- I have linked all the pages in the databse interface 
+- I have created a loading page between sign in and sign out pages in database interface wich can be reused on all pages and also on the other interfaces
+- It has been hard deciding what i should do for this term as my plan was to complete all theree interfaces as they would all show different HCI principles
+but this would take alot of time and i also need to focus on my report this term, I have nbooked a meeting with my supervisor to discuss this next week
+- Creating the notes applications using java swing has limitations as tthe design is not very asthetically pleasing and i do not have enough control on where every component
+should be on the interface so i have decided to focus on my website interfaces. I will discuss this with my supervisor for the technical achivement part of the project
+- I have begun my report by working on the feedback for my interim submission, first i am adding more depth to my theory section and adding more citations
