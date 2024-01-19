@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Inventory Management System</title>
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom Styles -->
     <style>
         body {
@@ -19,11 +16,9 @@
             min-height: 100vh;
             margin: 0;
         }
-
         .navbar {
             background-color: rgba(0, 0, 0, 0.7);
         }
-
         .cover-container {
             flex: 1;
             display: flex;
@@ -34,18 +29,15 @@
             color: #fff;
             padding: 2rem;
         }
-
         .cover-heading {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
-
         .lead {
             font-size: 1.25rem;
             margin-bottom: 2rem;
         }
-
         .middle-section {
             flex: 1;
             display: flex;
@@ -55,19 +47,16 @@
             text-align: center;
             padding: 2rem;
         }
-
         .middle-text {
             font-size: 1.5rem;
             margin-bottom: 2rem;
         }
-
         .middle-image {
             max-width: 30%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-
         footer {
             padding: 1rem;
             background-color: rgba(0, 0, 0, 0.7);
@@ -76,9 +65,7 @@
         }
     </style>
 </head>
-
 <body class="text-center">
-
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Inventory System</a>
@@ -91,12 +78,15 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="#">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">Pricing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help</a>
@@ -105,7 +95,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Help Modal -->
 <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -129,8 +118,6 @@
         </div>
     </div>
 </div>
-
-
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <main class="px-3">
             <h1 class="cover-heading">Welcome to Inventory Management</h1>
@@ -138,20 +125,19 @@
 
             <button class="w-100 btn btn-lg btn-primary" onclick="location.href='login.html'">Login</button>
             <button class="w-100 btn btn-lg btn-secondary" onclick="location.href='signup.html'">Create Account</button>
+            <button class="w-100 btn btn-lg btn-primary" onclick="location.href='Signin.html'">Login</button>
+            <button class="w-100 btn btn-lg btn-secondary" onclick="location.href='Signup.html'">Create Account</button>
         </main>
 
         <div class="middle-section">
             <p class="middle-text">Our website provides a seamless experience for managing your inventory. Whether you're a small business or a large enterprise, our user-friendly system is designed to meet your needs.</p>
             <img src="vector60-745-01.jpg" alt="Clipboard Image" class="middle-image">
         </div>
-
         <footer>
             <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
         </footer>
     </div>
-
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
