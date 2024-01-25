@@ -162,3 +162,17 @@ but this would take alot of time and i also need to focus on my report this term
 - Creating the notes applications using java swing has limitations as tthe design is not very asthetically pleasing and i do not have enough control on where every component
 should be on the interface so i have decided to focus on my website interfaces. I will discuss this with my supervisor for the technical achivement part of the project
 - I have begun my report by working on the feedback for my interim submission, first i am adding more depth to my theory section and adding more citations
+
+Week 19, 22/01/24 - 28/01/24
+- Had meeting with supervisor
+ - Created table of contentents page for review
+ - re do term 2 plan and gove to supervisor
+ - Planning to continue to do All 3 UIs
+
+- I have decided to continue only 2 UIs as it would take alot of time to finish 3 and do the report
+- Written up all feedback from user tesing and started implementing design chnages in shopping website
+- Added screen reader to all pages for shopping website
+-Changing design layout for notes application to make it more visually appealing
+- Added functionality to basket page
+- Writing section of report about my UIs with chnages (2 UIs)
+- Mkaing shopping website more modular by having 1 main CSS file then having sub files for animations
