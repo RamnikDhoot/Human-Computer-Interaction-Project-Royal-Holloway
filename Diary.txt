@@ -176,3 +176,4 @@ Week 19, 22/01/24 - 28/01/24
 - Added functionality to basket page
 - Writing section of report about my UIs with chnages (2 UIs)
 - Mkaing shopping website more modular by having 1 main CSS file then having sub files for animations
+- Written section On HCI theory and the emotional impact of design
