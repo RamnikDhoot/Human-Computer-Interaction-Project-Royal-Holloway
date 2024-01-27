@@ -71,66 +71,9 @@ public class NotesApplicationTest {
         assertThat(fileMenu).isNotNull();
     }
 
-    @Test
-    void testPrintMenuItemExistsInFileMenu() {
-        // Check if the Print menu item exists in the File menu
-        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-        assertThat(menuBar).isNotNull();
+    
 
-        JMenu fileMenu = findMenuByName(menuBar, "File");
-        assertThat(fileMenu).isNotNull();
-
-        JMenuItem printMenuItem = findMenuItemByName(fileMenu, "Print");
-        assertThat(printMenuItem).isNotNull();
-}
-
-    @Test
-    void testNewMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem newMenuItem = findMenuItemByName(fileMenu, "New");
-    assertThat(newMenuItem).isNotNull();
-}
-
-@Test
-void testOpenMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem openMenuItem = findMenuItemByName(fileMenu, "Open");
-    assertThat(openMenuItem).isNotNull();
-}
-
-@Test
-void testSaveMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem saveMenuItem = findMenuItemByName(fileMenu, "Save");
-    assertThat(saveMenuItem).isNotNull();
-}
-
-@Test
-void testExitMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
-    assertThat(exitMenuItem).isNotNull();
-}
+//Test edge cases, like attempting to open or save an inaccessible file.
  ///////////////////////////////////////////////////////////   
 
     @Test

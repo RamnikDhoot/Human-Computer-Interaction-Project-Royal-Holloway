@@ -2,11 +2,6 @@ package com.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,7 +21,8 @@ public class NotesApplication {
     private final List<String> notes;
     private final JTextArea noteTextArea;
     private boolean isFullScreen = false;
-    private JFileChooser fileChooser;
+    private FileMenuHandler fileMenuHandler;
+
 
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
@@ -38,6 +34,7 @@ public class NotesApplication {
         frame.setSize(700, 500);
 
         notes = new ArrayList<>();
+        
 
         // Create components
         noteTextArea = new JTextArea();
@@ -54,39 +51,18 @@ public class NotesApplication {
             noteTextArea.setText(""); // Clear the text area after adding a note
         });
 
+
+        
         // Create main menu bar
+        fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
         JMenuBar mainMenuBar = new JMenuBar();
 
-        // Create menus for the main menu bar
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem printMenuItem = new JMenuItem("Print");
-        printMenuItem.addActionListener(e -> showPrintMenu());
+                //Item 1
+        // Add the file menu created by FileMenuHandler
+        JMenu fileMenu = fileMenuHandler.createFileMenu();
+        mainMenuBar.add(fileMenu);
 
-        JMenuItem newFileItem = new JMenuItem("New");
-        newFileItem.addActionListener(e -> noteTextArea.setText(""));
-
-        JMenuItem openFileItem = new JMenuItem("Open");
-        openFileItem.addActionListener(e -> openFile());
-
-        JMenuItem saveFileItem = new JMenuItem("Save");
-        saveFileItem.addActionListener(e -> saveFile());
-        
-        JMenuItem exitItem = new JMenuItem("Exit");
-        exitItem.addActionListener(e -> System.exit(0));
-
-        fileMenu.add(printMenuItem);
-        fileMenu.add(newFileItem);
-        fileMenu.add(openFileItem);
-        fileMenu.add(saveFileItem);
-        //fileMenu.add(new JSeparator());
-        fileMenu.add(exitItem);
-
-
-
-
-
-
-
+                //Item 2
         JMenu editMenu = new JMenu("Edit");
 
         // Add "Font Color" option to "Edit" menu
@@ -94,6 +70,9 @@ public class NotesApplication {
         fontColorMenuItem.addActionListener(e -> showFontColorDialog());
         editMenu.add(fontColorMenuItem);
 
+
+
+                //Item 3
         JMenu viewMenu = new JMenu("View");
 
         // Add "Touch Screen Mode" option to "View" menu
@@ -101,13 +80,18 @@ public class NotesApplication {
         touchScreenModeMenuItem.addActionListener(e -> enableTouchScreenMode());
         viewMenu.add(touchScreenModeMenuItem);
 
-        JMenu homeMenu = new JMenu("Home");
-        JMenu helpMenu = new JMenu("Help");
-
-        // Add "Full Screen" toggle button to "View" menu
+         // Add "Full Screen" toggle button to "View" menu
         JMenuItem fullScreenMenuItem = new JMenuItem("Full Screen");
         fullScreenMenuItem.addActionListener(e -> toggleFullScreen());
         viewMenu.add(fullScreenMenuItem);
+
+
+                //Item 4
+        JMenu homeMenu = new JMenu("Home");
+                //Item 5
+        JMenu helpMenu = new JMenu("Help");
+
+       
 
         // Add menus to the main menu bar
         mainMenuBar.add(fileMenu);
@@ -118,56 +102,14 @@ public class NotesApplication {
 
         // Set layout
         frame.setLayout(new BorderLayout());
-
         // Set main menu bar to the frame
         frame.setJMenuBar(mainMenuBar);
-
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
         frame.add(addNoteButton, BorderLayout.SOUTH);
-
-         // Add undo and redo buttons to the side
-        //  frame.add(createSideToolbar(), BorderLayout.WEST);
     }
 
 
-    // /**
-    //  * Creates a side toolbar with undo and redo buttons.
-    //  *
-    //  * @return A JToolBar object containing undo and redo buttons.
-    //  */
-    // private JToolBar createSideToolbar() {
-    //     JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
-    //     toolbar.setFloatable(false); // Make the toolbar non-floatable
-
-    //     // Create undo button
-    //     JButton undoButton = new JButton("Undo");
-    //     undoButton.addActionListener(e -> undo());
-    //     toolbar.add(undoButton);
-
-    //     // Create redo button
-    //     JButton redoButton = new JButton("Redo");
-    //     redoButton.addActionListener(e -> redo());
-    //     toolbar.add(redoButton);
-
-    //     return toolbar;
-    // }
-
-    // /**
-    //  * Performs the undo operation (currently empty).
-    //  */
-    // private void undo() {
-    //     //Empty for now
-    //     System.out.println("Undo");
-    // }
-
-    // /**
-    //  * Performs the redo operation (currently empty).
-    //  */
-    // private void redo() {
-    //     //Empty for now
-    //     System.out.println("Redo");
-    // }
 
     /**
      * Gets the main JFrame of the application.
@@ -196,48 +138,7 @@ public class NotesApplication {
         notes.add(note);
     }
 
-    /**
-     * Displays the print options dialog when the "Print" menu item is selected.
-     */
-    private void showPrintMenu() {
-        JDialog printDialog = new JDialog(frame, "Print Options", true);
-        printDialog.setSize(200, 100);
-        printDialog.setLayout(new FlowLayout());
-
-        JButton printToPrinterButton = new JButton("Print to Printer");
-        JButton printPreviewButton = new JButton("Print Preview");
-
-        // Add action listeners to the print options
-        printToPrinterButton.addActionListener(e -> printNoteToPrinter());
-        printPreviewButton.addActionListener(e -> showPrintPreview());
-
-        // Add buttons to the dialog
-        printDialog.add(printToPrinterButton);
-        printDialog.add(printPreviewButton);
-
-        // Set dialog location relative to the main frame
-        printDialog.setLocationRelativeTo(frame);
-
-        // Make the dialog visible
-        printDialog.setVisible(true);
-    }
-
-    /**
-     * Prints the note to the printer (currently empty).
-     */
-    private void printNoteToPrinter() {
-        // Empty for now
-
-        System.out.println("Printing to Printer");
-    }
-
-    /**
-     * Displays the print preview (currently empty).
-     */
-    private void showPrintPreview() {
-        // Empty for now
-        System.out.println("Show Print Preview");
-    }
+    
 
 
     /**
@@ -300,33 +201,7 @@ public class NotesApplication {
         isFullScreen = !isFullScreen;
     }
 
-    private void openFile() {
-        fileChooser = new JFileChooser();
-        int response = fileChooser.showOpenDialog(null);
-
-        if (response == JFileChooser.APPROVE_OPTION) {
-            File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
-            try (FileReader reader = new FileReader(file)) {
-                noteTextArea.read(reader, null);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(frame, "File cannot be opened", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    private void saveFile() {
-        fileChooser = new JFileChooser();
-        int response = fileChooser.showSaveDialog(null);
-
-        if (response == JFileChooser.APPROVE_OPTION) {
-            File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
-            try (FileWriter writer = new FileWriter(file)) {
-                noteTextArea.write(writer);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(frame, "File cannot be saved", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
+    
 
     /**
      * The main method to launch the NotesApplication.
