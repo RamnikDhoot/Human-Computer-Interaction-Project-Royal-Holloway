@@ -7,6 +7,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +26,7 @@ public class NotesApplication {
     private final List<String> notes;
     private final JTextArea noteTextArea;
     private boolean isFullScreen = false;
+    private JFileChooser fileChooser;
 
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
@@ -61,10 +66,10 @@ public class NotesApplication {
         newFileItem.addActionListener(e -> noteTextArea.setText(""));
 
         JMenuItem openFileItem = new JMenuItem("Open");
-        //openFileItem.addActionListener(e -> openFile());
+        openFileItem.addActionListener(e -> openFile());
 
         JMenuItem saveFileItem = new JMenuItem("Save");
-        //saveFileItem.addActionListener(e -> saveFile());
+        saveFileItem.addActionListener(e -> saveFile());
         
         JMenuItem exitItem = new JMenuItem("Exit");
         exitItem.addActionListener(e -> System.exit(0));
@@ -293,6 +298,34 @@ public class NotesApplication {
             device.setFullScreenWindow(frame); // Enter full screen
         }
         isFullScreen = !isFullScreen;
+    }
+
+    private void openFile() {
+        fileChooser = new JFileChooser();
+        int response = fileChooser.showOpenDialog(null);
+
+        if (response == JFileChooser.APPROVE_OPTION) {
+            File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+            try (FileReader reader = new FileReader(file)) {
+                noteTextArea.read(reader, null);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(frame, "File cannot be opened", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void saveFile() {
+        fileChooser = new JFileChooser();
+        int response = fileChooser.showSaveDialog(null);
+
+        if (response == JFileChooser.APPROVE_OPTION) {
+            File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+            try (FileWriter writer = new FileWriter(file)) {
+                noteTextArea.write(writer);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(frame, "File cannot be saved", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     /**
