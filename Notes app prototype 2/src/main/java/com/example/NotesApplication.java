@@ -56,7 +56,31 @@ public class NotesApplication {
         JMenu fileMenu = new JMenu("File");
         JMenuItem printMenuItem = new JMenuItem("Print");
         printMenuItem.addActionListener(e -> showPrintMenu());
+
+        JMenuItem newFileItem = new JMenuItem("New");
+        newFileItem.addActionListener(e -> noteTextArea.setText(""));
+
+        JMenuItem openFileItem = new JMenuItem("Open");
+        //openFileItem.addActionListener(e -> openFile());
+
+        JMenuItem saveFileItem = new JMenuItem("Save");
+        //saveFileItem.addActionListener(e -> saveFile());
+        
+        JMenuItem exitItem = new JMenuItem("Exit");
+        exitItem.addActionListener(e -> System.exit(0));
+
         fileMenu.add(printMenuItem);
+        fileMenu.add(newFileItem);
+        fileMenu.add(openFileItem);
+        fileMenu.add(saveFileItem);
+        //fileMenu.add(new JSeparator());
+        fileMenu.add(exitItem);
+
+
+
+
+
+
 
         JMenu editMenu = new JMenu("Edit");
 
@@ -87,11 +111,6 @@ public class NotesApplication {
         mainMenuBar.add(homeMenu);
         mainMenuBar.add(helpMenu);
 
-        // Add "Exit" menu item to "File" menu
-        JMenuItem exitMenuItem = new JMenuItem("Exit");
-        exitMenuItem.addActionListener(e -> System.exit(0));
-        fileMenu.add(exitMenuItem);
-
         // Set layout
         frame.setLayout(new BorderLayout());
 
@@ -103,47 +122,47 @@ public class NotesApplication {
         frame.add(addNoteButton, BorderLayout.SOUTH);
 
          // Add undo and redo buttons to the side
-         frame.add(createSideToolbar(), BorderLayout.WEST);
+        //  frame.add(createSideToolbar(), BorderLayout.WEST);
     }
 
 
-    /**
-     * Creates a side toolbar with undo and redo buttons.
-     *
-     * @return A JToolBar object containing undo and redo buttons.
-     */
-    private JToolBar createSideToolbar() {
-        JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
-        toolbar.setFloatable(false); // Make the toolbar non-floatable
+    // /**
+    //  * Creates a side toolbar with undo and redo buttons.
+    //  *
+    //  * @return A JToolBar object containing undo and redo buttons.
+    //  */
+    // private JToolBar createSideToolbar() {
+    //     JToolBar toolbar = new JToolBar(JToolBar.VERTICAL);
+    //     toolbar.setFloatable(false); // Make the toolbar non-floatable
 
-        // Create undo button
-        JButton undoButton = new JButton("Undo");
-        undoButton.addActionListener(e -> undo());
-        toolbar.add(undoButton);
+    //     // Create undo button
+    //     JButton undoButton = new JButton("Undo");
+    //     undoButton.addActionListener(e -> undo());
+    //     toolbar.add(undoButton);
 
-        // Create redo button
-        JButton redoButton = new JButton("Redo");
-        redoButton.addActionListener(e -> redo());
-        toolbar.add(redoButton);
+    //     // Create redo button
+    //     JButton redoButton = new JButton("Redo");
+    //     redoButton.addActionListener(e -> redo());
+    //     toolbar.add(redoButton);
 
-        return toolbar;
-    }
+    //     return toolbar;
+    // }
 
-    /**
-     * Performs the undo operation (currently empty).
-     */
-    private void undo() {
-        //Empty for now
-        System.out.println("Undo");
-    }
+    // /**
+    //  * Performs the undo operation (currently empty).
+    //  */
+    // private void undo() {
+    //     //Empty for now
+    //     System.out.println("Undo");
+    // }
 
-    /**
-     * Performs the redo operation (currently empty).
-     */
-    private void redo() {
-        //Empty for now
-        System.out.println("Redo");
-    }
+    // /**
+    //  * Performs the redo operation (currently empty).
+    //  */
+    // private void redo() {
+    //     //Empty for now
+    //     System.out.println("Redo");
+    // }
 
     /**
      * Gets the main JFrame of the application.

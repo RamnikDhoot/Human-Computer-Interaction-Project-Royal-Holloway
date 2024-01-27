@@ -2,10 +2,8 @@ import org.assertj.swing.core.GenericTypeMatcher; //To be used later for other t
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.core.matcher.JButtonMatcher;
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.FrameFixture;
-import org.assertj.swing.fixture.JMenuItemFixture;
-import org.assertj.swing.fixture.JPopupMenuFixture;
-import org.assertj.swing.fixture.JPopupMenuInvokerFixture;
+import org.assertj.swing.fixture.*;
+import org.assertj.swing.timing.Pause;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +13,7 @@ import com.example.NotesApplication;
 import javax.swing.*;
 import java.awt.*; //To be used later for other tests
 import java.awt.print.PrinterException;
+import java.io.File;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -51,7 +50,7 @@ public class NotesApplicationTest {
         frame.button("addNoteButton").click();
 
     }
-
+//////////////////////////////////////////////////////////////////////////
     @Test
     void testMenuBarExists() {
         // Check if the menu bar exists
@@ -60,19 +59,7 @@ public class NotesApplicationTest {
         // your Swing components in a GUI test. It finds the menu bar and checks if it
         // exists.
     }
-    @Test
-    void testExitMenuItemExists() {
-        // Check if the Exit menu item exists in the "File" menu
-        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-        assertThat(menuBar).isNotNull();
-
-        JMenu fileMenu = findMenuByName(menuBar, "File");
-        assertThat(fileMenu).isNotNull();
-
-        JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
-        assertThat(exitMenuItem).isNotNull();
-    }
-
+    
 
     @Test
     void testFileMenuExists() {
@@ -97,7 +84,54 @@ public class NotesApplicationTest {
         assertThat(printMenuItem).isNotNull();
 }
 
-    
+    @Test
+    void testNewMenuItemExists() {
+    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+    assertThat(menuBar).isNotNull();
+
+    JMenu fileMenu = findMenuByName(menuBar, "File");
+    assertThat(fileMenu).isNotNull();
+
+    JMenuItem newMenuItem = findMenuItemByName(fileMenu, "New");
+    assertThat(newMenuItem).isNotNull();
+}
+
+@Test
+void testOpenMenuItemExists() {
+    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+    assertThat(menuBar).isNotNull();
+
+    JMenu fileMenu = findMenuByName(menuBar, "File");
+    assertThat(fileMenu).isNotNull();
+
+    JMenuItem openMenuItem = findMenuItemByName(fileMenu, "Open");
+    assertThat(openMenuItem).isNotNull();
+}
+
+@Test
+void testSaveMenuItemExists() {
+    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+    assertThat(menuBar).isNotNull();
+
+    JMenu fileMenu = findMenuByName(menuBar, "File");
+    assertThat(fileMenu).isNotNull();
+
+    JMenuItem saveMenuItem = findMenuItemByName(fileMenu, "Save");
+    assertThat(saveMenuItem).isNotNull();
+}
+
+@Test
+void testExitMenuItemExists() {
+    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
+    assertThat(menuBar).isNotNull();
+
+    JMenu fileMenu = findMenuByName(menuBar, "File");
+    assertThat(fileMenu).isNotNull();
+
+    JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
+    assertThat(exitMenuItem).isNotNull();
+}
+ ///////////////////////////////////////////////////////////   
 
     @Test
     void testViewMenuExists() {
@@ -206,16 +240,9 @@ void testFullScreenItemExistsInViewMenu() {
         assertThat(device.getFullScreenWindow()).isNull();
     }
 
-    @Test
-    public void testUndoRedoButtonsExist() {
-        // Use the robot's finder to locate the undo button
-        JButtonMatcher undoMatcher = JButtonMatcher.withText("Undo");
-        assertThat(frame.robot().finder().find(undoMatcher)).isNotNull();
+    
 
-        // Use the robot's finder to locate the redo button
-        JButtonMatcher redoMatcher = JButtonMatcher.withText("Redo");
-        assertThat(frame.robot().finder().find(redoMatcher)).isNotNull();
-    }
+    
 
 
     
@@ -227,31 +254,6 @@ void testFullScreenItemExistsInViewMenu() {
     
     
 
-//     @Test
-// void testPrintOptionsExistInFileMenu() {
-//     // Check if the Print menu item exists in the File menu
-//     JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-//     assertThat(menuBar).isNotNull();
-
-//     JMenu fileMenu = findMenuByName(menuBar, "File");
-//     assertThat(fileMenu).isNotNull();
-
-//     JMenuItem printMenuItem = findMenuItemByName(fileMenu, "Print");
-//     assertThat(printMenuItem).isNotNull();
-
-//     // Click on the "Print" menu item to open the options
-//     printMenuItem.doClick();
-
-// } Thest for print menu items not working
-
-    
-
-
-//Test for colour changing menu
-
-//Test that colour changing works
-
-//Test 
 
 
 
