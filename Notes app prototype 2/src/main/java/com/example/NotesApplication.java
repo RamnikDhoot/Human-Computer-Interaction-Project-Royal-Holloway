@@ -2,16 +2,14 @@ package com.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The NotesApplication class represents a simple notes application with GUI using Java Swing.
- * It allows users to add, view, and print notes, as well as toggle between full-screen and touch-screen modes.
+ * The NotesApplication class represents a simple notes application with GUI
+ * using Java Swing.
+ * It allows users to add, view, and print notes, as well as toggle between
+ * full-screen and touch-screen modes.
  *
  * @author zkac269
  */
@@ -23,7 +21,6 @@ public class NotesApplication {
     private boolean isFullScreen = false;
     private FileMenuHandler fileMenuHandler;
 
-
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
      * Initializes the main frame, components, menus, and toolbar.
@@ -34,7 +31,6 @@ public class NotesApplication {
         frame.setSize(700, 500);
 
         notes = new ArrayList<>();
-        
 
         // Create components
         noteTextArea = new JTextArea();
@@ -51,18 +47,15 @@ public class NotesApplication {
             noteTextArea.setText(""); // Clear the text area after adding a note
         });
 
-
-        
         // Create main menu bar
         fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
         JMenuBar mainMenuBar = new JMenuBar();
 
-                //Item 1
+        // Item 1
         // Add the file menu created by FileMenuHandler
         JMenu fileMenu = fileMenuHandler.createFileMenu();
-        mainMenuBar.add(fileMenu);
 
-                //Item 2
+        // Item 2
         JMenu editMenu = new JMenu("Edit");
 
         // Add "Font Color" option to "Edit" menu
@@ -70,9 +63,7 @@ public class NotesApplication {
         fontColorMenuItem.addActionListener(e -> showFontColorDialog());
         editMenu.add(fontColorMenuItem);
 
-
-
-                //Item 3
+        // Item 3
         JMenu viewMenu = new JMenu("View");
 
         // Add "Touch Screen Mode" option to "View" menu
@@ -80,18 +71,15 @@ public class NotesApplication {
         touchScreenModeMenuItem.addActionListener(e -> enableTouchScreenMode());
         viewMenu.add(touchScreenModeMenuItem);
 
-         // Add "Full Screen" toggle button to "View" menu
+        // Add "Full Screen" toggle button to "View" menu
         JMenuItem fullScreenMenuItem = new JMenuItem("Full Screen");
         fullScreenMenuItem.addActionListener(e -> toggleFullScreen());
         viewMenu.add(fullScreenMenuItem);
 
-
-                //Item 4
+        // Item 4
         JMenu homeMenu = new JMenu("Home");
-                //Item 5
+        // Item 5
         JMenu helpMenu = new JMenu("Help");
-
-       
 
         // Add menus to the main menu bar
         mainMenuBar.add(fileMenu);
@@ -102,31 +90,24 @@ public class NotesApplication {
 
         // Set layout
         frame.setLayout(new BorderLayout());
+        JPanel leftPanel = new JPanel();
+        leftPanel.setBackground(Color.GRAY);
+        leftPanel.setPreferredSize(new Dimension(100, 0));
+
+        JPanel rightPanel = new JPanel();
+        rightPanel.setBackground(Color.GRAY);
+        rightPanel.setPreferredSize(new Dimension(100, 0));
         // Set main menu bar to the frame
         frame.setJMenuBar(mainMenuBar);
+
         // Add components to the frame
         frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
         frame.add(addNoteButton, BorderLayout.SOUTH);
-    }
+        frame.add(leftPanel, BorderLayout.WEST);
+        frame.add(rightPanel, BorderLayout.EAST);
+        frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
+        frame.add(addNoteButton, BorderLayout.SOUTH);
 
-
-
-    /**
-     * Gets the main JFrame of the application.
-     *
-     * @return The main JFrame of the application.
-     */
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    /**
-     * Gets the list of notes stored in the application.
-     *
-     * @return A List object containing the notes.
-     */    
-    public List<String> getNotes() {
-        return notes;
     }
 
     /**
@@ -138,18 +119,15 @@ public class NotesApplication {
         notes.add(note);
     }
 
-    
-
-
     /**
      * Displays the font color dialog for selecting text color.
      */
     private void showFontColorDialog() {
         Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Color", Color.BLACK);
         if (selectedColor != null) {
-            noteTextArea.setForeground(selectedColor);//Checks if selected color is valid then changes the text color
+            noteTextArea.setForeground(selectedColor);// Checks if selected color is valid then changes the text color
         }
-    }    // Opens menu for changing colors, already installed in swing
+    } // Opens menu for changing colors, already installed in swing
 
     /**
      * Enables touch-screen mode by displaying an on-screen keyboard dialog.
@@ -165,26 +143,26 @@ public class NotesApplication {
      *
      * @param parent The JFrame parent of the dialog.
      * @return A JDialog object representing the on-screen keyboard dialog.
-     */    
+     */
     private JDialog createKeyboardDialog(JFrame parent) {
         JDialog keyboardDialog = new JDialog(parent, "On-Screen Keyboard", true);
         keyboardDialog.setSize(400, 200);
-    
+
         // Letters of the alphabet
         String[] alphabet = {
-            "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-            "A", "S", "D", "F", "G", "H", "J", "K", "L",
-            "Z", "X", "C", "V", "B", "N", "M"
+                "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+                "A", "S", "D", "F", "G", "H", "J", "K", "L",
+                "Z", "X", "C", "V", "B", "N", "M"
         };
-    
+
         // Set a GridLayout with 4 rows and 7 columns for a 4x7 grid
         keyboardDialog.setLayout(new GridLayout(4, 7));
-    
+
         for (String letter : alphabet) {
             JButton letterButton = new JButton(letter);
             keyboardDialog.add(letterButton);
         }
-    
+
         return keyboardDialog;
     }
 
@@ -201,7 +179,13 @@ public class NotesApplication {
         isFullScreen = !isFullScreen;
     }
 
-    
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public List<String> getNotes() {
+        return notes;
+    }
 
     /**
      * The main method to launch the NotesApplication.
