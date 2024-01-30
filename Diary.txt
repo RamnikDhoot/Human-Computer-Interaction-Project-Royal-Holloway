@@ -172,8 +172,19 @@ Week 19, 22/01/24 - 28/01/24
 - I have decided to continue only 2 UIs as it would take alot of time to finish 3 and do the report
 - Written up all feedback from user tesing and started implementing design chnages in shopping website
 - Added screen reader to all pages for shopping website
--Changing design layout for notes application to make it more visually appealing
+- Changing design layout for notes application to make it more visually appealing
 - Added functionality to basket page
 - Writing section of report about my UIs with chnages (2 UIs)
 - Mkaing shopping website more modular by having 1 main CSS file then having sub files for animations
 - Written section On HCI theory and the emotional impact of design
+- Made Notes application more modular by splitting Main GUi and Menu bar into separate classes with separate testing classes
+- Added functionality for open, save, new, exit buttons in file menu in notes app
+- Worked on HCI theory secton talking about Emotional effects of HCI
+- Read Norman, D. A. (2004). chapterr 2 Emotional Design The Multiple Faces of Emotion and Design
+- Read Norman, D. A. (2004). chapter 3 Three Levels of Design: Visceral, Behavioral, and Reflective 
+- Plan to Finish creating items page on shopping website and add all feedback from supervisor to database interface (make it more mmodular)
+
+Week 20, 29/01/24 - 04/02/24
+- Re designed settings page to be more consistent with other pages
+- Added functionality for hiding screen reader
+- 
