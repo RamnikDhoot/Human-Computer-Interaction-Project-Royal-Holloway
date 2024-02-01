@@ -150,11 +150,6 @@ footer {
   padding: 40px 0;
 }
 
-h3,
-h5 {
-  color: #f8f9fa;
-}
-
 ul.list-unstyled li a {
   color: #adb5bd;
 }
@@ -182,54 +177,9 @@ a.text-light:hover {
 
 .social-icons a:hover {
   color: #ffffff;
-} body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f8f9fa;
-}
+} 
 
-footer {
-  background-color: #343a40;
-  color: #ffffff;
-  padding: 40px 0;
-}
-
-h3,
-h5 {
-  color: #f8f9fa;
-}
-
-ul.list-unstyled li a {
-  color: #adb5bd;
-}
-
-ul.list-unstyled li a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-a.text-light {
-  color: #adb5bd;
-}
-
-a.text-light:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.social-icons a {
-  font-size: 2rem;
-  color: #adb5bd;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #ffffff;
-}
-
-/* High Contrast Mode Styles */
+/* High Contrast Mode Styles -------------------------------------------------*/
 body.high-contrast {
   background-color: #000 !important;
   color: #ffa500 !important;
@@ -258,13 +208,12 @@ h2.high-contrast {
   background-color: #ff8c00 !important;
   border-color: #ff8c00 !important;
 }
-/* High contrast styling end */
+/* High Contrast Mode Styles end -------------------------------------------------*/
 
-/* Larger Text Styles */
+/* Larger Text Styles*/
 body.larger-text {
-  font-size: 30px;
+  font-size: 45px;
 }
-/* Larger test styling end */
 
 /* Light mode styles */
 body, .sidebar, .main-content, h2, .btn-primary {
