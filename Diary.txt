@@ -187,4 +187,10 @@ Week 19, 22/01/24 - 28/01/24
 Week 20, 29/01/24 - 04/02/24
 - Re designed settings page to be more consistent with other pages
 - Added functionality for hiding screen reader
-- 
+- Made Items page more visually apealing and linked it to new nav bar and added functions from settings page
+- Completed making all pages consistent for shopping website
+- Wrote a section on the social impact of hci in report
+- Working on adding voice recognition functonality to database interface
+- Problems with installing speach recognition API in browser (webkitSpeechRecognition)
+- Next week i plan to link all pages of shopping website, make notes app more visually apealing
+- Next week i will start on proffesional issues for reoprt and discuss what is hould include with my supervisor
