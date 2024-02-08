@@ -1,34 +1,51 @@
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.example.NotesApplication;
 import com.example.ToolBarHandler;
 
 import javax.swing.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-public class ToolBarHandlerTest {
+class ToolBarHandlerTest {
     private JFrame frame;
-    private NotesApplication notesApp;
+    private JTextArea noteTextArea;
+    private ToolBarHandler toolBarHandler;
+
+    @BeforeEach
+    void setUp() {
+        // Setup the environment for each test
+        frame = new JFrame();
+        noteTextArea = new JTextArea();
+        toolBarHandler = new ToolBarHandler(frame, noteTextArea);
+    }
 
     @Test
-    void testCreateToolBarExists() {
-        // Mock the required components for ToolBarHandler
-        frame = new JFrame();
-        JTextArea mockTextArea = new JTextArea();
-        
-        // Create an instance of ToolBarHandler
-        ToolBarHandler toolBarHandler = new ToolBarHandler(frame, mockTextArea);
-        
-        // Call the method under test
+    void testToolbarExists() {
         JToolBar toolBar = toolBarHandler.createToolBar();
-        
-        // Assertions to verify the toolbar was created and contains the expected components
         assertNotNull(toolBar, "Toolbar should not be null");
+        assertEquals(2, toolBar.getComponentCount(), "Toolbar should contain exactly two buttons.");
+    }
+
+    @Test
+    void testUndoButton() {
+        // Simulate text addition and undo operation
+        noteTextArea.setText("Sample text");
+        toolBarHandler.createToolBar(); 
+        noteTextArea.setText(""); 
+        toolBarHandler.undo(); 
+
+        assertEquals("Sample text", noteTextArea.getText(), "Undo operation failed to revert text area content.");
+    }
+
+    @Test
+    void testRedoButton() {
+        // Simulate text addition, undo, and redo operations
+        noteTextArea.setText("Sample text");
+        toolBarHandler.createToolBar(); 
+        String originalText = noteTextArea.getText();
+        toolBarHandler.undo(); 
+        toolBarHandler.redo();
+
+        assertEquals(originalText, noteTextArea.getText(), "Redo operation failed to restore text area content.");
     }
 }

@@ -22,7 +22,35 @@ public class ToolBarHandler {
         toolBar.setFloatable(false); // Make the toolbar non-floatable
         noteTextArea.getDocument().addUndoableEditListener(e -> undoManager.addEdit(e.getEdit()));
 
+
+        JButton undoButton = new JButton("Undo");
+        undoButton.addActionListener(e -> undo());
+
+        JButton redoButton = new JButton("Redo");
+        redoButton.addActionListener(e -> redo());
+        toolBar.add(undoButton);
+        toolBar.add(redoButton);
+
         return toolBar; 
     }
         
+     public void undo() {
+        try {
+            if (undoManager.canUndo()) {
+                undoManager.undo();
+            }
+        } catch (CannotUndoException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void redo() {
+        try {
+            if (undoManager.canRedo()) {
+                undoManager.redo();
+            }
+        } catch (CannotRedoException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
