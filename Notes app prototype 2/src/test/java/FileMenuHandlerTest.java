@@ -82,8 +82,4 @@ class FileMenuHandlerTest {
         assertTrue(outContent.toString().contains("Show Print Preview"), "Show Print Preview action should trigger preview.");
     }
 
-    @BeforeEach
-    void tearDown() {
-        System.setOut(originalOut);
-    }
 }
