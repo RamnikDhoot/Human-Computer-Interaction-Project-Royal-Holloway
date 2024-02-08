@@ -1,6 +1,10 @@
 package com.example;
 
 import javax.swing.*;
+import javax.swing.undo.CannotRedoException;
+import javax.swing.undo.CannotUndoException;
+import javax.swing.undo.UndoManager;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +24,9 @@ public class NotesApplication {
     private final JTextArea noteTextArea;
     private boolean isFullScreen = false;
     private FileMenuHandler fileMenuHandler;
+    private ToolBarHandler toolBarHandler;
+
+
 
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
@@ -36,6 +43,7 @@ public class NotesApplication {
         noteTextArea = new JTextArea();
         JButton addNoteButton = new JButton("Add Note");
 
+
         // Set names for components
         noteTextArea.setName("noteTextArea");
         addNoteButton.setName("addNoteButton");
@@ -47,8 +55,13 @@ public class NotesApplication {
             noteTextArea.setText(""); // Clear the text area after adding a note
         });
 
+        //Create Tool Bar
+        toolBarHandler = new ToolBarHandler(frame, noteTextArea);
+        JToolBar toolBar = toolBarHandler.createToolBar();
+
         // Create main menu bar
         fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
+
         JMenuBar mainMenuBar = new JMenuBar();
 
         // Item 1
@@ -105,8 +118,8 @@ public class NotesApplication {
         frame.add(addNoteButton, BorderLayout.SOUTH);
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
-        frame.add(new JScrollPane(noteTextArea), BorderLayout.CENTER);
-        frame.add(addNoteButton, BorderLayout.SOUTH);
+        frame.add(toolBar, BorderLayout.WEST);
+
 
     }
 
@@ -186,6 +199,7 @@ public class NotesApplication {
     public List<String> getNotes() {
         return notes;
     }
+
 
     /**
      * The main method to launch the NotesApplication.
