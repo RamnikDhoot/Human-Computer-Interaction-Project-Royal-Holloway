@@ -9,7 +9,7 @@ import java.io.IOException;
 public class FileMenuHandler {
     private JTextArea noteTextArea;
     private JFrame frame;
-    private JFileChooser fileChooser;
+    public JFileChooser fileChooser;
 
     public FileMenuHandler(JFrame frame, JTextArea noteTextArea) {
         this.frame = frame;

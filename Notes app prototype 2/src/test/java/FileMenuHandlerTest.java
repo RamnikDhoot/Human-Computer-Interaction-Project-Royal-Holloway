@@ -1,154 +1,89 @@
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import com.example.NotesApplication;
+import com.example.FileMenuHandler;
+
 import javax.swing.*;
+import java.io.*;
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
-public class FileMenuHandlerTest {
-
-    private FrameFixture frame;
-    private NotesApplication notesApp;
+class FileMenuHandlerTest {
+    private JFrame frame;
+    private JTextArea noteTextArea;
+    private FileMenuHandler fileMenuHandler;
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
     @BeforeEach
     void setUp() {
-        // Initialize the application and GUI iside of the Event Dispatch Thread
-        GuiActionRunner.execute(() -> {
-            notesApp = new NotesApplication();
-            frame = new FrameFixture(notesApp.getFrame());
-        });
-
-        // Show the frame
-        frame.show();
+        frame = new JFrame();
+        noteTextArea = new JTextArea();
+        fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
+        System.setOut(new PrintStream(outContent));
     }
 
-    @AfterEach
+    @Test
+    void testNewFileAction() {
+        noteTextArea.setText("Some text");
+        fileMenuHandler.createFileMenu().getItem(1).doClick(); // Assuming New is the second item
+        assertEquals("", noteTextArea.getText(), "Text area should be empty after 'New' action.");
+    }
+
+    @Test
+    void testSaveFileAction() throws IOException {
+        // Mock JFileChooser to simulate user action
+        JFileChooser mockFileChooser = Mockito.mock(JFileChooser.class);
+        when(mockFileChooser.showSaveDialog(null)).thenReturn(JFileChooser.APPROVE_OPTION);
+        File tempFile = File.createTempFile("test", ".txt");
+        when(mockFileChooser.getSelectedFile()).thenReturn(tempFile);
+        fileMenuHandler.fileChooser = mockFileChooser;
+
+        noteTextArea.setText("Test content");
+        fileMenuHandler.saveFile();
+
+        BufferedReader reader = new BufferedReader(new FileReader(tempFile));
+        String content = reader.readLine();
+        reader.close();
+        assertEquals("Test content", content, "File content should match the text area.");
+        tempFile.deleteOnExit();
+    }
+
+    @Test
+    void testOpenFileAction() throws IOException {
+        // Mock JFileChooser to simulate user action
+        JFileChooser mockFileChooser = Mockito.mock(JFileChooser.class);
+        when(mockFileChooser.showOpenDialog(null)).thenReturn(JFileChooser.APPROVE_OPTION);
+        File tempFile = File.createTempFile("test", ".txt");
+        FileWriter writer = new FileWriter(tempFile);
+        writer.write("Test content");
+        writer.close();
+        when(mockFileChooser.getSelectedFile()).thenReturn(tempFile);
+        fileMenuHandler.fileChooser = mockFileChooser;
+
+        fileMenuHandler.openFile();
+
+        assertEquals("Test content", noteTextArea.getText().trim(), "Text area should contain the file content.");
+        tempFile.deleteOnExit();
+    }
+
+    @Test
+    void testPrintToPrinterAction() {
+        fileMenuHandler.printNoteToPrinter();
+        assertTrue(outContent.toString().contains("Printing to Printer"), "Print to Printer action should trigger printing.");
+    }
+
+    @Test
+    void testShowPrintPreviewAction() {
+        fileMenuHandler.showPrintPreview();
+        assertTrue(outContent.toString().contains("Show Print Preview"), "Show Print Preview action should trigger preview.");
+    }
+
+    @BeforeEach
     void tearDown() {
-        // Clean up resources, close the frame
-        frame.cleanUp();
+        System.setOut(originalOut);
     }
-
-    @Test
-    void testPrintMenuItemExistsInFileMenu() {
-        // Check if the Print menu item exists in the File menu
-        JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-        assertThat(menuBar).isNotNull();
-
-        JMenu fileMenu = findMenuByName(menuBar, "File");
-        assertThat(fileMenu).isNotNull();
-
-        JMenuItem printMenuItem = findMenuItemByName(fileMenu, "Print");
-        assertThat(printMenuItem).isNotNull();
-}
-
-    @Test
-    void testNewMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem newMenuItem = findMenuItemByName(fileMenu, "New");
-    assertThat(newMenuItem).isNotNull();
-}
-
-@Test
-void testOpenMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem openMenuItem = findMenuItemByName(fileMenu, "Open");
-    assertThat(openMenuItem).isNotNull();
-}
-
-@Test
-void testSaveMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem saveMenuItem = findMenuItemByName(fileMenu, "Save");
-    assertThat(saveMenuItem).isNotNull();
-}
-
-@Test
-void testExitMenuItemExists() {
-    JMenuBar menuBar = frame.robot().finder().findByType(JMenuBar.class);
-    assertThat(menuBar).isNotNull();
-
-    JMenu fileMenu = findMenuByName(menuBar, "File");
-    assertThat(fileMenu).isNotNull();
-
-    JMenuItem exitMenuItem = findMenuItemByName(fileMenu, "Exit");
-    assertThat(exitMenuItem).isNotNull();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Helper method to find a menu by name, Itterates through all the items in the
-    // menu bar then cecks of the name if that item is euqal to the menuName that is
-    // given when this method is called
-    private JMenu findMenuByName(JMenuBar menuBar, String menuName) {
-        for (int i = 0; i < menuBar.getMenuCount(); i++) {
-            JMenu menu = menuBar.getMenu(i);
-            if (menu.getText().equals(menuName)) {
-                return menu;
-            }
-        }
-        return null;
-    } // https://joel-costigliola.github.io/assertj/assertj-swing.html For the assertj
-      // methods to do this
-
-    // Helper method to find a menu item by name, does the same thing as the upper
-    // menu but goes through the items inside of the file menu instead of the whole
-    // menu bar
-    private JMenuItem findMenuItemByName(JMenu menu, String menuItemName) {
-        for (int i = 0; i < menu.getItemCount(); i++) {
-            JMenuItem menuItem = menu.getItem(i);
-            if (menuItem.getText().equals(menuItemName)) {
-                return menuItem;
-            }
-        }
-        return null;
-    }
-
 }
