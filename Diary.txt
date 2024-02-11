@@ -194,3 +194,18 @@ Week 20, 29/01/24 - 04/02/24
 - Problems with installing speach recognition API in browser (webkitSpeechRecognition)
 - Next week i plan to link all pages of shopping website, make notes app more visually apealing
 - Next week i will start on proffesional issues for reoprt and discuss what is hould include with my supervisor
+
+Week 21, 05/02/24 - 11/02/24
+- Encountered a complex issue with JUnit testing for Swing applications; resolved by utilizing an advanced Robot framework to simulate user interactions, significantly improving test reliability and coverage.
+- Successfully interconnected all pages of the shopping website, enhancing user navigation and overall experience.
+- Implemented custom JavaScript to overcome limitations with Bootstrap's modal functionality; this solution addressed form submission conflicts by employing the preventDefault() method, ensuring seamless modal operations during form actions.
+- Developed a custom JavaScript solution to replace Bootstrap's modal script, enabling more reliable and flexible modal display for user notifications.
+- Enhanced the website's modularity and maintainability by restructuring the directory and introducing a centralized main.js file, streamlining development and updates.
+- Introduced reusable components for the footer and modals, promoting consistency and reducing redundancy across the website.
+- Drafted a new section to highlight technical achievements, showcasing the innovative solutions and technologies employed throughout the project.
+- Launched a Notifications page featuring dynamic flashing notifications, a carousel display, and interactive elements to engage users.
+- Developed a comprehensive Contact Us page, incorporating user testimonials, an FAQ section, and interactive forms to foster community engagement.
+- Unveiled a Deals page, presenting time-sensitive offers, previews of upcoming deals, and exclusive promotions to incentivize user participation.
+- Added a versatile Toolbar to the notes application, integrating fully functional undo and redo features to enhance user experience.
+- Introduced an innovative inventory management feature, alongside the capability to generate custom reports, enhancing administrative efficiency.
+- Addressed issues with Bootstrap dropdowns causing layout distortions in the Navbar; rectified through meticulous CSS adjustments and JavaScript enhancements for flawless navigation.
