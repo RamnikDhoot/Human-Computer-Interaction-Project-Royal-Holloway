@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>NavBar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dashboard.css" rel="stylesheet">
+    <style>
+        .bg-light.sidebar {
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container-fluid">
+            <!-- Welcome section on the left with dropdown -->
+            <div class="navbar-brand dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarWelcomeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                    </svg>
+                    <span class="ms-2">Welcome!</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarWelcomeDropdown">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+    
+            <!-- Toggler for mobile screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <!-- Search bar in the middle -->
+                <form class="form-inline">
+                    <div class="input-group rounded-pill">
+                        <input class="form-control rounded-pill me-2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;" />
+                        <button class="btn btn-outline-primary rounded-pill" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+    
+            <!-- Sign out on the right -->
+            <div class="d-flex align-items-center">
+                <a class="nav-link text-white" href="#" id="signOutLink" onclick="signOut()" style="font-size: 1.25rem; padding-top: 0.3125rem; padding-bottom: 0.3125rem;">Sign out</a>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Dashboard.html">
+                            <span data-feather="home"></span>
+                            Dashboard
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            Orders
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="calendar"></span>
+                            Calendar
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="package"></span>
+                            Deliverys
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Home.html">
+                            <span data-feather="home"></span>
+                            Home
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="mic"></span>
+                            Voice control
+                          </a>
+                        </li>
+                      </ul>
+
+                    <!-- Your inventorys sale data section -->
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Your inventorys sale data</span>
+                        <a class="link-secondary" onclick="addNewReport()" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2" id="reportList">
+
+                        <!-- Add specific items related to home here -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sale data.html">
+                                <span data-feather="file-text"></span>
+                                Current month
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sale data.html">
+                                <span data-feather="file-text"></span>
+                                Last quarter
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sale data.html">
+                                <span data-feather="file-text"></span>
+                                Best products
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+<!-- Main Content section -->
+<!-- Main Content -->
+ <!-- Main Content -->
+ <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Enhanced Sales Data Overview</h1>
+    </div>
+
+    <!-- Enhanced Sales Data Section -->
+    <div class="row">
+        <!-- Sales Data Table -->
+        <div class="col-md-12 mb-4">
+            <h4>Monthly Sales Data</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Quantity Sold</th>
+                            <th>Sales Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-02-01</td>
+                                <td>Product A</td>
+                                <td>120</td>
+                                <td>£1,200</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2024-02-05</td>
+                                <td>Product B</td>
+                                <td>90</td>
+                                <td>£900</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2024-02-10</td>
+                                <td>Product C</td>
+                                <td>150</td>
+                                <td>£1,500</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-02-01</td>
+                                <td>Product A</td>
+                                <td>120</td>
+                                <td>£1,200</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2024-02-05</td>
+                                <td>Product B</td>
+                                <td>90</td>
+                                <td>£900</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2024-02-10</td>
+                                <td>Product C</td>
+                                <td>150</td>
+                                <td>£1,500</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-02-01</td>
+                                <td>Product A</td>
+                                <td>120</td>
+                                <td>£1,200</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2024-02-05</td>
+                                <td>Product B</td>
+                                <td>90</td>
+                                <td>£900</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2024-02-10</td>
+                                <td>Product C</td>
+                                <td>150</td>
+                                <td>£1,500</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2024-02-01</td>
+                                <td>Product A</td>
+                                <td>120</td>
+                                <td>£1,200</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2024-02-05</td>
+                                <td>Product B</td>
+                                <td>90</td>
+                                <td>£900</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2024-02-10</td>
+                                <td>Product C</td>
+                                <td>150</td>
+                                <td>£1,500</td>
+                            </tr>
+                            
+                        </tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Chart Sections -->
+    <div class="col-md-6">
+        <h4>Top Performing Products</h4>
+        <canvas id="topProductsChart"></canvas>
+    </div>
+    <div class="col-md-6">
+        <h4>Sales Trends</h4>
+        <canvas id="salesTrendsChart"></canvas>
+    </div>
+    <div class="col-md-12 mt-4">
+        <h4>Sales by Category</h4>
+        <canvas id="salesByCategoryChart"></canvas>
+    </div>
+
+</main>
+
+
+<div class="loading-spinner" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+
+    <!-- JavaScript files -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script>
+        function signOut() {
+            document.querySelector('.loading-spinner').style.display = 'block';
+
+            // Simulate a delay for signing out
+            setTimeout(function() {
+                window.location.href = 'Cover page.html?signedOut=true';
+            }, 3000); // 3 second
+        }
+
+    //////////////////////////////////////////////////////////////////////////////
+        function addNewReport() {
+    // Ask the user for the report name
+    var reportName = prompt("Please enter the name for the new report:", "New Report Name");
+
+    // Check if the user provided a name
+    if (reportName === null || reportName === "") {
+        alert("You must enter a name to add a new report.");
+        return; 
+    }
+
+    // Create a new list item
+    var newItem = document.createElement("li");
+    newItem.classList.add("nav-item");
+
+    // Add content to the new item
+    newItem.innerHTML = '<a class="nav-link" href="Sale data.html">' +
+                        '<span data-feather="file-text"></span> ' + reportName +
+                        '</a>';
+
+    // Find the report list and append the new item
+    document.getElementById("reportList").appendChild(newItem);
+
+    // Reinitialize feather icons to ensure the new icon is rendered correctly
+    feather.replace();
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+    initCharts();
+});
+
+function initCharts() {
+    var topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+    var salesTrendsCtx = document.getElementById('salesTrendsChart').getContext('2d');
+    var salesByCategoryCtx = document.getElementById('salesByCategoryChart').getContext('2d');
+
+    var topProductsChart = new Chart(topProductsCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Product A', 'Product B', 'Product C'],
+            datasets: [{
+                label: 'Sales',
+                data: [1200, 900, 1500],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var salesTrendsChart = new Chart(salesTrendsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+            datasets: [{
+                label: 'Weekly Sales',
+                data: [300, 700, 500, 900],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var salesByCategoryChart = new Chart(salesByCategoryCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Electronics', 'Apparel', 'Home & Kitchen'],
+            datasets: [{
+                label: 'Sales by Category',
+                data: [2500, 1500, 1200],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {}
+    });
+}
+
+</script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>
