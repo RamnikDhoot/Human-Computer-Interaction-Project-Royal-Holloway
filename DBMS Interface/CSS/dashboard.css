@@ -8,9 +8,11 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
+canvas {
+  min-width: 400px;
+  min-height: 400px;
+}
+
 
 .sidebar {
   position: fixed;
