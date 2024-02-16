@@ -27,6 +27,28 @@
           font-size: 3.5rem;
         }
       }
+
+      .todo-container {
+        max-width: 400px;
+        margin: auto;
+      }
+
+      #taskList {
+        list-style: none;
+        padding: 0;
+      }
+
+      #taskList li {
+        background-color: #f8f9fa; 
+        margin-bottom: 0.5rem; 
+      }
+
+      #taskList li.checked {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+
+
     </style>
 
     
@@ -204,7 +226,13 @@
         </small>
       </div>
 
-      
+      <!-- Notifications -->
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">New Notification!</h4>
+        <p>A new order has been placed.</p>
+        <hr>
+        <p class="mb-0">Check the Orders section for more details.</p>
+      </div>
 
       <h2>Your popular items</h2>
       <div class="table-responsive">
@@ -334,18 +362,109 @@
           </tbody>
         </table>
       </div>
+      <!-- Charts -->
+      <div class="row my-4">
+        <div class="col-md-6">
+          <h4>Sales Trends</h4>
+          <canvas id="salesChart"></canvas>
+        </div>
+        <div class="col-md-6">
+          <h4>Inventory Levels</h4>
+          <canvas id="inventoryChart"></canvas>
+        </div>
+      </div>
+      
+      <!-- Quick actions -->
+      <div class="d-flex justify-content-around my-3 p-3 bg-light rounded shadow-sm">
+        <button type="button" class="btn btn-primary">Add Product</button>
+        <button type="button" class="btn btn-secondary">New Order</button>
+        <button type="button" class="btn btn-success">Generate Report</button>
+      </div>
+      <!-- User activity  -->
+      <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">Recent Activity</h6>
+        <div class="d-flex text-muted pt-3">
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            User <strong class="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+          </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            User <strong class="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+          </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            User <strong class="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+          </p>
+        </div>
+      </div>
+      <!-- tasks -->
+      <div class="bg-light p-3 my-3 rounded shadow-sm">
+        <h6>To-Do List</h6>
+        <div class="input-group mb-3">
+          <input type="text" id="taskInput" class="form-control" placeholder="Add new task..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="addTask()">Add Task</button>
+        </div>
+        <ul id="taskList" class="list-group">
+          <!-- Tasks put here -->
+        </ul>
+      </div>      
+      
     </main>
   </div>
 </div>
-
-
     <script src="dist\js\bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
 
     <script>
+      var salesChartCtx = document.getElementById('salesChart').getContext('2d');
+      var salesChart = new Chart(salesChartCtx, {
+          type: 'line', 
+          data: {
+              labels: ['January', 'February', 'March'], 
+              datasets: [{
+                  label: 'Sales',
+                  data: [10, 20, 30] 
+              }]
+          }
+      });
+
+      var inventoryChartCtx = document.getElementById('inventoryChart').getContext('2d');
+      var inventoryChart = new Chart(inventoryChartCtx, {
+          type: 'bar', 
+          data: {
+              labels: ['Product A', 'Product B', 'Product C'], 
+              datasets: [{
+                  label: 'Inventory Levels',
+                  data: [50, 25, 75] 
+              }]
+          }
+      });
+
+      function addTask() {
+      var taskInput = document.getElementById("taskInput");
+      var taskList = document.getElementById("taskList");
+      var task = taskInput.value;
+      if (task.trim() !== "") {
+        var li = document.createElement("li");
+        li.textContent = task;
+        li.className = "list-group-item"; 
+        li.addEventListener("click", function() {
+          this.classList.toggle("checked");
+        });
+        li.addEventListener("dblclick", function() {
+          this.remove();
+        });
+        taskList.appendChild(li);
+        taskInput.value = ""; 
+      } else {
+        alert("Please enter a task!");
+      }
+    };
       feather.replace();
     </script>
   </body>
