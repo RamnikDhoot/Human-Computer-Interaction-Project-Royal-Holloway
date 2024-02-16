@@ -219,14 +219,39 @@
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <!-- Your home-specific content goes here -->
                     <h1 class="h2">Home Dashboard</h1>
-                    <h1 class="h2">Home</h1>
-
                     <!-- Inventory Grid -->
                     <div class="row row-cols-3 g-4">
                         <!-- Inventory Item 1 -->
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
+                                    class="card-img-top" alt="Inventory 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Inventory 1</h5>
+                                    <p class="card-text">Description of
+                                        Inventory 2.</p>
+                                </div>
+                                <!-- Popup menu -->
+                                <div class="inventory-popup">
+                                    <label for="newName1">New Name:</label>
+                                    <input type="text" id="newName1"
+                                        placeholder="Enter new name">
+                                    <button
+                                        onclick="changeInventoryName(1)">Change
+                                        Name</button>
+
+                                    <label for="newPhoto1">New Photo:</label>
+                                    <input type="file" id="newPhoto1"
+                                        accept="image/*">
+                                    <button
+                                        onclick="changeInventoryPhoto(1)">Change
+                                        Photo</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col position-relative">
+                            <div class="card h-100">
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Inventory 2</h5>
@@ -253,12 +278,12 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
+                                    <h5 class="card-title">Inventory 3</h5>
                                     <p class="card-text">Description of
-                                        Inventory 2.</p>
+                                        Inventory 3.</p>
                                 </div>
                                 <!-- Popup menu -->
                                 <div class="inventory-popup">
@@ -280,12 +305,12 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
+                                    <h5 class="card-title">Inventory 4</h5>
                                     <p class="card-text">Description of
-                                        Inventory 2.</p>
+                                        Inventory 4.</p>
                                 </div>
                                 <!-- Popup menu -->
                                 <div class="inventory-popup">
@@ -307,12 +332,12 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
+                                    <h5 class="card-title">Inventory 5</h5>
                                     <p class="card-text">Description of
-                                        Inventory 2.</p>
+                                        Inventory 5.</p>
                                 </div>
                                 <!-- Popup menu -->
                                 <div class="inventory-popup">
@@ -334,12 +359,12 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
+                                    <h5 class="card-title">Inventory 6</h5>
                                     <p class="card-text">Description of
-                                        Inventory 2.</p>
+                                        Inventory 6.</p>
                                 </div>
                                 <!-- Popup menu -->
                                 <div class="inventory-popup">
@@ -361,12 +386,12 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
+                                    <h5 class="card-title">Inventory 7</h5>
                                     <p class="card-text">Description of
-                                        Inventory 2.</p>
+                                        Inventory 7.</p>
                                 </div>
                                 <!-- Popup menu -->
                                 <div class="inventory-popup">
@@ -388,34 +413,7 @@
                         </div>
                         <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
-                                    class="card-img-top" alt="Inventory 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Inventory 2</h5>
-                                    <p class="card-text">Description of
-                                        Inventory 2.</p>
-                                </div>
-                                <!-- Popup menu -->
-                                <div class="inventory-popup">
-                                    <label for="newName1">New Name:</label>
-                                    <input type="text" id="newName1"
-                                        placeholder="Enter new name">
-                                    <button
-                                        onclick="changeInventoryName(1)">Change
-                                        Name</button>
-
-                                    <label for="newPhoto1">New Photo:</label>
-                                    <input type="file" id="newPhoto1"
-                                        accept="image/*">
-                                    <button
-                                        onclick="changeInventoryPhoto(1)">Change
-                                        Photo</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col position-relative">
-                            <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Inventory 2</h5>
@@ -472,7 +470,7 @@
             const inventoryTemplate = `
             <div class="col position-relative">
                             <div class="card h-100">
-                                <img src="vector60-745-01.jpg"
+                                <img src="/DBMS Interface/images/cover.jpg"
                                     class="card-img-top" alt="Inventory 2">
                                 <div class="card-body">
                                     <h5 class="card-title">Inventory 2</h5>

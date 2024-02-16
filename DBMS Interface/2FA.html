@@ -4,27 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
     <title>Inventory Management System - Two-Factor Authentication</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Font Awesome Icons for the key icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!-- Custom Styles -->
     <style>
         body {
-            background-color: #f8f9fa;
-            padding-top: 60px; 
-            padding-bottom: 60px; 
+            background-image: url('/DBMS Interface/images/port-1845350_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 60px;
+            padding-bottom: 60px;
         }
 
         .navbar {
@@ -39,9 +33,6 @@
             max-width: 400px;
             margin: auto;
             margin-top: 5%;
-        }
-
-        .form-2fa {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 5px;
@@ -53,8 +44,8 @@
             margin-bottom: 20px;
         }
 
-        .form-control {
-            margin-bottom: 15px;
+        .form-control, .input-group-text, .input-group button {
+            height: calc(2.25rem + 2px);
         }
 
         .footer {
@@ -66,119 +57,86 @@
             text-align: center;
             padding: 10px 0;
         }
-      body {
-        background-color: #f8f9fa;
-        padding-top: 60px; 
-        padding-bottom: 60px; 
-      }
-
-      .navbar {
-        background-color: #343a40;
-      }
-
-      .navbar-brand {
-        color: #ffffff;
-      }
-
-      .two-factor-container {
-        max-width: 400px;
-        margin: auto;
-        margin-top: 5%;
-      }
-
-      .form-2fa {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-2fa-heading {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .form-control {
-        margin-bottom: 15px;
-      }
-
-      .footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #343a40;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 0;
-      }
+        .fa-microphone {
+            cursor: pointer;
+          }
+          
+          .listening {
+            animation: pulseAnimation 1s infinite;
+            color: red; /* Change icon color to red when listening */
+          }
+          
+          .btn-listening {
+            border: none !important; /* Remove border */
+            background-color: transparent !important; /* Ensure background is transparent */
+          }
+          
+          @keyframes pulseAnimation {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+          }
     </style>
 </head>
 
 <body class="text-center">
-  </head>
-
-  <body class="text-center">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Inventory System</a>
         </div>
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Inventory System</a>
-      </div>
     </nav>
 
     <div class="two-factor-container">
-        <form class="form-2fa">
-            <h1 class="h3 mb-3 font-weight-normal form-2fa-heading">Two-Factor Authentication</h1>
-
-            <label for="inputCode" class="sr-only">Authentication Code</label>
-            <input type="text" id="inputCode" class="form-control" placeholder="Authentication Code" required autofocus>
-
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rememberDevice">
-                <label class="form-check-label" for="rememberDevice">Remember this device</label>
-            </div>
       <form class="form-2fa">
-        <h1 class="h3 mb-3 font-weight-normal form-2fa-heading">
-          Two-Factor Authentication
-        </h1>
-
-        <label for="inputCode" class="sr-only">Authentication Code</label>
-        <input
-          type="text"
-          id="inputCode"
-          class="form-control"
-          placeholder="Authentication Code"
-          required
-          autofocus
-        />
-
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="rememberDevice" />
-          <label class="form-check-label" for="rememberDevice"
-            >Remember this device</label
-          >
-        </div>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Verify</button>
-        <button class="btn btn-lg btn-primary btn-block" onclick="location.href='Home.html'" type="submit">
-          Verify
-        </button>
-
-            <p class="mt-3"><a href="#">Resend code</a></p>
-        </form>
-        <p class="mt-3"><a href="#">Resend code</a></p>
+          <h1 class="h3 mb-3 font-weight-normal form-2fa-heading">Two-Factor Authentication</h1>
+          
+          <p class="text-muted">For your security, we require two-factor authentication. Please enter the code sent to your device.</p>
+          
+          <div class="input-group mb-3">
+              <span class="input-group-text animated-icon"><i class="fas fa-key"></i></span>
+              <input type="text" id="inputCode" class="form-control" placeholder="Authentication Code" required autofocus>
+          </div>
+          
+          <div class="form-check mb-3">
+              <input type="checkbox">
+              <label class="form-check-label" for="rememberDevice">Remember this device</label>
+          </div>
+  
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Verify</button>
+          
+          <div class="resend-code mt-3">
+              <p>Didn't receive a code? <a href="#" onclick="resendCode()">Resend code</a> <span id="resend-timer"></span></p>
+          </div>
       </form>
-    </div>
+      <div class="voice-auth-option mt-4 text-center">
+        <p>Or, authenticate using your voice:</p>
+        <button class="btn btn-outline-secondary" id="micButton" onclick="toggleMicrophone()" title="Start Voice Authentication">
+            <i class="fas fa-microphone" id="microphoneIcon"></i>
+        </button>
+    </div>    
+    
+  </div>
 
     <footer class="footer">
         <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
-      <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS and Popper.js -->
+    <!-- Bootstrap JS and Font Awesome JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <script>
+    function resendCode() {
+    document.getElementById('resend-timer').innerHTML = 'Please wait 30 seconds.';
+  }
+
+  function toggleMicrophone() {
+    var icon = document.getElementById("microphoneIcon");
+    var button = document.getElementById("micButton");
+    icon.classList.toggle("listening");
+    button.classList.toggle("btn-listening");
+  }
+    </script>
 </body>
 
-  </body>
 </html>
