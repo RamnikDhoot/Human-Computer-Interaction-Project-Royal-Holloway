@@ -1,0 +1,85 @@
+body {
+    background-image: url('/DBMS Interface/images/port-1845350_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Styles for the navbar */
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand {
+    color: #ffffff;
+}
+
+/* Container styles for sign-up, sign-in, and two-factor authentication*/
+.sign-up-container, .sign-in-container, .two-factor-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles for forms*/
+.form-signup-heading, .form-signin-heading, .form-2fa-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for form controls*/
+.form-control, .input-group-text, .input-group button {
+    margin-bottom: 15px;
+    height: calc(2.25rem + 2px);
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/*Styles for FAQ links, password info sections, and social signin buttons */
+.faq-link, .password-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.password-info-heading {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.social-signin-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Styles for microphone icon with animations for listening state */
+.fa-microphone {
+    cursor: pointer;
+}
+.listening {
+    animation: pulseAnimation 1s infinite;
+    color: red;
+}
+.btn-listening {
+    border: none !important;
+    background-color: transparent !important;
+}
+@keyframes pulseAnimation {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}

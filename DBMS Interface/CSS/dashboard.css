@@ -40,7 +40,7 @@ canvas {
   height: calc(100vh - 48px);
   padding-top: .5rem;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto; /* for Scrollable contents if viewport is shorter than content. */
 }
 
 .sidebar .nav-link {
@@ -66,10 +66,6 @@ canvas {
   font-size: .75rem;
   text-transform: uppercase;
 }
-
-/*
- * Navbar
- */
 
 .navbar-brand {
   padding-top: .75rem;
@@ -99,4 +95,40 @@ canvas {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+
+/* to do list css */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.todo-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  background-color: #f8f9fa; 
+  margin-bottom: 0.5rem; 
+}
+
+#taskList li.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
