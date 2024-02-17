@@ -209,3 +209,14 @@ Week 21, 05/02/24 - 11/02/24
 - Added a versatile Toolbar to the notes application, integrating fully functional undo and redo features to enhance user experience.
 - Introduced an innovative inventory management feature, alongside the capability to generate custom reports, enhancing administrative efficiency.
 - Addressed issues with Bootstrap dropdowns causing layout distortions in the Navbar; rectified through meticulous CSS adjustments and JavaScript enhancements for flawless navigation.
+
+Week 22, 12/02/24 - 18/02/24
+- Enhanced the database website's Navbar for improved aesthetics and functionality, incorporating dropdown menus with integrated security features for enhanced user navigation and safety.
+- Developed a sales data visualization page, featuring interactive graphs and charts powered by JavaScript and the Charts.js library, offering a vivid and insightful representation of sales metrics. [Learn more about Charts.js](https://www.chartjs.org/docs/latest/getting-started/).
+- Implemented an interactive, responsive, and colorful graph display for sales data analysis within the database application, utilizing the Charts.js library to improve data comprehension and engagement.
+- Introduced a dynamic progress bar on the signup page to visually indicate password strength, with custom styling enhancements for a more intuitive user experience.
+- Addressed challenges in linking the password strength progress bar to a descriptive guide on improving password security; solved by utilizing a `passwordDescription` variable in HTML and a JavaScript function to update guidance as password strength changes.
+- Revolutionized the two-factor authentication (2FA) page by adding an animated microphone option for voice authentication, offering a more interactive and modernized security feature.
+- Created an interactive to-do list feature on the dashboard page, enabling users to efficiently manage tasks with options to add and remove items, enhancing productivity and organization.
+- Reorganized the directory structure of the database website for improved modularity, separating JavaScript and CSS files and incorporating reusable components for the Navbar and footer, streamlining maintenance and development.
+- Comprehensively explored and documented key concepts such as Fitts' Law, interaction models, human cognition, and interaction techniques within the project report, enriching the theoretical foundation and practical application of design principles in the project.
