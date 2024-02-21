@@ -46,6 +46,13 @@
       .card-img-top {
         border-radius: 15px;
       }
+.step-1-color { background-color: #007bff; } 
+.step-2-color { background-color: #28a745; } 
+.step-3-color { background-color: #17a2b8; } 
+.step-4-color { background-color: #ffc107; } 
+.step-5-color { background-color: #dc3545; } 
+.step-6-color { background-color: #6f42c1; } 
+.step-7-color { background-color: #343a40; } 
 
     </style>
   </head>
@@ -600,9 +607,51 @@
           sessionStorage.setItem('shoppingProgress', "Step 2: Go to basket");
         });
       });
+      
+
+      
+      // Function to update the progress bar and step description
+        document.addEventListener('DOMContentLoaded', function() {
+          let currentStep = 1; 
+        
+          function updateProgressBar(step) {
+            const progressSteps = [
+              "Step 1: Add item to basket",
+              "Step 2: Go to basket",
+              "Step 3: Check items are correct",
+              "Step 4: Put billing information",
+              "Step 5: Choose payment method",
+              "Step 6: Put payment info",
+              "Step 7: Done"
+            ];
+        
+            const progressBar = document.querySelector('.progress-bar');
+            const stepDescription = document.getElementById('stepDescription');
+        
+            const percentage = (step / progressSteps.length) * 100;
+        
+            // Update progress bar
+            progressBar.style.width = `${percentage}%`;
+            progressBar.setAttribute('aria-valuenow', percentage);
+            progressBar.textContent = progressSteps[step - 1];
+            stepDescription.textContent = progressSteps[step - 1];
+        
+            // Clear existing classes and apply the current step's color
+            progressBar.className = 'progress-bar'; // Reset classes
+            progressBar.classList.add('step-' + step + '-color'); // Apply new step color
+          }
+        
+          // Attach click event listener to the "Add to cart" button
+          document.querySelector('.add-to-cart').addEventListener('click', function() {
+            currentStep = 2; // Move to step 2
+            updateProgressBar(currentStep);
+          });
+        
+          // Initialize with current step
+          updateProgressBar(currentStep);
+        });
+      
       </script>
-      
-      
       
       
   </body>

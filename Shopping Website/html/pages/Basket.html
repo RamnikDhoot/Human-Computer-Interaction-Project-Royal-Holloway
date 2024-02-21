@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css">
     <style>
-        .progress-container {
-            padding: 20px 0;
-        }
+        .step-1-color { background-color: #007bff; } 
+        .step-2-color { background-color: #28a745; } 
+        .step-3-color { background-color: #17a2b8; } 
+        .step-4-color { background-color: #ffc107; } 
+        .step-5-color { background-color: #dc3545; } 
+        .step-6-color { background-color: #6f42c1; } 
+        .step-7-color { background-color: #343a40; } 
 
-        .progress-description {
-            text-align: center;
-            margin-top: 10px;
-        }
     </style>
   </head>
   <body>
@@ -526,6 +526,48 @@
     updateProgressBar(currentStep);
 });
 
+
+// Progress bar colour
+document.addEventListener('DOMContentLoaded', function () {
+    var currentStep = 3; 
+
+    function updateProgressBar(step) {
+        var steps = [
+            "Step 1: Add item to basket",
+            "Step 2: Go to basket",
+            "Step 3: Check items are correct",
+            "Step 4: Put billing information",
+            "Step 5: Choose payment method",
+            "Step 6: Put payment info",
+            "Step 7: Done"
+        ];
+        var percentage = (step / steps.length) * 100;
+        var progressBar = document.querySelector('.progress-bar');
+        if (!progressBar) {
+            console.error('Progress bar element not found!');
+            return;
+        }
+
+        // Clear existing classes and apply the current step's color
+        progressBar.className = 'progress-bar';
+        progressBar.classList.add('step-' + step + '-color'); 
+
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', percentage);
+        progressBar.textContent = steps[step - 1];
+
+        console.log('Progress bar updated to step:', step); 
+    }
+
+    document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
+        if (currentStep < 7) { 
+            currentStep++;
+            updateProgressBar(currentStep);
+        }
+    });
+
+    updateProgressBar(currentStep);
+});
 </script>
     <script src="/Shopping Website/assets/js/Main.js"></script>
   </body>
