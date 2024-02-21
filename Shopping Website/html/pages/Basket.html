@@ -1,574 +1,700 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content />
     <title>Basket</title>
 
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-        crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css">
-    <style>
-        .step-1-color { background-color: #007bff; } 
-        .step-2-color { background-color: #28a745; } 
-        .step-3-color { background-color: #17a2b8; } 
-        .step-4-color { background-color: #ffc107; } 
-        .step-5-color { background-color: #dc3545; } 
-        .step-6-color { background-color: #6f42c1; } 
-        .step-7-color { background-color: #343a40; } 
-
-    </style>
+    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css"
+    />
   </head>
   <body>
-    <header class="site-header sticky-top py-1"> <!--Sticks the nav-bar to the top of the page when the user scrolls down-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="Homepage.html">Shopping</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        > 
-          <span class="navbar-toggler-icon"></span> <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!--d-flex flex-row me-1-->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="Homepage.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-                  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-                </svg>
-                Home
-              </a>
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Notifications.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                </svg>
-                Notifications
-              </a>
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Settings.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                </svg>
-                Settings
-              </a>              
-            </li>
-          </ul>
-          <div class="d-flex justify-content-center align-items-center me-0"></div>
-          <form class="d-flex me-auto" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search...."
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-              </svg>
-            </button>
-          </form></div>
-          <div class="d-flex flex-row me-1">
-            
-          <div
-            class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3"
+    <header class="site-header sticky-top py-1">
+      <!--Sticks the nav-bar to the top of the page when the user scrolls down-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="Homepage.html">Shopping</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <a href="#login" class="text-white">Login</a>
-            <a
-              href="#signup"
-              class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2"
-              >Sign Up</a
-            >
-          </div>
-          <a  href="Basket.html">
-          <button type="button" class="btn position-relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg>
-            <span
-              class="position-absolute top-0 start-100 translate-middle badge bg-primary"
-              >0</span
-            >
+            <span class="navbar-toggler-icon"></span>
+            <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
           </button>
-        </a>
-        </div>
-        
-      <button type="button" class="btn btn-secondary" id="readScreenButton" onclick="toggleReadScreen()" style="margin-right: 10px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-          <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
-        </svg>
-      </button>
-  
-    </nav>
-  </header>
-  
-<!-- Progress bar -->
-<!-- Progress Bar at Step 3 -->
-<div class="container mt-4">
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 42.85%;" aria-valuenow="42.85" aria-valuemin="0" aria-valuemax="100">Step 3: Check items are correct</div>
-  </div>
-  <div id="stepDescription" class="text-center mt-2">Next, put billing information</div>
-</div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!--d-flex flex-row me-1-->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="Homepage.html"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-house-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"
+                    />
+                    <path
+                      d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"
+                    />
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Notifications.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-bell-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+                    />
+                  </svg>
+                  Notifications
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Settings.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-gear-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                    />
+                  </svg>
+                  Settings
+                </a>
+              </li>
+            </ul>
+            <div
+              class="d-flex justify-content-center align-items-center me-0"
+            ></div>
+            <form class="d-flex me-auto" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search...."
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+          <div class="d-flex flex-row me-1">
+            <div
+              class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3"
+            >
+              <a href="#login" class="text-white">Login</a>
+              <a
+                href="#signup"
+                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2"
+                >Sign Up</a
+              >
+            </div>
+            <a href="Basket.html">
+              <button type="button" class="btn position-relative">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="white"
+                  class="bi bi-cart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge bg-primary"
+                  >0</span
+                >
+              </button>
+            </a>
+          </div>
 
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
-          </svg>
-      <h2>Checkout form</h2>
-      <p class="lead">Checkout</p>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="readScreenButton"
+            onclick="toggleReadScreen()"
+            style="margin-right: 10px"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-book"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="container mt-4">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: 42.85%"
+          aria-valuenow="42.85"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Step 3: Check items are correct
+        </div>
+      </div>
+      <div id="stepDescription" class="text-center mt-2">
+        Next, put billing information
+      </div>
     </div>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">£10</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">£1</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">£9</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">−£12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total</span>
-            <strong>£3</strong>
-          </li>
-        </ul>
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="currentColor"
+            class="bi bi-bag-check-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"
+            />
+          </svg>
+          <h2>Checkout form</h2>
+          <p class="lead">Checkout</p>
+        </div>
 
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-primary">Your cart</span>
+              <span class="badge bg-primary rounded-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">Product name</h6>
+                  <small class="text-muted">Brief description</small>
+                </div>
+                <span class="text-muted">£10</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">Second product</h6>
+                  <small class="text-muted">Brief description</small>
+                </div>
+                <span class="text-muted">£1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">Third item</h6>
+                  <small class="text-muted">Brief description</small>
+                </div>
+                <span class="text-muted">£9</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between bg-light"
+              >
+                <div class="text-success">
+                  <h6 class="my-0">Promo code</h6>
+                  <small>EXAMPLECODE</small>
+                </div>
+                <span class="text-success">−£12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total</span>
+                <strong>£3</strong>
+              </li>
+            </ul>
+
+            <form class="card p-2">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Promo code"
+                />
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+              </div>
+            </form>
+            <button id="itemsCorrectBtn" class="btn btn-primary mt-3">
+              These items are correct
+            </button>
           </div>
-        </form>
-        <button id="itemsCorrectBtn" class="btn btn-primary">These items are correct</button>
 
-      </div>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Billing address</h4>
+            <form id="billingInfoForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">First name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder
+                    value
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
 
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">Last name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder
+                    value
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Valid last name is required.
+                  </div>
+                </div>
 
-      <div class="col-md-7 col-lg-8">
-    <h4 class="mb-3">Billing address</h4>
-    <form id="billingInfoForm" class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
+                <div class="col-12">
+                  <label for="username" class="form-label">Username</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      placeholder="Username"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Your username is required.
+                    </div>
+                  </div>
+                </div>
 
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
+                <div class="col-12">
+                  <label for="email" class="form-label"
+                    >Email <span class="text-muted">(Optional)</span></label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
 
-            <div class="col-12">
-              <label for="username" class="form-label">Username</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback">
-                  Your username is required.
+                <div class="col-12">
+                  <label for="address" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    placeholder="1234 Main St"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter your shipping address.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address2" class="form-label"
+                    >Address 2 <span class="text-muted">(Optional)</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address2"
+                    placeholder="Apartment or suite"
+                  />
+                </div>
+
+                <div class="col-md-5">
+                  <label for="country" class="form-label">Country</label>
+                  <select class="form-select" id="country" required>
+                    <option value>Choose...</option>
+                    <option>United Kingdom</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="state" class="form-label">City</label>
+                  <select class="form-select" id="state" required>
+                    <option value>Choose...</option>
+                    <option>Test</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please provide a valid City.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="zip" class="form-label">Postcode</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="pc"
+                    placeholder
+                    required
+                  />
+                  <div class="invalid-feedback">Postcode required.</div>
                 </div>
               </div>
+
+              <hr class="my-4" />
+            </form>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="same-address"
+              />
+              <label class="form-check-label" for="same-address"
+                >Shipping address is the same as my billing address</label
+              >
             </div>
 
-            <div class="col-12">
-              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="save-info" />
+              <label class="form-check-label" for="save-info"
+                >Save this information for next time</label
+              >
+            </div>
+
+            <hr class="my-4" />
+
+            <h4 class="mb-3 mt-5">Payment Method</h4>
+            <form id="paymentTypeForm">
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="credit"
+                    >Credit card</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="debit">Debit card</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
               </div>
-            </div>
+              <hr class="my-4" />
+            </form>
 
-            <div class="col-12">
-              <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
+            <h4 class="mb-3 mt-5">Payment Information</h4>
+            <form id="paymentInfoForm">
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Name on card</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    placeholder
+                    required
+                  />
+                  <small class="text-muted"
+                    >Full name as displayed on card</small
+                  >
+                  <div class="invalid-feedback">Name on card is required</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label"
+                    >Credit card number</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                    placeholder
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label"
+                    >Expiration</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-expiration"
+                    placeholder
+                    required
+                  />
+                  <div class="invalid-feedback">Expiration date required</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-cvv"
+                    placeholder
+                    required
+                  />
+                  <div class="invalid-feedback">Security code required</div>
+                </div>
               </div>
-            </div>
+            </form>
 
-            <div class="col-12">
-              <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
+            <hr class="my-4" />
 
-            <div class="col-md-5">
-              <label for="country" class="form-label">Country</label>
-              <select class="form-select" id="country" required>
-                <option value="">Choose...</option>
-                <option>United Kingdom</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">City</label>
-              <select class="form-select" id="state" required>
-                <option value="">Choose...</option>
-                <option>Test</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid City.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Postcode</label>
-              <input type="text" class="form-control" id="pc" placeholder="" required>
-              <div class="invalid-feedback">
-                Postcode required.
-              </div>
-            </div>
+            <button
+              class="w-100 btn btn-primary btn-lg"
+              type="button"
+              id="checkoutButton"
+            >
+              Continue to checkout
+            </button>
           </div>
-
-          <hr class="my-4">
-      </form>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
-          </div>
-
-          <hr class="my-4">
-
-          <h4 class="mb-3 mt-5">Payment Method</h4>
-    <form id="paymentTypeForm">
-
-      <div class="my-3">
-        <div class="form-check">
-            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="credit">Credit card</label>
         </div>
-        <div class="form-check">
-            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="debit">Debit card</label>
-        </div>
-        <div class="form-check">
-            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="paypal">PayPal</label>
-        </div>
+      </main>
     </div>
-    <hr class="my-4">
-</form>        
 
-<h4 class="mb-3 mt-5">Payment Information</h4>
-<form id="paymentInfoForm">
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Credit card number is required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>          
-          </div>
-
-          </form>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="button" id="checkoutButton">Continue to checkout</button>
-        </div>
-    </div>
-  </main>
-</div>
-
-
-
-
-<!-- Modal for checkout button-->
-<div class="modal fade" id="purchaseCompleteModal" style="display: none;" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="purchaseCompleteModalLabel">Purchase Complete</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-            <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
-          </svg>
-          <p>Your purchase has been completed successfully.</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer
-      class="py-3 my-4 text-center"
+    <!-- Modal for checkout button-->
+    <div
+      class="modal fade"
+      id="purchaseCompleteModal"
+      style="display: none"
+      aria-hidden="true"
     >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-            <h3>Explore, Shop, Enjoy!</h3>
-            <p>Welcome to This shopping website, your go-to destination for an unparalleled shopping experience. We're dedicated to making your online shopping journey seamless and enjoyable.</p>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="purchaseCompleteModalLabel">
+              Purchase Complete
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="80"
+                height="80"
+                fill="currentColor"
+                class="bi bi-check-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                />
+                <path
+                  d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"
+                />
+              </svg>
+              <p>Your purchase has been completed successfully.</p>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
         </div>
-        <div class="col-lg-2">
+      </div>
+    </div>
+
+    <footer class="py-3 my-4 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>Explore, Shop, Enjoy!</h3>
+            <p>
+              Welcome to This shopping website, your go-to destination for an
+              unparalleled shopping experience. We're dedicated to making your
+              online shopping journey seamless and enjoyable.
+            </p>
+          </div>
+          <div class="col-lg-2">
             <h5>Quick Links</h5>
             <ul class="list-unstyled">
-                <li><a href="Homepage.html">Home</a></li>
-                <li><a href="Items.html">Shop</a></li>
-                <li><a href="Deals.html">Deals</a></li>
-                <li><a href="Contact.html">Contact</a></li>
+              <li><a href="Homepage.html">Home</a></li>
+              <li><a href="Items.html">Shop</a></li>
+              <li><a href="Deals.html">Deals</a></li>
+              <li><a href="Contact.html">Contact</a></li>
             </ul>
-        </div>
-        <div class="col-lg-3">
+          </div>
+          <div class="col-lg-3">
             <h5>Customer Support</h5>
-            <p>Have questions or need assistance? Reach out to us at <a href="mailto:your-support@email.com">Example@email.com</a>.</p>
-        </div>
-        <div class="col-lg-2">
-          <h5>Connect With Us</h5>
-          <div class="social-icons">
-            <a href="" class="text-light"
-              ><i class="bi bi-twitter-x"></i></a>
-            <a href="" class="text-light"
-              ><i class="bi bi-discord"></i></svg
-            ></a>
-            <a href="" class="text-light"
-              ><i class="bi bi-facebook"></i></a>
-            <a href="" class="text-light"
-              ><i class="bi bi-youtube"></i></a>
+            <p>
+              Have questions or need assistance? Reach out to us at
+              <a href="mailto:your-support@email.com">Example@email.com</a>.
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <h5>Connect With Us</h5>
+            <div class="social-icons">
+              <a href class="text-light"><i class="bi bi-twitter-x"></i></a>
+              <a href class="text-light"><i class="bi bi-discord"></i></a>
+              <a href class="text-light"><i class="bi bi-facebook"></i></a>
+              <a href class="text-light"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-1 text-right">
+            <a
+              href="#"
+              id="backToTopBtn"
+              class="text-light"
+              title="Back to Top"
+            >
+              Back to Top
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-arrow-up-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="col-lg-1 text-right">
-            <a href="#" id="backToTopBtn" class="text-light" title="Back to Top">
-                Back to Top
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-    </div>
+      </div>
     </footer>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-97N6H9LcT3QUi0J6Z4tMk9MFwKX+KlFNMJk4qBm5w6wFtvm0iVWzg6PhAnfR7Btw"
+      crossorigin="anonymous"
+    ></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-97N6H9LcT3QUi0J6Z4tMk9MFwKX+KlFNMJk4qBm5w6wFtvm0iVWzg6PhAnfR7Btw" 
-        crossorigin="anonymous"></script>
+    <script>
+      // Function to show the modal
+      function showModal() {
+        var modal = document.getElementById("purchaseCompleteModal");
+        modal.style.display = "block";
+        modal.classList.add("show");
+      }
 
-<script>
-   // Function to show the modal
-  function showModal() {
-    var modal = document.getElementById('purchaseCompleteModal');
-    modal.style.display = 'block';
-    modal.classList.add('show');
-  }
+      // Function to hide the modal
+      function hideModal() {
+        var modal = document.getElementById("purchaseCompleteModal");
+        modal.style.display = "none";
+        modal.classList.remove("show");
+      }
 
-  // Function to hide the modal
-  function hideModal() {
-    var modal = document.getElementById('purchaseCompleteModal');
-    modal.style.display = 'none';
-    modal.classList.remove('show');
-  }
+      // Event listener for the checkout button
+      document
+        .getElementById("checkoutButton")
+        .addEventListener("click", function () {
+          showModal();
+        });
 
-  // Event listener for the checkout button
-  document.getElementById('checkoutButton').addEventListener('click', function() {
-    showModal();
-  });
+      //Event listener for the modal's close button
+      document
+        .querySelector(".btn-close")
+        .addEventListener("click", function () {
+          hideModal();
+        });
 
-  //Event listener for the modal's close button
-  document.querySelector('.btn-close').addEventListener('click', function() {
-    hideModal();
-  });
-
-  //Event listener for clicking outside the modal to close - Flexibility
-  window.addEventListener('click', function(event) {
-    var modal = document.getElementById('purchaseCompleteModal');
-    if (event.target == modal) {
-      hideModal();
-    }
-  });
-
-  // Progress Bar
-  document.addEventListener('DOMContentLoaded', function () {
-    var currentStep = 3; // Starting at Step 3 bacue you would already be in the basket
-
-    function updateProgressBar(step) {
-        var steps = [
-            "Step 1: Add item to basket",
-            "Step 2: Go to basket",
-            "Step 3: Check items are correct",
-            "Step 4: Put billing information",
-            "Step 5: Choose payment method",
-            "Step 6: Put payment info",
-            "Step 7: Done"
-        ];
-        var percentage = (step / steps.length) * 100;
-        var progressBar = document.querySelector('.progress-bar');
-        progressBar.style.width = percentage + '%';
-        progressBar.setAttribute('aria-valuenow', percentage);
-        progressBar.textContent = steps[step - 1];
-    }
-
-    document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
-        if (currentStep === 3) {
-            currentStep = 4;
-            updateProgressBar(currentStep);
+      //Event listener for clicking outside the modal to close - Flexibility
+      window.addEventListener("click", function (event) {
+        var modal = document.getElementById("purchaseCompleteModal");
+        if (event.target == modal) {
+          hideModal();
         }
-    });
-
-    document.getElementById('billingInfoForm').addEventListener('input', function() {
-        // Check if all required fields in billingInfoForm are filled
-        var allFilled = Array.from(this.querySelectorAll('[required]')).every(input => input.value.trim() !== '');
-        if (currentStep === 4 && allFilled) {
-            currentStep = 5;
-            updateProgressBar(currentStep);
-        }
-    });
-
-    document.getElementById('paymentTypeForm').addEventListener('change', function() {
-        // Check if a payment method is selected
-        if (currentStep === 5 && this.querySelector('[name="paymentMethod"]:checked')) {
-            currentStep = 6;
-            updateProgressBar(currentStep);
-        }
-    });
-
-    document.getElementById('paymentInfoForm').addEventListener('input', function() {
-        // Check if all required fields in paymentInfoForm are filled
-        var allFilled = Array.from(this.querySelectorAll('[required]')).every(input => input.value.trim() !== '');
-        if (currentStep === 6 && allFilled) {
-            currentStep = 7;
-            updateProgressBar(currentStep);
-        }
-    });
-
-    // Initialize the progress bar at the current step
-    updateProgressBar(currentStep);
-});
-
-
-// Progress bar colour
-document.addEventListener('DOMContentLoaded', function () {
-    var currentStep = 3; 
-
-    function updateProgressBar(step) {
-        var steps = [
-            "Step 1: Add item to basket",
-            "Step 2: Go to basket",
-            "Step 3: Check items are correct",
-            "Step 4: Put billing information",
-            "Step 5: Choose payment method",
-            "Step 6: Put payment info",
-            "Step 7: Done"
-        ];
-        var percentage = (step / steps.length) * 100;
-        var progressBar = document.querySelector('.progress-bar');
-        if (!progressBar) {
-            console.error('Progress bar element not found!');
-            return;
-        }
-
-        // Clear existing classes and apply the current step's color
-        progressBar.className = 'progress-bar';
-        progressBar.classList.add('step-' + step + '-color'); 
-
-        progressBar.style.width = percentage + '%';
-        progressBar.setAttribute('aria-valuenow', percentage);
-        progressBar.textContent = steps[step - 1];
-
-        console.log('Progress bar updated to step:', step); 
-    }
-
-    document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
-        if (currentStep < 7) { 
-            currentStep++;
-            updateProgressBar(currentStep);
-        }
-    });
-
-    updateProgressBar(currentStep);
-});
-</script>
+      });
+    </script>
     <script src="/Shopping Website/assets/js/Main.js"></script>
+    <script src="/Shopping Website/assets/js/progressbar.js"></script>
   </body>
 </html>

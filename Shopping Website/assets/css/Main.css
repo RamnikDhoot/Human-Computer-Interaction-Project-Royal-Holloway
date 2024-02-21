@@ -227,3 +227,12 @@ body.dark-mode, .sidebar.dark-mode, .main-content.dark-mode, h2.dark-mode, .btn-
 }
 
 
+.step-1-color { background-color: #007bff; } 
+        .step-2-color { background-color: #28a745; } 
+        .step-3-color { background-color: #17a2b8; } 
+        .step-4-color { background-color: #ffc107; } 
+        .step-5-color { background-color: #dc3545; } 
+        .step-6-color { background-color: #6f42c1; } 
+        .step-7-color { background-color: #343a40; } 
+
+        

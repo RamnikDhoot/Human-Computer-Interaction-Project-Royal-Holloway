@@ -10,51 +10,11 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css"/>
+    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <style>
-      .list-group-item {
-        background-color: transparent;
-        padding: 0;
-        position: relative;
-      }
-
-      .category-link {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #2200ff;
-      }
-
-      .list-group-item:not(:last-child)::after {
-        content: "→";
-        position: absolute;
-        right: -8px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #000000;
-        font-size: 16px;
-      }
-
-      .category-link:hover {
-        text-decoration: none;
-        background-color: #f8f9fa;
-      }
-
-      .card-img-top {
-        border-radius: 15px;
-      }
-.step-1-color { background-color: #007bff; } 
-.step-2-color { background-color: #28a745; } 
-.step-3-color { background-color: #17a2b8; } 
-.step-4-color { background-color: #ffc107; } 
-.step-5-color { background-color: #dc3545; } 
-.step-6-color { background-color: #6f42c1; } 
-.step-7-color { background-color: #343a40; } 
-
-    </style>
   </head>
   <body>
     <header class="site-header sticky-top py-1">
@@ -174,7 +134,11 @@
               >
             </div>
             <a href="Basket.html">
-              <button type="button" class="btn position-relative" id="basketButton">
+              <button
+                type="button"
+                class="btn position-relative"
+                id="basketButton"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
@@ -187,9 +151,11 @@
                     d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
                   />
                 </svg>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-          id="cartCount">0</span>
-                
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  id="cartCount"
+                  >0</span
+                >
               </button>
             </a>
           </div>
@@ -220,12 +186,21 @@
     <!-- Progress Bar -->
     <div class="container mt-4">
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 14.28%;" aria-valuenow="14.28" aria-valuemin="0" aria-valuemax="100">Step 1: Add item to basket</div>
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width: 14.28%"
+          aria-valuenow="14.28"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          Step 1: Add item to basket
+        </div>
       </div>
-      <div id="stepDescription" class="text-center mt-2">Step 1: Add item to basket</div>
+      <div id="stepDescription" class="text-center mt-2">
+        Step 1: Add item to basket
+      </div>
     </div>
-    
-    
 
     <div class="row">
       <div class="col">
@@ -287,7 +262,10 @@
                 value="1"
                 style="max-width: 3rem"
               />
-              <button class="btn btn-outline-dark flex-shrink-0 add-to-cart" type="button">
+              <button
+                class="btn btn-outline-dark flex-shrink-0 add-to-cart"
+                type="button"
+              >
                 <i class="bi-cart-fill me-1"></i>
                 Add to cart
               </button>
@@ -454,7 +432,7 @@
         </div>
       </div>
     </section>
-    
+
     <footer class="py-3 my-4 text-center">
       <div class="container">
         <div class="row">
@@ -485,15 +463,10 @@
           <div class="col-lg-2">
             <h5>Connect With Us</h5>
             <div class="social-icons">
-              <a href="" class="text-light"
-                ><i class="bi bi-twitter-x"></i></a>
-              <a href="" class="text-light"
-                ><i class="bi bi-discord"></i></svg
-              ></a>
-              <a href="" class="text-light"
-                ><i class="bi bi-facebook"></i></a>
-              <a href="" class="text-light"
-                ><i class="bi bi-youtube"></i></a>
+              <a href="" class="text-light"><i class="bi bi-twitter-x"></i></a>
+              <a href="" class="text-light"><i class="bi bi-discord"></i></a>
+              <a href="" class="text-light"><i class="bi bi-facebook"></i></a>
+              <a href="" class="text-light"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
           <div class="col-lg-1 text-right">
@@ -530,129 +503,46 @@
     ></script>
     <script src="/Shopping Website/assets/js/Main.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener("DOMContentLoaded", function () {
         // Function to increment cart count
         function incrementCartCount() {
           var cartCount = document.getElementById("cartCount");
           cartCount.textContent = parseInt(cartCount.textContent) + 1;
         }
-  
+
         // Attach click event listener to the basket button
-        document.getElementById('basketButton').addEventListener('click', incrementCartCount);
-  
+        document
+          .getElementById("basketButton")
+          .addEventListener("click", incrementCartCount);
+
         // Attach click event listeners to all "Add to cart" buttons
-        document.querySelectorAll('.add-to-cart').forEach(function(button) {
-          button.addEventListener('click', incrementCartCount);
+        document.querySelectorAll(".add-to-cart").forEach(function (button) {
+          button.addEventListener("click", incrementCartCount);
         });
       });
 
       // Progress Bar
       function moveToNextStep(currentStep) {
         // Remove 'active' class from all steps
-        document.querySelectorAll('.progress-indicator li').forEach(function(step) {
-          step.classList.remove('active');
-        });
+        document
+          .querySelectorAll(".progress-indicator li")
+          .forEach(function (step) {
+            step.classList.remove("active");
+          });
 
         // Add 'active' class to the current step and all previous steps
         for (let i = 1; i <= currentStep; i++) {
-          document.getElementById('step' + i).classList.add('active');
+          document.getElementById("step" + i).classList.add("active");
         }
       }
 
-      document.querySelector('.add-to-cart').addEventListener('click', function() {
-        // Add the item to the basket logic here
-        moveToNextStep(2); // Move to step 2 after adding an item
-      });
-
+      document
+        .querySelector(".add-to-cart")
+        .addEventListener("click", function () {
+          // Add the item to the basket logic here
+          moveToNextStep(2); // Move to step 2 after adding an item
+        });
     </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const progressSteps = [
-          "Step 1: Add item to basket",
-          "Step 2: Go to basket",
-          "Step 3: Check items are correct",
-          "Step 4: Put billing information",
-          "Step 5: Choose payment method",
-          "Step 6: Put payment info",
-          "Step 7: Done"
-        ];
-      
-        const progressBar = document.querySelector('.progress-bar');
-        const stepDescription = document.getElementById('stepDescription');
-      
-        // Update progress bar when adding an item to the basket
-        document.querySelector('.add-to-cart').addEventListener('click', function() {
-          progressBar.style.width = '28.56%'; // Move to Step 2
-          progressBar.setAttribute('aria-valuenow', '28.56');
-          progressBar.textContent = progressSteps[1]; // "Step 2: Go to basket"
-          stepDescription.textContent = progressSteps[1];
-        });
-      
-        // Function to update progress on page load if coming from the single item page
-        function updateProgressForBasketPage() {
-          const currentStep = sessionStorage.getItem('shoppingProgress');
-          if (currentStep === "Step 2: Go to basket") {
-            progressBar.style.width = '28.56%';
-            progressBar.setAttribute('aria-valuenow', '28.56');
-            progressBar.textContent = currentStep;
-            stepDescription.textContent = "Next, check items are correct";
-          }
-        }
-      
-        // Check if we need to update progress on load (for basket page scenario)
-        updateProgressForBasketPage();
-      
-        // Optional: Save progress in session storage when adding item to basket
-        document.querySelector('.add-to-cart').addEventListener('click', function() {
-          sessionStorage.setItem('shoppingProgress', "Step 2: Go to basket");
-        });
-      });
-      
-
-      
-      // Function to update the progress bar and step description
-        document.addEventListener('DOMContentLoaded', function() {
-          let currentStep = 1; 
-        
-          function updateProgressBar(step) {
-            const progressSteps = [
-              "Step 1: Add item to basket",
-              "Step 2: Go to basket",
-              "Step 3: Check items are correct",
-              "Step 4: Put billing information",
-              "Step 5: Choose payment method",
-              "Step 6: Put payment info",
-              "Step 7: Done"
-            ];
-        
-            const progressBar = document.querySelector('.progress-bar');
-            const stepDescription = document.getElementById('stepDescription');
-        
-            const percentage = (step / progressSteps.length) * 100;
-        
-            // Update progress bar
-            progressBar.style.width = `${percentage}%`;
-            progressBar.setAttribute('aria-valuenow', percentage);
-            progressBar.textContent = progressSteps[step - 1];
-            stepDescription.textContent = progressSteps[step - 1];
-        
-            // Clear existing classes and apply the current step's color
-            progressBar.className = 'progress-bar'; // Reset classes
-            progressBar.classList.add('step-' + step + '-color'); // Apply new step color
-          }
-        
-          // Attach click event listener to the "Add to cart" button
-          document.querySelector('.add-to-cart').addEventListener('click', function() {
-            currentStep = 2; // Move to step 2
-            updateProgressBar(currentStep);
-          });
-        
-          // Initialize with current step
-          updateProgressBar(currentStep);
-        });
-      
-      </script>
-      
-      
+    <script src="/Shopping Website/assets/js/progressbar.js"></script>
   </body>
 </html>
