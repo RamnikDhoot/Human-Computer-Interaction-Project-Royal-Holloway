@@ -23,10 +23,11 @@ public class NotesApplication {
     private final List<String> notes;
     private final JTextArea noteTextArea;
     private boolean isFullScreen = false;
+    private boolean isTouchScreenMode = false; 
+    private JButton exitTouchScreenModeButton; 
     private FileMenuHandler fileMenuHandler;
     private ToolBarHandler toolBarHandler;
-
-
+    private Font originalTextAreaFont;
 
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
@@ -42,11 +43,15 @@ public class NotesApplication {
         // Create components
         noteTextArea = new JTextArea();
         JButton addNoteButton = new JButton("Add Note");
-
+         // Initialize exit touch screen mode button but do not add it yet
+         exitTouchScreenModeButton = new JButton("Exit TS");
+         exitTouchScreenModeButton.addActionListener(e -> disableTouchScreenMode());
 
         // Set names for components
         noteTextArea.setName("noteTextArea");
         addNoteButton.setName("addNoteButton");
+        originalTextAreaFont = noteTextArea.getFont();
+
 
         // Add action listener to the button
         addNoteButton.addActionListener(e -> {
@@ -55,8 +60,10 @@ public class NotesApplication {
             noteTextArea.setText(""); // Clear the text area after adding a note
         });
 
-        //Create Tool Bar
+        // Create Tool Bar
         toolBarHandler = new ToolBarHandler(frame, noteTextArea);
+        toolBarHandler.setExitTouchScreenModeButton(exitTouchScreenModeButton); // Set the exit touchscreen mode button
+
         JToolBar toolBar = toolBarHandler.createToolBar();
 
         // Create main menu bar
@@ -119,8 +126,6 @@ public class NotesApplication {
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
         frame.add(toolBar, BorderLayout.WEST);
-
-
     }
 
     /**
@@ -143,12 +148,62 @@ public class NotesApplication {
     } // Opens menu for changing colors, already installed in swing
 
     /**
-     * Enables touch-screen mode by displaying an on-screen keyboard dialog.
+     * Enables touch-screen mode by making UI elements larger for easier tapping and
+     * readability.
      */
     private void enableTouchScreenMode() {
+        // Show popup message indicating touch screen mode is active
+        JOptionPane.showMessageDialog(frame, "Touch Screen Mode Active");
+
+        // Increase font size for JTextArea
+        noteTextArea.setFont(new Font("Arial", Font.PLAIN, 24));
+
+        // Apply similar changes for other UI elements as needed
+
+        // Adjusting JMenu items font size
+        for (int i = 0; i < frame.getJMenuBar().getMenuCount(); i++) {
+            JMenu menu = frame.getJMenuBar().getMenu(i);
+            changeMenuFontSize(menu, 18);
+        }
+
+        // Make the exit button visible
+        exitTouchScreenModeButton.setVisible(true);
+        isTouchScreenMode = true;
+
+        // Optionally, display an on-screen keyboard
         JDialog keyboardDialog = createKeyboardDialog(frame);
         keyboardDialog.setLocationRelativeTo(frame);
         keyboardDialog.setVisible(true);
+    }
+
+    private void disableTouchScreenMode() {
+        // Hide the exit touch screen mode button
+        exitTouchScreenModeButton.setVisible(false);
+        isTouchScreenMode = false;
+
+        noteTextArea.setFont(originalTextAreaFont);
+
+        for (int i = 0; i < frame.getJMenuBar().getMenuCount(); i++) {
+            JMenu menu = frame.getJMenuBar().getMenu(i);
+            changeMenuFontSize(menu, 1);
+        }
+    }
+
+    /**
+     * Recursively changes the font size of menu items and their submenus.
+     *
+     * @param menu The menu to adjust font size for.
+     */
+    private void changeMenuFontSize(JMenu menu, int size) {
+        menu.setFont(new Font("Arial", Font.BOLD, size)); // Set the menu font size
+        for (int i = 0; i < menu.getItemCount(); i++) {
+            JMenuItem menuItem = menu.getItem(i);
+            if (menuItem instanceof JMenu) {
+                changeMenuFontSize((JMenu) menuItem, size);
+            } else if (menuItem != null) { // Check to avoid null pointer exception
+                menuItem.setFont(new Font("Arial", Font.PLAIN, size));
+            }
+        }
     }
 
     /**
@@ -199,7 +254,6 @@ public class NotesApplication {
     public List<String> getNotes() {
         return notes;
     }
-
 
     /**
      * The main method to launch the NotesApplication.

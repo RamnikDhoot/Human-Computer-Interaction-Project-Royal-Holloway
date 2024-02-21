@@ -9,6 +9,8 @@ public class ToolBarHandler {
     private JTextArea noteTextArea;
     private JFrame frame;
     private final UndoManager undoManager = new UndoManager();
+    private JButton exitTouchScreenModeButton; // Button to exit touch screen mode
+
 
 
     public ToolBarHandler(JFrame frame, JTextArea noteTextArea) {
@@ -31,7 +33,16 @@ public class ToolBarHandler {
         toolBar.add(undoButton);
         toolBar.add(redoButton);
 
+        if (exitTouchScreenModeButton != null) {
+            toolBar.add(exitTouchScreenModeButton);
+            exitTouchScreenModeButton.setVisible(false); // Initially hide the button
+        }
+
         return toolBar; 
+    }
+
+    public void setExitTouchScreenModeButton(JButton button) {
+        this.exitTouchScreenModeButton = button;
     }
         
      public void undo() {
