@@ -85,13 +85,14 @@ public class FileMenuHandler {
         System.out.println("Printing to Printer");
     }
 
-    /**
-     * Displays the print preview (currently empty).
-     */
-    public void showPrintPreview() {
-        // Empty for now
-        System.out.println("Show Print Preview");
-    }
+/**
+ * Displays the print preview.
+ */
+public void showPrintPreview() {
+    PrintPreviewExample printPreview = new PrintPreviewExample(frame);
+    printPreview.displayPrintPreview();
+}
+
 
     public void openFile() {
         fileChooser = new JFileChooser();

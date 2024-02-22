@@ -5,7 +5,10 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
+import java.awt.event.*;
+
 import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +49,30 @@ public class NotesApplication {
          // Initialize exit touch screen mode button but do not add it yet
          exitTouchScreenModeButton = new JButton("Exit TS");
          exitTouchScreenModeButton.addActionListener(e -> disableTouchScreenMode());
+
+        // Touch and hold menu (not working)
+        // JPopupMenu mockContextMenu = createMockContextMenu();
+        // frame.addMouseListener(new MouseAdapter() {
+        //     private Timer holdTimer;
+    
+        //     public void mousePressed(MouseEvent e) {
+        //         if (holdTimer == null || !holdTimer.isRunning()) {
+        //             holdTimer = new Timer(500, ae -> {
+        //                 mockContextMenu.show(frame, e.getX(), e.getY());
+        //                 holdTimer.stop();
+        //             });
+        //             holdTimer.setRepeats(false);
+        //             holdTimer.start();
+        //         }
+        //     }
+    
+        //     public void mouseReleased(MouseEvent e) {
+        //         if (holdTimer != null && holdTimer.isRunning()) {
+        //             holdTimer.stop();
+        //         }
+        //     }
+        // });
+
 
         // Set names for components
         noteTextArea.setName("noteTextArea");
@@ -213,26 +240,55 @@ public class NotesApplication {
      * @return A JDialog object representing the on-screen keyboard dialog.
      */
     private JDialog createKeyboardDialog(JFrame parent) {
-        JDialog keyboardDialog = new JDialog(parent, "On-Screen Keyboard", true);
-        keyboardDialog.setSize(400, 200);
-
-        // Letters of the alphabet
-        String[] alphabet = {
-                "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-                "A", "S", "D", "F", "G", "H", "J", "K", "L",
-                "Z", "X", "C", "V", "B", "N", "M"
-        };
-
-        // Set a GridLayout with 4 rows and 7 columns for a 4x7 grid
-        keyboardDialog.setLayout(new GridLayout(4, 7));
-
-        for (String letter : alphabet) {
-            JButton letterButton = new JButton(letter);
-            keyboardDialog.add(letterButton);
+        JDialog keyboardDialog = new JDialog(parent, "On-Screen Keyboard", false);
+        keyboardDialog.setSize(600, 300);
+        keyboardDialog.setLayout(new BorderLayout());
+    
+        // Predictive Text Panel
+        JPanel predictiveTextPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel predictiveTextLabel = new JLabel("Predictive Text: ");
+        predictiveTextPanel.add(predictiveTextLabel);
+    
+        // Adding some random predictive texts 
+        String[] predictiveTexts = {"hello", "world", "Java", "Swing"};
+        for (String text : predictiveTexts) {
+            JButton predictiveTextButton = new JButton(text);
+            predictiveTextPanel.add(predictiveTextButton);
         }
-
+    
+        // Keyboard Panel
+        JPanel keyboardPanel = new JPanel();
+        keyboardPanel.setLayout(new GridLayout(4, 10, 5, 5)); // Adjust grid layout for keys
+    
+        // Example keyboard layout
+        String[] keys = {
+            "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+            "A", "S", "D", "F", "G", "H", "J", "K", "L", ";",
+            "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/",
+            "Space", "123", "Lang", "Enter"
+        };
+    
+        for (String key : keys) {
+            JButton keyButton = new JButton(key);
+            keyboardPanel.add(keyButton);
+        }
+    
+        // Language and Layout Switch Panel
+        JPanel switchPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JButton langSwitchButton = new JButton("Lang");
+        JButton layoutSwitchButton = new JButton("Layout");
+        switchPanel.add(langSwitchButton);
+        switchPanel.add(layoutSwitchButton);
+    
+        // Adding panels to the dialog
+        keyboardDialog.add(predictiveTextPanel, BorderLayout.NORTH);
+        keyboardDialog.add(keyboardPanel, BorderLayout.CENTER);
+        keyboardDialog.add(switchPanel, BorderLayout.SOUTH);
+    
         return keyboardDialog;
     }
+    
+    
 
     /**
      * Toggles between full-screen and windowed mode.
@@ -254,6 +310,30 @@ public class NotesApplication {
     public List<String> getNotes() {
         return notes;
     }
+
+    // Touch and hold menu (not working)
+    // private JPopupMenu createMockContextMenu() {
+    //     JPopupMenu contextMenu = new JPopupMenu();
+    //     JMenuItem copyItem = new JMenuItem("Copy");
+    //     JMenuItem pasteItem = new JMenuItem("Paste");
+    //     JMenuItem deleteItem = new JMenuItem("Delete");
+    //     JMenuItem formatItem = new JMenuItem("Format");
+    
+    //     // Add mock actions or simply display them for demonstration
+    //     ActionListener mockActionListener = e -> JOptionPane.showMessageDialog(null, "Mock Action Performed: " + e.getActionCommand());
+    //     copyItem.addActionListener(mockActionListener);
+    //     pasteItem.addActionListener(mockActionListener);
+    //     deleteItem.addActionListener(mockActionListener);
+    //     formatItem.addActionListener(mockActionListener);
+    
+    //     contextMenu.add(copyItem);
+    //     contextMenu.add(pasteItem);
+    //     contextMenu.add(deleteItem);
+    //     contextMenu.add(formatItem);
+    
+    //     return contextMenu;
+    // }
+    
 
     /**
      * The main method to launch the NotesApplication.

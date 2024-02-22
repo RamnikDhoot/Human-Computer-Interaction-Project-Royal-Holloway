@@ -42,14 +42,13 @@ public class NotesApplicationTest {
 
     @Test
     void testAddNote() {
-        // The note that is written
         String testNote = "This is a test note.";
-
-        // Put the note in the writing area and clicking add note
         frame.textBox("noteTextArea").enterText(testNote);
         frame.button("addNoteButton").click();
-
+        // Verify the note appears in the UI component where it's expected.
+        assertThat(frame.list("notesList").contents()).contains(testNote);
     }
+    
 //////////////////////////////////////////////////////////////////////////
     @Test
     void testMenuBarExists() {
