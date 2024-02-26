@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Sidebar */
+.bg-light.sidebar {
+  min-height: 100vh;
+}

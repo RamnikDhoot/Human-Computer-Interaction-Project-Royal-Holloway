@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './navbar.css';
 
 const NavBar = () => {
   const [loading, setLoading] = useState(false);
