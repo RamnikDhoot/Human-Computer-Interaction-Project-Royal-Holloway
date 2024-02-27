@@ -9,8 +9,9 @@ import {
     Mic,
     PlusCircle,
 } from "react-feather";
+import styles from'/src/components/NavBar/navbar.module.css';
 
-const NavBar = () => {
+function NavBar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false); // State for loading spinner visibility
 
