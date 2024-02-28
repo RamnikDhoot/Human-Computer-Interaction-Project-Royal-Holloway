@@ -9,7 +9,7 @@ import {
     Mic,
     PlusCircle,
 } from "react-feather";
-import styles from'/src/components/NavBar/navbar.module.css';
+import "/src/assets/CSS/navbar.css";
 
 function NavBar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
