@@ -1,17 +1,23 @@
-body {
-    background-image: url('/DBMS Interface/images/port-1845350_1280.jpg');
+.text-center {
+    background-image: url('/src/assets/images/port-1845350_1280.jpg');
     background-size: cover;
     background-position: center;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 60px; 
+    color: #343a40;
+    min-height: 100vh; 
 }
+
 
 /* Styles for the navbar */
 .navbar {
     background-color: #343a40;
 }
 .navbar-brand {
+    background-color: #343a40;
     color: #ffffff;
+    border: none; 
+    outline: none; 
+    box-shadow: none; 
 }
 
 /* Container styles for sign-up, sign-in, and two-factor authentication*/

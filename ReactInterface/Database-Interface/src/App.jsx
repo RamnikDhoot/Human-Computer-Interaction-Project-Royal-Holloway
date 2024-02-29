@@ -7,10 +7,11 @@ import "./App.css";
 import SideBar from "./components/SideBar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import SaleData from "./pages/Sale data.jsx";
+import SignIn from "./pages/Login pages/SignIn.jsx";
 
 function App() {
   return (
-    
+    <SignIn/>
       
   );
 }
