@@ -81,4 +81,26 @@ function initCharts() {
         },
         options: {}
     });
+
+    // Revenue by Region Chart
+var revenueByRegionCtx = document.getElementById('revenueByRegionChart').getContext('2d');
+var revenueByRegionChart = new Chart(revenueByRegionCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['North America', 'Europe', 'Asia'],
+        datasets: [{
+            label: 'Revenue by Region',
+            data: [5000, 3000, 4000],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)'
+            ],
+            hoverOffset: 4
+        }]
+    },
+    options: {}
+});
+
+
 }

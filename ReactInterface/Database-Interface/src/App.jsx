@@ -6,18 +6,12 @@ import Home from "./pages/Home.jsx";
 import "./App.css";
 import SideBar from "./components/SideBar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import SaleData from "./pages/Sale data.jsx";
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <div className="container-fluid">
-        <SideBar />
-
-        <Dashboard />
-        
-      </div>
-    </>
+    
+      
   );
 }
 
@@ -30,3 +24,19 @@ export default App;
         <Home />
         
       </div> */}
+
+      // <NavBar />
+      // <div className="container-fluid">
+      //   <SideBar />
+
+      //   <SaleData />
+        
+      // </div>
+
+// <NavBar />
+      // <div className="container-fluid">
+      //   <SideBar />
+
+      //   <SaleData />
+        
+      // </div>
