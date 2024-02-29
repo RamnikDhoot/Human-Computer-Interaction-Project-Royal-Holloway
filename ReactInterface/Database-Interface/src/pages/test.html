@@ -1,67 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="text-center">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Inventory Management System - Two-Factor Authentication</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons for the key icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<div className="text-center">
     <nav className="navbar navbar-expand-md navbar-dark fixed-top">
+        <div className="container-fluid">
+            <a className="navbar-brand" href="#">Inventory System</a>
+        </div>
+    </nav>
 
-
-    <div class="sign-in-container">
-        <form class="form-signin" onsubmit="return validateCredentials()">
-            <h1 class="h3 mb-3 font-weight-normal form-signin-heading">Sign In</h1>
-            
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-            </div>            
-            
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
-                    <i class="fas fa-eye" id="togglePasswordIcon"></i>
-                </button>
-            </div>
-            
+    <div className="two-factor-container">
+      <form className="form-2fa">
+          <h1 className="h3 mb-3 font-weight-normal form-2fa-heading">Two-Factor Authentication</h1>
+          
+          <p className="text-muted">For your security, we require two-factor authentication. Please enter the code sent to your device.</p>
+          
+          <div className="input-group mb-3">
+              <span className="input-group-text animated-icon"><i className="fas fa-key"></i></span>
+              <input type="text" id="inputCode" className="form-control" placeholder="Authentication Code" required autofocus>
+          </div>
+          
+          
+  
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Verify</button>
+          
+          <div className="resend-code mt-3">
+              <p>Didn't receive a code? <a href="#" onclick="resendCode()">Resend code</a> <span id="resend-timer"></span></p>
+          </div>
+      </form>
+      <div className="voice-auth-option mt-4 text-center">
+        <p>Or, authenticate using your voice:</p>
+        <button className="btn btn-outline-secondary" id="micButton" onclick="toggleMicrophone()" title="Start Voice Authentication">
+            <i className="fas fa-microphone" id="microphoneIcon"></i>
+        </button>
+    </div>    
     
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-            <p class="mt-3">Don't have an account? <a href="Signup.html">Sign Up</a></p>
-            <div class="social-signin-buttons">
-                <a href="https://en-gb.facebook.com/" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
-                <a href="https://accounts.google.com/signup" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
-            </div>
-        </form>
-    </div>
+  </div>
 
-    <footer class="footer">
+    <footer className="footer">
         <p>&copy; 2023 Inventory Management System. All rights reserved.</p>
     </footer>
 
-    <script>
-        function validateCredentials() {
-            var username = document.getElementById('inputUsername').value;
-            var password = document.getElementById('inputPassword').value;
-            // Simplified validation logic for demonstration purposes
-            if(username === 'admin' && password === 'admin') {
-                window.location.href = 'dashboard.html'; // Redirect to dashboard or appropriate page
-                return true; // Form submission will be handled normally
-            } else {
-                alert('Invalid username or password');
-                return false; // Prevent form submission
-            }
-        }
-        //Password visibility
-        function togglePasswordVisibility() {
-        var passwordInput = document.getElementById('inputPassword');
-        var passwordIcon = document.querySelector('.fa-eye');
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            passwordIcon.classList.replace('fa-eye', 'fa-eye-slash');
-        } else {
-            passwordInput.type = "password";
-            passwordIcon.classList.replace('fa-eye-slash', 'fa-eye');
-        }
-    }
-
-    </script>
-    <!-- Bootstrap JS, Popper.js, and Font Awesome Icons -->
+    <!-- Bootstrap JS and Font Awesome JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <script>
+    function resendCode() {
+    document.getElementById('resend-timer').innerHTML = 'Please wait 30 seconds.';
+  }
+
+  function toggleMicrophone() {
+    var icon = document.getElementById("microphoneIcon");
+    var button = document.getElementById("micButton");
+    icon.classNameList.toggle("listening");
+    button.classNameList.toggle("btn-listening");
+  }
+    </script>
 </div>
+
+</html>

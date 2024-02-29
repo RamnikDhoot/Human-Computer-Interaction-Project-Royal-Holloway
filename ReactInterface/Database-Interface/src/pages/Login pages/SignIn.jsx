@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "/src/assets/CSS/Signin.css";
-import Footer from "../../components/Footer"; // Use this if you have a Footer component
 import { User, Lock, Eye, EyeOff, Facebook } from "react-feather";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 
