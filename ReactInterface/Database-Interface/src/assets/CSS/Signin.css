@@ -31,6 +31,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.password-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 0.5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Heading styles for forms*/
 .form-signup-heading, .form-signin-heading, .form-2fa-heading {
     text-align: center;

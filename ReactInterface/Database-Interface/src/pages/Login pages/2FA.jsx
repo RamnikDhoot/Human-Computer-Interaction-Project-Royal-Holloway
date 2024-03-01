@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Key, Mic } from 'react-feather';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "/src/assets/CSS/Signin.css";
 
 function TwoFactorAuth() {
+  const navigate = useNavigate(); 
   const [code, setCode] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [isResending, setIsResending] = useState(false);
   const [countdown, setCountdown] = useState(30);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Code submitted:', code);
+    if (code === '1111') {
+      navigate('/home'); 
+    } else {
+      setError('Wrong code. Please try again.'); 
+      setCode(''); 
+    }
   };
 
   const resendCode = () => {
@@ -26,6 +34,7 @@ function TwoFactorAuth() {
       if (timer === 0) {
         clearInterval(interval);
         setIsResending(false);
+        setError(''); 
       }
     }, 1000);
   };
@@ -98,6 +107,9 @@ function TwoFactorAuth() {
             )}
           </div>
         </form>
+
+        {error && <div className="alert alert-danger" role="alert">{error}</div>}
+
 
         <div className="voice-auth-option mt-4">
           <p>Or, authenticate using your voice:</p>

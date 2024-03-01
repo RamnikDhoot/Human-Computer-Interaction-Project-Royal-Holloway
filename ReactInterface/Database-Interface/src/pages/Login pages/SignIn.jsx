@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "/src/assets/CSS/Signin.css";
 import { User, Lock, Eye, EyeOff, Facebook } from "react-feather";
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { FaFacebookF, FaGoogle } from "react-icons/fa"; //react-feather doesn't have Facebook and google icons
 
 function SignIn() {
+  const navigate = useNavigate(); 
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -11,8 +14,11 @@ function SignIn() {
   const validateCredentials = (e) => {
     e.preventDefault(); // Prevent default form submission
     if (username === "admin" && password === "admin") {
+      navigate("/2fa"); 
     } else {
       alert("Invalid username or password");
+      setUsername(""); // Clear field username and password
+      setPassword(""); 
     }
   };
 
@@ -24,7 +30,7 @@ function SignIn() {
     <div className="text-center">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand">
             Inventory System
           </a>
         </div>

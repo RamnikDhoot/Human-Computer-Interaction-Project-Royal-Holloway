@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "/src/assets/CSS/navbar.css";
 
 function NavBar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(false); // State for loading spinner visibility
+    const [isLoading, setIsLoading] = useState(false); 
+    const navigate = useNavigate(); 
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -15,14 +17,14 @@ function NavBar() {
         // Simulate a delay for signing out
         setTimeout(() => {
             setIsLoading(false);
-            window.location.href = "Cover page.html?signedOut=true";
+            navigate("/"); 
         }, 3000); // 3 second delay
     };
 
     return (
         <>
             {/* Navigation bar */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+            <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container-fluid">
                     <div className="navbar-brand dropdown">
                         <a
@@ -58,7 +60,7 @@ function NavBar() {
                                 <hr className="dropdown-divider" />
                             </li>
                             <li>
-                                <a className="dropdown-item" href="#" onClick={signOut}>
+                                <a className="dropdown-item" onClick={signOut}>
                                     Sign out
                                 </a>
                             </li>
@@ -82,7 +84,7 @@ function NavBar() {
                         className="collapse navbar-collapse justify-content-center"
                         id="navbarNavDropdown"
                     >
-                        <form className="form-inline">
+                        <form className="form-inline mt-3">
                             <div className="input-group rounded-pill">
                                 <input
                                     className="form-control rounded-pill me-2"
@@ -97,18 +99,17 @@ function NavBar() {
                                 >
                                     <img
                                         src="\src\components\NavBar\search.svg"
-                                        alt="Person Square"
+                                        alt="search"
                                     />
                                 </button>
                             </div>
                         </form>
                     </div>
 
-                    {/* Sign out on the right */}
+                    {/* Sign out*/}
                     <div className="d-flex align-items-center">
                         <a
                             className="nav-link text-white"
-                            href="#"
                             id="signOutLink"
                             onClick={signOut}
                             style={{

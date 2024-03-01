@@ -2,13 +2,12 @@
 import React, { useState } from "react";
 import "/src/assets/CSS/main.css";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function CoverPage() {
-  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
-  const navigateTo = (path) => {
-    window.location.href = path;
-  };
+  const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -55,7 +54,7 @@ function CoverPage() {
             <div className="mb-2">
               <button
                 className="btn btn-custom btn-primary-custom"
-                onClick={() => navigateTo("/signin")}
+                onClick={() => navigate("/signin")}
               >
                 Login
               </button>
@@ -63,7 +62,7 @@ function CoverPage() {
             <div className="mb-2">
               <button
                 className="btn btn-custom btn-secondary-custom"
-                onClick={() => navigateTo("/signup")}
+                onClick={() => navigate("/signup")}
               >
                 Create Account
               </button>

@@ -330,17 +330,17 @@ function Dashboard() {
         <h6 className="border-bottom pb-2 mb-0">Recent Activity</h6>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-16</em>.
           </p>
         </div>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-17</em>.
           </p>
         </div>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-02-16</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-18</em>.
           </p>
         </div>
       </div>
