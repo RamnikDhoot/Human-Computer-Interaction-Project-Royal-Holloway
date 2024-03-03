@@ -1,3 +1,4 @@
+
 module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest', // Transform JavaScript and JSX files with babel-jest
@@ -6,4 +7,9 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy' // Mock CSS modules
   },
   testEnvironment: 'jsdom', // Use jsdom environment
+  setupFiles: ['jest-canvas-mock'],
+  moduleDirectories: ['node_modules', 'src'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+
+
 };
