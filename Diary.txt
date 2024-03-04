@@ -233,3 +233,16 @@ Week 23, 19/02/24 - 25/02/24
 - Overcame connectivity issues between the new print preview page and the main Notes app by creating a method in the `PrintPreview` class to simulate print actions, alongside developing a new printer preview class showcasing example pages and incorporating test cases for added features.
 - Attempted to integrate a NavBar React component into the project, facing initial challenges in getting it to function as intended.
 - Completed sections of the project report detailing the target audience, utilized technologies, and background research, providing a thorough context and foundation for the project's development and objectives.
+
+Week 24, 26/02/24 - 03/03/24
+- Encountered an issue with the loading spinner during the React conversion process. This was adeptly resolved by leveraging React's state management to dynamically control the spinner's visibility, enhancing user feedback during data loading operations.
+- Successfully adapted JavaScript functions for React compatibility, including a comprehensive redesign of the navbar to function seamlessly within the React ecosystem, ensuring a smooth transition and improved user navigation.
+- Transformed the cover page into React JSX format, simultaneously addressing issues with the help modal. This conversion streamlined the integration of interactive elements, providing a more cohesive user experience.
+- In the process of creating home.jsx, it became necessary to separate the sidebar from the navbar to accommodate their placement in distinct columns on the page, optimizing layout design and user interface coherence.
+- Addressed a React Fragment issue where the <tbody> tag's inclusion within a React Fragment hindered proper table rendering. By reorganizing the DOM structure to comply with React's rendering requirements, table functionality was fully restored.
+- Initiated the setup of a React testing framework using Jest, encountering a configuration error where Jest struggled to process CSS files. This was resolved by mocking static file imports, such as CSS and images, with the moduleNameMapper configuration in Jest, streamlining the testing process by bypassing non-JavaScript imports.
+- Encountered and resolved a package management error by purging the corrupted node_modules folder and package-lock.json file, followed by a fresh installation of packages, ensuring a stable development environment.
+- Achieved a milestone in completing the conversion of the database website to React, marking a significant leap forward in the project's development.
+- Drafted the "My Progress" section of the project documentation, including detailed accounts of work completed, the design process, and the exploration of design methodologies beyond user-centered design (UCD) and Agile, offering insights into the application of HCI principles in design decisions.
+- Completed a comprehensive draft for the professional issues section, addressing ethical, social, and professional considerations in software development.
+- next i will complete unit testing for the database website to ensure robustness and reliability. Additionally, i plan to create documentation using JSDoc
