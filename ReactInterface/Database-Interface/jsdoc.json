@@ -1,0 +1,11 @@
+{
+    "source": {
+      "include": ["src"],
+      "excludePattern": "(node_modules/|build)" 
+    },
+    "plugins": ["plugins/markdown"],
+    "opts": {
+      "destination": "./docs"
+    }
+  }
+  
