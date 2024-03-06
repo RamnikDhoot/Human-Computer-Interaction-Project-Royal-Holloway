@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import coverImage from '/src/assets/images/cover.jpg'; 
+import coverImage from '../assets/images/cover.jpg';
 
 function InventoryCard({ id, title, description }) {
   const [name, setName] = useState('');
