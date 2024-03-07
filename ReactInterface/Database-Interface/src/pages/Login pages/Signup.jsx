@@ -1,8 +1,18 @@
+/**
+ * Signup component for user registration.
+ * This component allows users to sign up by providing their username, email, and password.
+ * 
+ */
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { User, Mail, Lock } from "react-feather";
 import "/src/assets/CSS/Signin.css";
 
+/**
+ * Functional component representing the sign-up page.
+ * 
+ * @returns {JSX.Element} JSX representing the Signup component.
+ */
 function Signup() {
   const [formData, setFormData] = useState({
     username: "",
@@ -17,6 +27,11 @@ function Signup() {
   const [progressBarColor, setProgressBarColor] = useState("");
   const navigate = useNavigate(); 
 
+   /**
+   * Function to calculate the strength of the password.
+   * Calculates the strength based on various criteria such as length, uppercase, lowercase, numbers, and special characters.
+   * Updates the password strength state and displays the description and color accordingly.
+   */
   useEffect(() => {
     calculateStrength();
   }, [formData.password]);
@@ -52,6 +67,12 @@ function Signup() {
     setProgressBarColor(color);
   };
 
+  /**
+   * Function to handle input change in the form fields.
+   * Updates the formData state with the new values.
+   * 
+   * @param {Event} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -60,6 +81,13 @@ function Signup() {
     });
   };
 
+  /**
+   * Function to handle form submission.
+   * Validates the form data such as password match and strength.
+   * Alerts the user accordingly and clears the input fields if there's an error.
+   * 
+   * @param {Event} e - The form submission event.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (

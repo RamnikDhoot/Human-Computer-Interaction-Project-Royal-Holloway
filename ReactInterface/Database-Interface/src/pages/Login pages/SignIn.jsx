@@ -1,27 +1,48 @@
+/**
+ * SignIn component for user authentication.
+ * This component allows users to sign in using their username and password.
+ *
+ */
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "/src/assets/CSS/Signin.css";
 import { User, Lock, Eye, EyeOff, Facebook } from "react-feather";
 import { FaFacebookF, FaGoogle } from "react-icons/fa"; //react-feather doesn't have Facebook and google icons
 
+/**
+ * Functional component representing the sign-in page.
+ *
+ * @returns {JSX.Element} JSX representing the SignIn component.
+ */
 function SignIn() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+  /**
+   * Function to validate user credentials.
+   * If the username and password are correct, navigates to the 2FA page.
+   * Otherwise, displays an error alert and clears the input fields.
+   *
+   * @param {Event} e - The form submission event.
+   */
   const validateCredentials = (e) => {
     e.preventDefault(); // Prevent default form submission
     if (username === "admin" && password === "admin") {
-      navigate("/2fa"); 
+      navigate("/2fa");
     } else {
       alert("Invalid username or password");
       setUsername(""); // Clear field username and password
-      setPassword(""); 
+      setPassword("");
     }
   };
 
+  /**
+   * Function to toggle password visibility.
+   * Toggles the visibility of the password input field.
+   */
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -30,9 +51,7 @@ function SignIn() {
     <div className="text-center">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand">
-            Inventory System
-          </a>
+          <a className="navbar-brand">Inventory System</a>
         </div>
       </nav>
 

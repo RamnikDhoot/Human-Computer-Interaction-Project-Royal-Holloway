@@ -2,15 +2,34 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "/src/assets/CSS/navbar.css";
 
+/**
+ * A component that renders the NavBar with dropdown and sign-out functionality.
+ * 
+ * This component utilizes React's useState hook for managing the state of the dropdown menu and loading indicator.
+ * It provides a toggle function to show or hide the dropdown menu and a signOut function to handle user sign-out,
+ * showing a loading spinner for a brief period before navigating to the home page.
+ * 
+ * The NavBar includes a welcome message with a dropdown for profile, settings, and sign-out options, a search bar,
+ * and a sign-out link. The loading spinner is displayed when the sign-out process is initiated.
+ * 
+ * @returns {JSX.Element} The NavBar component with a dropdown menu, search bar, and sign-out functionality.
+ */
 function NavBar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false); 
     const navigate = useNavigate(); 
 
+    /**
+     * Toggles the dropdown menu open or closed.
+     */
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
+    /**
+     * Handles the sign-out action.
+     * Displays a loading spinner for 3 seconds before navigating to the home page.
+     */
     const signOut = () => {
         setIsLoading(true); // Show the spinner
 

@@ -1,3 +1,7 @@
+/**
+ * Dashboard component for displaying various charts, notifications, recent updates, and task lists.
+ *
+ */
 import React, { useState } from "react";
 import { Line, Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
@@ -14,26 +18,48 @@ import {
   PlusCircle,
 } from "react-feather";
 
+/**
+ * Functional component representing the dashboard.
+ *
+ * @returns {JSX.Element} JSX representing the Dashboard component.
+ */
 function Dashboard() {
-    const [tasks, setTasks] = useState([]);
-    const [newTask, setNewTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
 
-    const addTask = () => {
-        if (newTask.trim() !== "") {
-            setTasks([...tasks, { text: newTask, checked: false }]);
-            setNewTask(''); // Clear the input after adding
-        }
-    };
+  /**
+   * Function to add a new task to the task list.
+   * Adds a new task to the tasks array if the input is not empty.
+   * Clears the input field after adding the task.
+   */
+  const addTask = () => {
+    if (newTask.trim() !== "") {
+      setTasks([...tasks, { text: newTask, checked: false }]);
+      setNewTask(""); // Clear the input after adding
+    }
+  };
 
-    const toggleTask = (index) => {
-        const newTasks = [...tasks];
-        newTasks[index].checked = !newTasks[index].checked;
-        setTasks(newTasks);
-    };
+  /**
+   * Function to toggle the completion status of a task.
+   * Toggles the checked property of the task at the specified index.
+   *
+   * @param {number} index - The index of the task to toggle.
+   */
+  const toggleTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks[index].checked = !newTasks[index].checked;
+    setTasks(newTasks);
+  };
 
-    const removeTask = (index) => {
-        setTasks(tasks.filter((_, i) => i !== index));
-    };
+  /**
+   * Function to remove a task from the task list.
+   * Removes the task at the specified index from the tasks array.
+   *
+   * @param {number} index - The index of the task to remove.
+   */
+  const removeTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
 
   // Example data for charts
   const salesChartData = {
@@ -180,7 +206,6 @@ function Dashboard() {
         <p className="mb-0">Check the Orders section for more details.</p>
       </div>
 
-
       <h2>Your popular items</h2>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
@@ -322,58 +347,78 @@ function Dashboard() {
       </div>
 
       <div className="d-flex justify-content-around my-3 p-3 bg-light rounded shadow-sm">
-        <button type="button" className="btn btn-primary">Add Product</button>
-        <button type="button" className="btn btn-secondary">New Order</button>
-        <button type="button" className="btn btn-success">Generate Report</button>
+        <button type="button" className="btn btn-primary">
+          Add Product
+        </button>
+        <button type="button" className="btn btn-secondary">
+          New Order
+        </button>
+        <button type="button" className="btn btn-success">
+          Generate Report
+        </button>
       </div>
       <div className="my-3 p-3 bg-body rounded shadow-sm">
         <h6 className="border-bottom pb-2 mb-0">Recent Activity</h6>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-16</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a
+            new product <strong>"XYZ"</strong> on <em>2024-01-16</em>.
           </p>
         </div>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-17</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a
+            new product <strong>"XYZ"</strong> on <em>2024-01-17</em>.
           </p>
         </div>
         <div className="d-flex text-muted pt-3">
           <p className="pb-3 mb-0 small lh-sm border-bottom">
-            User <strong className="text-gray-dark">John Doe</strong> added a new product <strong>"XYZ"</strong> on <em>2024-01-18</em>.
+            User <strong className="text-gray-dark">John Doe</strong> added a
+            new product <strong>"XYZ"</strong> on <em>2024-01-18</em>.
           </p>
         </div>
       </div>
 
       {/* Task List */}
       <div className="bg-light p-3 my-3 rounded shadow-sm">
-            <h6>To-Do List</h6>
-            <div className="input-group mb-3">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Add new task..."
-                    aria-label="Task input"
-                    value={newTask}
-                    onChange={(e) => setNewTask(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && addTask()}
-                />
-                <button className="btn btn-outline-secondary" type="button" onClick={addTask}>Add Task</button>
-            </div>
-            <ul className="list-group">
-                {tasks.map((task, index) => (
-                    <li
-                        className={`list-group-item ${task.checked ? 'list-group-item-secondary' : ''}`}
-                        key={index}
-                        onClick={() => toggleTask(index)}
-                        onDoubleClick={() => removeTask(index)}
-                        style={{ cursor: 'pointer', textDecoration: task.checked ? 'line-through' : 'none' }}
-                    >
-                        {task.text}
-                    </li>
-                ))}
-            </ul>
+        <h6>To-Do List</h6>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Add new task..."
+            aria-label="Task input"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && addTask()}
+          />
+          <button
+            className="btn btn-outline-secondary"
+            type="button"
+            onClick={addTask}
+          >
+            Add Task
+          </button>
         </div>
+        <ul className="list-group">
+          {tasks.map((task, index) => (
+            <li
+              className={`list-group-item ${
+                task.checked ? "list-group-item-secondary" : ""
+              }`}
+              key={index}
+              onClick={() => toggleTask(index)}
+              onDoubleClick={() => removeTask(index)}
+              style={{
+                cursor: "pointer",
+                textDecoration: task.checked ? "line-through" : "none",
+              }}
+            >
+              {task.text}
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   );
 }

@@ -1,14 +1,18 @@
-// CoverPage.jsx
 import React, { useState } from "react";
 import "/src/assets/CSS/main.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * CoverPage component representing the landing page of the DBMS Inventory Management system.
+ *
+ */
 function CoverPage() {
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
 
+  // Function to toggle modal visibility
   const toggleModal = () => {
     setShowModal(!showModal);
   };

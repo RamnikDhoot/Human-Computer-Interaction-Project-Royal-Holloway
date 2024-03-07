@@ -1,27 +1,48 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import { Key, Mic } from 'react-feather';
-import 'bootstrap/dist/css/bootstrap.min.css';
+/**
+ * TwoFactorAuth component for handling two-factor authentication.
+ * This component allows users to authenticate using a verification code or via voice.
+ *
+ */
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Key, Mic } from "react-feather";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/assets/CSS/Signin.css";
 
+/**
+ * Functional component representing the two-factor authentication page.
+ *
+ * @returns {JSX.Element} JSX representing the TwoFactorAuth component.
+ */
 function TwoFactorAuth() {
-  const navigate = useNavigate(); 
-  const [code, setCode] = useState('');
+  const navigate = useNavigate();
+  const [code, setCode] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [isResending, setIsResending] = useState(false);
   const [countdown, setCountdown] = useState(30);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
+  /**
+   * Function to handle form submission.
+   * Validates the entered code and navigates to the home page if it's correct.
+   * Otherwise, displays an error message.
+   *
+   * @param {Event} e - The form submission event.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (code === '1111') {
-      navigate('/home'); 
+    if (code === "1111") {
+      navigate("/home");
     } else {
-      setError('Wrong code. Please try again.'); 
-      setCode(''); 
+      setError("Wrong code. Please try again.");
+      setCode("");
     }
   };
 
+  /**
+   * Function to resend the verification code.
+   * Initiates a countdown and enables the resend button after completion.
+   */
   const resendCode = () => {
     setIsResending(true);
     let timer = 30;
@@ -34,11 +55,15 @@ function TwoFactorAuth() {
       if (timer === 0) {
         clearInterval(interval);
         setIsResending(false);
-        setError(''); 
+        setError("");
       }
     }, 1000);
   };
 
+  /**
+   * Function to toggle the microphone for voice authentication.
+   * Toggles the state of the microphone button.
+   */
   const toggleMicrophone = () => {
     setIsListening(!isListening);
   };
@@ -108,8 +133,11 @@ function TwoFactorAuth() {
           </div>
         </form>
 
-        {error && <div className="alert alert-danger" role="alert">{error}</div>}
-
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        )}
 
         <div className="voice-auth-option mt-4">
           <p>Or, authenticate using your voice:</p>

@@ -14,6 +14,22 @@ import { NavLink } from "react-router-dom";
 
 import "/src/assets/CSS/navbar.css";
 
+/**
+ * SideBar Component
+ * Renders a sidebar navigation menu for a dashboard application, including dynamic report links.
+ * The sidebar includes navigation links to different sections such as Dashboard, Orders, Products,
+ * Calendar, Delivery, Home, and Voice Control. Additionally, it has a dynamic list of reports that
+ * can be added to by the user.
+ * 
+ * @component
+ * @requires react
+ * @requires react-router-dom
+ * @requires react-feather
+ * @see {@link https://reactrouter.com/} for React Router documentation.
+ * @see {@link https://feathericons.com/} for React Feather icons.
+ * 
+ * @returns {JSX.Element} The Sidebar component.
+ */
 function SideBar() {
   const navigate = useNavigate(); 
 
