@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SideBar.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SideBar.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import {
+  FileText,
+  Home,
+  File,
+  ShoppingCart,
+  Calendar,
+  Package,
+  Mic,
+  PlusCircle,
+} from "react-feather";
+import { useNavigate } from "react-router-dom"; 
+import { NavLink } from "react-router-dom";
+
+import "/src/assets/CSS/navbar.css";
+
+/**
+ * SideBar Component
+ * Renders a sidebar navigation menu for a dashboard application, including dynamic report links.
+ * The sidebar includes navigation links to different sections such as Dashboard, Orders, Products,
+ * Calendar, Delivery, Home, and Voice Control. Additionally, it has a dynamic list of reports that
+ * can be added to by the user.
+ * 
+ * @component
+ * @requires react
+ * @requires react-router-dom
+ * @requires react-feather
+ * @see {@link https://reactrouter.com/} for React Router documentation.
+ * @see {@link https://feathericons.com/} for React Feather icons.
+ * 
+ * @returns {JSX.Element} The Sidebar component.
+ */
+function SideBar() {
+  const navigate = useNavigate(); 
+
+  const [reports, setReports] = useState([
+    { name: "Current month" },
+    { name: "Last quarter" },
+    { name: "Best products" },
+  ]); // Initial reports
+
+  const addNewReport = () => {
+    const reportName = prompt(
+      "Please enter the name for the new report:",
+      "New Report Name"
+    );
+    if (reportName &amp;&amp; reportName.trim() !== "") {
+      setReports((currentReports) => [...currentReports, { name: reportName }]);
+    } else {
+      alert("You must enter a name to add a new report.");
+    }
+  };
+
+  return (
+    &lt;>
+      &lt;div className="row">
+        {/* Sidebar */}
+        &lt;nav
+          id="sidebarMenu"
+          className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        >
+          &lt;div className="position-sticky pt-3 mt-4">
+            &lt;ul className="nav flex-column">
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/dashboard"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;Home className="feather" /> Dashboard
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/orders"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;File className="feather" /> Orders
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/products"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;ShoppingCart className="feather" /> Products
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/products"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;Calendar className="feather" />
+                  Calendar
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/products"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;Package className="feather" />
+                  Deliverys
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/home"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;Home className="feather" />
+                  Home
+                &lt;/NavLink>
+              &lt;/li>
+              &lt;li className="nav-item">
+                &lt;NavLink
+                  to="/products"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  &lt;Mic className="feather" />
+                  Voice control
+                &lt;/NavLink>
+              &lt;/li>
+            &lt;/ul>
+            &lt;h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              &lt;span>Your inventory's sale data&lt;/span>
+              &lt;a
+                className="link-secondary"
+                onClick={addNewReport}
+                aria-label="Add a new report"
+              >
+                &lt;PlusCircle className="feather" />
+              &lt;/a>
+            &lt;/h6>
+            &lt;ul className="nav flex-column mb-2" id="reportList">
+              {reports.map((report, index) => (
+                &lt;li className="nav-item" key={index}>
+                  &lt;NavLink
+                    to="/saledata"
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    &lt;FileText className="feather" />
+                    {report.name}
+                  &lt;/NavLink>
+                &lt;/li>
+              ))}
+            &lt;/ul>
+          &lt;/div>
+        &lt;/nav>
+      &lt;/div>
+    &lt;/>
+  );
+}
+
+export default SideBar;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CoverPage">CoverPage</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#InventoryCard">InventoryCard</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#SaleData">SaleData</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#SignIn">SignIn</a></li><li><a href="global.html#Signup">Signup</a></li><li><a href="global.html#TwoFactorAuth">TwoFactorAuth</a></li><li><a href="global.html#mockNavigate">mockNavigate</a></li><li><a href="global.html#renderSideBar">renderSideBar</a></li><li><a href="global.html#renderWithRouter">renderWithRouter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 08 2024 11:36:22 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

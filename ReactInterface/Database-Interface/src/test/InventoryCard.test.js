@@ -7,8 +7,17 @@ jest.mock('../assets/images/cover.jpg', () => 'dummy-image-url');
 // Mock the alert function
 window.alert = jest.fn();
 
-
+/**
+ * Test suite for the InventoryCard component.
+ * 
+ * @group InventoryCard
+ */
 describe('InventoryCard Component', () => {
+  /**
+   * Test case to verify that the InventoryCard component renders correctly.
+   * 
+   * @test {InventoryCard} Renders correctly
+   */
   test('renders correctly', () => {
     const { getByText, getByPlaceholderText } = render(
       <InventoryCard id={1} title="Test Inventory" description="Test Description" />
@@ -19,6 +28,11 @@ describe('InventoryCard Component', () => {
     expect(getByPlaceholderText('Enter new name')).toBeInTheDocument();
   });
 
+  /**
+   * Test case to verify that the name changes when the input is changed and the button is clicked.
+   * 
+   * @test {InventoryCard} Changes name when input is changed and button is clicked
+   */
   test('changes name when input is changed and button is clicked', () => {
     const { getByPlaceholderText, getByText } = render(
       <InventoryCard id={1} title="Test Inventory" description="Test Description" />
@@ -32,6 +46,11 @@ describe('InventoryCard Component', () => {
     expect(window.alert).toHaveBeenCalledWith('Changing name for Inventory 1 to: New Inventory Name');
   });
 
+  /**
+   * Test case to verify that the photo changes when the file input is changed and the button is clicked.
+   * 
+   * @test {InventoryCard} Changes photo when file input is changed and button is clicked
+   */
   test('changes photo when file input is changed and button is clicked', () => {
     const { getByLabelText, getByText } = render(
       <InventoryCard id={1} title="Test Inventory" description="Test Description" />

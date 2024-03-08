@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/CoverPage.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/CoverPage.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import "/src/assets/CSS/main.css";
+import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
+
+/**
+ * CoverPage component representing the landing page of the DBMS Inventory Management system.
+ *
+ */
+function CoverPage() {
+  const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
+
+  // Function to toggle modal visibility
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  return (
+    &lt;>
+      &lt;div className="text-center">
+        &lt;nav className="navbar navbar-expand-md navbar-dark fixed-top">
+          &lt;div className="container-fluid">
+            &lt;a className="navbar-brand" href="#">
+              DBMS Inventory System
+            &lt;/a>
+            &lt;button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              &lt;span className="navbar-toggler-icon">&lt;/span>
+            &lt;/button>
+            &lt;div className="collapse navbar-collapse" id="navbarNav">
+              &lt;ul className="navbar-nav ms-auto">
+                &lt;li className="nav-item">
+                  &lt;button className="nav-link" onClick={toggleModal}>
+                    Help
+                  &lt;/button>
+                &lt;/li>
+              &lt;/ul>
+            &lt;/div>
+          &lt;/div>
+        &lt;/nav>
+
+        &lt;div className="cover-container d-flex flex-column h-100 p-3 mx-auto">
+          &lt;main className="my-auto">
+            &lt;h1>Welcome to DBMS Inventory Management&lt;/h1>
+            &lt;p>
+              Efficiently manage your warehouse inventory with our user-friendly
+              system powered by advanced database management technologies.
+            &lt;/p>
+            &lt;div className="mb-2">
+              &lt;button
+                className="btn btn-custom btn-primary-custom"
+                onClick={() => navigate("/signin")}
+              >
+                Login
+              &lt;/button>
+            &lt;/div>
+            &lt;div className="mb-2">
+              &lt;button
+                className="btn btn-custom btn-secondary-custom"
+                onClick={() => navigate("/signup")}
+              >
+                Create Account
+              &lt;/button>
+            &lt;/div>
+          &lt;/main>
+
+          &lt;div className="row text-start">
+            &lt;div className="col-md-4 feature">
+              &lt;h3>Real-Time Data&lt;/h3>
+              &lt;p>
+                Access and manage your inventory in real-time, ensuring data
+                accuracy and efficiency.
+              &lt;/p>
+            &lt;/div>
+            &lt;div className="col-md-4 feature">
+              &lt;h3>Secure Access&lt;/h3>
+              &lt;p>
+                Advanced security protocols to protect your data and provide
+                secure access from anywhere.
+              &lt;/p>
+            &lt;/div>
+            &lt;div className="col-md-4 feature">
+              &lt;h3>Scalability&lt;/h3>
+              &lt;p>
+                Easily scalable solutions to grow with your business, handling
+                increasing data volumes effortlessly.
+              &lt;/p>
+            &lt;/div>
+          &lt;/div>
+
+          &lt;div className="testimonial">
+            &lt;blockquote className="blockquote">
+              &lt;p className="mb-0">
+                "This system has revolutionized how we manage our inventory,
+                providing real-time insights and improving overall efficiency."
+              &lt;/p>
+              &lt;footer className="blockquote-footer">
+                Jane Doe, &lt;cite title="Source Title">Warehouse Manager&lt;/cite>
+              &lt;/footer>
+            &lt;/blockquote>
+          &lt;/div>
+          &lt;div className="testimonial">
+            &lt;blockquote className="blockquote">
+              &lt;p className="mb-0">
+                "The security features give us peace of mind, knowing our data
+                is protected with the best protocols in the industry."
+              &lt;/p>
+              &lt;footer className="blockquote-footer">
+                John Smith, &lt;cite title="Source Title">IT Director&lt;/cite>
+              &lt;/footer>
+            &lt;/blockquote>
+          &lt;/div>
+
+          &lt;div className="contact-form">
+            &lt;h2>Contact Us&lt;/h2>
+            &lt;input
+              type="text"
+              className="form-control"
+              placeholder="Your Name"
+            >&lt;/input>
+            &lt;input
+              type="email"
+              className="form-control"
+              placeholder="Your Email"
+            >&lt;/input>
+            &lt;textarea
+              className="form-control"
+              rows="3"
+              placeholder="Your Message"
+            >&lt;/textarea>
+            &lt;button className="btn btn-primary">Send Message&lt;/button>
+          &lt;/div>
+        &lt;/div>
+
+        {showModal &amp;&amp; (
+          &lt;div
+            className="modal show"
+            style={{ display: "block" }}
+            id="helpModal"
+            tabIndex="-1"
+            aria-labelledby="helpModalLabel"
+            aria-hidden="true"
+          >
+            &lt;div className="modal-dialog">
+              &lt;div className="modal-content">
+                &lt;div className="modal-header">
+                  &lt;h5 className="modal-title" id="helpModalLabel">
+                    Helpful Information
+                  &lt;/h5>
+                  &lt;button
+                    type="button"
+                    className="btn-close"
+                    onClick={toggleModal}
+                  >&lt;/button>
+                &lt;/div>
+                &lt;div className="modal-body">
+                  &lt;p>
+                    Welcome to our DBMS Inventory Management System! Here are
+                    some helpful tips:
+                  &lt;/p>
+                  &lt;ul>
+                    &lt;li>
+                      To add a new item to your inventory, click on the "Create
+                      Item" button in the dashboard.
+                    &lt;/li>
+                    &lt;li>
+                      You can edit item details, such as name and photo, by
+                      clicking on the item and selecting the "Edit" option.
+                    &lt;/li>
+                    &lt;li>
+                      If you need assistance, please contact our support team at
+                      support@inventorysystem.com.
+                    &lt;/li>
+                  &lt;/ul>
+                  &lt;p>Thank you for using our system!&lt;/p>
+                &lt;/div>
+                &lt;div className="modal-footer">
+                  &lt;button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Close
+                  &lt;/button>
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        )}
+
+        {/* Backdrop for modal */}
+        {showModal &amp;&amp; &lt;div className="modal-backdrop show">&lt;/div>}
+      &lt;/div>
+      &lt;Footer />
+    &lt;/>
+  );
+}
+
+export default CoverPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CoverPage">CoverPage</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#InventoryCard">InventoryCard</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#SaleData">SaleData</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#SignIn">SignIn</a></li><li><a href="global.html#Signup">Signup</a></li><li><a href="global.html#TwoFactorAuth">TwoFactorAuth</a></li><li><a href="global.html#mockNavigate">mockNavigate</a></li><li><a href="global.html#renderSideBar">renderSideBar</a></li><li><a href="global.html#renderWithRouter">renderWithRouter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 08 2024 11:36:22 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

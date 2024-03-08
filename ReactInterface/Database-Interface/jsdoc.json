@@ -1,11 +1,14 @@
 {
     "source": {
-      "include": ["src"],
-      "excludePattern": "(node_modules/|build)" 
+      "include": ["src"], 
+      "exclude": ["node_modules"], 
+      "includePattern": ".+\\.js(doc|x)?$" 
     },
-    "plugins": ["plugins/markdown"],
     "opts": {
-      "destination": "./docs"
+      "encoding": "utf8",
+      "destination": "docs/", 
+      "recurse": true, 
+      "verbose": true 
     }
   }
   

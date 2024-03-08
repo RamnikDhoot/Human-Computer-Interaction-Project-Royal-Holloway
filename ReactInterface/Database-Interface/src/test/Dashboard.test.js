@@ -9,7 +9,17 @@ jest.mock('react-chartjs-2', () => ({
   Bar: () => null,
 }));
 
+/**
+ * Test suite for the Dashboard component.
+ * 
+ * @group Dashboard
+ */
 describe('Dashboard', () => {
+  /**
+   * Test case to verify adding a task.
+   * 
+   * @test {Dashboard} Allows users to add a task
+   */
   it('allows users to add a task', async () => {
     render(<Dashboard />);
 
@@ -23,6 +33,11 @@ describe('Dashboard', () => {
     expect(newTask).toBeInTheDocument();
   });
 
+  /**
+   * Test case to verify clearing input after adding a task.
+   * 
+   * @test {Dashboard} Clears input after adding a task
+   */
   it('clears input after adding a task', async () => {
     render(<Dashboard />);
   
@@ -34,6 +49,11 @@ describe('Dashboard', () => {
     expect(inputElement.value).toBe('');
   });
   
+  /**
+   * Test case to verify toggling task completion state.
+   * 
+   * @test {Dashboard} Toggles task completion state
+   */
   it('toggles task completion state', async () => {
     render(<Dashboard />);
   
@@ -47,6 +67,11 @@ describe('Dashboard', () => {
     expect(taskItem).toHaveClass('list-group-item-secondary'); 
   });
   
+  /**
+   * Test case to verify removing a task on double click.
+   * 
+   * @test {Dashboard} Removes a task on double click
+   */
   it('removes a task on double click', async () => {
     render(<Dashboard />);
   
@@ -60,12 +85,16 @@ describe('Dashboard', () => {
     expect(screen.queryByText('New Task')).not.toBeInTheDocument();
   });
   
+  /**
+   * Test case to verify not adding an empty task.
+   * 
+   * @test {Dashboard} Does not add an empty task
+   */
   it('does not add an empty task', () => {
     render(<Dashboard />);
   
     fireEvent.click(screen.getByRole('button', { name: 'Add Task' }));
     const tasks = screen.queryAllByRole('listitem');
-        expect(tasks.length).toBe(0);
+    expect(tasks.length).toBe(0);
   });
-  
 });
