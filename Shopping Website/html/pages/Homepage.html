@@ -26,48 +26,66 @@
       }
 
       .popular-items-section .item {
-    text-align: center;
-    padding: 15px;
-}
-.popular-items-section h5 {
-    margin-top: 10px;
-    font-size: 18px;
-}
-.popular-items-section p {
-    font-size: 16px;
-    color: #555;
-}
+        text-align: center;
+        padding: 15px;
+      }
+      .popular-items-section h5 {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+      .popular-items-section p {
+        font-size: 16px;
+        color: #555;
+      }
 
-.carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: #333;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-  }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #333;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+      }
 
-  .carousel-item img {
-    max-height: 35vh; 
-    object-fit: cover;
-  }
+      .carousel-item img {
+        max-height: 35vh;
+        object-fit: cover;
+      }
 
-  .carousel-caption {
-    background: rgba(0, 0, 0, 0.5); 
-    border-radius: 25px;
-    padding: 10px;
-  }
+      .carousel-caption {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 25px;
+        padding: 10px;
+      }
 
-  .carousel-inner {
-    overflow: hidden;
-  }
+      .carousel-inner {
+        overflow: hidden;
+      }
 
-  .carousel-item {
-    transition: transform 0.5s ease, opacity 0.5s ease; 
-  }
+      .carousel-item {
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
 
-  .carousel-item img {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  }
+      .carousel-item img {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      .section-title h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .btn-learn-more {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      
     </style>
   </head>
   <body>
@@ -250,109 +268,188 @@
     <section>
       <div class="container my-4">
         <h2 class="text-center mb-3">Popular Items</h2>
-        <div id="popularItemsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div
+          id="popularItemsCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="3000"
+        >
           <div class="carousel-inner">
             <!-- First Carousel Item -->
             <div class="carousel-item active">
               <div class="d-block w-100 text-center">
-                <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Item 1">
+                <img
+                  src="/Shopping Website/assets/images/IMG_5400.jpg"
+                  class="img-fluid"
+                  alt="Item 1"
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Item One</h5>
-                  <p>$29.99 - The perfect item for your needs.</p>
+                  <p>£29.99 - The perfect item for your needs.</p>
                 </div>
               </div>
             </div>
             <!-- Second Carousel Item -->
             <div class="carousel-item">
               <div class="d-block w-100 text-center">
-                <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Item 2">
+                <img
+                  src="/Shopping Website/assets/images/OIP (1).jpg"
+                  class="img-fluid"
+                  alt="Item 2"
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Item Two</h5>
-                  <p>$49.99 - Enhance your experience with this.</p>
+                  <p>£49.99 - Enhance your experience with this.</p>
                 </div>
               </div>
             </div>
             <!-- Third Carousel Item -->
             <div class="carousel-item">
               <div class="d-block w-100 text-center">
-                <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Item 3">
+                <img
+                  src="/Shopping Website/assets/images/OIP (2).jpg"
+                  class="img-fluid"
+                  alt="Item 3"
+                />
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Item Three</h5>
-                  <p>$39.99 - Unmatched quality and craftsmanship.</p>
+                  <p>£39.99 - Unmatched quality and craftsmanship.</p>
                 </div>
               </div>
             </div>
           </div>
           <!-- Carousel Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#popularItemsCarousel" data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#popularItemsCarousel"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#popularItemsCarousel" data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#popularItemsCarousel"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
     </section>
-    
-    
-    
-  
 
     <section id="about" class="about">
-      <!--section explaining what the website is-->
       <div class="container">
         <div class="section-title">
           <h2>WHAT THIS WEBSITE IS ABOUT</h2>
         </div>
 
+        <!-- Enhancing readability and engagement with structured content and visuals -->
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              Our website is designed to be compatible with popular screen
-              readers, making it easier for individuals with visual impairments
-              to navigate and access content.
+              Our website is designed for universal accessibility, embracing
+              users with various needs.
             </p>
-            <p>
-              Forms on our website are designed to be accessible and
-              user-friendly. Clear instructions and proper form labels are
-              provided to assist users in filling out information accurately.
-              Your feedback is valuable to us. If you encounter any
-              accessibility issues or have suggestions for improvement, please
-              contact us at [your contact email]. We are continually working to
-              enhance the accessibility of our website. Our website complies
-              with established web accessibility standards, including WCAG 2.1
-              (Web Content Accessibility Guidelines). These guidelines are set
-              forth by the World Wide Web Consortium (W3C) to ensure a
-              universally accessible online environment.
-            </p>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <div class="container">
-              <ul class="list-group">
-                <li class="list-group-item">
-                  We strive to include descriptive text and alternative text
-                  (alt text) for all images on our site. Alt text provides a
-                  textual description of images, allowing users with visual
-                  impairments to understand the content and context.
-                </li>
-                <li class="list-group-item">
-                  We have implemented keyboard navigation features to facilitate
-                  easy browsing for individuals who rely on keyboard input
-                  instead of a mouse.
-                </li>
-                <li class="list-group-item">
-                  To enhance readability, our website allows users to adjust
-                  text size and contrast settings. You can find these options in
-                  the settings menu, providing a personalized viewing
-                  experience.
-                </li>
-                <li class="list-group-item">
-                  <a href="Contact.html" class="btn-learn-more">Learn More</a>
-                </li>
-              </ul>
+            <!-- Interactive accordion for detailed content -->
+            <div class="accordion" id="aboutAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Accessibility and User-Friendliness
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#aboutAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Ensuring compatibility with screen readers and
+                      implementing user-friendly forms with clear instructions
+                      are among our top priorities.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#aboutAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Forms on our website are designed to be accessible and
+                      user-friendly. Clear instructions and proper form labels
+                      are provided to assist users in filling out information
+                      accurately. Your feedback is valuable to us. If you
+                      encounter any accessibility issues or have suggestions for
+                      improvement, please contact us at [your contact email]. We
+                      are continually working to enhance the accessibility of
+                      our website. Our website complies with established web
+                      accessibility standards, including WCAG 2.1 (Web Content
+                      Accessibility Guidelines). These guidelines are set forth
+                      by the World Wide Web Consortium (W3C) to ensure a
+                      universally accessible online environment.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- Feedback mechanism call-to-action -->
+            <a href="Contact.html" class="btn-learn-more"
+              >Share Your Feedback</a
+            >
+          </div>
+
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <!-- This icon serves as a visual cue for the website's commitment to accessibility, following HCI principles to cater to users with diverse needs. -->
+            <div style="text-align: center">
+              <!-- Aligns the icon to the right -->
+              <img
+                src="/Shopping Website/assets/images/accessibility.jpg"
+                alt="Accessibility Icon"
+                style="
+                  width: 250px;
+                  height: 250px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-left: 20px;
+                "
+              />
+              <!-- Inline styles for circular shape and right offset -->
+            </div>
+            <ul class="list-group mt-3">
+              <!-- Adding icons or images to list items can enhance visual engagement -->
+              <li class="list-group-item">
+                We strive to include descriptive text and alternative text (alt
+                text) for all images on our site. Alt text provides a textual
+                description of images, allowing users with visual impairments to
+                understand the content and context.
+              </li>
+              <li class="list-group-item">
+                We have implemented keyboard navigation features to facilitate
+                easy browsing for individuals who rely on keyboard input instead
+                of a mouse.
+              </li>
+              <li class="list-group-item">
+                To enhance readability, our website allows users to adjust text
+                size and contrast settings. You can find these options in the
+                settings menu, providing a personalized viewing experience.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -607,7 +704,8 @@
                 >
                   <path
                     d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"
-                  /></svg></a>
+                  /></svg
+              ></a>
               <a href="" class="text-light"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -619,7 +717,8 @@
                 >
                   <path
                     d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"
-                  /></svg></a>
+                  /></svg
+              ></a>
               <a href="" class="text-light"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -631,7 +730,8 @@
                 >
                   <path
                     d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
-                  /></svg></a>
+                  /></svg
+              ></a>
               <a href="" class="text-light"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +743,8 @@
                 >
                   <path
                     d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z"
-                  /></svg></a>
+                  /></svg
+              ></a>
             </div>
           </div>
           <div class="col-lg-1 text-right">
@@ -673,51 +774,11 @@
       </div>
     </footer>
 
-     <!-- Bootstrap Bundle with Popper -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="/Shopping Website/assets/js/Main.js"></script>
-    <script>
-      //Portfolio section
-      document.addEventListener("DOMContentLoaded", function () {
-        const filters = document.querySelectorAll("#portfolio-flters li"); // Get all filter buttons
-
-        const items = document.querySelectorAll(".portfolio-item"); // Get all items to be filtered
-
-        filters.forEach((filter) => {
-          filter.addEventListener("click", function () {
-            document
-              .querySelector(".filter-active")
-              .classList.remove("filter-active"); // Remove 'filter-active' class from all filters
-
-            this.classList.add("filter-active"); // Add 'filter-active' class to clicked filter (change higlighted category)
-
-            const filterValue = this.getAttribute("data-filter");
-            showFilteredItems(filterValue);
-          });
-        });
-
-        function showFilteredItems(filter) {
-          let itemsArray = Array.from(items); //Show random photos
-          itemsArray.sort(() => Math.random() - 0.5);
-          itemsArray.forEach((item) => {
-            if (
-              filter === "*" ||
-              item.classList.contains(filter.substring(1))
-            ) {
-              item.style.display = "";
-            } else {
-              item.style.display = "none";
-            }
-          });
-        }
-      });
-
-      $('.carousel').carousel({
-        interval: 2000 // Adjust time interval for auto-scroll in milliseconds
-      });
-    </script>
   </body>
 </html>

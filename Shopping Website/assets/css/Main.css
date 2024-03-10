@@ -1,22 +1,76 @@
 /* Adds bar at the top of page so nav-bar look like it touches the top */
 .site-header {
-    background-color: rgba(0, 0, 0, .85);
-  }
-  
-  .student-shopping {
-    background-image: url("/Shopping Website/assets/images/john-schnobrich-2FPjlAyMQTA-unsplash.jpg");
-    background-size: 100%; 
-    background-repeat: no-repeat; 
-    background-position: center 60%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.student-shopping {
+  background-image: url("/Shopping Website/assets/images/john-schnobrich-2FPjlAyMQTA-unsplash.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center 60%;
 }
 
 /* Box that says shop now */
-.home-box{
-    background-color: rgb(56, 56, 56);
-    padding: 20px; 
-    color: white;
-    border-radius: 11px;
+.home-box {
+  background-color: rgba(56, 56, 56, 0.956); /* Dark background for contrast */
+  padding: 20px;
+  color: white; /* High contrast text for better readability */
+  border-radius: 11px; /* Softened corners for a modern, friendly appearance */
 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth, making the element pop out */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for interactive feedback */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center aligns the items for focus */
+  justify-content: center;
+  max-width: 600px; /* Limits the width for better text readability */
+  margin: auto;
+}
+
+.home-box:hover {
+  transform: scale(
+    1.03
+  ); /* Slightly enlarges the box on hover for interactive feedback */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.home-box h1 {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+}
+
+.home-box p {
+  font-size: 1.1rem; /*larger paragraph text for readability */
+  margin-bottom: 20px;
+  line-height: 1.6; /* Increases line height for better readability */
+}
+
+.home-box .btn {
+  font-weight: bold; /* Makes button text bold for emphasis */
+  padding: 10px 20px; /* Increases button padding for a larger, more clickable area */
+  font-size: 1.1rem; /* Larger font size for clarity and easier interaction */
+}
+
+.home-box .btn:hover,
+.home-box .btn:focus {
+  background-color: #007bff; /* Bright color for the button on hover/focus for visibility */
+  color: white; /* Ensures text on button is readable against the new background */
+}
+
+.btn-outline-secondary:hover {
+  animation: pulseAnimation 1s infinite; /* Encourages user interaction by visually signaling an interactive element */
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  } /* Subtle animation to draw attention and indicate interactivity */
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Styling for each secton of the homepage -- Created with the help of https://www.w3schools.com/TAgs/tag_section.asp*/
@@ -25,18 +79,20 @@ section {
   overflow: hidden;
 }
 
+/* Centralizing section titles for visual focus and hierarchy */
 .section-title {
   text-align: center;
   padding-bottom: 30px;
 }
 
+/* Styling for section titles to create visual hierarchy */
 .section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 16px;
+  font-size: 32px; /* Large font size makes the title stand out as a primary heading */
+  font-weight: bold; /* Bold weight title */
+  margin-bottom: 16px; /* Provides visual separation from content that follows */
   padding-bottom: 20px;
-  position: relative;
-  color: #000000;
+  position: relative; /* Allows elements to be positioned relative to the title */
+  color: #000000; /* Ensures high contrast for readability */
 }
 
 /* I got this little bar under the title from https://stackoverflow.com/questions/36912620/h2-tag-overlapping-text */
@@ -46,9 +102,11 @@ section {
   display: block;
   width: 120px;
   height: 1px;
-  background: #ddd;
+  background: #ddd; /* Subtle color for the line to not overpower the title text */
   bottom: 1px;
-  left: calc(50% - 60px);
+  left: calc(
+    50% - 60px
+  ); /* Horizontally centers the line relative to the title */
 }
 
 .section-title h2::after {
@@ -63,100 +121,73 @@ section {
 }
 /* End of bar section */
 
-
-
 .section-title p {
   margin-bottom: 0;
 }
-.about .content h3 {
-  font-weight: 600;
-  font-size: 26px;
-}
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  padding-left: 28px;
-  position: relative;
-}
-
-.about .content ul li+li {
-  margin-top: 10px;
-}
-
-
+/* Styling for Learn More button to make it stand out as a call to action */
 .about .content .btn-learn-more {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
   padding: 12px 32px;
   border-radius: 4px;
-  line-height: 1;
-  color: #000000;
-  animation-delay: 0.8s;
-  margin-top: 6px;
-  border: 2px solid #000000;
+  color: #000000; /* High contrast text for visibility */
+  border: 2px solid #000000; /* Defines the button clearly against various backgrounds */
 }
 
 .about .content .btn-learn-more:hover {
-  background: #47b2e4;
-  color: #fff;
+  background: #47b2e4; /* Bright color on hover indicates interactivity */
+  color: #fff; /* Ensures text remains readable when button color changes */
   text-decoration: none;
 }
 
-
 /* For the accessibility section */
-.portfolio #portfolio-flters li { 
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-family: "Poppins", sans-serif;
+.portfolio #portfolio-flters li {
+  display: inline-block; 
+  font-size: 15px; 
+  font-weight: 500; 
+  padding: 8px 20px; /* Adds space around the text, making buttons easier to interact with */
+  border-radius: 50px; 
+  font-family: "Poppins", sans-serif; /* Sans-serif font for legibility */
 }
 
+/* hover and active states */
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  background: #404040;
-  color: #fff;
+  background: #404040; /* Dark background for contrast */
+  color: #fff; /* High contrast text for visibility */
 }
 
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 30px; 
 }
 
 .portfolio .portfolio-item:hover .portfolio-img img {
-  transform: scale(1.15); /* Increses the size of the image when it is hovered over*/
+  transform: scale(
+    1.15
+  ); /* Enlarges image on hover, indicating interactivity */
 }
 
 /*Footer*/
-
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: #f8f9fa;
+  box-sizing: border-box; 
+  background-color: #f8f9fa; /* Light background color for a clean look */
 }
 
-/*Footer*/
 footer {
   background-color: #343a40;
-  color: #ffffff;
-  padding: 40px 0;
+  color: #ffffff; 
+  padding: 40px 0; /* Ample padding for visual space */
 }
 
 ul.list-unstyled li a {
-  color: #adb5bd;
+  color: #adb5bd; 
 }
 
 ul.list-unstyled li a:hover {
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff; /* High contrast on hover for visual feedback */
+  text-decoration: none; /* Removes underline to maintain clean appearance */
 }
 
 a.text-light {
@@ -164,25 +195,25 @@ a.text-light {
 }
 
 a.text-light:hover {
-  color: #ffffff;
-  text-decoration: none;
+  color: #ffffff; 
 }
 
 .social-icons a {
-  font-size: 1.5rem;
-  color: #adb5bd;
-  margin-right: 10px;
-  transition: color 0.3s ease;
+  font-size: 1.5rem; 
+  color: #adb5bd; /* Neutral color for consistency */
+  margin-right: 10px; 
+  transition: color 0.3s ease; /* Smooth transition for visual feedback */
 }
 
 .social-icons a:hover {
-  color: #ffffff;
-} 
+  color: #ffffff; /* Changes color on hover for interactivity indication */
+}
 
 /* High Contrast Mode Styles -------------------------------------------------*/
+/* Enhances accessibility for users who need high contrast to navigate and read content effectively */
 body.high-contrast {
   background-color: #000 !important;
-  color: #ffa500 !important;
+  color: #ffa500 !important; /* elements are adjusted to ensure high visibility and distinction */
 }
 
 .sidebar.high-contrast {
@@ -212,27 +243,77 @@ h2.high-contrast {
 
 /* Larger Text Styles*/
 body.larger-text {
-  font-size: 45px;
+  font-size: 45px;/* Improves accessibility by offering a larger base font size for readability */
+
 }
 
 /* Light mode styles */
-body, .sidebar, .main-content, h2, .btn-primary {
+/* Provides options for users to choose their preferred visual mode for comfort and readability */
+body,
+.sidebar,
+.main-content,
+h2,
+.btn-primary {
   transition: background-color 0.3s;
 }
 
 /* Dark mode styles */
-body.dark-mode, .sidebar.dark-mode, .main-content.dark-mode, h2.dark-mode, .btn-primary.dark-mode {
+body.dark-mode,
+.sidebar.dark-mode,
+.main-content.dark-mode,
+h2.dark-mode,
+.btn-primary.dark-mode {
   background-color: #333;
   color: #fff;
 }
 
+/* Step Indicator Styles */
+.step-1-color {
+  background-color: #007bff;
+}
+.step-2-color {
+  background-color: #28a745;
+}
+.step-3-color {
+  background-color: #17a2b8;
+}
+.step-4-color {
+  background-color: #ffc107;
+}
+.step-5-color {
+  background-color: #dc3545;
+}
+.step-6-color {
+  background-color: #6f42c1;
+}
+.step-7-color {
+  background-color: #343a40;
+} /* Visual cues for progress or steps in a process, using distinct colors for clear differentiation */
 
-.step-1-color { background-color: #007bff; } 
-        .step-2-color { background-color: #28a745; } 
-        .step-3-color { background-color: #17a2b8; } 
-        .step-4-color { background-color: #ffc107; } 
-        .step-5-color { background-color: #dc3545; } 
-        .step-6-color { background-color: #6f42c1; } 
-        .step-7-color { background-color: #343a40; } 
 
-        
+.list-group-item {
+  background-color: transparent;
+  padding: 0;
+  position: relative; 
+}
+
+.category-link {
+  display: block;
+  padding: .5rem 1rem;
+  color: #1900ff;
+}
+
+.list-group-item:not(:last-child)::after {
+  content: '→'; 
+  position: absolute;
+  right: -8px; 
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000000; 
+  font-size: 16px; 
+}
+
+.category-link:hover {
+  text-decoration: none;
+  background-color: #f8f9fa;
+}

@@ -72,3 +72,42 @@
     button.textContent = isReading ? 'Stop' : 'Read';
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Portfolio section
+document.addEventListener("DOMContentLoaded", function () {
+  const filters = document.querySelectorAll("#portfolio-flters li"); // Get all filter buttons
+
+  const items = document.querySelectorAll(".portfolio-item"); // Get all items to be filtered
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", function () {
+      document
+        .querySelector(".filter-active")
+        .classList.remove("filter-active"); // Remove 'filter-active' class from all filters
+
+      this.classList.add("filter-active"); // Add 'filter-active' class to clicked filter (change higlighted category)
+
+      const filterValue = this.getAttribute("data-filter");
+      showFilteredItems(filterValue);
+    });
+  });
+
+  function showFilteredItems(filter) {
+    let itemsArray = Array.from(items); //Show random photos
+    itemsArray.sort(() => Math.random() - 0.5);
+    itemsArray.forEach((item) => {
+      if (
+        filter === "*" ||
+        item.classList.contains(filter.substring(1))
+      ) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+});
+
+£(".carousel").carousel({
+  interval: 2000, // Adjust time interval for auto-scroll in milliseconds
+});
