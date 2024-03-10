@@ -279,3 +279,37 @@ document.addEventListener("keydown", function (event) {
     highlightPartsOfPage();
   }
 });
+
+
+// JavaScript Function to Show Notifications
+function showNotification(message) {
+    const container = document.getElementById('notificationContainer');
+    const notification = document.createElement('div');
+    notification.innerHTML = message;
+    notification.style.background = 'rgba(0, 123, 255, 0.8)';
+    notification.style.color = '#fff';
+    notification.style.padding = '10px';
+    notification.style.marginBottom = '10px';
+    notification.style.borderRadius = '5px';
+    notification.style.boxShadow = '0 2px 4px rgba(0,0,0,.2)';
+    notification.style.maxWidth = '300px';
+    notification.style.fontSize = '14px';
+  
+    container.appendChild(notification);
+  
+    setTimeout(() => {
+      container.removeChild(notification);
+    }, 4000);
+  }
+  
+  // Functionality for Each Accessibility Checkbox
+  document.querySelectorAll('.form-check-input').forEach(item => {
+    item.addEventListener('change', function() {
+      let settingName = this.nextElementSibling.innerText;
+      let state = this.checked ? 'enabled' : 'disabled';
+      let message = `${settingName} has been ${state}.`;
+      showNotification(message);
+
+    });
+  });
+  
