@@ -15,6 +15,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/minified/introjs.min.css">
+
   </head>
   <body>
     <header class="site-header sticky-top py-1">
@@ -133,7 +135,7 @@
                 >Sign Up</a
               >
             </div>
-            <a href="Basket.html">
+            <a href="Basket.html" data-step="3" data-intro="This is your shopping cart. The item count here updates each time you add a new product to your basket.">
               <button
                 type="button"
                 class="btn position-relative"
@@ -184,7 +186,7 @@
     </header>
 
     <!-- Progress Bar -->
-    <div class="container mt-4">
+    <div class="container mt-4" data-step="1" data-intro="This is your progress bar. It updates as you move through the steps of adding items to your basket, confirming your cart, and checking out.">
       <div class="progress">
         <div
           class="progress-bar"
@@ -246,9 +248,11 @@
                 style="max-width: 3rem"
               />
               <button
-                class="btn btn-outline-dark flex-shrink-0 add-to-cart"
-                type="button"
-              >
+  class="btn btn-outline-dark flex-shrink-0 add-to-cart"
+  type="button"
+  data-step="2"
+  data-intro="Click this button to add the item to your shopping cart. The cart count in the navbar will update accordingly."
+>
                 <i class="bi-cart-fill me-1"></i>
                 Add to cart
               </button>
@@ -258,7 +262,7 @@
       </div>
     </section>
     <!-- Related items section-->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light" data-step="4" data-intro="This section displays products related to the item you are viewing. It's a great way to discover similar items that complement your choice.">
       <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">Related products</h2>
         <div
@@ -479,6 +483,29 @@
       </div>
     </footer>
 
+    <!-- Floating Microphone Button -->
+    <div
+    id="floatingMicrophone"
+    class="floating-microphone"
+    style="display: none"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-mic-mute-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4 4 0 0 0 12 8V7a.5.5 0 0 1 1 0zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a5 5 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4m3-9v4.879L5.158 2.037A3.001 3.001 0 0 1 11 3"
+      />
+      <path
+        d="M9.486 10.607 5 6.12V8a3 3 0 0 0 4.486 2.607m-7.84-9.253 12 12 .708-.708-12-12z"
+      />
+    </svg>
+  </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -527,5 +554,9 @@
         });
     </script>
     <script src="/Shopping Website/assets/js/progressbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@7.2.0/intro.min.js"></script>
+    <script>
+      introJs().start();
+  </script>
   </body>
 </html>

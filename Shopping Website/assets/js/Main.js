@@ -11,6 +11,7 @@
       if (localStorage.getItem('darkMode') === 'true') {
         toggleDarkMode();
     }
+    toggleFloatingMicrophone();
   };
 
   function toggleHighContrast() {
@@ -108,6 +109,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-£(".carousel").carousel({
+$(".carousel").carousel({
   interval: 2000, // Adjust time interval for auto-scroll in milliseconds
 });
+
+// Function to toggle the floating microphone
+function toggleFloatingMicrophone() {
+  const floatingMicrophone = document.getElementById("floatingMicrophone");
+  if (localStorage.getItem("voiceControlEnabled") === "true") {
+    floatingMicrophone.style.display = "flex";
+  } else {
+    floatingMicrophone.style.display = "none";
+  }
+}

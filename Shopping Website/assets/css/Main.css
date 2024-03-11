@@ -49,11 +49,12 @@
   font-weight: bold; /* Makes button text bold for emphasis */
   padding: 10px 20px; /* Increases button padding for a larger, more clickable area */
   font-size: 1.1rem; /* Larger font size for clarity and easier interaction */
+  color: #00ff08;
 }
 
 .home-box .btn:hover,
 .home-box .btn:focus {
-  background-color: #007bff; /* Bright color for the button on hover/focus for visibility */
+  background-color: #ff0000; /* Bright color for the button on hover/focus for visibility */
   color: white; /* Ensures text on button is readable against the new background */
 }
 
@@ -316,4 +317,13 @@ h2.dark-mode,
 .category-link:hover {
   text-decoration: none;
   background-color: #f8f9fa;
+}
+
+/* Customize the tooltip's appearance */
+.introjs-tooltip {
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3); /* Subtle shadow */
+  color: #333; /* Dark text color for contrast */
 }
