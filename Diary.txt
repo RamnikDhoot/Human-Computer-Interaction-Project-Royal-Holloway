@@ -246,3 +246,16 @@ Week 24, 26/02/24 - 03/03/24
 - Drafted the "My Progress" section of the project documentation, including detailed accounts of work completed, the design process, and the exploration of design methodologies beyond user-centered design (UCD) and Agile, offering insights into the application of HCI principles in design decisions.
 - Completed a comprehensive draft for the professional issues section, addressing ethical, social, and professional considerations in software development.
 - next i will complete unit testing for the database website to ensure robustness and reliability. Additionally, i plan to create documentation using JSDoc
+
+Week 25, 04/03/24 - 10/03/24
+- Successfully developed Jest tests for the sales data functionality but encountered a configuration issue with Jest that necessitated a reinstallation. This step was critical in ensuring our testing environment was optimally configured, allowing for more efficient and effective testing processes.
+- Faced challenges in compiling the JSDoc into a comprehensive documentation website. This was resolved by creating a detailed JSDoc configuration file that meticulously included all source files, facilitating their conversion into a well-organized and accessible documentation format.
+- Introduced floating microphone and animated button for voice control on the shopping websiteal lowing users to navigate and interact with the site using voice commands.
+- The microphone button enables users to highlight parts of the page upon activation. Just mocking that han elemt has been selected when you talk into the mic
+- Integrated feedback messages to confirm the activation of accessibility options, providing clear communication and reassurance to users about the changes they've made to their interaction settings.
+- Added a carousel section for popular items, enriching the shopping experience with a visually appealing and dynamic showcase of trending products.
+- Implemented the intro.js library, adding a guided tour feature to the shopping website pages. This addition serves as an interactive tutorial, guiding users through the site's features and functionalities, enhancing their overall experience.
+- finalizing the introduction and abstract sections of the report
+- Challenges with the Notes App Testing:
+In tackling the testing challenges within the notes application, specifically with the frame.menuBar() method's limitations, I explored alternative approaches to interact with the menu bar in a Swing application. The solution involved utilizing the frame.robot() method to access the Robot instance, enabling direct interaction with Swing components through component identification and manipulation. This approach, while more low-level, provided the necessary flexibility to achieve our testing objectives, underscoring the importance of adaptability in test strategy development.
+
