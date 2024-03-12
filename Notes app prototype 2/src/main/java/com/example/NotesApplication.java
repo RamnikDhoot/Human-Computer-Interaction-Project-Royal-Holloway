@@ -12,6 +12,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import mdlaf.MaterialLookAndFeel;
+import mdlaf.animation.MaterialUIMovement;
+import mdlaf.utils.MaterialColors;
+
 /**
  * The NotesApplication class represents a simple notes application with GUI
  * using Java Swing.
@@ -37,6 +41,17 @@ public class NotesApplication {
      * Initializes the main frame, components, menus, and toolbar.
      */
     public NotesApplication() {
+
+        try {
+            // Set Material look and feel
+            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+
+            // You can also customize specific Material UI properties here
+            UIManager.put("Button.mouseHoverEnable", true); // for example, to enable button hover effects
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
         frame = new JFrame("Notes Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 500);
@@ -45,10 +60,13 @@ public class NotesApplication {
 
         // Create components
         noteTextArea = new JTextArea();
+        noteTextArea.setBackground(MaterialColors.GRAY_100); // Setting a Material color as background
         JButton addNoteButton = new JButton("Add Note");
-         // Initialize exit touch screen mode button but do not add it yet
+        addNoteButton.addMouseListener(MaterialUIMovement.getMovement(addNoteButton, MaterialColors.BLUE_GRAY_400, 5, 1000));
+        // Initialize exit touch screen mode button but do not add it yet
          exitTouchScreenModeButton = new JButton("Exit TS");
          exitTouchScreenModeButton.addActionListener(e -> disableTouchScreenMode());
+
 
         // Touch and hold menu (not working)
         // JPopupMenu mockContextMenu = createMockContextMenu();
@@ -93,6 +111,11 @@ public class NotesApplication {
 
         JToolBar toolBar = toolBarHandler.createToolBar();
 
+        // Create customizable menu
+        CustomizableMenu customizableMenu = new CustomizableMenu(frame);
+        JToolBar rightToolBar = customizableMenu.createRightToolBar();
+
+
         // Create main menu bar
         fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
 
@@ -115,6 +138,7 @@ public class NotesApplication {
 
         // Add "Touch Screen Mode" option to "View" menu
         JMenuItem touchScreenModeMenuItem = new JMenuItem("Touch Screen Mode");
+        touchScreenModeMenuItem.setBackground(MaterialColors.LIGHT_BLUE_A400); // Set a Material color
         touchScreenModeMenuItem.addActionListener(e -> enableTouchScreenMode());
         viewMenu.add(touchScreenModeMenuItem);
 
@@ -153,6 +177,23 @@ public class NotesApplication {
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
         frame.add(toolBar, BorderLayout.WEST);
+        frame.add(rightToolBar, BorderLayout.EAST);
+        applyMaterialFontToAllComponents(frame.getContentPane());
+
+    }
+
+    /**
+     * Applies the Material UI font to all components recursively.
+     *
+     * @param component The root component to start applying the font to.
+     */
+    private void applyMaterialFontToAllComponents(Component component) {
+        component.setFont(new Font("Roboto", Font.PLAIN, 14));
+        if (component instanceof Container) {
+            for (Component child : ((Container) component).getComponents()) {
+                applyMaterialFontToAllComponents(child);
+            }
+        }
     }
 
     /**
