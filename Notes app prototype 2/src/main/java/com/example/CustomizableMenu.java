@@ -1,5 +1,3 @@
-package com.example;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,13 +7,23 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import mdlaf.MaterialLookAndFeel;
+import mdlaf.animation.MaterialUIMovement;
+import mdlaf.utils.MaterialColors;
+
 public class CustomizableMenu {
 
     private JFrame frame;
     private JPanel overlayPanel;
+    private JToolBar rightToolBar; // Declare the rightToolBar at the class level
+    private JToolBar bottomToolBar; // New toolbar at the bottom
+
 
     public CustomizableMenu(JFrame frame) {
         this.frame = frame;
+        this.rightToolBar = createRightToolBar();
+        this.bottomToolBar = new JToolBar(); // Initialize the bottom toolbar
+        configureBottomToolBar(); // Configure the bottom toolbar
     }
 
     public JToolBar createRightToolBar() {
@@ -31,6 +39,24 @@ public class CustomizableMenu {
         return rightToolBar;
     }
 
+    private void configureBottomToolBar() {
+        bottomToolBar.setFloatable(false);
+        bottomToolBar.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.setForeground(Color.BLUE);
+
+        // Material UI movement effect to the button for mouse hover
+        MaterialUIMovement.getMovement(exitButton, MaterialColors.GREEN_400, 1, 0);
+        exitButton.addActionListener(e -> exitOverlay());
+
+        bottomToolBar.add(exitButton);
+        bottomToolBar.setVisible(false);
+        bottomToolBar.setBounds(0, frame.getHeight() - 100, frame.getWidth(), 50);
+
+        frame.getLayeredPane().add(bottomToolBar, JLayeredPane.DRAG_LAYER);
+    }
+
     private JButton createPlusButton() {
         // Load the plus icon
         BufferedImage plusImage = null;
@@ -41,10 +67,9 @@ public class CustomizableMenu {
         }
 
         // Resize the image
-        Image resizedImage = plusImage.getScaledInstance(49, 49, Image.SCALE_SMOOTH); // Adjust width and height as needed
+        Image resizedImage = plusImage.getScaledInstance(49, 49, Image.SCALE_SMOOTH);
         ImageIcon plusIcon = new ImageIcon(resizedImage);
 
-        // Create the plus button with the resized icon
         JButton plusButton = new JButton(plusIcon);
 
         plusButton.setFocusPainted(false);
@@ -60,12 +85,28 @@ public class CustomizableMenu {
             createOverlay();
         }
 
-        // Toggle visibility
-        overlayPanel.setVisible(!overlayPanel.isVisible());
+        boolean isVisible = !overlayPanel.isVisible();
+        overlayPanel.setVisible(isVisible);
+        bottomToolBar.setVisible(isVisible);
+
+        if (isVisible) {
+            frame.getLayeredPane().setLayer(overlayPanel, JLayeredPane.MODAL_LAYER);
+            frame.getLayeredPane().setLayer(rightToolBar, JLayeredPane.DRAG_LAYER);
+            frame.getLayeredPane().setLayer(bottomToolBar, JLayeredPane.DRAG_LAYER);
+        }
+
+        frame.getLayeredPane().revalidate();
+        frame.getLayeredPane().repaint();
     }
 
+    private void exitOverlay() {
+        overlayPanel.setVisible(false);
+        bottomToolBar.setVisible(false);
+    }
+
+
     private void createOverlay() {
-        overlayPanel = new JPanel(null) { // Use null layout for absolute positioning
+        overlayPanel = new JPanel(null) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -74,13 +115,18 @@ public class CustomizableMenu {
             }
         };
 
-        // Define buttons and their titles
-        String[] buttonTitles = {"Save", "Delete", "Edit", "New", "Share"};
+        // Adjust the overlay size and add it to the frame
+        overlayPanel.setBounds(0, 0, frame.getWidth(), frame.getHeight());
+        overlayPanel.setOpaque(false);
+
+
+        // Define buttons
+        String[] buttonTitles = {"Save", "Delete", "Edit", "New", "Share", "Undo", "Redo", "Cut", "Copy", "Paste"};
         JButton[] buttons = new JButton[buttonTitles.length];
 
         // Calculate spacing and button size
-        int buttonWidth = 100;
-        int buttonHeight = 100;
+        int buttonWidth = 70;
+        int buttonHeight = 40;
         int totalWidth = (buttonWidth * buttons.length);
         int spacing = (frame.getWidth() - totalWidth) / (buttons.length + 1);
         int yPosition = 50; // Vertical position of buttons
@@ -93,48 +139,22 @@ public class CustomizableMenu {
             overlayPanel.add(buttons[i]);
         }
 
-        // Adjust the overlay size and add it to the frame
-        overlayPanel.setBounds(0, 0, frame.getWidth(), frame.getHeight());
-        overlayPanel.setOpaque(false);
-        frame.getLayeredPane().add(overlayPanel, JLayeredPane.PALETTE_LAYER, 0);
+        /// After setting up the overlay
+        frame.getLayeredPane().add(overlayPanel, JLayeredPane.MODAL_LAYER);
 
+        // Ensure the right toolbar and bottom toolbar are above the overlay
+        frame.getLayeredPane().add(rightToolBar, JLayeredPane.DRAG_LAYER);
+        frame.getLayeredPane().add(bottomToolBar, JLayeredPane.DRAG_LAYER);
 
+        frame.getLayeredPane().revalidate();
+        frame.getLayeredPane().repaint();
     }
 
+
     private JButton createDraggableButton(String text) {
-        final Color backgroundColor = new Color(33, 150, 243, 200); // Semi-transparent blue
-        final Color textColor = Color.WHITE; // Text color
-        final Font buttonFont = new Font("Roboto", Font.BOLD, 10); // Font for the button text
-
-        JButton button = new JButton(text) {
-            @Override
-            protected void paintComponent(Graphics g) {
-                // Fill the button with a semi-transparent color
-                g.setColor(backgroundColor);
-                g.fillRect(0, 0, getWidth(), getHeight());
-                super.paintComponent(g); // This will paint the label text over the background
-            }
-        };
-
-        // Set button properties
-        button.setForeground(textColor);
-        button.setFont(buttonFont);
-        button.setFocusPainted(false);
-        button.setBorderPainted(false);
-        button.setContentAreaFilled(false); 
-        button.setBorder(null); 
-
-        // Set button margins and size
-        int buttonWidth = 100; 
-        int buttonHeight = 30; 
-        button.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
-        button.setMinimumSize(button.getPreferredSize());
-        button.setMaximumSize(button.getPreferredSize());
-
-        // Mouse listeners for the dragging behavior
+        JButton button = new JButton(text);
         MouseAdapter ma = new MouseAdapter() {
             private Point offset;
-
             @Override
             public void mousePressed(MouseEvent e) {
                 offset = e.getPoint();
@@ -143,10 +163,35 @@ public class CustomizableMenu {
             @Override
             public void mouseDragged(MouseEvent e) {
                 JButton button = (JButton) e.getSource();
-                Point newLocation = e.getLocationOnScreen();
-                SwingUtilities.convertPointFromScreen(newLocation, overlayPanel);
+                Point newLocation = SwingUtilities.convertMouseEvent(e.getComponent(), e, frame.getLayeredPane()).getPoint();
                 newLocation.translate(-offset.x, -offset.y);
                 button.setLocation(newLocation);
+
+                // Check if the button is over the bottom toolbar
+                if (newLocation.y + button.getHeight() >= bottomToolBar.getLocation().y &&
+                        newLocation.y <= bottomToolBar.getLocation().y + bottomToolBar.getHeight()) {
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                JButton button = (JButton) e.getSource();
+                Point dropLocation = button.getLocation();
+
+                // Check if the button was released over the bottom toolbar
+                if (dropLocation.y + button.getHeight() >= bottomToolBar.getLocation().y &&
+                        dropLocation.y <= bottomToolBar.getLocation().y + bottomToolBar.getHeight()) {
+
+                    // Add button to bottom toolbar
+                    bottomToolBar.add(button);
+                    bottomToolBar.revalidate();
+                    bottomToolBar.repaint();
+
+                    // Remove the button from its original parent
+                    overlayPanel.remove(button);
+                    overlayPanel.revalidate();
+                    overlayPanel.repaint();
+                }
             }
         };
 
@@ -155,5 +200,4 @@ public class CustomizableMenu {
 
         return button;
     }
-
 }
