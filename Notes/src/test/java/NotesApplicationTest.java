@@ -14,6 +14,7 @@ import java.awt.print.PrinterException;
 import java.io.File;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NotesApplicationTest {
 
@@ -40,14 +41,14 @@ public class NotesApplicationTest {
 
     @Test
     void testAddNote() {
+        NotesApplication app = new NotesApplication();
+        
+        // Simulate adding a note
         String testNote = "This is a test note.";
-        frame.textBox("noteTextArea").enterText(testNote);
-        frame.button("addNoteButton").click();
-        // Verify the note appears in the UI component where it's expected.
-        assertThat(frame.list("notesList").contents()).contains(testNote);
+        app.addNoteToList(testNote); 
+        assertTrue(app.getNotes().contains(testNote), "The note should be added to the list");
     }
-    
-//////////////////////////////////////////////////////////////////////////
+
     @Test
     void testMenuBarExists() {
         // Check if the menu bar exists

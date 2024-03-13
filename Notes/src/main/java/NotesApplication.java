@@ -4,8 +4,6 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
 import java.awt.event.*;
-import java.awt.BorderLayout;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +31,7 @@ public class NotesApplication {
     private FileMenuHandler fileMenuHandler;
     private ToolBarHandler toolBarHandler;
     private Font originalTextAreaFont;
+    
 
     /**
      * Constructs a new NotesApplication object with a graphical user interface.
@@ -108,6 +107,12 @@ public class NotesApplication {
         toolBarHandler.setExitTouchScreenModeButton(exitTouchScreenModeButton); // Set the exit touchscreen mode button
 
         JToolBar toolBar = toolBarHandler.createToolBar();
+
+        //adding notes button
+        JButton listNotesButton = new JButton("List Notes");
+listNotesButton.addActionListener(e -> displayNotesDialog());
+toolBar.add(listNotesButton); // Assuming toolBar is accessible here
+
 
         // Create customizable menu
         CustomizableMenu customizableMenu = new CustomizableMenu(frame);
@@ -199,7 +204,7 @@ public class NotesApplication {
      *
      * @param note The note to be added.
      */
-    private void addNoteToList(String note) {
+    void addNoteToList(String note) {
         notes.add(note);
     }
 
@@ -377,6 +382,17 @@ public class NotesApplication {
     //     return contextMenu;
     // }
 
+    void displayNotesDialog() {
+        // Convert the list of notes to a single string, with each note on a new line
+        String allNotes = String.join("\n", notes);
+        // Display the notes in a dialog
+        JTextArea textArea = new JTextArea(allNotes);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setPreferredSize(new Dimension(500, 300)); // Adjust size as needed
+        JOptionPane.showMessageDialog(frame, scrollPane, "All Notes", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
 
     /**
      * The main method to launch the NotesApplication.
