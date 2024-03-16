@@ -6,11 +6,22 @@ import javax.swing.undo.UndoManager;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.animation.MaterialUIMovement;
 import mdlaf.utils.MaterialColors;
+import mdlaf.themes.MaterialLiteTheme;
+import mdlaf.themes.MaterialOceanicTheme;
+import mdlaf.themes.JMarsDarkTheme; 
+import mdlaf.themes.AbstractMaterialTheme; 
+import mdlaf.themes.MaterialTheme; 
+
+
+
+
 
 /**
  * The NotesApplication class represents a simple notes application with GUI
@@ -43,8 +54,7 @@ public class NotesApplication {
             // Set Material look and feel
             UIManager.setLookAndFeel(new MaterialLookAndFeel());
 
-            // You can also customize specific Material UI properties here
-            UIManager.put("Button.mouseHoverEnable", true); // for example, to enable button hover effects
+            UIManager.put("Button.mouseHoverEnable", true); 
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -110,8 +120,8 @@ public class NotesApplication {
 
         //adding notes button
         JButton listNotesButton = new JButton("List Notes");
-listNotesButton.addActionListener(e -> displayNotesDialog());
-toolBar.add(listNotesButton); // Assuming toolBar is accessible here
+        listNotesButton.addActionListener(e -> displayNotesDialog());
+        toolBar.add(listNotesButton); // Assuming toolBar is accessible here
 
 
         // Create customizable menu
@@ -121,6 +131,7 @@ toolBar.add(listNotesButton); // Assuming toolBar is accessible here
 
         // Create main menu bar
         fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
+
 
         JMenuBar mainMenuBar = new JMenuBar();
 
@@ -155,12 +166,53 @@ toolBar.add(listNotesButton); // Assuming toolBar is accessible here
         // Item 5
         JMenu helpMenu = new JMenu("Help");
 
+        // Create the Customization menu
+        JMenu customizationMenu = new JMenu("Customization");
+
+        // Create a Themes submenu
+        JMenu themesMenu = new JMenu("Themes");
+        JMenuItem lightThemeItem = new JMenuItem("Light Theme");
+        JMenuItem darkThemeItem = new JMenuItem("Dark Theme");
+        JMenuItem customThemeItem = new JMenuItem("Custom Theme"); // Example for adding more themes
+
+        // Add action listeners to theme items
+        lightThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialLiteTheme()));
+        darkThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialOceanicTheme()));
+        customThemeItem.addActionListener(e -> showThemeSelectionDialog());
+
+        // Add theme items to the Themes submenu
+        themesMenu.add(lightThemeItem);
+        themesMenu.add(darkThemeItem);
+        themesMenu.add(customThemeItem); 
+
+        // Add the Themes submenu to the Customization menu
+        customizationMenu.add(themesMenu);
+
+        JMenu AdvancedMenu = new JMenu("Advanced");
+        // Clear All Notes
+        JMenuItem clearAllNotesItem = new JMenuItem("Clear All Notes");
+        AdvancedMenu.add(clearAllNotesItem);
+
+        // Export Notes
+        JMenuItem exportNotesItem = new JMenuItem("Export Notes");
+        AdvancedMenu.add(exportNotesItem);
+
+        // Import Notes
+        JMenuItem importNotesItem = new JMenuItem("Import Notes");
+        AdvancedMenu.add(importNotesItem);
+
+
         // Add menus to the main menu bar
         mainMenuBar.add(fileMenu);
         mainMenuBar.add(editMenu);
         mainMenuBar.add(viewMenu);
         mainMenuBar.add(homeMenu);
         mainMenuBar.add(helpMenu);
+        mainMenuBar.add(customizationMenu);
+        mainMenuBar.add(AdvancedMenu);
+
+
+        
 
         // Set layout
         frame.setLayout(new BorderLayout());
@@ -392,6 +444,99 @@ toolBar.add(listNotesButton); // Assuming toolBar is accessible here
         scrollPane.setPreferredSize(new Dimension(500, 300)); // Adjust size as needed
         JOptionPane.showMessageDialog(frame, scrollPane, "All Notes", JOptionPane.INFORMATION_MESSAGE);
     }
+
+    private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
+        Image img = icon.getImage();
+        Image resizedImage = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
+    
+
+private void showThemeSelectionDialog() {
+    JDialog themeDialog = new JDialog(frame, "Select Theme", true);
+    themeDialog.setLayout(new BorderLayout());
+    themeDialog.setSize(new Dimension(600, 400));
+    themeDialog.setLocationRelativeTo(frame);
+
+     // Theme names and preview images mapping
+     HashMap<String, MaterialTheme> themeMappings = new HashMap<>();
+     themeMappings.put("Material Lite", new MaterialLiteTheme());
+     themeMappings.put("Material Oceanic", new MaterialOceanicTheme());
+     themeMappings.put("JMars Dark", new JMarsDarkTheme());
+     themeMappings.put("Abstract", new JMarsDarkTheme());
+     themeMappings.put("Blue", new JMarsDarkTheme());
+     themeMappings.put("Green", new JMarsDarkTheme());
+
+
+    HashMap<String, ImageIcon> themePreviews = new HashMap<>();
+    themePreviews.put("Material Lite", new ImageIcon(getClass().getResource("/Screenshot 2024-03-16 105855.png")));
+    themePreviews.put("Material Oceanic", new ImageIcon(getClass().getResource("/Screenshot 2024-03-16 110015.png")));
+    themePreviews.put("JMars Dark", new ImageIcon(getClass().getResource("/dark.png")));
+
+    
+   // Create theme selection panel
+   JPanel themeSelectionPanel = new JPanel();
+   themeSelectionPanel.setLayout(new BoxLayout(themeSelectionPanel, BoxLayout.Y_AXIS));
+
+   // Create preview panel
+   JLabel previewLabel = new JLabel();
+   previewLabel.setPreferredSize(new Dimension(10, 10)); 
+
+   // Current theme name selected
+   final String[] currentThemeName = new String[1]; 
+
+   // Apply button to apply the selected theme
+   JButton applyButton = new JButton("Apply");
+   applyButton.addActionListener(e -> {
+       MaterialTheme selectedTheme = themeMappings.get(currentThemeName[0]);
+       if (selectedTheme != null) {
+           applyTheme(selectedTheme); // Apply the selected theme
+       }
+       themeDialog.dispose(); // Close the dialog
+   });
+
+   for (String themeName : themeMappings.keySet()) {
+    JButton themeButton = new JButton(themeName);
+    themeButton.addActionListener(e -> {
+        ImageIcon resizedIcon = resizeIcon(themePreviews.get(themeName), previewLabel.getWidth(), previewLabel.getHeight());
+        previewLabel.setIcon(resizedIcon);
+        currentThemeName[0] = themeName;
+    });
+    themeSelectionPanel.add(themeButton);
+}
+   themeDialog.add(themeSelectionPanel, BorderLayout.WEST);
+   themeDialog.add(previewLabel, BorderLayout.CENTER);
+   themeDialog.add(applyButton, BorderLayout.SOUTH);
+
+   themeDialog.setVisible(true);
+}
+
+
+private void applyTheme(mdlaf.themes.MaterialTheme theme) {
+    try {
+        MaterialLookAndFeel lookAndFeel = new MaterialLookAndFeel(theme);
+        UIManager.setLookAndFeel(lookAndFeel);
+        updateUI(); // Update the UI to apply the theme
+        System.out.println(theme.getName() + " Theme applied.");
+    } catch (UnsupportedLookAndFeelException e) {
+        e.printStackTrace();
+    }
+}
+
+private void updateUI() {
+    // Save the current frame size
+    Dimension currentSize = frame.getSize();
+    
+    // Refresh the UI components to apply the new theme
+    SwingUtilities.updateComponentTreeUI(frame);
+
+    // Restore the saved frame size
+    frame.setSize(currentSize);
+    frame.validate();
+    frame.repaint();
+}
+
+    
     
 
     /**

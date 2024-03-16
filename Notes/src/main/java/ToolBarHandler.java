@@ -28,6 +28,11 @@ public class ToolBarHandler {
 
         JButton redoButton = new JButton("Redo");
         redoButton.addActionListener(e -> redo());
+
+        // Create the autosave toggle button
+    JToggleButton autosaveToggle = new JToggleButton("Autosave");
+
+        toolBar.add(autosaveToggle);
         toolBar.add(undoButton);
         toolBar.add(redoButton);
 
