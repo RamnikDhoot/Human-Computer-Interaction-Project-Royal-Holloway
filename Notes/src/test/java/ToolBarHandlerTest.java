@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import javax.swing.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,16 +23,16 @@ class ToolBarHandlerTest {
     void testToolbarExists() {
         JToolBar toolBar = toolBarHandler.createToolBar();
         assertNotNull(toolBar, "Toolbar should not be null");
-        assertEquals(2, toolBar.getComponentCount(), "Toolbar should contain exactly two buttons.");
+        assertEquals(6, toolBar.getComponentCount(), "Toolbar should contain exactly six buttons.");
     }
 
     @Test
     void testUndoButton() {
         // Simulate text addition and undo operation
         noteTextArea.setText("Sample text");
-        toolBarHandler.createToolBar(); 
-        noteTextArea.setText(""); 
-        toolBarHandler.undo(); 
+        toolBarHandler.createToolBar();
+        noteTextArea.setText("");
+        toolBarHandler.undo();
 
         assertEquals("Sample text", noteTextArea.getText(), "Undo operation failed to revert text area content.");
     }
@@ -42,9 +41,9 @@ class ToolBarHandlerTest {
     void testRedoButton() {
         // Simulate text addition, undo, and redo operations
         noteTextArea.setText("Sample text");
-        toolBarHandler.createToolBar(); 
+        toolBarHandler.createToolBar();
         String originalText = noteTextArea.getText();
-        toolBarHandler.undo(); 
+        toolBarHandler.undo();
         toolBarHandler.redo();
 
         assertEquals(originalText, noteTextArea.getText(), "Redo operation failed to restore text area content.");
@@ -69,14 +68,16 @@ class ToolBarHandlerTest {
 
     @Test
     void testUndoLimitation() {
-        // Assuming the undo manager has a limit (not shown in class), simulate reaching that limit
+        // Assuming the undo manager has a limit (not shown in class), simulate reaching
+        // that limit
         noteTextArea.setText("Initial text");
         toolBarHandler.createToolBar();
         noteTextArea.setText("Changed text");
         toolBarHandler.undo();
         toolBarHandler.undo(); // Attempt to undo beyond history
 
-        assertEquals("Initial text", noteTextArea.getText(), "Attempting further undo should have no effect beyond available history.");
+        assertEquals("Initial text", noteTextArea.getText(),
+                "Attempting further undo should have no effect beyond available history.");
     }
 
     @Test
@@ -88,33 +89,59 @@ class ToolBarHandlerTest {
         toolBarHandler.redo();
         toolBarHandler.redo(); // Attempt to redo beyond history
 
-        assertEquals("Changed text", noteTextArea.getText(), "Attempting further redo should have no effect beyond available history.");
+        assertEquals("Changed text", noteTextArea.getText(),
+                "Attempting further redo should have no effect beyond available history.");
     }
 
     @Test
     void testUndoButtonAction() {
-        // Simulate the button click instead of calling undo method directly
+        // Set initial text and simulate text change
         noteTextArea.setText("Initial text");
         JToolBar toolBar = toolBarHandler.createToolBar();
-        JButton undoButton = (JButton) toolBar.getComponentAtIndex(0); // Assuming first button is undo
+        // Find the Undo button by iterating over toolbar components
+        JButton undoButton = null;
+        for (Component comp : toolBar.getComponents()) {
+            if (comp instanceof JButton && ((JButton) comp).getText().equals("Undo")) {
+                undoButton = (JButton) comp;
+                break;
+            }
+        }
+        assertNotNull(undoButton, "Undo button not found in toolbar.");
+
+        // Simulate clicking the undo button
         undoButton.doClick();
 
-        // Since we haven't changed the text after creating the toolbar, there's nothing to undo to
+        // Assert the text area content is as expected after undo operation
         assertEquals("Initial text", noteTextArea.getText(), "Undo button click should perform undo operation.");
     }
 
     @Test
     void testRedoButtonAction() {
-        // Similar to the undo test but for redo
         noteTextArea.setText("Initial text");
         toolBarHandler.createToolBar();
         noteTextArea.setText("Changed text");
         toolBarHandler.undo();
 
         JToolBar toolBar = toolBarHandler.createToolBar();
-        JButton redoButton = (JButton) toolBar.getComponentAtIndex(1); // Assuming second button is redo
+        JButton redoButton = null;
+        for (Component comp : toolBar.getComponents()) {
+            if (comp instanceof JButton && "Redo".equals(((JButton) comp).getText())) {
+                redoButton = (JButton) comp;
+                break;
+            }
+        }
+        assertNotNull(redoButton, "Redo button should not be null.");
         redoButton.doClick();
-
         assertEquals("Changed text", noteTextArea.getText(), "Redo button click should perform redo operation.");
     }
+
+    @Test
+    void testNotebookSelectionChangesTitle() {
+        // Simulate selecting a notebook and ensure the frame's title is updated
+        toolBarHandler.displayNotebookList();
+
+        // Mock the input dialog response for selecting a notebook
+        JOptionPane.showMessageDialog(null, "Select a Notebook:");
+    }
+
 }

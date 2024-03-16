@@ -1,8 +1,12 @@
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
@@ -20,6 +24,8 @@ public class ToolBarHandler {
     private JButton exitTouchScreenModeButton; // Button to exit touch screen mode
     private JButton notebookButton; // Button to display the list of notebooks
     private List<String> notebookList; // A list to store notebook names
+    private int currentFontSize = 14; // Default font size
+
 
     public ToolBarHandler(JFrame frame, JTextArea noteTextArea) {
         this.frame = frame;
@@ -45,6 +51,38 @@ public class ToolBarHandler {
 
         // Create the autosave toggle button
         JToggleButton autosaveToggle = new JToggleButton("Autosave");
+
+        // Font size slider
+        JSlider fontSizeSlider = new JSlider(8, 20, currentFontSize); 
+        fontSizeSlider.setMajorTickSpacing(4);
+        fontSizeSlider.setPaintTicks(true);
+        fontSizeSlider.setPaintLabels(true);
+
+        fontSizeSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                int newSize = ((JSlider) e.getSource()).getValue();
+                if (newSize != currentFontSize) {
+                    setFontSize(newSize);
+                }
+            }
+        });
+
+        // Label for font size
+        JLabel fontSizeLabel = new JLabel("Font Size: ");
+        fontSizeLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        JTextField fontSizeInput = new JTextField(String.valueOf(currentFontSize), 4); 
+        fontSizeInput.setHorizontalAlignment(JTextField.CENTER);
+
+        Dimension preferredSize = fontSizeInput.getPreferredSize();
+        preferredSize.height = (int) (preferredSize.height * 1); 
+        fontSizeInput.setPreferredSize(preferredSize);
+
+        fontSizeInput.setMaximumSize(preferredSize);
+        toolBar.add(fontSizeLabel);
+        toolBar.add(fontSizeInput);
+
 
         // Create the notebook button
         notebookButton = new JButton("Notebooks");
@@ -88,7 +126,7 @@ public class ToolBarHandler {
         }
     }
 
-    private void displayNotebookList() {
+    void displayNotebookList() {
         // Add a "Create new notebook" option
         List<String> options = new ArrayList<>(notebookList);
         options.add("Create new notebook...");
@@ -151,6 +189,24 @@ public class ToolBarHandler {
         noteTextArea.setFont(titleFont);
         // Set the title text
         noteTextArea.setText("Notebook: " + notebookName);
+    }
+
+    // Method to change font size of noteTextArea
+    private void setFontSize(int fontSize) {
+        currentFontSize = fontSize;
+        Font currentFont = noteTextArea.getFont();
+        Font newFont = new Font(currentFont.getName(), currentFont.getStyle(), fontSize);
+        noteTextArea.setFont(newFont);
+        // Update label with the current font size
+        for (Component comp : frame.getComponents()) {
+            if (comp instanceof JLabel) {
+                JLabel label = (JLabel) comp;
+                if ("Font Size: ".equals(label.getText().split("\\d+")[0])) {
+                    label.setText("Font Size: " + fontSize);
+                    break;
+                }
+            }
+        }
     }
     
 

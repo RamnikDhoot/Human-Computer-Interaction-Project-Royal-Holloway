@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import java.awt.*; //To be used later for other tests
+import java.awt.*; 
 import java.awt.print.PrinterException;
 import java.io.File;
 
@@ -181,8 +181,20 @@ void testFullScreenItemExistsInViewMenu() {
         assertThat(device.getFullScreenWindow()).isNull();
     }
 
+    // @Test
+    // void testDarkThemeSelectionAndApplication() {
+    //     frame.menuItemWithPath("Customization", "Themes").click();
+        
+    //     DialogFixture themeDialog = frame.dialog();
+        
+    //     themeDialog.list().selectItem("Dark Theme");
+        
+    //     themeDialog.button(JButtonMatcher.withText("Apply")).click();
+        
+    //     assertTrue(true, "Assuming theme application is successful without direct UI verification.");
+    // }
     
-
+    
     
 
 
@@ -243,5 +255,6 @@ void testFullScreenItemExistsInViewMenu() {
         }
         return null;
     }
+
 
 }
