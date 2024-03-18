@@ -1,5 +1,6 @@
 package view;
 
+import controller.NotesController;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.animation.MaterialUIMovement;
 import mdlaf.themes.JMarsDarkTheme;
@@ -11,29 +12,34 @@ import mdlaf.utils.MaterialColors;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import model.Observer;
+import model.Subject;
+
 
 /**
  * The NotesView class represents the graphical user interface for the notes application.
  */
-public class NotesView {
+public class NotesView implements Observer{
     private JFrame frame;
-    private JTextArea noteTextArea;
+    public JTextArea noteTextArea;
     private JButton addNoteButton, exitTouchScreenModeButton;
     private JMenuBar mainMenuBar;
     private boolean isFullScreen = false;
     private boolean isTouchScreenMode = false;
     private Font originalTextAreaFont;
     private FileMenuHandler fileMenuHandler;
-    private List<String> notes;
     private ToolBarHandler toolBarHandler;
     private JScrollPane scrollPane;
+    private NotesController controller;
 
 
-
-
+    // Method to set the controller
+    public void setController(NotesController controller) {
+        this.controller = controller;
+        this.controller.getModel().attach(this); // Attach this view as an observer to the model
+    }
 
     public NotesView() {
         initializeUI();
@@ -68,11 +74,8 @@ public class NotesView {
         addNoteButton = new JButton("Add Note");
         addNoteButton.addMouseListener(MaterialUIMovement.getMovement(addNoteButton, MaterialColors.GREEN_400, 7, 1000));
         addNoteButton.setName("addNoteButton"); // Set name after initialization
-        addNoteButton.addActionListener(e -> {
-            String note = noteTextArea.getText();
-            addNoteToList(note);
-            noteTextArea.setText(""); // Clear the text area after adding a note
-        });
+        addNoteButton.addActionListener(e -> controller.addNote());
+
 
         // Initialize JButton for exiting touch screen mode
         exitTouchScreenModeButton = new JButton("Exit TS");
@@ -90,6 +93,7 @@ public class NotesView {
     }
 
     private void setupToolbarsAndPanels() {
+        // Create Tool Bar
         toolBarHandler = new ToolBarHandler(frame, noteTextArea);
         toolBarHandler.setExitTouchScreenModeButton(exitTouchScreenModeButton);
 
@@ -98,6 +102,7 @@ public class NotesView {
         listNotesButton.addActionListener(e -> displayNotesDialog());
         toolBar.add(listNotesButton);
 
+        // Create customizable menu
         CustomizableMenu customizableMenu = new CustomizableMenu(frame);
         JToolBar rightToolBar = customizableMenu.createRightToolBar();
 
@@ -125,17 +130,24 @@ public class NotesView {
     }
 
     private JMenuBar createMenuBar() {
+        // Create main menu bar
         JMenuBar menuBar = new JMenuBar();
 
+        // Item 1
         FileMenuHandler fileMenuHandler = new FileMenuHandler(frame, noteTextArea);
+        // Add the file menu created by FileMenuHandler
         JMenu fileMenu = fileMenuHandler.createFileMenu();
 
+        // Item 2
         JMenu editMenu = new JMenu("Edit");
+        // Add "Font Color" option to "Edit" menu
         JMenuItem fontColorMenuItem = new JMenuItem("Font Color");
         fontColorMenuItem.addActionListener(e -> showFontColorDialog());
         editMenu.add(fontColorMenuItem);
 
+        // Item 3
         JMenu viewMenu = new JMenu("View");
+        // Add "Touch Screen Mode" option to "View" menu
         JMenuItem touchScreenModeMenuItem = new JMenuItem("Touch Screen Mode");
         touchScreenModeMenuItem.setBackground(MaterialColors.LIGHT_BLUE_A400);
         touchScreenModeMenuItem.addActionListener(e -> enableTouchScreenMode());
@@ -154,9 +166,10 @@ public class NotesView {
         JMenuItem darkThemeItem = new JMenuItem("Dark Theme");
         JMenuItem customThemeItem = new JMenuItem("Custom Theme");
 
-        lightThemeItem.addActionListener(e -> {});
-        darkThemeItem.addActionListener(e -> {});
-        customThemeItem.addActionListener(e -> {});
+        lightThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialLiteTheme()));
+        darkThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialOceanicTheme()));
+        customThemeItem.addActionListener(e -> showThemeSelectionDialog());
+
 
         themesMenu.add(lightThemeItem);
         themesMenu.add(darkThemeItem);
@@ -201,7 +214,7 @@ public class NotesView {
     }
 
     public void clearNoteText() {
-        noteTextArea.setText("");
+        noteTextArea.setText(""); // Clear the text area after adding a note
     }
 
     /**
@@ -213,17 +226,24 @@ public class NotesView {
         exitTouchScreenModeButton.setVisible(false);
         isTouchScreenMode = false;
 
+        // Reset the font size of the JTextArea to its original size
         noteTextArea.setFont(originalTextAreaFont);
 
+        // Reset the font size of menu items
         for (int i = 0; i < frame.getJMenuBar().getMenuCount(); i++) {
             JMenu menu = frame.getJMenuBar().getMenu(i);
-            changeMenuFontSize(menu, 1);
+            changeMenuFontSize(menu, originalTextAreaFont.getSize());
         }
+
+        // Revalidate and repaint the frame to ensure all components are updated
+        frame.revalidate();
+        frame.repaint();
     }
 
+
     public void displayNotes(List<String> notes) {
-        String allNotes = String.join("\n", notes);
-        noteTextArea.setText(allNotes);
+        // Updates the text area with a list of notes
+        noteTextArea.setText(String.join("\n", notes));
     }
 
     /**
@@ -270,9 +290,6 @@ public class NotesView {
         return frame;
     }
 
-    public List<String> getNotes() {
-        return notes;
-    }
 
     /**
      * Recursively changes the font size of menu items and their submenus.
@@ -347,23 +364,15 @@ public class NotesView {
     }
 
 
-    /**
-     * Adds a new note to the list of notes.
-     *
-     * @param note The note to be added.
-     */
-    void addNoteToList(String note) {
-        notes.add(note);
-    }
 
     void displayNotesDialog() {
-        // Convert the list of notes to a single string, with each note on a new line
-        String allNotes = String.join("\n", notes);
+        // Ask the controller for the formatted notes
+        String allNotes = controller.getFormattedNotes();
         // Display the notes in a dialog
         JTextArea textArea = new JTextArea(allNotes);
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(500, 300)); // Adjust size as needed
+        scrollPane.setPreferredSize(new Dimension(500, 300));
         JOptionPane.showMessageDialog(frame, scrollPane, "All Notes", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -480,6 +489,12 @@ public class NotesView {
         Image img = icon.getImage();
         Image resizedImage = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
+    }
+
+    @Override
+    public void update() {
+        // Update the view to reflect changes in the model
+        displayNotes(controller.getModel().getNotes());
     }
 
 }

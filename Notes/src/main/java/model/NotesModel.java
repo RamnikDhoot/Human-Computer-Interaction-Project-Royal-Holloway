@@ -7,20 +7,38 @@ import java.util.List;
  * The NotesModel class is responsible for managing the data of the NotesApplication.
  * It encapsulates operations for adding, removing, and retrieving notes.
  */
-public class NotesModel {
+public class NotesModel implements Subject{
     private List<String> notes;
+    private List<Observer> observers = new ArrayList<>();
 
     public NotesModel() {
-        this.notes = new ArrayList<>();
+        notes = new ArrayList<>();
     }
 
-    /**
-     * Adds a note to the model.
-     *
-     * @param note The note to be added.
-     */
+    @Override
+    public void attach(Observer o) {
+        if (!observers.contains(o)) {
+            observers.add(o);
+        }
+    }
+
+    @Override
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+
     public void addNote(String note) {
-        notes.add(note);
+        if (note != null && !note.trim().isEmpty()) {
+            notes.add(note.trim());
+            notifyObservers(); // Notify observers about the change
+        }
     }
 
     /**
@@ -31,22 +49,21 @@ public class NotesModel {
     public void removeNote(int index) {
         if (index >= 0 && index < notes.size()) {
             notes.remove(index);
+            notifyObservers(); // Notify observers about the change
         }
     }
 
-    /**
-     * Gets all the notes stored in the model.
-     *
-     * @return A list of notes.
-     */
     public List<String> getNotes() {
-        return new ArrayList<>(notes); // Return a copy to maintain encapsulation
-    }
+        return new ArrayList<>(notes);
+    }// Return a copy of the notes list
 
     /**
      * Clears all the notes from the model.
      */
     public void clearNotes() {
-        notes.clear();
+        if (!notes.isEmpty()) {
+            notes.clear();
+            notifyObservers(); // Notify observers about the change
+        }
     }
 }
