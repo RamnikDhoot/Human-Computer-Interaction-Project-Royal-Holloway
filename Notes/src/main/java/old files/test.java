@@ -410,6 +410,7 @@ public class NotesApplication {
     public List<String> getNotes() {
         return notes;
     }
+    
 
     // Touch and hold menu (not working)
     // private JPopupMenu createMockContextMenu() {

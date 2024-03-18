@@ -194,40 +194,7 @@ void testFullScreenItemExistsInViewMenu() {
     //     assertTrue(true, "Assuming theme application is successful without direct UI verification.");
     // }
     
-    
-    
 
-
-    
-
-    
-    
-    
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
     // Helper method to find a menu by name, Itterates through all the items in the
     // menu bar then cecks of the name if that item is euqal to the menuName that is
