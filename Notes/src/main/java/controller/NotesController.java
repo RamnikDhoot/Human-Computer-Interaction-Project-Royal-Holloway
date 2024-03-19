@@ -14,7 +14,7 @@ public class NotesController {
     private NotesView view;
 
     public NotesController(NotesModel model, NotesView view) {
-        this.model = model;
+        this.model = NotesModel.getInstance(); // Access the singleton instance
         this.view = view;
         attachViewListeners();
         initView();

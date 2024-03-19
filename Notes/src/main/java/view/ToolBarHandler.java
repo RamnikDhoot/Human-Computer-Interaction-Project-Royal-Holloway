@@ -165,8 +165,6 @@ public class ToolBarHandler {
 
     private MaterialTheme getThemeForNotebook(String notebookName) {
         switch (notebookName) {
-            case "Personal":
-                return new MaterialLiteTheme();
             case "Work":
                 return new MaterialOceanicTheme();
             case "Travel":

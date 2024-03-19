@@ -6,7 +6,7 @@ import controller.NotesController;
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            NotesModel model = new NotesModel();
+            NotesModel model = NotesModel.getInstance(); // access the singleton model
             NotesView view = new NotesView();
             NotesController controller = new NotesController(model, view);
             view.setController(controller); // Link controller and view

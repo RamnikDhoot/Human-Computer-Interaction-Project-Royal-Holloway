@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -52,6 +53,25 @@ public class CustomizableMenu {
         configureBottomToolBar(); // Configure the bottom toolbar
     }
 
+    private JButton createButton(String text, Icon icon, ActionListener actionListener, MouseAdapter mouseAdapter) {
+        JButton button = new JButton(text, icon);
+        button.setForeground(Color.BLUE); // Set the text color to blue
+        button.setFocusPainted(false);
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        if (actionListener != null) {
+            button.addActionListener(actionListener);
+        }
+        if (mouseAdapter != null) {
+            button.addMouseListener(mouseAdapter);
+            button.addMouseMotionListener(mouseAdapter);
+        }
+        return button;
+    }
+
+
+
+
     /**
      * Creates and returns a toolbar aligned to the right side of the frame.
      * The toolbar is non-floatable and hosts a 'plus' button at the bottom.
@@ -91,34 +111,26 @@ public class CustomizableMenu {
         frame.getLayeredPane().add(bottomToolBar, JLayeredPane.DRAG_LAYER);
     }
 
-    /**
-     * Creates and returns a JButton with a 'plus' icon. The button is configured
-     * for visual appeal and triggers the display toggle of the overlay panel.
-     *
-     * @return A JButton configured with a plus icon.
-     */
-    public JButton createPlusButton() {
-        // Load the plus icon
-        BufferedImage plusImage = null;
+    private ImageIcon loadIcon(String path, int width, int height) {
+        BufferedImage image = null;
         try {
-            plusImage = ImageIO.read(getClass().getResource("/plus-large-svgrepo-com.png"));
+            image = ImageIO.read(getClass().getResource(path));
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-
-        // Resize the image
-        Image resizedImage = plusImage.getScaledInstance(49, 49, Image.SCALE_SMOOTH);
-        ImageIcon plusIcon = new ImageIcon(resizedImage);
-
-        JButton plusButton = new JButton(plusIcon);
-
-        plusButton.setFocusPainted(false);
-        plusButton.setBorderPainted(false);
-        plusButton.setContentAreaFilled(false);
-        plusButton.addActionListener(e -> toggleOverlay());
-
-        return plusButton;
+        Image resizedImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
     }
+
+    public JButton createPlusButton() {
+        ImageIcon plusIcon = loadIcon("/plus-large-svgrepo-com.png", 49, 49);
+        // Passing an empty string for text as the button uses an icon.
+        // No MouseAdapter is needed so pass null.
+        return createButton("", plusIcon, e -> toggleOverlay(), null);
+    }
+
+
 
     /**
      * Toggles the visibility of the overlay panel and the bottom toolbar, effectively
@@ -200,16 +212,7 @@ public class CustomizableMenu {
         frame.getLayeredPane().repaint();
     }
 
-    /**
-     * Creates a draggable JButton with the specified text. The button can be moved
-     * across the overlay and dropped into the bottom toolbar, facilitating a dynamic
-     * and interactive UI.
-     *
-     * @param text The text to be displayed on the button.
-     * @return A JButton configured for drag-and-drop functionality.
-     */
     private JButton createDraggableButton(String text) {
-        JButton button = new JButton(text);
         MouseAdapter ma = new MouseAdapter() {
             private Point offset;
 
@@ -248,9 +251,8 @@ public class CustomizableMenu {
             }
         };
 
-        button.addMouseListener(ma);
-        button.addMouseMotionListener(ma);
-
-        return button;
+        // No icon and action listener for a draggable button, so pass null for those parameters
+        return createButton(text, null, null, ma);
     }
+
 }

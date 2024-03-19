@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -30,38 +31,26 @@ public class FileMenuHandler {
         this.fileChooser = new JFileChooser();
     }
 
-    /**
-     * Creates and returns a "File" menu with menu items for new, open, save, print,
-     * and exit actions, along with their respective action listeners.
-     *
-     * @return The "File" menu component for integration into a menu bar.
-     */
+
+    private JMenuItem createMenuItem(String name, ActionListener actionListener) {
+        JMenuItem menuItem = new JMenuItem(name);
+        menuItem.addActionListener(actionListener);
+        return menuItem;
+    }
+
     public JMenu createFileMenu() {
         JMenu fileMenu = new JMenu("File");
 
-        JMenuItem printMenuItem = new JMenuItem("Print");
-        printMenuItem.addActionListener(e -> showPrintMenu());
-
-        JMenuItem newFileItem = new JMenuItem("New");
-        newFileItem.addActionListener(e -> noteTextArea.setText(""));
-
-        JMenuItem openFileItem = new JMenuItem("Open");
-        openFileItem.addActionListener(e -> openFile());
-
-        JMenuItem saveFileItem = new JMenuItem("Save");
-        saveFileItem.addActionListener(e -> saveFile());
-
-        JMenuItem exitItem = new JMenuItem("Exit");
-        exitItem.addActionListener(e -> System.exit(0));
-
-        fileMenu.add(printMenuItem);
-        fileMenu.add(newFileItem);
-        fileMenu.add(openFileItem);
-        fileMenu.add(saveFileItem);
-        fileMenu.add(exitItem);
+        fileMenu.add(createMenuItem("Print", e -> showPrintMenu()));
+        fileMenu.add(createMenuItem("New", e -> noteTextArea.setText("")));
+        fileMenu.add(createMenuItem("Open", e -> openFile()));
+        fileMenu.add(createMenuItem("Save", e -> saveFile()));
+        fileMenu.add(createMenuItem("Exit", e -> System.exit(0)));
 
         return fileMenu;
     }
+
+
 
 
 
