@@ -15,36 +15,56 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.List;
 import model.Observer;
-import model.Subject;
-
 
 /**
- * The NotesView class represents the graphical user interface for the notes application.
+ * The {@code NotesView} class implements the Observer interface and serves as
+ * the graphical user interface for a notes application.
+ * It provides functionalities for creating, displaying, and managing notes
+ * through a user-friendly interface.
  */
-public class NotesView implements Observer{
+public class NotesView implements Observer {
     private JFrame frame;
     public JTextArea noteTextArea;
-    private JButton addNoteButton, exitTouchScreenModeButton;
+    public JButton addNoteButton;
+    private JButton exitTouchScreenModeButton;
     private JMenuBar mainMenuBar;
-    private boolean isFullScreen = false;
-    private boolean isTouchScreenMode = false;
+    public boolean isFullScreen = false;
     private Font originalTextAreaFont;
-    private FileMenuHandler fileMenuHandler;
     private ToolBarHandler toolBarHandler;
     private JScrollPane scrollPane;
     private NotesController controller;
 
-
-    // Method to set the controller
+    /**
+     * Sets the controller for this view. This allows the view to communicate with
+     * the
+     * controller when actions occur in the GUI. It also attaches this view as an
+     * observer
+     * to the model through the controller.
+     *
+     * @param controller The {@code NotesController} that controls the application
+     *                   logic.
+     */
     public void setController(NotesController controller) {
         this.controller = controller;
         this.controller.getModel().attach(this); // Attach this view as an observer to the model
     }
 
+    /**
+     * Constructor for {@code NotesView}. It initializes the user interface
+     * components
+     * and sets up the necessary interactions.
+     */
     public NotesView() {
         initializeUI();
     }
 
+    /**
+     * Initializes the user interface of the notes application, setting up
+     * components
+     * like menus, toolbars, buttons, and text areas. It also configures look and
+     * feel
+     * settings to enhance the user experience.
+     */
     private void initializeUI() {
         try {
             // Set Material look and feel
@@ -68,14 +88,15 @@ public class NotesView implements Observer{
         originalTextAreaFont = noteTextArea.getFont(); // Save original font after JTextArea is initialized
 
         // Initialize JScrollPane for noteTextArea
-        scrollPane = new JScrollPane(noteTextArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane = new JScrollPane(noteTextArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         // Initialize JButton for adding notes
         addNoteButton = new JButton("Add Note");
-        addNoteButton.addMouseListener(MaterialUIMovement.getMovement(addNoteButton, MaterialColors.GREEN_400, 7, 1000));
+        addNoteButton
+                .addMouseListener(MaterialUIMovement.getMovement(addNoteButton, MaterialColors.GREEN_400, 7, 1000));
         addNoteButton.setName("addNoteButton"); // Set name after initialization
         addNoteButton.addActionListener(e -> controller.addNote());
-
 
         // Initialize JButton for exiting touch screen mode
         exitTouchScreenModeButton = new JButton("Exit TS");
@@ -92,6 +113,17 @@ public class NotesView implements Observer{
         frame.setVisible(true);
     }
 
+    /**
+     * Initializes toolbars, panels, and other UI components within the application
+     * frame.
+     * This method sets up the main toolbar with functionality such as listing
+     * notes,
+     * creating customizable menus, and configuring side panels for additional tools
+     * and options.
+     * It ensures that all necessary UI elements are properly added to the main
+     * application frame
+     * and applies a consistent visual style across all components.
+     */
     private void setupToolbarsAndPanels() {
         // Create Tool Bar
         toolBarHandler = new ToolBarHandler(frame, noteTextArea);
@@ -125,10 +157,20 @@ public class NotesView implements Observer{
 
         frame.setJMenuBar(mainMenuBar);
 
-
         applyMaterialFontToAllComponents(frame.getContentPane());
     }
 
+    /**
+     * Creates the main menu bar for the application, incorporating various menus
+     * including File, Edit,
+     * View, Home, Help, Customization, and Advanced. Each menu is populated with
+     * relevant menu items
+     * and their associated action listeners, providing a comprehensive set of
+     * options for the user.
+     *
+     * @return JMenuBar The fully constructed main menu bar ready to be added to the
+     *         application frame.
+     */
     private JMenuBar createMenuBar() {
         // Create main menu bar
         JMenuBar menuBar = new JMenuBar();
@@ -166,10 +208,12 @@ public class NotesView implements Observer{
         JMenuItem darkThemeItem = new JMenuItem("Dark Theme");
         JMenuItem customThemeItem = new JMenuItem("Custom Theme");
 
-        lightThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialLiteTheme()));
+        lightThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialLiteTheme())); // Apply the
+                                                                                                 // MaterialLiteTheme
+                                                                                                 // when lightThemeItem
+                                                                                                 // is pressed
         darkThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialOceanicTheme()));
         customThemeItem.addActionListener(e -> showThemeSelectionDialog());
-
 
         themesMenu.add(lightThemeItem);
         themesMenu.add(darkThemeItem);
@@ -197,35 +241,68 @@ public class NotesView implements Observer{
         return menuBar;
     }
 
+    /**
+     * Makes the application frame visible to the user. This method is intended to
+     * be called
+     * after all UI components have been initialized and added to the frame. It
+     * ensures that
+     * the frame is properly displayed on the screen.
+     */
     public void display() {
         SwingUtilities.invokeLater(() -> frame.setVisible(true));
     }
 
+    /**
+     * Registers an ActionListener for the "Add Note" button. This listener is
+     * triggered when the user
+     * interacts with the button, allowing for custom behavior such as opening a
+     * dialog to add a new note.
+     *
+     * @param listener The ActionListener to be attached to the "Add Note" button.
+     */
     public void setAddNoteActionListener(ActionListener listener) {
         addNoteButton.addActionListener(listener);
     }
 
+    /**
+     * Registers an ActionListener for the button that exits touch screen mode. This
+     * listener
+     * is responsible for handling the transition from touch screen mode back to the
+     * standard
+     * interface mode.
+     *
+     * @param listener The ActionListener to be attached to the exit touch screen
+     *                 mode button.
+     */
     public void setExitTouchScreenModeActionListener(ActionListener listener) {
         exitTouchScreenModeButton.addActionListener(listener);
     }
 
+    /**
+     * Retrieves the current text from the note text area.
+     *
+     * @return String The text currently contained in the note text area.
+     */
     public String getNoteText() {
         return noteTextArea.getText();
     }
 
+    /**
+     * Clears the text from the note text area, resetting it to an empty state.
+     */
     public void clearNoteText() {
         noteTextArea.setText(""); // Clear the text area after adding a note
     }
 
     /**
-     * Disables touch-screen mode by reverting UI elements to their original sizes for normal mouse and keyboard interaction.
-     * This includes resetting the font size of the JTextArea to its original size and hiding the exit touch screen mode button.
+     * Disables touch-screen mode by reverting UI elements to their original sizes
+     * for normal mouse and keyboard interaction.
+     * This includes resetting the font size of the JTextArea to its original size
+     * and hiding the exit touch screen mode button.
      */
     public void disableTouchScreenMode() {
         // Hide the exit touch screen mode button
         exitTouchScreenModeButton.setVisible(false);
-        isTouchScreenMode = false;
-
         // Reset the font size of the JTextArea to its original size
         noteTextArea.setFont(originalTextAreaFont);
 
@@ -240,15 +317,23 @@ public class NotesView implements Observer{
         frame.repaint();
     }
 
-
+    /**
+     * Displays a list of notes in the note text area. This method is useful for
+     * showing multiple notes
+     * at once, separated by new lines.
+     *
+     * @param notes A list of strings, each representing a note to be displayed.
+     */
     public void displayNotes(List<String> notes) {
         // Updates the text area with a list of notes
         noteTextArea.setText(String.join("\n", notes));
     }
 
     /**
-     * Enables touch-screen mode by making UI elements larger for easier tapping and
-     * readability.
+     * Enables touch-screen mode by enlarging UI elements and adjusting their
+     * visibility for easier
+     * interaction on touch-based devices. This mode enhances accessibility and
+     * usability in touch screen environments.
      */
     public void enableTouchScreenMode() {
         // Show popup message indicating touch screen mode is active
@@ -265,8 +350,6 @@ public class NotesView implements Observer{
 
         // Make the exit button visible
         exitTouchScreenModeButton.setVisible(true);
-        isTouchScreenMode = true;
-
         // Optionally, display an on-screen keyboard
         JDialog keyboardDialog = createKeyboardDialog(frame);
         keyboardDialog.setLocationRelativeTo(frame);
@@ -274,7 +357,10 @@ public class NotesView implements Observer{
     }
 
     /**
-     * Toggles between full-screen and windowed mode.
+     * Toggles the application window between full-screen and windowed mode. This
+     * method allows the user
+     * to switch between different display modes for their preference or
+     * convenience.
      */
     public void toggleFullScreen() {
         GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -286,21 +372,30 @@ public class NotesView implements Observer{
         isFullScreen = !isFullScreen;
     }
 
+    /**
+     * Provides access to the main application frame.
+     *
+     * @return JFrame The main application frame.
+     */
     public JFrame getFrame() {
         return frame;
     }
 
-
     /**
-     * Recursively changes the font size of menu items and their submenus.
+     * Recursively changes the font size of menu items and their submenus to enhance
+     * readability
+     * or fit the user's preference. This method is particularly useful when
+     * adjusting UI elements
+     * for touch screen mode or for accessibility reasons.
      *
-     * @param menu The menu to adjust font size for.
+     * @param menu The menu for which to adjust font size.
+     * @param size The new font size to apply to the menu and its items.
      */
     private void changeMenuFontSize(JMenu menu, int size) {
         menu.setFont(new Font("Arial", Font.BOLD, size)); // Set the menu font size
         for (int i = 0; i < menu.getItemCount(); i++) {
             JMenuItem menuItem = menu.getItem(i);
-            if (menuItem instanceof JMenu) {
+            if (menuItem instanceof JMenu) { // Check if the menuItem is a submenu (a nested menu)
                 changeMenuFontSize((JMenu) menuItem, size);
             } else if (menuItem != null) { // Check to avoid null pointer exception
                 menuItem.setFont(new Font("Arial", Font.PLAIN, size));
@@ -309,10 +404,16 @@ public class NotesView implements Observer{
     }
 
     /**
-     * Creates an on-screen keyboard dialog.
+     * Creates an on-screen keyboard dialog, providing an alternative input method
+     * for users.
+     * This dialog features a customizable keyboard layout and predictive text
+     * capabilities, enhancing
+     * accessibility and user experience in touch screen or keyboard-less
+     * environments.
      *
-     * @param parent The JFrame parent of the dialog.
-     * @return A JDialog object representing the on-screen keyboard dialog.
+     * @param parent The JFrame parent of the dialog, typically the main application
+     *               frame.
+     * @return A JDialog object representing the on-screen keyboard.
      */
     private JDialog createKeyboardDialog(JFrame parent) {
         JDialog keyboardDialog = new JDialog(parent, "On-Screen Keyboard", false);
@@ -325,7 +426,7 @@ public class NotesView implements Observer{
         predictiveTextPanel.add(predictiveTextLabel);
 
         // Adding some random predictive texts
-        String[] predictiveTexts = {"hello", "world", "Java", "Swing"};
+        String[] predictiveTexts = { "hello", "world", "Java", "Swing" };
         for (String text : predictiveTexts) {
             JButton predictiveTextButton = new JButton(text);
             predictiveTextPanel.add(predictiveTextButton);
@@ -363,9 +464,13 @@ public class NotesView implements Observer{
         return keyboardDialog;
     }
 
-
-
-    void displayNotesDialog() {
+    /**
+     * Displays a dialog containing all notes in a scrollable text area. This method
+     * provides a convenient
+     * way to view all notes at once, enhancing the user's ability to browse and
+     * manage their notes.
+     */
+    public void displayNotesDialog() {
         // Ask the controller for the formatted notes
         String allNotes = controller.getFormattedNotes();
         // Display the notes in a dialog
@@ -377,21 +482,29 @@ public class NotesView implements Observer{
     }
 
     /**
-     * Applies the Material UI font to all components recursively.
+     * Applies a Material UI font to all components within a given component tree,
+     * enhancing the overall
+     * aesthetic and consistency of the application's interface. This method
+     * recursively updates the font
+     * of each component to ensure a uniform look and feel.
      *
-     * @param component The root component to start applying the font to.
+     * @param component The root component from which to start applying the Material
+     *                  UI font.
      */
     private void applyMaterialFontToAllComponents(Component component) {
         component.setFont(new Font("Roboto", Font.PLAIN, 14));
         if (component instanceof Container) {
-            for (Component child : ((Container) component).getComponents()) {
+            for (Component child : ((Container) component).getComponents()) { // Iterate over each child component
+                                                                              // within the component container
                 applyMaterialFontToAllComponents(child);
             }
         }
     }
 
     /**
-     * Displays the font color dialog for selecting text color.
+     * Displays a dialog for selecting a font color. The selected color is then
+     * applied to the note
+     * text area, allowing the user to customize the appearance of their notes.
      */
     private void showFontColorDialog() {
         Color selectedColor = JColorChooser.showDialog(frame, "Choose Font Color", Color.BLACK);
@@ -400,6 +513,13 @@ public class NotesView implements Observer{
         }
     } // Opens menu for changing colors, already installed in swing
 
+    /**
+     * Displays a dialog for theme selection, allowing the user to choose from
+     * various pre-defined
+     * or custom themes to apply to the application's interface. This dialog
+     * enhances customization
+     * and personalization, improving the user experience.
+     */
     private void showThemeSelectionDialog() {
         JDialog themeDialog = new JDialog(frame, "Select Theme", true);
         themeDialog.setLayout(new BorderLayout());
@@ -415,12 +535,11 @@ public class NotesView implements Observer{
         themeMappings.put("Blue", new JMarsDarkTheme());
         themeMappings.put("Green", new JMarsDarkTheme());
 
-
         HashMap<String, ImageIcon> themePreviews = new HashMap<>();
         themePreviews.put("Material Lite", new ImageIcon(getClass().getResource("/Screenshot 2024-03-16 105855.png")));
-        themePreviews.put("Material Oceanic", new ImageIcon(getClass().getResource("/Screenshot 2024-03-16 110015.png")));
+        themePreviews.put("Material Oceanic",
+                new ImageIcon(getClass().getResource("/Screenshot 2024-03-16 110015.png")));
         themePreviews.put("JMars Dark", new ImageIcon(getClass().getResource("/dark.png")));
-
 
         // Create theme selection panel
         JPanel themeSelectionPanel = new JPanel();
@@ -446,7 +565,8 @@ public class NotesView implements Observer{
         for (String themeName : themeMappings.keySet()) {
             JButton themeButton = new JButton(themeName);
             themeButton.addActionListener(e -> {
-                ImageIcon resizedIcon = resizeIcon(themePreviews.get(themeName), previewLabel.getWidth(), previewLabel.getHeight());
+                ImageIcon resizedIcon = resizeIcon(themePreviews.get(themeName), previewLabel.getWidth(),
+                        previewLabel.getHeight());
                 previewLabel.setIcon(resizedIcon);
                 currentThemeName[0] = themeName;
             });
@@ -459,8 +579,16 @@ public class NotesView implements Observer{
         themeDialog.setVisible(true);
     }
 
-
-    private void applyTheme(mdlaf.themes.MaterialTheme theme) {
+    /**
+     * Applies a selected theme to the application, updating the look and feel based
+     * on the user's
+     * choice. This method is responsible for initiating UI updates to reflect the
+     * new theme, ensuring
+     * a consistent and visually appealing interface.
+     *
+     * @param theme The MaterialTheme object representing the theme to be applied.
+     */
+    public void applyTheme(mdlaf.themes.MaterialTheme theme) {
         try {
             MaterialLookAndFeel lookAndFeel = new MaterialLookAndFeel(theme);
             UIManager.setLookAndFeel(lookAndFeel);
@@ -471,6 +599,13 @@ public class NotesView implements Observer{
         }
     }
 
+    /**
+     * Refreshes the UI to apply any pending updates or changes. This method is
+     * typically called
+     * after altering the appearance or layout of UI components to ensure that the
+     * changes are
+     * accurately reflected on the screen.
+     */
     private void updateUI() {
         // Save the current frame size
         Dimension currentSize = frame.getSize();
@@ -484,13 +619,31 @@ public class NotesView implements Observer{
         frame.repaint();
     }
 
-
+    /**
+     * Resizes an ImageIcon to fit specified dimensions, maintaining the aspect
+     * ratio. This method
+     * is useful for adjusting icons to fit within specific UI components without
+     * distorting their
+     * appearance.
+     *
+     * @param icon   The ImageIcon to resize.
+     * @param width  The desired width of the icon.
+     * @param height The desired height of the icon.
+     * @return An ImageIcon resized to the specified dimensions.
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
         Image resizedImage = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
     }
 
+    /**
+     * Notifies the UI to update based on changes in the underlying model. This
+     * method ensures
+     * that the view reflects the current state of the application, such as
+     * displaying the latest
+     * notes or applying new settings.
+     */
     @Override
     public void update() {
         // Update the view to reflect changes in the model

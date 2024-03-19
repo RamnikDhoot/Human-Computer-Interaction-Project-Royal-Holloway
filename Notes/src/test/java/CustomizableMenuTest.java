@@ -2,6 +2,8 @@ import javax.swing.*;
 import static org.junit.Assert.*;
 import org.junit.*;
 
+import view.CustomizableMenu;
+
 import java.awt.*;
 
 /**
@@ -77,7 +79,6 @@ public class CustomizableMenuTest {
         assertNotNull(plusButton);
         assertTrue(plusButton.getActionListeners().length > 0);
     }
-
 
     /**
      * Tests whether the overlay is properly exited.
