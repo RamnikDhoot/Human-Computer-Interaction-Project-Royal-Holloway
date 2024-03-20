@@ -125,21 +125,23 @@ function NavBar() {
                         </form>
                     </div>
 
-                    {/* Sign out*/}
-                    <div className="d-flex align-items-center">
-                        <a
-                            className="nav-link text-white"
-                            id="signOutLink"
-                            onClick={signOut}
-                            style={{
-                                fontSize: "1.25rem",
-                                paddingTop: "0.3125rem",
-                                paddingBottom: "0.3125rem",
-                            }}
-                        >
-                            Sign out
-                        </a>
-                    </div>
+{/* Sign out */}
+<div className="d-flex align-items-center">
+  <a
+    className="nav-link text-white btn btn-danger"
+    id="signOutLink"
+    onClick={() => {
+      if (window.confirm("Are you sure you want to sign out?")) {
+        signOut();
+      }
+    }}
+    style={{ fontSize: "1.25rem" }}
+  >
+    Sign out
+  </a>
+</div>
+
+
                 </div>
             </nav>
 

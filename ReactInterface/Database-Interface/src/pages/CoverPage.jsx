@@ -39,9 +39,9 @@ function CoverPage() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <button className="nav-link" onClick={toggleModal}>
-                    Help
-                  </button>
+                <button className="btn btn-primary" onClick={toggleModal}>
+                  Help
+                </button>
                 </li>
               </ul>
             </div>
