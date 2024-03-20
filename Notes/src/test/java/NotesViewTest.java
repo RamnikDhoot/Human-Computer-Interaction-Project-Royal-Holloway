@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
-import javax.swing.event.AncestorListener;
-
 import controller.NotesController;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.themes.MaterialLiteTheme;

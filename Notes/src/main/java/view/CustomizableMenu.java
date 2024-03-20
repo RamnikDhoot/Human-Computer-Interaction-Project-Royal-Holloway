@@ -53,9 +53,9 @@ public class CustomizableMenu {
      */
     private JButton createButton(String text, Icon icon, ActionListener actionListener, MouseAdapter mouseAdapter) {
         JButton button = new JButton(text, icon);
-        button.setForeground(Color.BLUE); // Set the text color to blue
+        button.setForeground(Color.BLUE); 
         button.setFocusPainted(false);
-        button.setBorderPainted(false);
+        button.setBorderPainted(false);// I was unable to colour the background of the buttons
         button.setContentAreaFilled(false);
         if (actionListener != null) {
             button.addActionListener(actionListener);
@@ -79,7 +79,7 @@ public class CustomizableMenu {
         JToolBar rightToolBar = new JToolBar(JToolBar.VERTICAL);
         rightToolBar.setFloatable(false); // Prevent the right toolbar from becoming a floating window
 
-        JButton plusButton = createPlusButton();
+        JButton plusButton = createPlusButton();// This button requires double click even tough it should be a single click, this is due to a focus issue with the action listener i was not able to fix
 
         // Add the plus button with an icon at the bottom
         rightToolBar.add(Box.createVerticalGlue()); // Pushes the plus button to the bottom
@@ -168,13 +168,18 @@ public class CustomizableMenu {
         frame.getLayeredPane().repaint();
     }
 
-    /**
-     * Closes the overlay by hiding the overlay panel and the bottom toolbar.
-     */
-    public void exitOverlay() {
-        overlayPanel.setVisible(false);
-        bottomToolBar.setVisible(false);
-    }
+/**
+ * Closes the overlay by hiding the overlay panel and the bottom toolbar.
+ * Adds a new button to the right toolbar upon exit.
+ */
+public void exitOverlay() {
+    overlayPanel.setVisible(false);
+    bottomToolBar.setVisible(false);
+
+    rightToolBar.revalidate();
+    rightToolBar.repaint();
+}
+
 
     /**
      * Creates the overlay panel with a semi-transparent background and populates it
@@ -225,7 +230,7 @@ public class CustomizableMenu {
         frame.getLayeredPane().repaint();
     }
 
-    /**
+        /**
      * Creates a draggable button with a specified text label. This button can be
      * moved across the overlay panel,
      * allowing for a flexible and user-customizable interface. The method handles
@@ -268,6 +273,14 @@ public class CustomizableMenu {
                     bottomToolBar.revalidate();
                     bottomToolBar.repaint();
 
+                    JButton newButtonForRightToolbar = createButton("Button 1", null, null, null); // Specify "Button 1" as the button text
+
+
+                            // Add the new "Button 1" to the right toolbar, just above the 'plus' button
+        rightToolBar.add(newButtonForRightToolbar, rightToolBar.getComponentCount() - 1);
+        rightToolBar.revalidate();
+        rightToolBar.repaint();
+
                     // Remove the button from its original parent
                     overlayPanel.remove(button);
                     overlayPanel.revalidate();
@@ -281,5 +294,6 @@ public class CustomizableMenu {
         // parameters
         return createButton(text, null, null, ma);
     }
+    
 
 }
