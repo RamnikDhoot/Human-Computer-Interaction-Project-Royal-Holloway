@@ -164,7 +164,7 @@ public class ToolBarHandler {
      * The notebook's theme is applied upon selection, and its contents are loaded
      * for editing.
      */
-    public void displayNotebookList() {
+    void displayNotebookList() {
         List<String> options = new ArrayList<>(notebookList);
         options.add("Create new notebook...");
 

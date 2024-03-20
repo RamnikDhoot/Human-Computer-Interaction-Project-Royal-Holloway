@@ -79,7 +79,7 @@ public class FileMenuHandler {
      */
     public void showPrintMenu() {
         JDialog printDialog = new JDialog(frame, "Print Options", true);
-        printDialog.setSize(200, 100);
+        printDialog.setSize(200, 150);
         printDialog.setLayout(new FlowLayout());
 
         JButton printToPrinterButton = new JButton("Print to Printer");

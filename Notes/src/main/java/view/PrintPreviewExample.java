@@ -25,7 +25,7 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     public PrintPreviewExample(Frame owner) {
         super(owner, "Print Preview", true); // 'true' for modal dialog
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(400, 300);
+        setSize(500, 400);
         setLocationRelativeTo(null); // Center the window
 
         // Assuming createPreviewPanel and createOptionsPanel are correctly implemented
