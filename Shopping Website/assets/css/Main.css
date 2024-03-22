@@ -1,6 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  /* Bright colours for primary actions draw attention and encourage clicks. Contrast with secondary buttons should be clear but not overwhelming, maintaining hierarchy. */
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Cart Summary */
+.list-group-item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.bg-light {
+  background-color: #e9ecef !important;
+}
+
+/* Form Inputs */
+input[type="text"], input[type="email"], select.form-select {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+
+/* Invalid Feedback */
+.invalid-feedback {
+  color: #dc3545;
+}
+
+.accordion-button {
+  background-color: #e9ecef; /* Very light gray for accordion headers, easy on the eyes */
+  color: #495057; /* Darker text for readability */
+}
+
+.accordion-body {
+  background-color: #ffffff; /* White for a clean, focused content area */
+}
+
+.testimonial {
+  background-color: #e0f7fa; /* Very light cyan for a soothing, positive background */
+  border-left: 5px solid #26a69a; /* Teal accent to draw attention to testimonials */
+  padding: 20px; 
+}
+
+blockquote {
+  color: #616161; /* Dark gray for emphasis and readability */
+}
+
+/* Utility classes for spacing, visibility, and alignment */
+.mt-4, .my-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pt-4, .py-4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
 /* Adds bar at the top of page so nav-bar look like it touches the top */
 .site-header {
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Cards Styling */
+.card {
+  background-color: #FFFFFF; /* White background for clear distinction */
+  border: 1px solid #E0E0E0; /* Light grey border to soften the edge */
+}
+
+.card-title,
+.card-text,
+.alert-heading,
+.alert {
+  color: #333; /* Dark grey for readability */
+}
+
+/* Alerts Styling */
+.alert-warning {
+  background-color: #FFF3E0; /* Light orange for attention without alarm */
+  color: #FF6F00; /* Orange for important, time-sensitive actions */
+}
+
+.alert-info {
+  background-color: #E1F5FE; /* Light blue for information */
+  color: #0277BD; /* Blue for calm and trust */
+}
+
+.alert-success {
+  background-color: #E8F5E9; /* Light green for success */
+  color: #2E7D32; /* Green for go-ahead or positive action */
+}
+
+.alert-danger {
+  background-color: #FFEBEE; /* Light red for caution */
+  color: #D32F2F; /* Red for stop or warning */
+}
+
+
+
+/* Alerts (Error Messages, Warnings) */
+.alert-danger {
+  background-color: #FFCDD2; /* Soft Red */
+  color: #D32F2F; /* Dark Red */
+}
+
+/* Success Messages */
+.alert-success {
+  background-color: #E8F5E9; /* Light Green */
+  color: #388E3C; /* Dark Green */
+}
+
+/* Ensure buttons and links have hover effects for better user interaction */
+.btn:hover, a:hover {
+  opacity: 0.85;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand a, .navbar-brand a:visited {
+  color: #001eff;
 }
 
 .student-shopping {
@@ -169,12 +333,7 @@ section {
 }
 
 /*Footer*/
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
-  background-color: #f8f9fa; /* Light background color for a clean look */
-}
+
 
 footer {
   background-color: #343a40;
@@ -304,16 +463,6 @@ h2.dark-mode,
   color: #1900ff;
 }
 
-.list-group-item:not(:last-child)::after {
-  content: '→'; 
-  position: absolute;
-  right: -8px; 
-  top: 50%;
-  transform: translateY(-50%);
-  color: #000000; 
-  font-size: 16px; 
-}
-
 .category-link:hover {
   text-decoration: none;
   background-color: #f8f9fa;
@@ -327,3 +476,50 @@ h2.dark-mode,
   box-shadow: 0px 0px 5px rgba(0,0,0,0.3); /* Subtle shadow */
   color: #333; /* Dark text color for contrast */
 }
+
+
+/* mobile-first approach: Default styles that apply to mobile and above */
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card {
+    /* Adjust card layout for tablet screens */
+    margin: 20px;
+  }
+
+  .container, .navbar-expand-lg .navbar-collapse {
+    /* Increase padding for larger screens */
+    padding: 20px;
+  }
+
+  /* Adjust font size for readability on larger screens */
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card {
+    /* Further adjust card layout for desktop screens */
+    margin: 30px auto; /* Centering cards with auto margins */
+    max-width: 80%; /* Limiting card width for readability */
+  }
+
+  /* Increase base font size for desktop */
+  body {
+    font-size: 18px;
+  }
+
+  /* Adjust layout for navigation bar on larger screens */
+  .navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  /* Larger padding for sections on bigger screens */
+  section {
+    padding: 80px 0;
+  }
+}
+

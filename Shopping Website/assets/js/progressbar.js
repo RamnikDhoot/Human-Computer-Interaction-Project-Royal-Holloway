@@ -1,8 +1,11 @@
-// Progress Bar
+//Script 1: Basic Progress Bar Update Logic
+// Listens for the document to be fully loaded before executing.
 document.addEventListener('DOMContentLoaded', function () {
     var currentStep = 3; // Starting at Step 3 bacue you would already be in the basket
 
+        // Function to update the progress bar's appearance and label based on the current step.
     function updateProgressBar(step) {
+              // Defines the steps of the progress bar.
         var steps = [
             "Step 1: Add item to basket",
             "Step 2: Go to basket",
@@ -12,14 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
             "Step 6: Put payment info",
             "Step 7: Done"
         ];
+                // Calculates the percentage of completion based on the current step.
         var percentage = (step / steps.length) * 100;
-        var progressBar = document.querySelector('.progress-bar');
+                // Selects the progress bar element and updates its width and label to reflect the current step.
+var progressBar = document.querySelector('.progress-bar');
         progressBar.style.width = percentage + '%';
         progressBar.setAttribute('aria-valuenow', percentage);
         progressBar.textContent = steps[step - 1];
     }
 
-    document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
+        // Listeners for various forms and buttons to trigger progress updates.
+document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
         if (currentStep === 3) {
             currentStep = 4;
             updateProgressBar(currentStep);
@@ -36,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('paymentTypeForm').addEventListener('change', function() {
-        // Check if a payment method is selected
+        // Moves to the next step when a payment method is selected.
         if (currentStep === 5 && this.querySelector('[name="paymentMethod"]:checked')) {
             currentStep = 6;
             updateProgressBar(currentStep);
@@ -44,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('paymentInfoForm').addEventListener('input', function() {
-        // Check if all required fields in paymentInfoForm are filled
+        // Moves to the final step once all payment information fields are filled.
         var allFilled = Array.from(this.querySelectorAll('[required]')).every(input => input.value.trim() !== '');
         if (currentStep === 6 && allFilled) {
             currentStep = 7;
@@ -52,17 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initialize the progress bar at the current step
+    // Initializes the progress bar based on the current step.
     updateProgressBar(currentStep);
 });
 
-
-// Progress bar colour
+//Script 2: Dynamic Progress Bar with Color Updates
+// Similar to Script 1, but includes additional logic for dynamically changing the progress bar's color based on the current step.
 document.addEventListener('DOMContentLoaded', function () {
     var currentStep = 3; 
 
     function updateProgressBar(step) {
-        var steps = [
+                // Step labels and calculation of completion percentage remain the same.
+var steps = [
             "Step 1: Add item to basket",
             "Step 2: Go to basket",
             "Step 3: Check items are correct",
@@ -89,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Progress bar updated to step:', step); 
     }
 
-    document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
+       // Simplified listener that advances the step when the 'itemsCorrectBtn' is clicked, with additional checks and color update.
+document.getElementById('itemsCorrectBtn').addEventListener('click', function() {
         if (currentStep < 7) { 
             currentStep++;
             updateProgressBar(currentStep);
@@ -99,8 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
     updateProgressBar(currentStep);
 });
 
+//Script 3: Progress Bar with Session Storage
+// Progress Bar with Session Storage and Dynamic Updates
 document.addEventListener('DOMContentLoaded', function() {
-    const progressSteps = [
+        // Array of step descriptions for the progress bar.
+const progressSteps = [
       "Step 1: Add item to basket",
       "Step 2: Go to basket",
       "Step 3: Check items are correct",
@@ -110,7 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
       "Step 7: Done"
     ];
   
-    const progressBar = document.querySelector('.progress-bar');
+        // Selects the progress bar and the step description elements.
+const progressBar = document.querySelector('.progress-bar');
     const stepDescription = document.getElementById('stepDescription');
   
     // Update progress bar when adding an item to the basket
@@ -142,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 
-  
+  //Script 4: Combined Approach with Color and Storage
   // Function to update the progress bar and step description
     document.addEventListener('DOMContentLoaded', function() {
       let currentStep = 1; 

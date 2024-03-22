@@ -2,379 +2,566 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Meta tag to ensure proper rendering and touch zooming in mobile browsers -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact Us</title>
+    <!-- Bootstrap CSS for styling, ensuring the page is responsive and mobile-friendly -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css">
+      crossorigin="anonymous" />
+    <!-- Main.css for custom styles specific to this site -->
+    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css" />
+    <!-- Bootstrap icons for using various icons from Bootstrap's library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-icons.css" />
+    <!-- Inline CSS styles for specific elements/features on the page -->
     <style>
-        .featurette {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
+      .featurette {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
 
-.featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.05rem;
-}
+      .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.05rem;
+      }
     </style>
   </head>
   <body>
-    <header class="site-header sticky-top py-1"> <!--Sticks the nav-bar to the top of the page when the user scrolls down-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="Homepage.html">Shopping</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        > 
-          <span class="navbar-toggler-icon"></span> <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!--d-flex flex-row me-1-->
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="Homepage.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-                  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-                </svg>
-                Home
-              </a>
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Notifications.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                </svg>
-                Notifications
-              </a>
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Settings.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                </svg>
-                Settings
-              </a>              
-            </li>
-          </ul>
-          <div class="d-flex justify-content-center align-items-center me-0"></div>
-          <form class="d-flex me-auto" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search...."
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-              </svg>
-            </button>
-          </form></div>
-          <div class="d-flex flex-row me-1">
-            
-          <div
-            class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3"
-          >
-            <a href="#login" class="text-white">Login</a>
-            <a
-              href="#signup"
-              class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2"
-              >Sign Up</a
-            >
-          </div>
-          <a  href="Basket.html">
-          <button type="button" class="btn position-relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg></i>
-            <span
-              class="position-absolute top-0 start-100 translate-middle badge bg-primary"
-              >0</span
-            >
+    <header class="site-header sticky-top py-1">
+      <!--Sticks the nav-bar to the top of the page when the user scrolls down-->
+      <!-- Using Bootstrap's sticky-top class to keep the header at the top of the viewport on scroll -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <!-- Navbar brand/logo. Clicking it takes user to homepage -->
+          <a class="navbar-brand" href="Homepage.html">Shopping</a>
+          <!-- Hamburger menu icon for mobile view, toggles the navigation bar -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
           </button>
-        </a>
-        </div>
-        </div>
-        
-      </div>
-      <button type="button" class="btn btn-secondary" id="readScreenButton" onclick="toggleReadScreen()" style="margin-right: 10px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-          <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
-        </svg>
-      </button>
-  
-    </nav>
-  </header>
-
-<!-- Contact Us -->
-  <div class="container my-5">
-    <h2 class="mb-4">Contact Us</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="contact-info">
-                <h4>About Our Website</h4>
-                <p>Learn more about what we do and how we can help you find the best products online.</p>
-                <h4>Contact Information</h4>
-                <p>Email: contact@example.com</p>
-                <p>Phone: +123456789</p>
-                <div class="social-icons">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <form>
-                <div class="mb-3">
-                    <label for="nameInput" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
-                </div>
-                <div class="mb-3">
-                    <label for="emailInput" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="Your Email">
-                </div>
-                <div class="mb-3">
-                    <label for="messageTextarea" class="form-label">Message</label>
-                    <textarea class="form-control" id="messageTextarea" rows="3" placeholder="Your Message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+          <!-- Navbar items, will be collapsed into the hamburger menu in mobile view -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!--d-flex flex-row me-1-->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="Homepage.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-house-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                    <path
+                      d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Notifications.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-bell-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                  </svg>
+                  Notifications
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="Settings.html">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-gear-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                  </svg>
+                  Settings
+                </a>
+              </li>
+            </ul>
+            <div
+              class="d-flex justify-content-center align-items-center me-0"></div>
+            <form class="d-flex me-auto" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search...."
+                aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+              </button>
             </form>
+          </div>
+          <div class="d-flex flex-row me-1">
+            <div
+              class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3">
+              <a href="#login" class="text-white">Login</a>
+              <a
+                href="#signup"
+                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2">Sign
+                Up</a>
+            </div>
+            <a href="Basket.html">
+              <button type="button" class="btn position-relative">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="white"
+                  class="bi bi-cart-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+              </button>
+            </a>
+          </div>
         </div>
-    </div>
-</div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="readScreenButton"
+          onclick="toggleReadScreen()"
+          style="margin-right: 10px">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-book"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- Main content starts here: Contact Us section, Testimonials, FAQs, Example products -->
 
-<!-- Testimonials -->
-<div class="container my-5">
-    <h2 class="mb-4">What Our Customers Say</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="testimonial">
-                <blockquote class="blockquote">
-                    "This website transformed my shopping experience. I've found products I couldn't find anywhere else, and the customer service is top-notch."
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    Jane Doe, <cite title="Source Title">Happy Customer</cite>
-                </figcaption>
+    <!-- Contact section with form for users to send a message -->
+    <div class="container my-5">
+      <h2 class="mb-4">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="contact-info">
+            <h4>About Our Website</h4>
+            <p>
+              Learn more about what we do and how we can help you find the best
+              products online.
+            </p>
+            <h4>Contact Information</h4>
+            <p>Email: contact@example.com</p>
+            <p>Phone: +123456789</p>
+            <div class="social-icons">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
             </div>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="testimonial">
-                <blockquote class="blockquote">
-                    "Efficient, reliable, and with an incredible range of products. I recommend this site to all my friends."
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    John Smith, <cite title="Source Title">Satisfied Shopper</cite>
-                </figcaption>
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameInput"
+                placeholder="Your Name" />
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="testimonial">
-                <blockquote class="blockquote">
-                    "Excellent deals and fast shipping. This is now my go-to website for all my needs."
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    Alex Johnson, <cite title="Source Title">Frequent Buyer</cite>
-                </figcaption>
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="emailInput"
+                placeholder="Your Email" />
             </div>
+            <div class="mb-3">
+              <label for="messageTextarea" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="messageTextarea"
+                rows="3"
+                placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Questions -->
-<div class="container my-5">
-        <!-- Question 1 -->
-        <h2 class="mb-4">Frequently Asked Questions</h2>
-        <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        How do I track my order?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        You can track your order by logging into your account and visiting the Orders section.
-                    </div>
-                </div>
+    <!-- Testimonials section where customers share their experiences -->
+    <div class="container my-5">
+      <h2 class="mb-4">What Our Customers Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "This website transformed my shopping experience. I've found
+              products I couldn't find anywhere else, and the customer service
+              is top-notch."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Jane Doe, <cite title="Source Title">Happy Customer</cite>
+            </figcaption>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "Efficient, reliable, and with an incredible range of products. I
+              recommend this site to all my friends."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              John Smith, <cite title="Source Title">Satisfied Shopper</cite>
+            </figcaption>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "Excellent deals and fast shipping. This is now my go-to website
+              for all my needs."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Alex Johnson, <cite title="Source Title">Frequent Buyer</cite>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ section implemented as an accordion for better UX -->
+    <div class="container my-5">
+      <!-- Question 1 -->
+      <h2 class="mb-4">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne">
+              How do I track my order?
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can track your order by logging into your account and visiting
+              the Orders section.
             </div>
+          </div>
+        </div>
 
         <!-- Question 2 -->
         <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        What payment methods do you accept?
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        We accept various payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, and other digital wallets.
-                    </div>
-                </div>
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo">
+              What payment methods do you accept?
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We accept various payment methods including major credit cards
+              (Visa, MasterCard, American Express), PayPal, and other digital
+              wallets.
             </div>
-    
+          </div>
+        </div>
+
         <!-- Question 3 -->
         <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        How can I return a product?
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        You can return products within 30 days of purchase. Please visit our Returns & Refunds page for a step-by-step guide on how to return your product.
-                    </div>
-                </div>
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree">
+              How can I return a product?
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can return products within 30 days of purchase. Please visit
+              our Returns & Refunds page for a step-by-step guide on how to
+              return your product.
             </div>
-    
+          </div>
+        </div>
+
         <!-- Question 4 -->
         <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Do you ship internationally?
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        Yes, we offer international shipping. Shipping costs and delivery times vary depending on the destination. Please check our Shipping Policy for more details.
-                    </div>
-                </div>
+          <h2 class="accordion-header" id="headingFour">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour">
+              Do you ship internationally?
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFour"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, we offer international shipping. Shipping costs and delivery
+              times vary depending on the destination. Please check our Shipping
+              Policy for more details.
             </div>
-    
+          </div>
+        </div>
+
         <!-- Question 5 -->
         <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        How do I change or cancel my order?
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                    <div class="accordion-body">
-                        If you need to change or cancel your order, please contact us as soon as possible. Orders that have not yet been shipped can usually be modified or canceled. 
-                    </div>
-                </div>
+          <h2 class="accordion-header" id="headingFive">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive">
+              How do I change or cancel my order?
+            </button>
+          </h2>
+          <div
+            id="collapseFive"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFive"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              If you need to change or cancel your order, please contact us as
+              soon as possible. Orders that have not yet been shipped can
+              usually be modified or canceled.
             </div>
-    
-    </div>
-    
-</div>
-
-<!-- Example products -->
-<div class="container my-5">
-    <h2 class="mb-4">Explore Our Collection</h2>
-    <div class="row g-3">
-        <div class="col-md-3">
-            <img src="/Shopping Website/assets/images/OIP (1).jpg" class="img-fluid" alt="Product 1">
+          </div>
         </div>
-        <div class="col-md-3">
-            <img src="/Shopping Website/assets/images/OIP (2).jpg" class="img-fluid" alt="Product 2">
-        </div>
-        <div class="col-md-3">
-          <img src="/Shopping Website/assets/images/OIP.jpg" class="img-fluid" alt="Product 1">
-      </div>
-      <div class="col-md-3">
-          <img src="/Shopping Website/assets/images/IMG_5400.jpg" class="img-fluid" alt="Product 2">
       </div>
     </div>
-</div>
 
-
-  <footer
-  class="py-3 my-4 text-center"
->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-        <h3>Explore, Shop, Enjoy!</h3>
-        <p>Welcome to This shopping website, your go-to destination for an unparalleled shopping experience. We're dedicated to making your online shopping journey seamless and enjoyable.</p>
-    </div>
-    <div class="col-lg-2">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-            <li><a href="Homepage.html">Home</a></li>
-            <li><a href="Items.html">Shop</a></li>
-            <li><a href="Deals.html">Deals</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <div class="col-lg-3">
-        <h5>Customer Support</h5>
-        <p>Have questions or need assistance? Reach out to us at <a href="mailto:your-support@email.com">Example@email.com</a>.</p>
-    </div>
-    <div class="col-lg-2">
-        <h5>Connect With Us</h5>
-        <div class="social-icons">
-            <a href="" class="text-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
-            </svg></a>
-            <a href="" class="text-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-              <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-            </svg></a>
-            <a href="" class="text-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-            </svg></a>
-            <a href="" class="text-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-              <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z"/>
-            </svg></a>
+    <!-- Showcase of example products to attract user interest and highlight specific items -->
+    <div class="container my-5">
+      <h2 class="mb-4">Explore Our Collection</h2>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <a href="Items.html">
+            <img
+              src="/Shopping Website/assets/images/OIP (1).jpg"
+              class="img-fluid"
+              alt="Product 1" />
+          </a>
         </div>
+        <div class="col-md-3">
+          <a href="Items.html">
+            <img
+              src="/Shopping Website/assets/images/OIP (2).jpg"
+              class="img-fluid"
+              alt="Product 2" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="Items.html">
+            <img
+              src="/Shopping Website/assets/images/OIP.jpg"
+              class="img-fluid"
+              alt="Product 3" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="Items.html">
+            <img
+              src="/Shopping Website/assets/images/IMG_5400.jpg"
+              class="img-fluid"
+              alt="Product 4" />
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-1 text-right">
-        <a href="#" id="backToTopBtn" class="text-light" title="Back to Top">
-            Back to Top
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-            </svg>
-        </a>
-    </div>
-</div>
-</div>
-</footer>
 
-<!-- Floating Microphone Button -->
-<div
-id="floatingMicrophone"
-class="floating-microphone"
-style="display: none"
->
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  fill="currentColor"
-  class="bi bi-mic-mute-fill"
-  viewBox="0 0 16 16"
->
-  <path
-    d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4 4 0 0 0 12 8V7a.5.5 0 0 1 1 0zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a5 5 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4m3-9v4.879L5.158 2.037A3.001 3.001 0 0 1 11 3"
-  />
-  <path
-    d="M9.486 10.607 5 6.12V8a3 3 0 0 0 4.486 2.607m-7.84-9.253 12 12 .708-.708-12-12z"
-  />
-</svg>
-</div>
-  
-    
+    <!-- Footer with additional links, customer support info, and social media links -->
+    <footer class="py-3 my-4 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>Explore, Shop, Enjoy!</h3>
+            <p>
+              Welcome to This shopping website, your go-to destination for an
+              unparalleled shopping experience. We're dedicated to making your
+              online shopping journey seamless and enjoyable.
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="Homepage.html">Home</a></li>
+              <li><a href="Items.html">Shop</a></li>
+              <li><a href="Deals.html">Deals</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h5>Customer Support</h5>
+            <p>
+              Have questions or need assistance? Reach out to us at
+              <a href="mailto:your-support@email.com">Example@email.com</a>.
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <h5>Connect With Us</h5>
+            <div class="social-icons">
+              <a href class="text-light"><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-twitter-x"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" /></svg></a>
+              <a href class="text-light"><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-discord"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" /></svg></a>
+              <a href class="text-light"><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-facebook"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" /></svg></a>
+              <a href class="text-light"><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-youtube"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z" /></svg></a>
+            </div>
+          </div>
+          <div class="col-lg-1 text-right">
+            <a
+              href="#"
+              id="backToTopBtn"
+              class="text-light"
+              title="Back to Top">
+              Back to Top
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-arrow-up-circle"
+                viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Microphone Button for voice control, enabled in setting page -->
+    <div
+      id="floatingMicrophone"
+      class="floating-microphone"
+      style="display: none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-mic-mute-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4 4 0 0 0 12 8V7a.5.5 0 0 1 1 0zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a5 5 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4m3-9v4.879L5.158 2.037A3.001 3.001 0 0 1 11 3" />
+        <path
+          d="M9.486 10.607 5 6.12V8a3 3 0 0 0 4.486 2.607m-7.84-9.253 12 12 .708-.708-12-12z" />
+      </svg>
+    </div>
+
+    <!-- Bootstrap Bundle script for enabling interactive components like modals and accordions -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <!-- Main JavaScript file for site-specific scripts -->
     <script src="/Shopping Website/assets/js/Main.js"></script>
   </body>
 </html>

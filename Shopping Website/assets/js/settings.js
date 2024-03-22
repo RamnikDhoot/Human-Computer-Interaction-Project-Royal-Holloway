@@ -79,8 +79,8 @@ function updateReadButton() {
   readScreenButton.textContent = isReading ? "Stop Reading" : "Read Aloud";
 }
 
-// Event listener to handle DOMContentLoaded
-document.addEventListener("DOMContentLoaded", function () {
+  // Sets up additional accessibility features and event listeners after the DOM is fully loaded.
+  document.addEventListener("DOMContentLoaded", function () {
   setupVoiceControl();
   setupDraggableMicrophone();
   setupMicrophoneClick();
