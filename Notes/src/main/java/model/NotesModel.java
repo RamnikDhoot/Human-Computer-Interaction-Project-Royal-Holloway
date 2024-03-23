@@ -4,25 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@code NotesModel} class serves as the data management component in the
- * MVC architecture for a note-taking application.
- * It manages the application's notes data and supports operations such as
- * adding, removing, and retrieving notes.
- * Utilizing the Singleton design pattern, it ensures that only one instance of
- * the model exists throughout the application lifecycle.
- * This class also implements the {@code Subject} interface, allowing observers
- * to subscribe to changes in the model state.
+ * Represents the central data management class in a note-taking application following the MVC pattern.
+ * It provides a single point of access for managing notes through a Singleton pattern.
+ * Implements the {@code Subject} interface to notify observers of state changes.
  */
-
 public class NotesModel implements Subject {
     private static NotesModel instance; // Singleton instance
     private List<String> notes;
     private List<Observer> observers = new ArrayList<>();
 
     /**
-     * Private constructor to prevent instantiation outside of the
-     * {@code getInstance()} method.
-     * Initializes the list of notes.
+     * Private constructor to prevent external instantiation.
+     * Initializes the list of notes and observers.
      */
     public NotesModel() {
         notes = new ArrayList<>();
@@ -88,12 +81,10 @@ public class NotesModel implements Subject {
     }
 
     /**
-     * Removes a note at a specified index from the model and notifies observers of
-     * the change.
-     * The note is removed only if the index is within the valid range of the notes
-     * list.
+     * Removes the note at the specified index within the valid range and notifies observers.
      *
      * @param index The index of the note to be removed.
+     * @throws IndexOutOfBoundsException if the index is out of range.
      */
     public void removeNote(int index) {
         if (index >= 0 && index < notes.size()) {

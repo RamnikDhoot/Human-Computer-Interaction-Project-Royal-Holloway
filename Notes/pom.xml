@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -75,23 +76,14 @@
 
     <build>
         <plugins>
-            <!-- Configure Maven Javadoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.3.0</version> <!-- Check for the latest version on Maven Central -->
+                <version>3.4.0</version>
                 <configuration>
-                    <show>private</show> <!-- Set to 'private' to include private methods and fields in the documentation -->
+                    <outputDirectory>${project.basedir}/doc</outputDirectory>
+                    <show>public</show>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

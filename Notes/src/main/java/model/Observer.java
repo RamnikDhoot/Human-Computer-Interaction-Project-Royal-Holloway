@@ -1,17 +1,13 @@
 package model;
 
 /**
- * The {@code Observer} interface is a fundamental part of the Observer design
- * pattern.
- * It should be implemented by classes that need to be notified about changes in
- * a {@code Subject}.
+ * Represents an Observer in the Observer design pattern.
+ * Classes that should be notified about state changes in a Subject must implement this interface.
  */
 public interface Observer {
     /**
-     * Called by the {@code Subject} whenever the state changes that this
-     * {@code Observer} needs to be updated on.
-     * Implementing classes should override this method to define how they react to
-     * such notifications.
+     * This method is called by the Subject whenever its state changes to notify this Observer.
+     * Classes implementing this interface should define this method to respond to the state changes.
      */
     void update();
 }

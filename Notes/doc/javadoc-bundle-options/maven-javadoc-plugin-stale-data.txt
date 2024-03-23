@@ -1,0 +1,67 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/dhoot/.m2/repository/com/github/vincenzopalazzo/material-ui-swing/1.1.4/material-ui-swing-1.1.4.jar'
+-encoding
+'UTF-8'
+-public
+-source
+'1.8'
+-sourcepath
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/dhoot/IdeaProjects/Notes/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'demo 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/dhoot/IdeaProjects/Notes/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'demo 1.0-SNAPSHOT API'
+controller
+model
+view
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/controller/NotesController.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/Main.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/model/NotesModel.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/model/Observer.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/model/Subject.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/view/CustomizableMenu.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/view/FileMenuHandler.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/view/NotesView.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/view/PrintPreviewExample.java'
+'C:/Users/dhoot/IdeaProjects/Notes/src/main/java/view/ToolBarHandler.java'
+C:\Users\dhoot\.m2\repository\com\github\vincenzopalazzo\material-ui-swing\1.1.4\material-ui-swing-1.1.4.jar = 1710250916369
+C:\Users\dhoot\IdeaProjects\Notes\src\main\java\Main.java = 1711194171542
+C:\Users\dhoot\IdeaProjects\Notes\src\main\java = 1711194171542
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\allclasses-index.html = 1711195194655
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\allpackages-index.html = 1711195194669
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\element-list = 1711195194224
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\help-doc.html = 1711195194784
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\index-all.html = 1711195194750
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\index.html = 1711195194588
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\jquery-ui.overrides.css = 1711195194896
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\Main.html = 1711195193728
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\member-search-index.js = 1711195194688
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\module-search-index.js = 1711195194672
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\overview-summary.html = 1711195194751
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\overview-tree.html = 1711195194574
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\package-search-index.js = 1711195194680
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\package-summary.html = 1711195194275
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\package-tree.html = 1711195194291
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\package-use.html = 1711195194530
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\script.js = 1711195194784
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\search.js = 1711195194797
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\serialized-form.html = 1711195194398
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\stylesheet.css = 1711195194784
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\tag-search-index.js = 1711195194693
+C:\Users\dhoot\IdeaProjects\Notes\target\site\apidocs\type-search-index.js = 1711195194684

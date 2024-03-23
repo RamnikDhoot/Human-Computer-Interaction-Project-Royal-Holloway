@@ -1,34 +1,34 @@
 package model;
 
 /**
- * The {@code Subject} interface is a key component of the Observer design
- * pattern.
- * It defines methods for attaching, detaching, and notifying {@code Observer}
- * objects.
- * Implementing this interface allows a class to be observed by multiple
- * {@code Observer} instances.
+ * The {@code Subject} interface is a fundamental part of the Observer design
+ * pattern. It outlines the methods for adding and removing {@link Observer} objects,
+ * as well as notifying them of any changes.
+ *
+ * Classes that implement this interface can have multiple {@link Observer}
+ * instances that monitor changes in the implementing class's state.
  */
 public interface Subject {
     /**
-     * Attaches an {@code Observer} to the subject.
-     * The observer will be notified of changes to the subject's state.
+     * Registers an {@link Observer} to the subject. Once attached, the
+     * observer will be updated about any changes to the subject's state.
      *
-     * @param o The {@code Observer} to be attached.
+     * @param o the {@link Observer} to be attached; should not be {@code null}
      */
     void attach(Observer o);
 
     /**
-     * Detaches an {@code Observer} from the subject.
-     * The observer will no longer receive updates from the subject.
+     * Unregisters an {@link Observer} from the subject. After being detached,
+     * the observer will no longer be updated about changes to the subject's state.
      *
-     * @param o The {@code Observer} to be detached.
+     * @param o the {@link Observer} to be detached; should not be {@code null}
      */
     void detach(Observer o);
 
     /**
-     * Notifies all attached {@code Observer}s of a change in the subject's state.
-     * This method is typically called by the subject itself when it wants to inform
-     * its observers about a state change.
+     * Notifies all registered {@link Observer}s about a change in the subject's state.
+     * This method is typically invoked when the subject undergoes a change that
+     * observers should be made aware of.
      */
     void notifyObservers();
 }

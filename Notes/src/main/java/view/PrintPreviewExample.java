@@ -6,21 +6,17 @@ import java.awt.event.*;
 import java.awt.print.*;
 
 /**
- * Provides a graphical user interface for print preview functionality. This
- * class extends {@link JDialog}
- * and implements {@link ActionListener} to handle user interactions. It
- * displays a preview of the content
- * that will be printed along with options to customize the print job, such as
- * selecting a printer, specifying
- * the number of copies, and setting the print quality.
+ * Provides a graphical user interface for print preview functionality. This class extends {@link JDialog}
+ * and implements {@link ActionListener} to handle user interactions. It displays a preview of the content
+ * that will be printed, along with options to customize the print job, such as selecting a printer,
+ * specifying the number of copies, and setting the print quality.
  */
 public class PrintPreviewExample extends JDialog implements ActionListener {
-    JButton printPreviewButton;
 
     /**
-     * Constructs a new PrintPreviewExample dialog.
+     * Constructs a new {@code PrintPreviewExample} dialog with the specified owner.
      *
-     * @param owner The {@link Frame} from which the dialog is displayed.
+     * @param owner the {@code Frame} from which the dialog is displayed and centered upon
      */
     public PrintPreviewExample(Frame owner) {
         super(owner, "Print Preview", true); // 'true' for modal dialog
@@ -37,9 +33,9 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     }
 
     /**
-     * Handles action events, typically from user interaction with UI components.
+     * Handles action events, typically from user interaction with UI components like buttons.
      *
-     * @param e The {@link ActionEvent} to be processed.
+     * @param e the {@code ActionEvent} containing details about the event to be processed
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -61,9 +57,9 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     }
 
     /**
-     * Creates the panel that displays the print preview.
+     * Creates and returns the panel that displays the print preview.
      *
-     * @return A {@link JPanel} that displays a preview of what will be printed.
+     * @return the {@code JPanel} that displays a preview of what will be printed
      */
     public JPanel createPreviewPanel() {
         JPanel previewPanel = new JPanel() {
@@ -89,14 +85,12 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     }
 
     /**
-     * Creates the panel containing print options, such as printer selection, number
-     * of copies,
+     * Creates and returns the panel containing print options such as printer selection, number of copies,
      * page range, page size, print quality, and orientation.
      *
-     * @param printPreviewDialog The {@link JDialog} this options panel belongs to.
-     * @return A {@link JPanel} containing controls to adjust print options.
+     * @param printPreviewDialog the {@code JDialog} to which this options panel is attached
+     * @return the {@code JPanel} containing controls to adjust print options
      */
-
     public JPanel createOptionsPanel(JDialog printPreviewDialog) {
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
@@ -160,12 +154,10 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     }
 
     /**
-     * Handles the print action when the print button is pressed. This method sets
-     * up
-     * the printing job and initiates printing based on the selected options.
+     * Handles the print action when the print button is pressed. This method sets up the printing job
+     * and initiates printing based on the selected options.
      *
-     * @param printPreviewDialog The dialog from which the print action was
-     *                           initiated.
+     * @param printPreviewDialog the dialog from which the print action was initiated
      */
     public void handlePrintAction(JDialog printPreviewDialog) {
         PrinterJob job = PrinterJob.getPrinterJob();
@@ -191,8 +183,7 @@ public class PrintPreviewExample extends JDialog implements ActionListener {
     }
 
     /**
-     * Adjusts the dialog to fit its contents and displays it, centered over the
-     * owner window.
+     * Adjusts the dialog to fit its contents and displays it, centered over the owner window.
      */
     public void displayPrintPreview() {
         this.pack(); // Adjusts the dialog to fit its contents

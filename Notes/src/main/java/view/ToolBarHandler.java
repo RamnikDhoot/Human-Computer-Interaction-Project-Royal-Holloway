@@ -20,10 +20,8 @@ import mdlaf.themes.MaterialOceanicTheme;
 import mdlaf.themes.MaterialTheme;
 
 /**
- * Constructs a ToolBarHandler with a specified frame and text area.
- *
- * @param frame        The main application frame.
- * @param noteTextArea The text area where notes are displayed and edited.
+ * The {@code ToolBarHandler} class is responsible for creating and managing the toolbar used in the application.
+ * It provides functionality for undo and redo operations, font size adjustments, notebook management, and theme changes.
  */
 public class ToolBarHandler {
     private JTextArea noteTextArea;
@@ -34,6 +32,12 @@ public class ToolBarHandler {
     private List<String> notebookList; // A list to store notebook names
     private int currentFontSize = 14; // Default font size
 
+    /**
+     * Constructs a new {@code ToolBarHandler} with the specified frame and text area.
+     *
+     * @param frame        The main application frame
+     * @param noteTextArea The text area where notes are displayed and edited
+     */
     public ToolBarHandler(JFrame frame, JTextArea noteTextArea) {
         this.frame = frame;
         this.noteTextArea = noteTextArea;
@@ -45,21 +49,21 @@ public class ToolBarHandler {
     }
 
     /**
-     * Creates and returns a toolbar equipped with undo/redo, font size adjustment,
-     * autosave toggle, and a notebook selection button.
+     * Creates and returns a {@code JToolBar} equipped with buttons for undo and redo operations,
+     * a font size slider, an autosave toggle, and a notebook selection button.
      *
-     * @return JToolBar The fully configured toolbar.
+     * @return The fully configured toolbar
      */
     public JToolBar createToolBar() {
         // Create Undo and Redo buttons and add them to a toolbar
         JToolBar toolBar = new JToolBar(JToolBar.VERTICAL);
         toolBar.setFloatable(false); // Make the toolbar non-floatable
         noteTextArea.getDocument().addUndoableEditListener(e -> undoManager.addEdit(e.getEdit())); // register a
-                                                                                                   // listener that gets
-                                                                                                   // notified whenever
-                                                                                                   // changes that can
-                                                                                                   // be undone/redone
-                                                                                                   // are made
+        // listener that gets
+        // notified whenever
+        // changes that can
+        // be undone/redone
+        // are made
 
         JButton undoButton = new JButton("Undo");
         undoButton.addActionListener(e -> undo());
@@ -120,19 +124,16 @@ public class ToolBarHandler {
     }
 
     /**
-     * Sets the button for exiting touch screen mode. This method is intended for
-     * configuration
-     * before the toolbar is displayed.
+     * Sets the button for exiting touch screen mode. This button is not visible until set by this method.
      *
-     * @param button The button to set for exiting touch screen mode.
+     * @param button The button used to exit touch screen mode
      */
     public void setExitTouchScreenModeButton(JButton button) {
         this.exitTouchScreenModeButton = button;
     }
 
     /**
-     * Performs an undo operation based on the current state managed by the undo
-     * manager.
+     * Performs an undo operation if available.
      */
     public void undo() {
         try {
@@ -145,8 +146,7 @@ public class ToolBarHandler {
     }
 
     /**
-     * Performs a redo operation based on the current state managed by the undo
-     * manager.
+     * Performs a redo operation if available.
      */
     public void redo() {
         try {
@@ -159,10 +159,7 @@ public class ToolBarHandler {
     }
 
     /**
-     * Displays a dialog containing a list of notebooks, allowing the user to select
-     * or create a new one.
-     * The notebook's theme is applied upon selection, and its contents are loaded
-     * for editing.
+     * Displays a dialog containing a list of notebooks, allowing the user to select an existing one or create a new one.
      */
     public void displayNotebookList() {
         List<String> options = new ArrayList<>(notebookList);
@@ -199,12 +196,10 @@ public class ToolBarHandler {
     }
 
     /**
-     * Retrieves the Material Theme associated with a given notebook name. This
-     * allows for
-     * a thematic distinction between different notebooks.
+     * Retrieves the {@code MaterialTheme} associated with a given notebook name for thematic distinction.
      *
-     * @param notebookName The name of the notebook for which to retrieve the theme.
-     * @return MaterialTheme The theme associated with the given notebook name.
+     * @param notebookName The name of the notebook
+     * @return The theme associated with the given notebook name
      */
     private MaterialTheme getThemeForNotebook(String notebookName) {
         switch (notebookName) {
@@ -218,11 +213,9 @@ public class ToolBarHandler {
     }
 
     /**
-     * Applies the given Material Theme to the application, updating the look and
-     * feel
-     * according to the selected notebook's theme.
+     * Applies the specified {@code MaterialTheme} to the application to change its appearance based on the selected notebook.
      *
-     * @param theme The Material Theme to apply.
+     * @param theme The Material Theme to apply
      */
     private void changeTheme(MaterialTheme theme) {
         try {
@@ -235,11 +228,9 @@ public class ToolBarHandler {
     }
 
     /**
-     * Loads the contents associated with the selected notebook into the note text
-     * area,
-     * effectively displaying the notes for editing or review.
+     * Loads the contents associated with the selected notebook into the note text area for editing or review.
      *
-     * @param notebookName The name of the notebook whose contents are to be loaded.
+     * @param notebookName The name of the notebook whose contents are to be loaded
      */
     private void loadNotebookContents(String notebookName) {
         Font titleFont = new Font("Arial", Font.BOLD, 24);
@@ -249,10 +240,9 @@ public class ToolBarHandler {
     }
 
     /**
-     * Adjusts the font size of the note text area and updates the UI accordingly.
-     * This allows for dynamic resizing of the text for better readability.
+     * Adjusts the font size of the note text area to the specified size and updates the UI to reflect the change.
      *
-     * @param fontSize The new font size to apply.
+     * @param fontSize The new font size to set
      */
     private void setFontSize(int fontSize) {
         currentFontSize = fontSize;
@@ -264,7 +254,7 @@ public class ToolBarHandler {
             if (comp instanceof JLabel) {
                 JLabel label = (JLabel) comp;
                 if ("Font Size: ".equals(label.getText().split("\\d+")[0])) { // Check if the label specifies the font
-                                                                              // size (starts with "Font Size: ")
+                    // size (starts with "Font Size: ")
                     label.setText("Font Size: " + fontSize);
                     break;
                 }

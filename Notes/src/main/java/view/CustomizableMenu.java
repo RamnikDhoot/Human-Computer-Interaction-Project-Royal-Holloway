@@ -10,29 +10,28 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * The {@code CustomizableMenu} class implements a customizable menu within a
- * {@code JFrame}.
- * It facilitates adding dynamic toolbars and overlay panels with draggable
- * buttons for interactive user interfaces.
- * The class leverages Material Look and Feel for modern UI elements and
- * supports image icons for buttons.
- * This class is suitable for creating applications requiring flexible and
- * interactive user interfaces.
+ * The {@code CustomizableMenu} class implements a customizable menu within a {@code JFrame}.
+ * It provides dynamic toolbars and overlay panels with draggable buttons for interactive user interfaces.
+ * This class employs Material Look and Feel for sleek UI elements and supports image icons for buttons,
+ * making it suitable for applications that require adaptable and interactive user interfaces.
  */
 public class CustomizableMenu {
     JFrame frame;
+    /**
+     * Panel that overlays the main content, typically used for displaying additional options or information.
+     */
     public JPanel overlayPanel;
     JToolBar rightToolBar;
+    /**
+     * Toolbar located at the bottom of the main window, containing various controls.
+     */
     public JToolBar bottomToolBar;
 
     /**
-     * Constructs a {@code CustomizableMenu} attached to the specified
-     * {@code JFrame}.
-     * Initializes right and bottom toolbars and configures their default
-     * properties.
+     * Constructs a {@code CustomizableMenu} attached to the specified {@code JFrame} and initializes
+     * the right and bottom toolbars with default properties.
      *
-     * @param frame The {@code JFrame} to which the customizable menu is to be
-     *              added.
+     * @param frame the {@code JFrame} to which this customizable menu will be added
      */
     public CustomizableMenu(JFrame frame) {
         this.frame = frame;
@@ -42,18 +41,18 @@ public class CustomizableMenu {
     }
 
     /**
-     * Creates and returns a JButton with specified properties including text, icon,
-     * action listener, and mouse adapter for enhanced interactivity.
+     * Creates and returns a {@code JButton} with specified text, icon, action listener, and mouse adapter
+     * to enhance interactivity.
      *
-     * @param text           The text of the button.
-     * @param icon           The icon to be displayed on the button.
-     * @param actionListener The action listener for button actions.
-     * @param mouseAdapter   The mouse adapter for mouse events.
-     * @return A configured {@code JButton} instance.
+     * @param text           the button text
+     * @param icon           the icon displayed on the button
+     * @param actionListener the action listener for button actions
+     * @param mouseAdapter   the mouse adapter for mouse events
+     * @return a configured {@code JButton}
      */
     private JButton createButton(String text, Icon icon, ActionListener actionListener, MouseAdapter mouseAdapter) {
         JButton button = new JButton(text, icon);
-        button.setForeground(Color.BLUE); 
+        button.setForeground(Color.BLUE);
         button.setFocusPainted(false);
         button.setBorderPainted(false);// I was unable to colour the background of the buttons
         button.setContentAreaFilled(false);
@@ -96,7 +95,7 @@ public class CustomizableMenu {
     private void configureBottomToolBar() {
         bottomToolBar.setFloatable(false);
         bottomToolBar.setLayout(new FlowLayout(FlowLayout.CENTER)); // Arrange components within the bottom toolbar in a
-                                                                    // centered flow
+        // centered flow
 
         JButton exitButton = new JButton("Exit");
         exitButton.setForeground(Color.BLUE);
@@ -132,10 +131,9 @@ public class CustomizableMenu {
     }
 
     /**
-     * Creates a 'plus' button with an icon, designed to toggle the overlay panel
-     * visibility.
+     * Creates a 'plus' button with an icon, intended for toggling the visibility of the overlay panel.
      *
-     * @return A {@code JButton} instance configured with a 'plus' icon.
+     * @return a {@code JButton} with a 'plus' icon
      */
     public JButton createPlusButton() {
         ImageIcon plusIcon = loadIcon("/plus-large-svgrepo-com.png", 49, 49);
@@ -145,9 +143,8 @@ public class CustomizableMenu {
     }
 
     /**
-     * Toggles the visibility of the overlay panel and the bottom toolbar,
-     * effectively
-     * showing or hiding the customizable menu overlay.
+     * Toggles the visibility of the overlay panel and bottom toolbar, effectively showing or hiding
+     * the customizable menu overlay.
      */
     public void toggleOverlay() {
         if (overlayPanel == null) {
@@ -168,23 +165,22 @@ public class CustomizableMenu {
         frame.getLayeredPane().repaint();
     }
 
-/**
- * Closes the overlay by hiding the overlay panel and the bottom toolbar.
- * Adds a new button to the right toolbar upon exit.
- */
-public void exitOverlay() {
-    overlayPanel.setVisible(false);
-    bottomToolBar.setVisible(false);
+    /**
+     * Closes the overlay by setting the overlay panel and bottom toolbar to invisible and
+     * updates the right toolbar with an additional button.
+     */
+    public void exitOverlay() {
+        overlayPanel.setVisible(false);
+        bottomToolBar.setVisible(false);
 
-    rightToolBar.revalidate();
-    rightToolBar.repaint();
-}
+        rightToolBar.revalidate();
+        rightToolBar.repaint();
+    }
 
 
     /**
-     * Creates the overlay panel with a semi-transparent background and populates it
-     * with a set of predefined buttons. These buttons can be dragged and dropped
-     * across the overlay, providing a customizable user interface.
+     * Creates and populates the overlay panel with a semi-transparent background and a set of draggable
+     * buttons, providing a customizable interface for the user.
      */
     private void createOverlay() {
         overlayPanel = new JPanel(null) {
@@ -230,16 +226,12 @@ public void exitOverlay() {
         frame.getLayeredPane().repaint();
     }
 
-        /**
-     * Creates a draggable button with a specified text label. This button can be
-     * moved across the overlay panel,
-     * allowing for a flexible and user-customizable interface. The method handles
-     * mouse events to enable drag-and-drop functionality.
+    /**
+     * Creates a draggable button labeled with the specified text. The button supports drag-and-drop functionality
+     * within the overlay panel, allowing for a customizable interface.
      *
-     * @param text The text for the button's text label.
-     *
-     * @return A JButton that can be dragged and dropped within the application's
-     *         UI.
+     * @param text the label text of the button
+     * @return a {@code JButton} capable of being moved across the overlay panel
      */
     private JButton createDraggableButton(String text) {
         MouseAdapter ma = new MouseAdapter() {
@@ -276,17 +268,17 @@ public void exitOverlay() {
                     JButton newButtonForRightToolbar = createButton("Button 1", null, null, null); // Specify "Button 1" as the button text
 
 
-                            // Add the new "Button 1" to the right toolbar, just above the 'plus' button
-        rightToolBar.add(newButtonForRightToolbar, rightToolBar.getComponentCount() - 1);
-        rightToolBar.revalidate();
-        rightToolBar.repaint();
+                    // Add the new "Button 1" to the right toolbar, just above the 'plus' button
+                    rightToolBar.add(newButtonForRightToolbar, rightToolBar.getComponentCount() - 1);
+                    rightToolBar.revalidate();
+                    rightToolBar.repaint();
 
                     // Remove the button from its original parent
                     overlayPanel.remove(button);
                     overlayPanel.revalidate();
                     overlayPanel.repaint();
                 } // Help for this method from
-                  // https://stackoverflow.com/questions/77218050/is-there-a-method-to-set-the-background-color-of-a-jbutton-while-its-pressed
+                // https://stackoverflow.com/questions/77218050/is-there-a-method-to-set-the-background-color-of-a-jbutton-while-its-pressed
             }// https://coderanch.com/t/536055/java/mouseClicked-mouseDragged
         };
 
@@ -294,6 +286,6 @@ public void exitOverlay() {
         // parameters
         return createButton(text, null, null, ma);
     }
-    
+
 
 }

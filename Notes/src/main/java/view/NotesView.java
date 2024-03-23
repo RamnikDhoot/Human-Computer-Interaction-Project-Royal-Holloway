@@ -24,10 +24,22 @@ import model.Observer;
  */
 public class NotesView implements Observer {
     private JFrame frame;
+
+    /**
+     * Text area where the content of the current note is displayed and can be edited by the user.
+     */
     public JTextArea noteTextArea;
+
+    /**
+     * Button to add a new note to the application.
+     */
     public JButton addNoteButton;
     private JButton exitTouchScreenModeButton;
     private JMenuBar mainMenuBar;
+
+    /**
+     * Flag indicating whether the application is in full-screen mode.
+     */
     public boolean isFullScreen = false;
     private Font originalTextAreaFont;
     private ToolBarHandler toolBarHandler;
@@ -50,8 +62,7 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Constructor for {@code NotesView}. It initializes the user interface
-     * components
+     * Constructs the {@code NotesView}. It initializes the user interface components
      * and sets up the necessary interactions.
      */
     public NotesView() {
@@ -59,11 +70,9 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Initializes the user interface of the notes application, setting up
-     * components
-     * like menus, toolbars, buttons, and text areas. It also configures look and
-     * feel
-     * settings to enhance the user experience.
+     * Initializes the user interface of the notes application. It sets up components
+     * such as menus, toolbars, buttons, and text areas, and configures the look and
+     * feel settings to enhance user experience.
      */
     private void initializeUI() {
         try {
@@ -209,9 +218,9 @@ public class NotesView implements Observer {
         JMenuItem customThemeItem = new JMenuItem("Custom Theme");
 
         lightThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialLiteTheme())); // Apply the
-                                                                                                 // MaterialLiteTheme
-                                                                                                 // when lightThemeItem
-                                                                                                 // is pressed
+        // MaterialLiteTheme
+        // when lightThemeItem
+        // is pressed
         darkThemeItem.addActionListener(e -> applyTheme(new mdlaf.themes.MaterialOceanicTheme()));
         customThemeItem.addActionListener(e -> showThemeSelectionDialog());
 
@@ -495,7 +504,7 @@ public class NotesView implements Observer {
         component.setFont(new Font("Roboto", Font.PLAIN, 14));
         if (component instanceof Container) {
             for (Component child : ((Container) component).getComponents()) { // Iterate over each child component
-                                                                              // within the component container
+                // within the component container
                 applyMaterialFontToAllComponents(child);
             }
         }
@@ -580,13 +589,10 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Applies a selected theme to the application, updating the look and feel based
-     * on the user's
-     * choice. This method is responsible for initiating UI updates to reflect the
-     * new theme, ensuring
-     * a consistent and visually appealing interface.
+     * Applies the selected theme to the application, updating the look and feel
+     * accordingly. This method also logs the application of the new theme.
      *
-     * @param theme The MaterialTheme object representing the theme to be applied.
+     * @param theme the {@code MaterialTheme} object representing the new theme to apply
      */
     public void applyTheme(mdlaf.themes.MaterialTheme theme) {
         try {
@@ -638,11 +644,9 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Notifies the UI to update based on changes in the underlying model. This
-     * method ensures
-     * that the view reflects the current state of the application, such as
-     * displaying the latest
-     * notes or applying new settings.
+     * Notifies the UI to update based on changes in the underlying model. This method
+     * ensures that the view reflects the current state of the application, such as
+     * displaying the latest notes or applying new settings.
      */
     @Override
     public void update() {

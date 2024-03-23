@@ -48,15 +48,15 @@ class NotesViewTest {
      */
     @Test
     void testAddNoteActionListenerInvokesControllerAddNote() {
-    
+
         // Create a spy on the real controller to check if methods are called
         NotesController controllerSpy = spy(new NotesController(mock(NotesModel.class), notesView));
         notesView.setController(controllerSpy); // https://www.baeldung.com/mockito-spy
-    
+
         notesView.addNoteButton.doClick();
         verify(controllerSpy).addNote();
     }
-    
+
     /**
      * Tests if view is registered with model as observer.
      */
@@ -67,58 +67,58 @@ class NotesViewTest {
     }
 
     /**
- * Unit tests for the UI-related functionality of the {@link NotesView} class.
- */
-@Test
-void testDisplayNotesDialog() {
-    // Prepare the controller to return a formatted string of notes
-    String expectedNotes = "Note 1\nNote 2";
-    when(mockedController.getFormattedNotes()).thenReturn(expectedNotes);
+     * Unit tests for the UI-related functionality of the {@link NotesView} class.
+     */
+    @Test
+    void testDisplayNotesDialog() {
+        // Prepare the controller to return a formatted string of notes
+        String expectedNotes = "Note 1\nNote 2";
+        when(mockedController.getFormattedNotes()).thenReturn(expectedNotes);
 
-    notesView.displayNotesDialog();
-}
+        notesView.displayNotesDialog();
+    }
 
-/**
- * Tests the application of a theme to the {@link NotesView}.
- */
-@Test
-void testApplyTheme() {
- 
-    MaterialTheme theme = new MaterialLiteTheme();
-    notesView.applyTheme(theme); 
+    /**
+     * Tests the application of a theme to the {@link NotesView}.
+     */
+    @Test
+    void testApplyTheme() {
 
-    LookAndFeel currentLookAndFeel = UIManager.getLookAndFeel();
-    assertTrue(currentLookAndFeel instanceof MaterialLookAndFeel);
-}
+        MaterialTheme theme = new MaterialLiteTheme();
+        notesView.applyTheme(theme);
 
-/**
- * Tests toggling full screen mode in the {@link NotesView}.
- */
-@Test
-void testToggleFullScreen() {
-    // isFullScreen starts as false
-    assertFalse(notesView.isFullScreen);
+        LookAndFeel currentLookAndFeel = UIManager.getLookAndFeel();
+        assertTrue(currentLookAndFeel instanceof MaterialLookAndFeel);
+    }
 
-    notesView.toggleFullScreen(); // Toggles to true
-    assertTrue(notesView.isFullScreen);
+    /**
+     * Tests toggling full screen mode in the {@link NotesView}.
+     */
+    @Test
+    void testToggleFullScreen() {
+        // isFullScreen starts as false
+        assertFalse(notesView.isFullScreen);
 
-    notesView.toggleFullScreen(); // Toggles back to false
-    assertFalse(notesView.isFullScreen);
-}
+        notesView.toggleFullScreen(); // Toggles to true
+        assertTrue(notesView.isFullScreen);
 
-/**
- * Tests if the view updates to reflect model changes in the {@link NotesView}.
- */
-@Test
-void testObserverUpdateReflectsModelChanges() {
-    List<String> mockNotes = List.of("Note 1", "Note 2");
-    when(mockedController.getModel().getNotes()).thenReturn(mockNotes);
+        notesView.toggleFullScreen(); // Toggles back to false
+        assertFalse(notesView.isFullScreen);
+    }
 
-    // Simulate the model notifying observers of a change
-    notesView.update();
+    /**
+     * Tests if the view updates to reflect model changes in the {@link NotesView}.
+     */
+    @Test
+    void testObserverUpdateReflectsModelChanges() {
+        List<String> mockNotes = List.of("Note 1", "Note 2");
+        when(mockedController.getModel().getNotes()).thenReturn(mockNotes);
 
-    // Verify the noteTextArea contains the mock notes
-    assertEquals("Note 1\nNote 2", notesView.noteTextArea.getText());
-}
+        // Simulate the model notifying observers of a change
+        notesView.update();
+
+        // Verify the noteTextArea contains the mock notes
+        assertEquals("Note 1\nNote 2", notesView.noteTextArea.getText());
+    }
 
 }

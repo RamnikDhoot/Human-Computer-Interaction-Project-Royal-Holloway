@@ -19,10 +19,13 @@ public class NotesController {
 
     /**
      * Constructs a {@code NotesController} with specified model and view.
-     * It initializes the controller by attaching view listeners and setting up the
-     * initial view state.
-     *
-     * @param model The {@code NotesModel} instance for this application.
+     * It initializes the controller by attaching view listeners and setting up the initial view state.
+     * <p>
+     * Note: The model is accessed via its singleton instance rather than directly using the passed parameter.
+     * This ensures that the controller manipulates the single shared instance of the model.
+     * </p>
+     * @param model The {@code NotesModel} instance intended for this application.
+     *              Not directly used, the singleton instance is instead retrieved internally.
      * @param view  The {@code NotesView} instance for this application.
      */
     public NotesController(NotesModel model, NotesView view) {
