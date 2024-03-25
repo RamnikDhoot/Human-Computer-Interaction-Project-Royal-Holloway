@@ -1,3 +1,4 @@
+/* Ensures visibility and legibility of footer content against the dark background, catering to simplicity and contrast for easy reading. */
 .simple-footer {
     background-color: #343a40;
     color: #6c757d;
@@ -8,6 +9,7 @@
     top: 100vh;
 }
 
+/* Aligns footer content using flexbox for a structured layout, aiding in the organization and hierarchical presentation of information. */
 .simple-footer .container {
     display: flex;
     justify-content: space-between;
@@ -18,6 +20,7 @@
     padding: 0 15px;
 }
 
+/* Ensures a consistent visual structure for footer navigation, enhancing predictability and ease of navigation within the footer. */
 .simple-footer ul {
     list-style: none;
     padding: 0;
@@ -27,21 +30,24 @@
     justify-content: center;
 }
 
+/* Maintains spacing between navigation items for clickable areas, adhering to Fitts's Law by making targets easier to hit. */
 .simple-footer ul li {
     margin: 0 10px;
 }
 
+/* Temporarily disables links in the footer for demonstration or development purposes, ensuring users don't encounter dead ends. */
 .simple-footer ul li a {
     color: grey; /* Grey out the link */
     pointer-events: none; /* Prevents clicking */
     cursor: default; /* Changes cursor to default to indicate it's not clickable */
 }
 
+/* Provides visual feedback on hover to indicate interactivity, aligning with user expectations of link behavior. */
 .simple-footer ul li a:hover {
     text-decoration: underline;
 }
 
-/* Responsive adjustments */
+/* Enhances the footer's usability on smaller screens by adjusting layout and spacing, adhering to responsive design principles. */
 @media (max-width: 768px) {
     .simple-footer .container {
         flex-direction: column;

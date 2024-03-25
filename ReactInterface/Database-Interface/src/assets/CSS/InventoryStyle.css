@@ -1,36 +1,43 @@
+/* Provides a visually distinct area for navigation, using high contrast to ensure legibility and ease of use. */
 .sidenav {
-    background-color: #333;
-    color: #fff;
-    height: 100vh;
+  background-color: #333;
+  color: #fff;
+  height: 100vh;
 }
 
+/* Centralizes navigation items, facilitating focus and interaction within a structured layout. */
 .sidenav ul {
-    flex-grow: 1;
-    text-align: center;
+  flex-grow: 1;
+  text-align: center;
 }
 
+/* Ensures ample spacing between navigation items, enhancing target area size and improving the ease of selection. */
 .sidenav .nav-item {
-    margin-bottom: 70px; 
-    margin-top: 70px;
+  margin-bottom: 70px;
+  margin-top: 70px;
 }
 
+/* Increases font size for better readability and interaction, especially important for touch-based or high-resolution displays. */
 .sidenav .nav-link {
-    font-size: 35px; 
+  font-size: 35px;
 }
 .sidenav i.fa-2xl {
-    font-size: 40px; 
+  font-size: 40px;
 }
 
+/* Enhances the visual focus and interaction affordance of input fields with subtle shadows, delineating interactive areas. */
 .input-group {
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  }
-  
-  .input-group-text {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  
-  #search-icon {
-    margin: 0 5px;
-  }
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Applies rounded corners on the right side of input group texts for a cohesive and modern appearance. */
+.input-group-text {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* Adjusts the icon placement within input groups for visual alignment and balance, enhancing the overall aesthetic. */
+#search-icon {
+  margin: 0 5px;
+}

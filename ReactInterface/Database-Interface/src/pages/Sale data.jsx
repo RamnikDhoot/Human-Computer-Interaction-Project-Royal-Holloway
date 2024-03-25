@@ -1,6 +1,6 @@
 /**
  * SaleData component for displaying enhanced sales data overview.
- * 
+ *
  */
 import React from "react";
 import { Doughnut, Bar, Line, Pie } from "react-chartjs-2";
@@ -8,7 +8,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 /**
  * Functional component representing the SaleData section.
- * 
+ *
  * @returns {JSX.Element} JSX representing the SaleData component.
  */
 function SaleData() {

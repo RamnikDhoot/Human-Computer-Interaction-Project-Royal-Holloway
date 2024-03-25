@@ -42,75 +42,58 @@ function NavBar() {
 
     return (
         <>
-            {/* Navigation bar */}
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container-fluid">
-                    <div className="navbar-brand dropdown">
-                        <a
-                            href="#"
-                            className={`nav-link dropdown-toggle ${dropdownOpen ? "show" : ""
-                                }`}
-                            id="navbarWelcomeDropdown"
-                            role="button"
-                            onClick={toggleDropdown}
-                            aria-expanded={dropdownOpen}
-                        >
-                            <img
-                                src="\src\components\NavBar\person-square.svg"
-                                alt="Person Square"
-                            />
-                            <span className="ms-2">Welcome!</span>
-                        </a>
-                        <ul
-                            className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
-                            aria-labelledby="navbarWelcomeDropdown"
-                        >
-                            <li>
-                                <a className="dropdown-item" href="#">
-                                    Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="#">
-                                    Settings
-                                </a>
-                            </li>
-                            <li>
-                                <hr className="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a className="dropdown-item" onClick={signOut}>
-                                    Sign out
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Toggler for mobile screens */}
+                    {/* Hamburger toggler for mobile screens */}
                     <button
                         className="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown"
+                        data-bs-target="#navbarContent"
+                        aria-controls="navbarContent"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div
-                        className="collapse navbar-collapse justify-content-center"
-                        id="navbarNavDropdown"
-                    >
-                        <form className="form-inline mt-3">
+                    {/* Collapsible content */}
+                    <div className="collapse navbar-collapse" id="navbarContent">
+                        {/* Brand/Dropdown for larger screens or non-collapsed view */}
+                        <div className="navbar-brand dropdown">
+                            <a
+                                href="#"
+                                className={`nav-link dropdown-toggle ${dropdownOpen ? "show" : ""}`}
+                                id="navbarWelcomeDropdown"
+                                role="button"
+                                onClick={toggleDropdown}
+                                aria-expanded={dropdownOpen}
+                            >
+                                <img
+                                    src="\src\components\NavBar\person-square.svg"
+                                    alt="Person Square"
+                                />
+                                <span className="ms-2">Welcome!</span>
+                            </a>
+                            <ul
+                                className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
+                                aria-labelledby="navbarWelcomeDropdown"
+                            >
+                                <li><a className="dropdown-item" href="#">Profile</a></li>
+                                <li><a className="dropdown-item" href="#">Settings</a></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li><a className="dropdown-item" onClick={signOut}>Sign out</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Search form */}
+                        <form className="form-inline mt-3 mx-auto">
                             <div className="input-group rounded-pill">
                                 <input
                                     className="form-control rounded-pill me-2"
                                     type="search"
                                     placeholder="Search"
                                     aria-label="Search"
-                                    style={{ width: "400px" }}
                                 />
                                 <button
                                     className="btn btn-outline-primary rounded-pill"
@@ -118,30 +101,28 @@ function NavBar() {
                                 >
                                     <img
                                         src="\src\components\NavBar\search.svg"
-                                        alt="search"
+                                        alt="Search"
                                     />
                                 </button>
                             </div>
                         </form>
+
+                        {/* Sign out link */}
+                        <div className="d-flex align-items-center">
+                            <a
+                                className="nav-link text-white btn btn-danger"
+                                id="signOutLink"
+                                onClick={() => {
+                                  if (window.confirm("Are you sure you want to sign out?")) {
+                                    signOut();
+                                  }
+                                }}
+                                style={{ fontSize: "1.25rem" }}
+                            >
+                                Sign out
+                            </a>
+                        </div>
                     </div>
-
-{/* Sign out */}
-<div className="d-flex align-items-center">
-  <a
-    className="nav-link text-white btn btn-danger"
-    id="signOutLink"
-    onClick={() => {
-      if (window.confirm("Are you sure you want to sign out?")) {
-        signOut();
-      }
-    }}
-    style={{ fontSize: "1.25rem" }}
-  >
-    Sign out
-  </a>
-</div>
-
-
                 </div>
             </nav>
 
@@ -164,6 +145,6 @@ function NavBar() {
             )}
         </>
     );
-};
+}
 
 export default NavBar;

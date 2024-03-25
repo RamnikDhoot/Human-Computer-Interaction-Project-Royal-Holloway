@@ -1,4 +1,5 @@
 /* styles for the popup menu */
+/* The popup is initially hidden to prevent clutter, adhering to the HCI principle of minimizing users' cognitive load by showing additional options only when relevant. */
 .inventory-popup {
     display: none;
     position: absolute;
@@ -9,16 +10,19 @@
     padding: 10px;
 }
 
+/* Reveals the popup on hover, providing a clear, immediate visual feedback mechanism that aligns with the principle of visibility of system status. */
 .col:hover .inventory-popup {
     display: block;
 }
 
 /* Style for loading icon and message */
+/* The loading icon is hidden by default, supporting the principle of reducing users' cognitive load by displaying it only during loading processes. */
 #loadingIcon {
     display: none;
     text-align: center;
 }
 
+/* The loader's design and animation provide a clear indication of a process in action, adhering to the principle of feedback. */
 .loader {
     border: 5px solid #f3f3f3; 
     border-top: 5px solid #3498db; 
@@ -28,12 +32,14 @@
     animation: spin 2s linear infinite;
 }
 
+/* Keyframes for the spinning effect, enhancing the feedback principle by visually communicating that data is being processed. */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
 
+/* Adjusting the size of feather icons enhances their visibility and affordance, making it easier for users to recognize and understand the icons' functions. */
 .feather {
     width: 24px;
     height: 24px;
