@@ -269,3 +269,11 @@ Week 16, 11/03/24 - 17/03/24
 - Enhanced the application's customization options by adding a themes menu and selector, allowing users to personalize their interface according to their aesthetic preferences.
 - Developed a function for creating and managing notebooks, enabling users to organize their notes more efficiently and effectively according to different subjects or projects.
 - Refined the Observer pattern implementation to align with the reformatted Model-View-Controller (MVC) architecture, ensuring that our application's data flow and user interface updates are efficiently managed and remain consistent with architectural best practices.
+
+Week 17, 18/03/24 - 24/03/24
+- Encountered testing issues due to singleton misuse in NotesModel. The constructor in NotesController was incorrectly assigned to NotesModel.getInstance(), causing tests to interact with the singleton instance instead of the mock model. Solution: Updated the constructor-
+- Undertook refactoring of tests and Javadoc in the notes application to enhance code clarity and maintainability.
+- Progressed in writing comprehensive documentation for the shopping website, detailing features, functionalities, and user guidance.
+- Developed user manuals to provide clear instructions and support for navigating and utilizing the application features effectively.
+- Resolved a malfunctioning hamburger menu in the database interface, ensuring smooth navigation and user experience.
+- Eliminated the non-functional hamburger toggler from the placeholder navbar to improve UI consistency and usability.
