@@ -1,30 +1,34 @@
 /**
- * @fileoverview Test suite for the SideBar component using react-testing-library.
- * Tests the SideBar component for proper rendering of links, navigation functionality,
+ * @fileoverview Test suite for the SideBar component using React Testing Library.
+ * This suite checks for correct rendering of navigation links, navigation functionality,
  * active link highlighting, and the addition of new reports through user interaction.
- * The component is rendered within a BrowserRouter to accurately test navigation links.
+ * The SideBar component is wrapped inside a BrowserRouter to accurately test navigation links.
  */
 
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 
 /**
- * Helper function to render the SideBar component within a Router.
- * Necessary since the SideBar uses NavLink which requires a Router context.
+ * Renders the SideBar component within a BrowserRouter.
+ * This setup is necessary to test components that utilize react-router's NavLink or useRouteMatch.
+ * @returns {void} Nothing.
  */
 const renderSideBar = () => render(
   <BrowserRouter>
-    <SideBar />
+    <Routes>
+      <Route path="*" element={<SideBar />} />
+    </Routes>
   </BrowserRouter>
 );
 
 describe('SideBar Component', () => {
   /**
-   * Tests if the SideBar component renders correctly with the expected navigation links.
+   * Verifies if the SideBar component renders correctly with expected navigation links.
+   * Checks for the presence of "Dashboard" and "Orders" links in the document.
    */
   it('renders correctly', () => {
     renderSideBar();
@@ -33,8 +37,8 @@ describe('SideBar Component', () => {
   });
 
   /**
-   * Verifies that the navigation links within the SideBar have correct href attributes,
-   * ensuring the routing works as expected.
+   * Ensures that the navigation links within the SideBar component have correct href attributes.
+   * This test verifies if clicking on the "Dashboard" link will navigate to the "/dashboard" path.
    */
   it('navigation links work correctly', () => {
     renderSideBar();
@@ -42,38 +46,34 @@ describe('SideBar Component', () => {
   });
 
   /**
-   * Placeholder for testing active link highlighting.
-   * This test would typically check if the active link receives a specific styling
-   * or class to indicate it is the current page.
+   * Tests if the active link is highlighted by checking the applied class.
+   * This simulates clicking on the "Dashboard" link and then verifies if it receives an 'active' class.
    */
   it('active link is highlighted', async () => {
-    // Test implementation would go here
+    renderSideBar();
+    userEvent.click(screen.getByText('Dashboard'));
+    await waitFor(() => {
+      expect(screen.getByText('Dashboard').closest('a')).toHaveClass('active');
+    });
   });
 
   /**
-   * Tests the functionality of adding a new report through the SideBar.
-   * Simulates a user interaction that triggers a prompt for the report name,
-   * and verifies that a new report is added based on the user input.
+   * Tests the functionality for adding a new report through the SideBar.
+   * This simulates user interaction that triggers a prompt for the report name,
+   * then verifies that a new report link labeled "Test Report" is added to the document.
    */
   it('adds a new report correctly', async () => {
-    const promptSpy = jest.spyOn(window, 'prompt');
-    promptSpy.mockImplementation(() => "Test Report");
-  
+    window.prompt = jest.fn().mockImplementation(() => "Test Report");
     renderSideBar();
   
     userEvent.click(screen.getByLabelText("Add a new report"));
   
     await waitFor(() => {
-      expect(promptSpy).toHaveBeenCalledWith("Please enter the name for the new report:", "New Report Name");
+      expect(window.prompt).toHaveBeenCalledWith("Please enter the name for the new report:", "New Report Name");
     });
   
-    // Wait for the state update and re-render of the component
     await waitFor(() => {
       expect(screen.getByText("Test Report")).toBeInTheDocument();
     });
-  
-    // Clean up the mock to ensure it doesn't affect other tests
-    promptSpy.mockRestore();
   });
-  
 });
