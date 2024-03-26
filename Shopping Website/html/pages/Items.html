@@ -22,32 +22,86 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous" />
     <style>
-      /* Inline CSS for specific element styling, like the category links */
-      .list-group-item {
-        background-color: transparent;
-        padding: 0;
-        position: relative;
+      /* General sidebar styling */
+      .sidebar {
+        margin-top: 20px;
+        background-color: #f4f4f4; /* Light grey for contrast and to reduce eye strain */
+        padding: 15px;
+        border-radius: 5px;
+      }
+      .sidebar-header {
+        font-size: 18px;
+        color: #343a40; /* Dark grey for readability */
+        background-color: #e9ecef; /* Slightly lighter grey for subtle contrast */
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+      }
+      .sidebar-list-group-item {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .sidebar-list-group-item input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .sidebar-list-group-item label {
+        margin-bottom: 0;
+        color: #17a2b8; /* A calming blue for visibility and to indicate interactivity */
       }
 
-      .category-link {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #1900ff;
+      /* Enhancing hover and focus states for better HCI */
+      .sidebar-list-group-item:hover,
+      .sidebar-list-group-item input[type="checkbox"]:focus + label {
+        background-color: #dee2e6; /* Lighter grey to indicate hover state */
+        border-radius: 4px;
+        padding: 5px;
+        cursor: pointer;
       }
 
-      .list-group-item:not(:last-child)::after {
-        content: "→";
-        position: absolute;
-        right: -8px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #000000;
+      /* Adjusting label font size for readability */
+      label {
         font-size: 16px;
       }
 
-      .category-link:hover {
-        text-decoration: none;
-        background-color: #f8f9fa;
+      /* Styling for the active state of checkboxes for better visual feedback */
+      .sidebar-list-group-item input[type="checkbox"]:checked + label {
+        color: #28a745; /* Green to indicate selection */
+        font-weight: bold;
+      }
+
+      /* Adjustments for mobile screens */
+      @media (max-width: 768px) {
+        .sidebar {
+          margin-bottom: 30px;
+        }
+      }
+
+      /* Style adjustments for hover effects on list items */
+      .sidebar-list-group-item:hover {
+        background-color: #e9ecef;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Prevent label text selection on double click */
+      .sidebar-list-group-item label {
+        user-select: none; /* Standard syntax */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        -webkit-user-select: none; /* Safari and Chrome */
+      }
+
+      .sidebar-list-group-item a:focus,
+      .sidebar-list-group-item input[type="checkbox"]:focus + label {
+        outline: 2px solid #17a2b8; /* Adding an outline to improve focus visibility */
+      }
+
+      /* Consistency in border radii */
+      .sidebar,
+      .sidebar-header,
+      .sidebar-list-group-item:hover {
+        border-radius: 5px; /* Standardizing border-radius */
       }
     </style>
   </head>
@@ -204,419 +258,509 @@
       </div>
     </header>
 
-    <!-- Main content area for product listing -->
-    <main class="container mt-5 mt-md-7">
-      <!-- Row for category listing -->
-      <div class="row mb-4">
-        <div class="col">
-          <h2>Categories</h2>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item border-0">
-              <a href="#" class="category-link">Category 1</a>
-            </li>
-            <li class="list-group-item border-0">
-              <a href="#" class="category-link">Category 2</a>
-            </li>
-            <li class="list-group-item border-0">
-              <a href="#" class="category-link">Category 3</a>
-            </li>
-            <li class="list-group-item border-0">
-              <a href="#" class="category-link">Category 3</a>
-            </li>
-          </ul>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <!-- Sidebar column -->
+        <div class="col-md-2">
+          <!-- Categories Section -->
+          <div class="sidebar">
+            <div class="sidebar-header">Categories</div>
+            <ul class="list-group">
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="electronics" name="electronics" />
+                <label for="electronics">Electronics</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="fashion" name="fashion" />
+                <label for="fashion">Fashion</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="homeGarden" name="homeGarden" />
+                <label for="homeGarden">Home & Garden</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="sports" name="sports" />
+                <label for="sports">Sports</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Brands Section -->
+          <div class="sidebar">
+            <div class="sidebar-header">Brands</div>
+            <ul class="list-group">
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="apple" name="apple" />
+                <label for="apple">Apple</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="samsung" name="samsung" />
+                <label for="samsung">Samsung</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="nike" name="nike" />
+                <label for="nike">Nike</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="adidas" name="adidas" />
+                <label for="adidas">Adidas</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Price Range Section -->
+          <div class="sidebar">
+            <div class="sidebar-header">Price Range</div>
+            <ul class="list-group">
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="0-50" name="0-50" />
+                <label for="0-50">$0 - $50</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="51-100" name="51-100" />
+                <label for="51-100">$51 - $100</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="101-500" name="101-500" />
+                <label for="101-500">$101 - $500</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="501" name="501" />
+                <label for="501">$501+</label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Customer Ratings Section -->
+          <div class="sidebar">
+            <div class="sidebar-header">Customer Ratings</div>
+            <ul class="list-group">
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="4stars" name="4stars" />
+                <label for="4stars">4 Stars & Up</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="3stars" name="3stars" />
+                <label for="3stars">3 Stars & Up</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="2stars" name="2stars" />
+                <label for="2stars">2 Stars & Up</label>
+              </li>
+              <li class="sidebar-list-group-item">
+                <input type="checkbox" id="1star" name="1star" />
+                <label for="1star">1 Star & Up</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="col-md-10">
+          <!-- Section for products displayed in a grid layout -->
+          <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-0">
+              <div
+                class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/IMG_5400.jpg"
+                      alt="Item Image" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Product</h5>
+                        £40.00 - £80.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">View options</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP (1).jpg"
+                      alt="Item Image" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Special Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        <span
+                          class="text-muted text-decoration-line-through">£20.00</span>
+                        £18.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP (2).jpg"
+                      alt="item" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Sale Item</h5>
+                        <span
+                          class="text-muted text-decoration-line-through">£50.00</span>
+                        £25.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP.jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Popular Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        £40.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP.jpg"
+                      alt="Item Image" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Sale Item</h5>
+                        <span
+                          class="text-muted text-decoration-line-through">£50.00</span>
+                        £25.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/IMG_5400.jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Product</h5>
+                        £120.00 - £280.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">View options</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP (1).jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Special Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        <span
+                          class="text-muted text-decoration-line-through">£20.00</span>
+                        £18.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP.jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Popular Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        £40.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP (1).jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Product</h5>
+                        £40.00 - £80.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">View options</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP (2).jpg"
+                      alt="Item Image" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Special Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        <span
+                          class="text-muted text-decoration-line-through">£20.00</span>
+                        £18.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div
+                      class="badge bg-dark text-white position-absolute"
+                      style="top: 0.5rem; right: 0.5rem">
+                      Sale
+                    </div>
+                    <!-- Product-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/IMG_5400.jpg"
+                      alt="Item Image" />
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Sale Item</h5>
+                        <span
+                          class="text-muted text-decoration-line-through">£50.00</span>
+                        £25.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-5">
+                  <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                      class="card-img-top"
+                      src="/Shopping Website/assets/images/OIP.jpg"
+                      alt="Item Image" />
+                    <!-- Product-->
+                    <div class="card-body p-4">
+                      <div class="text-center">
+                        <h5 class="fw-bolder">Popular Item</h5>
+                        <div
+                          class="d-flex justify-content-center small text-warning mb-2">
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                          <div class="bi-star-fill"></div>
+                        </div>
+                        £40.00
+                      </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div
+                      class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                        <a
+                          class="btn btn-outline-dark mt-auto"
+                          href="Single-item.html">Have a look</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-
-      <!-- Section for products displayed in a grid layout -->
-      <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-0">
-          <div
-            class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/IMG_5400.jpg"
-                  alt="..." />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Product</h5>
-                    £40.00 - £80.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">View options</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP (1).jpg"
-                  alt="..." />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Special Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    <span
-                      class="text-muted text-decoration-line-through">£20.00</span>
-                    £18.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP (2).jpg"
-                  alt="item" />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Sale Item</h5>
-                    <span
-                      class="text-muted text-decoration-line-through">£50.00</span>
-                    £25.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP.jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Popular Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    £40.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP.jpg"
-                  alt="..." />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Sale Item</h5>
-                    <span
-                      class="text-muted text-decoration-line-through">£50.00</span>
-                    £25.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/IMG_5400.jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Product</h5>
-                    £120.00 - £280.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">View options</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP (1).jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Special Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    <span
-                      class="text-muted text-decoration-line-through">£20.00</span>
-                    £18.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP.jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Popular Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    £40.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP (1).jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Product</h5>
-                    £40.00 - £80.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">View options</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP (2).jpg"
-                  alt="..." />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Special Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    <span
-                      class="text-muted text-decoration-line-through">£20.00</span>
-                    £18.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Sale badge-->
-                <div
-                  class="badge bg-dark text-white position-absolute"
-                  style="top: 0.5rem; right: 0.5rem">
-                  Sale
-                </div>
-                <!-- Product-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/IMG_5400.jpg"
-                  alt="..." />
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Sale Item</h5>
-                    <span
-                      class="text-muted text-decoration-line-through">£50.00</span>
-                    £25.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-5">
-              <div class="card h-100">
-                <!-- Product image-->
-                <img
-                  class="card-img-top"
-                  src="/Shopping Website/assets/images/OIP.jpg"
-                  alt="..." />
-                <!-- Product-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <h5 class="fw-bolder">Popular Item</h5>
-                    <div
-                      class="d-flex justify-content-center small text-warning mb-2">
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                      <div class="bi-star-fill"></div>
-                    </div>
-                    £40.00
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center">
-                    <a
-                      class="btn btn-outline-dark mt-auto"
-                      href="Single-item.html">Have a look</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    </div>
 
     <!-- Footer with additional links and contact information -->
     <footer class="py-3 my-4 text-center">
