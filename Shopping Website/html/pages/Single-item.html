@@ -29,7 +29,7 @@
         <!-- Navbar content container -->
         <div class="container-fluid">
           <!-- Branding and collapsible menu for smaller screens -->
-          <a class="navbar-brand" href="Homepage.html">Shopping</a>
+          <a class="navbar-brand" href="Homepage.html" aria-label="Shopping">Shopping</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -42,13 +42,13 @@
             <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" role="list">
               <!--d-flex flex-row me-1-->
-              <li class="nav-item">
+              <li class="nav-item" role="listitem">
                 <a
                   class="nav-link active"
                   aria-current="page"
-                  href="Homepage.html">
+                  href="Homepage.html" aria-label="Navigation">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="22"
@@ -64,8 +64,8 @@
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="Notifications.html">
+              <li class="nav-item" role="listitem">
+                <a class="nav-link active" href="Notifications.html" aria-label="Notifications">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="22"
@@ -79,7 +79,7 @@
                   Notifications
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" role="listitem">
                 <a class="nav-link active" href="Settings.html">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@
                 type="search"
                 placeholder="Search...."
                 aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn btn-outline-success" type="submit" aria-label="search">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -120,20 +120,20 @@
           <div class="d-flex flex-row me-1">
             <div
               class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3">
-              <a href="#login" class="text-white">Login</a>
+              <a href="#login" class="text-white" aria-label="Login">Login</a>
               <a
                 href="#signup"
-                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2">Sign
+                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2" aria-label="Sign Up">Sign
                 Up</a>
             </div>
             <a
               href="Basket.html"
-              data-step="3"
+              data-step="3" aria-label="Cart"
               data-intro="This is your shopping cart. The item count here updates each time you add a new product to your basket.">
               <button
                 type="button"
                 class="btn position-relative"
-                id="basketButton">
+                id="basketButton" aria-label="Cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
@@ -154,6 +154,7 @@
         <button
           type="button"
           class="btn btn-secondary"
+          aria-label="Read screen"
           id="readScreenButton"
           onclick="toggleReadScreen()"
           style="margin-right: 10px">
@@ -174,7 +175,7 @@
     <!-- A progress bar indicating the current step in a shopping or checkout process -->
     <div
       class="container mt-4"
-      data-step="1"
+      data-step="1"       role="progressbar"       aria-label="Progress: Step 3 of the checkout process"
       data-intro="This is your progress bar. It updates as you move through the steps of adding items to your basket, confirming your cart, and checking out.">
       <div class="progress">
         <div
@@ -194,17 +195,17 @@
 
     <div class="row mb-4">
       <div class="col mt-3">
-        <ul class="list-group list-group-horizontal">
-          <li class="list-group-item border-0">
+        <ul class="list-group list-group-horizontal" role="list">
+          <li class="list-group-item border-0" role="listitem">
             <a href="#" class="category-link">Electronics        <i class="bi bi-chevron-right"></i></a> 
           </li>
-          <li class="list-group-item border-0">
+          <li class="list-group-item border-0" role="listitem">
             <a href="#" class="category-link">Smartphones        <i class="bi bi-chevron-right"></i></a> 
           </li>
-          <li class="list-group-item border-0">
+          <li class="list-group-item border-0" role="listitem">
             <a href="#" class="category-link">Accessories        <i class="bi bi-chevron-right"></i></a> 
           </li>
-          <li class="list-group-item border-0">
+          <li class="list-group-item border-0" role="listitem">
             <a href="#" class="category-link">Chargers</a>
           </li>
         </ul>
@@ -244,7 +245,7 @@
                 style="max-width: 3rem" />
               <button
                 class="btn btn-outline-dark flex-shrink-0 add-to-cart"
-                type="button"
+                type="button" aria-label="Cart"
                 data-step="2"
                 data-intro="Click this button to add the item to your shopping cart. The cart count in the navbar will update accordingly.">
                 <i class="bi-cart-fill me-1"></i>
@@ -286,7 +287,7 @@
                 <div class="text-center">
                   <a
                     class="btn btn-outline-dark mt-auto"
-                    href="Single-item.html">View options</a>
+                    href="Single-item.html" aria-label="Options">View options</a>
                 </div>
               </div>
             </div>
@@ -329,7 +330,7 @@
                 <div class="text-center">
                   <a
                     class="btn btn-outline-dark mt-auto"
-                    href="Single-item.html">Add to cart</a>
+                    href="Single-item.html" aria-label="Add to cart">Add to cart</a>
                 </div>
               </div>
             </div>
@@ -363,7 +364,7 @@
                 <div class="text-center">
                   <a
                     class="btn btn-outline-dark mt-auto"
-                    href="Single-item.html">Add to cart</a>
+                    href="Single-item.html" aria-label="Cart">Add to cart</a>
                 </div>
               </div>
             </div>
@@ -398,7 +399,7 @@
                 <div class="text-center">
                   <a
                     class="btn btn-outline-dark mt-auto"
-                    href="Single-item.html">Add to cart</a>
+                    href="Single-item.html" aria-label="Cart">Add to cart</a>
                 </div>
               </div>
             </div>
@@ -407,7 +408,7 @@
       </div>
     </section>
 
-    <!-- Footer with site information, quick links, customer support, and social media connections -->
+    <!-- Footer section with additional links and information -->
     <footer class="py-3 my-4 text-center">
       <div class="container">
         <div class="row">
@@ -421,27 +422,27 @@
           </div>
           <div class="col-lg-2">
             <h5>Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="Homepage.html">Home</a></li>
-              <li><a href="Items.html">Shop</a></li>
-              <li><a href="Deals.html">Deals</a></li>
-              <li><a href="Contact.html">Contact</a></li>
+            <ul class="list-unstyled" role="list">
+              <li role="listitem"><a href="Homepage.html" aria-label="Home">Home</a></li>
+              <li role="listitem"><a href="Items.html" aria-label="Shop">Shop</a></li>
+              <li role="listitem"><a href="Deals.html" aria-label="Deals">Deals</a></li>
+              <li role="listitem"><a href="Contact.html" aria-label="Contact">Contact</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
             <h5>Customer Support</h5>
             <p>
               Have questions or need assistance? Reach out to us at
-              <a href="mailto:your-support@email.com">Example@email.com</a>.
+              <a href="mailto:your-support@email.com" aria-label="Email">Example@email.com</a>.
             </p>
           </div>
           <div class="col-lg-2">
             <h5>Connect With Us</h5>
             <div class="social-icons">
-              <a href class="text-light"><i class="bi bi-twitter-x"></i></a>
-              <a href class="text-light"><i class="bi bi-discord"></i></a>
-              <a href class="text-light"><i class="bi bi-facebook"></i></a>
-              <a href class="text-light"><i class="bi bi-youtube"></i></a>
+              <a class="text-light" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a class="text-light" aria-label="Discord"><i class="bi bi-discord"></i></a>
+              <a class="text-light" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a class="text-light" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
             </div>
           </div>
           <div class="col-lg-1 text-right">
@@ -449,7 +450,8 @@
               href="#"
               id="backToTopBtn"
               class="text-light"
-              title="Back to Top">
+              title="Back to Top"
+              aria-label="Back to top">
               Back to Top
               <svg
                 xmlns="http://www.w3.org/2000/svg"

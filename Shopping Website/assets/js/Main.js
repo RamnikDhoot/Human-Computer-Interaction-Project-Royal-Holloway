@@ -115,9 +115,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-$(".carousel").carousel({
-  interval: 2000, // Adjust time interval for auto-scroll in milliseconds
+document.addEventListener('DOMContentLoaded', function () {
+  var carouselElement = document.querySelector('.carousel');
+  if (carouselElement) {
+      var carousel = new bootstrap.Carousel(carouselElement, {
+          interval: 2000,
+      });
+  }
 });
+
 
 // Toggles the visibility of a floating microphone for voice control features.
 function toggleFloatingMicrophone() {
