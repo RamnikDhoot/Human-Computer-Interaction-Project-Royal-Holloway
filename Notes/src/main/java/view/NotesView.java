@@ -8,6 +8,8 @@ import mdlaf.themes.MaterialLiteTheme;
 import mdlaf.themes.MaterialOceanicTheme;
 import mdlaf.themes.MaterialTheme;
 import mdlaf.utils.MaterialColors;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +28,8 @@ public class NotesView implements Observer {
     private JFrame frame;
 
     /**
-     * Text area where the content of the current note is displayed and can be edited by the user.
+     * Text area where the content of the current note is displayed and can be
+     * edited by the user.
      */
     public JTextArea noteTextArea;
 
@@ -45,6 +48,8 @@ public class NotesView implements Observer {
     private ToolBarHandler toolBarHandler;
     private JScrollPane scrollPane;
     private NotesController controller;
+    private Color customBackgroundColor = Color.WHITE; // Default color
+    private Color customTextColor = Color.BLACK; // Default color
 
     /**
      * Sets the controller for this view. This allows the view to communicate with
@@ -62,7 +67,8 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Constructs the {@code NotesView}. It initializes the user interface components
+     * Constructs the {@code NotesView}. It initializes the user interface
+     * components
      * and sets up the necessary interactions.
      */
     public NotesView() {
@@ -70,7 +76,8 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Initializes the user interface of the notes application. It sets up components
+     * Initializes the user interface of the notes application. It sets up
+     * components
      * such as menus, toolbars, buttons, and text areas, and configures the look and
      * feel settings to enhance user experience.
      */
@@ -86,6 +93,31 @@ public class NotesView implements Observer {
         frame = new JFrame("Notes Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 800);
+
+        // Handle window closing event to prompt the user to save their work
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int confirm = JOptionPane.showConfirmDialog(
+                        frame,
+                        "Do you want to save your changes before exiting?",
+                        "Exit Confirmation",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+
+                    // Close the application after saving
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                } else if (confirm == JOptionPane.NO_OPTION) {
+                    // Close the application without saving
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                } else {
+                    // Cancel the closing operation
+                    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                }
+            }
+        });
 
         // Initialize JTextArea for notes input/display
         noteTextArea = new JTextArea();
@@ -209,7 +241,85 @@ public class NotesView implements Observer {
         viewMenu.add(fullScreenMenuItem);
 
         JMenu homeMenu = new JMenu("Home");
+
+        // Dashboard menu item
+        JMenuItem dashboardItem = new JMenuItem("Dashboard");
+        dashboardItem.addActionListener(e -> {
+            // Code to display the dashboard view
+            JOptionPane.showMessageDialog(frame, "Displaying the Dashboard.");
+        });
+
+        // List All Notes menu item
+        JMenuItem listAllNotesItem = new JMenuItem("List All Notes");
+        listAllNotesItem.addActionListener(e -> {
+            // Code to display all notes
+            JOptionPane.showMessageDialog(frame, "Listing all notes.");
+            displayNotesDialog(); // Assuming displayNotesDialog() method shows all notes
+        });
+
+        // Recently Edited Notes menu item
+        JMenuItem recentlyEditedNotesItem = new JMenuItem("Recently Edited Notes");
+        recentlyEditedNotesItem.addActionListener(e -> {
+            // Code to display recently edited notes
+            JOptionPane.showMessageDialog(frame, "Showing recently edited notes.");
+        });
+
+        // Summary View of Note Categories menu item
+        JMenuItem summaryViewOfNoteCategoriesItem = new JMenuItem("Summary View of Note Categories");
+        summaryViewOfNoteCategoriesItem.addActionListener(e -> {
+            // Code to display a summary view of note categories
+            JOptionPane.showMessageDialog(frame, "Displaying summary view of note categories.");
+        });
+
+        // Create a New Note menu item
+        JMenuItem createNewNoteItem = new JMenuItem("Create New Note");
+        createNewNoteItem.addActionListener(e -> {
+            // Code to create a new note
+            JOptionPane.showMessageDialog(frame, "Creating a new note.");
+            controller.addNote();
+        });
+
+        // Adding items to Home menu
+        homeMenu.add(dashboardItem);
+        homeMenu.add(listAllNotesItem);
+        homeMenu.add(recentlyEditedNotesItem);
+        homeMenu.add(summaryViewOfNoteCategoriesItem);
+        homeMenu.add(createNewNoteItem);
+
         JMenu helpMenu = new JMenu("Help");
+        // User Manual menu item
+        JMenuItem userManualItem = new JMenuItem("User Manual");
+        userManualItem.addActionListener(e -> {
+            // Open user manual dialog
+            JOptionPane.showMessageDialog(frame, "Open user manual document.");
+        });
+
+        // Frequently Asked Questions menu item
+        JMenuItem faqItem = new JMenuItem("FAQs");
+        faqItem.addActionListener(e -> {
+            // Open FAQ dialog
+            JOptionPane.showMessageDialog(frame, "Open FAQ document.");
+        });
+
+        // Tips and Tricks menu item
+        JMenuItem tipsAndTricksItem = new JMenuItem("Tips and Tricks");
+        tipsAndTricksItem.addActionListener(e -> {
+            // Open tips and tricks dialog
+            JOptionPane.showMessageDialog(frame, "Show tips and tricks.");
+        });
+
+        // Contact Information menu item
+        JMenuItem contactInfoItem = new JMenuItem("Contact Information");
+        contactInfoItem.addActionListener(e -> {
+            // Display contact information for technical support
+            JOptionPane.showMessageDialog(frame, "Show contact information for technical support.");
+        });
+
+        // Add the new menu items to the Help menu
+        helpMenu.add(userManualItem);
+        helpMenu.add(faqItem);
+        helpMenu.add(tipsAndTricksItem);
+        helpMenu.add(contactInfoItem);
 
         JMenu customizationMenu = new JMenu("Customization");
         JMenu themesMenu = new JMenu("Themes");
@@ -581,18 +691,62 @@ public class NotesView implements Observer {
             });
             themeSelectionPanel.add(themeButton);
         }
+
+        // Custom Theme Creation Panel
+        JPanel customThemeCreationPanel = new JPanel(new FlowLayout());
+        customThemeCreationPanel.setBorder(BorderFactory.createTitledBorder("Custom Theme"));
+
+        // Background Color Picker
+        JButton backgroundColorChooser = new JButton("Background Color");
+        backgroundColorChooser.addActionListener(e -> {
+            Color backgroundColor = JColorChooser.showDialog(themeDialog, "Choose Background Color",
+                    customBackgroundColor);
+            if (backgroundColor != null) {
+                customBackgroundColor = backgroundColor;
+            }
+        });
+
+        // Text Color Picker
+        JButton textColorChooser = new JButton("Text Color");
+        textColorChooser.addActionListener(e -> {
+            Color textColor = JColorChooser.showDialog(themeDialog, "Choose Text Color", customTextColor);
+            if (textColor != null) {
+                customTextColor = textColor;
+            }
+        });
+
+        // Add color choosers to the custom theme panel
+        customThemeCreationPanel.add(backgroundColorChooser);
+        customThemeCreationPanel.add(textColorChooser);
+
+        // Apply Custom Theme Button
+        JButton applyCustomThemeButton = new JButton("Apply Custom Theme");
+        applyCustomThemeButton.addActionListener(e -> {
+            applyCustomTheme(customBackgroundColor, customTextColor); // Apply the custom theme colors
+            themeDialog.dispose(); // Close the dialog
+        });
+
+        // Adding components to the dialog
+        JPanel bottomPanel = new JPanel(new BorderLayout());
+        bottomPanel.add(customThemeCreationPanel, BorderLayout.CENTER);
+        bottomPanel.add(applyCustomThemeButton, BorderLayout.SOUTH);
+
+        // Add bottomPanel to the themeDialog correctly
         themeDialog.add(themeSelectionPanel, BorderLayout.WEST);
         themeDialog.add(previewLabel, BorderLayout.CENTER);
-        themeDialog.add(applyButton, BorderLayout.SOUTH);
+        themeDialog.add(applyButton, BorderLayout.NORTH);
+        themeDialog.add(bottomPanel, BorderLayout.SOUTH);
 
         themeDialog.setVisible(true);
+
     }
 
     /**
      * Applies the selected theme to the application, updating the look and feel
      * accordingly. This method also logs the application of the new theme.
      *
-     * @param theme the {@code MaterialTheme} object representing the new theme to apply
+     * @param theme the {@code MaterialTheme} object representing the new theme to
+     *              apply
      */
     public void applyTheme(mdlaf.themes.MaterialTheme theme) {
         try {
@@ -644,7 +798,53 @@ public class NotesView implements Observer {
     }
 
     /**
-     * Notifies the UI to update based on changes in the underlying model. This method
+     * Applies custom theme colors to the application UI, including a specific
+     * background color and text color.
+     * This method sets the background and text colors for the note text area
+     * specifically and then applies
+     * the background color to the rest of the application's components recursively.
+     * It ensures a cohesive
+     * appearance throughout the application by uniformly applying the chosen
+     * colors.
+     *
+     * @param backgroundColor The color to be set as the background color for the
+     *                        note text area and the rest of the UI components.
+     * @param textColor       The color to be set as the text color for the note
+     *                        text area.
+     */
+    public void applyCustomTheme(Color backgroundColor, Color textColor) {
+        // Apply the background color to the note text area and text color
+        noteTextArea.setBackground(backgroundColor);
+        noteTextArea.setForeground(textColor);
+
+        // Apply the background color to the frame and all its components recursively
+        updateComponentBackgrounds(frame, backgroundColor);
+
+        // Refresh the UI to show the new theme
+        SwingUtilities.updateComponentTreeUI(frame);
+    }
+
+    /**
+     * Recursively updates the background color of all components in a container.
+     * 
+     * @param component The root component from which to start applying the
+     *                  background color.
+     * @param color     The background color to apply.
+     */
+    private void updateComponentBackgrounds(Component component, Color color) {
+        if (component instanceof Container) {
+            component.setBackground(color); // Set the background color
+            for (Component child : ((Container) component).getComponents()) {
+                updateComponentBackgrounds(child, color); // Recursively update child components
+            }
+        } else {
+            component.setBackground(color); // Set the background color for non-container components
+        }
+    }
+
+    /**
+     * Notifies the UI to update based on changes in the underlying model. This
+     * method
      * ensures that the view reflects the current state of the application, such as
      * displaying the latest notes or applying new settings.
      */
