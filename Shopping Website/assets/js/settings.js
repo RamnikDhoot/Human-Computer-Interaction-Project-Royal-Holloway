@@ -79,8 +79,8 @@ function updateReadButton() {
   readScreenButton.textContent = isReading ? "Stop Reading" : "Read Aloud";
 }
 
-  // Sets up additional accessibility features and event listeners after the DOM is fully loaded.
-  document.addEventListener("DOMContentLoaded", function () {
+// Sets up additional accessibility features and event listeners after the DOM is fully loaded.
+document.addEventListener("DOMContentLoaded", function () {
   setupVoiceControl();
   setupDraggableMicrophone();
   setupMicrophoneClick();
@@ -91,17 +91,23 @@ function setupVoiceControl() {
   const voiceControlCheckbox = document.getElementById("voiceControlToggle");
   const floatingMicrophone = document.getElementById("floatingMicrophone");
 
-  // Toggle the microphone based on the voice control checkbox
-  voiceControlCheckbox.addEventListener("change", function () {
+  // Define a function to update the microphone's visibility based on the checkbox
+  function updateMicrophoneVisibility() {
     floatingMicrophone.style.display = voiceControlCheckbox.checked
       ? "flex"
       : "none";
+    // Save the state to localStorage
     localStorage.setItem("voiceControlEnabled", voiceControlCheckbox.checked);
-  });
+  }
 
-  // Initial state of the microphone based on stored settings
-  floatingMicrophone.style.display =
-    localStorage.getItem("voiceControlEnabled") === "true" ? "flex" : "none";
+  // Attach the change event listener to the checkbox
+  voiceControlCheckbox.addEventListener("change", updateMicrophoneVisibility);
+
+  // Call the function to set the initial state based on localStorage or default
+  // This ensures the microphone's visibility matches the stored preference or shows by default
+  voiceControlCheckbox.checked =
+    localStorage.getItem("voiceControlEnabled") === "true";
+  updateMicrophoneVisibility();
 }
 
 // Sets up the functionality for the draggable microphone
@@ -110,41 +116,37 @@ function setupDraggableMicrophone() {
   let isDragging = false;
 
   floatingMicrophone.addEventListener("mousedown", function (event) {
-    // Prevent default action to avoid text selection, etc.
     event.preventDefault();
     isDragging = true;
-    const shiftX =
-      event.clientX - floatingMicrophone.getBoundingClientRect().left;
-    const shiftY =
-      event.clientY - floatingMicrophone.getBoundingClientRect().top;
 
-    // Disable text selection on the whole document to prevent highlighting
-    document.body.style.userSelect = "none";
+    // Calculate initial offset on mouse down
+    let shiftX =
+      event.clientX - floatingMicrophone.getBoundingClientRect().left;
+    let shiftY = event.clientY - floatingMicrophone.getBoundingClientRect().top;
 
     function onMouseMove(event) {
       if (isDragging) {
-        floatingMicrophone.style.left = event.pageX - shiftX + "px";
-        floatingMicrophone.style.top = event.pageY - shiftY + "px";
+        // Set new position based on mouse location minus initial offset
+        floatingMicrophone.style.left = event.clientX - shiftX + "px";
+        floatingMicrophone.style.top = event.clientY - shiftY + "px";
       }
     }
 
+    // Attach move and up handlers to document to allow for a smoother drag experience
     document.addEventListener("mousemove", onMouseMove);
-
     document.addEventListener(
       "mouseup",
       function () {
         isDragging = false;
         document.removeEventListener("mousemove", onMouseMove);
-        // Re-enable text selection after dragging ends
-        document.body.style.userSelect = "";
       },
       { once: true }
     );
-
-    floatingMicrophone.ondragstart = function () {
-      return false;
-    };
   });
+
+  floatingMicrophone.ondragstart = function () {
+    return false;
+  };
 }
 
 // Handles microphone button clicks, toggles active state and icon
@@ -280,36 +282,33 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-
 // JavaScript Function to Show Notifications
 function showNotification(message) {
-    const container = document.getElementById('notificationContainer');
-    const notification = document.createElement('div');
-    notification.innerHTML = message;
-    notification.style.background = 'rgba(0, 123, 255, 0.8)';
-    notification.style.color = '#fff';
-    notification.style.padding = '10px';
-    notification.style.marginBottom = '10px';
-    notification.style.borderRadius = '5px';
-    notification.style.boxShadow = '0 2px 4px rgba(0,0,0,.2)';
-    notification.style.maxWidth = '300px';
-    notification.style.fontSize = '14px';
-  
-    container.appendChild(notification);
-  
-    setTimeout(() => {
-      container.removeChild(notification);
-    }, 4000);
-  }
-  
-  // Functionality for Each Accessibility Checkbox
-  document.querySelectorAll('.form-check-input').forEach(item => {
-    item.addEventListener('change', function() {
-      let settingName = this.nextElementSibling.innerText;
-      let state = this.checked ? 'enabled' : 'disabled';
-      let message = `${settingName} has been ${state}.`;
-      showNotification(message);
+  const container = document.getElementById("notificationContainer");
+  const notification = document.createElement("div");
+  notification.innerHTML = message;
+  notification.style.background = "rgba(0, 123, 255, 0.8)";
+  notification.style.color = "#fff";
+  notification.style.padding = "10px";
+  notification.style.marginBottom = "10px";
+  notification.style.borderRadius = "5px";
+  notification.style.boxShadow = "0 2px 4px rgba(0,0,0,.2)";
+  notification.style.maxWidth = "300px";
+  notification.style.fontSize = "14px";
 
-    });
+  container.appendChild(notification);
+
+  setTimeout(() => {
+    container.removeChild(notification);
+  }, 4000);
+}
+
+// Functionality for Each Accessibility Checkbox
+document.querySelectorAll(".form-check-input").forEach((item) => {
+  item.addEventListener("change", function () {
+    let settingName = this.nextElementSibling.innerText;
+    let state = this.checked ? "enabled" : "disabled";
+    let message = `${settingName} has been ${state}.`;
+    showNotification(message);
   });
-  
+});

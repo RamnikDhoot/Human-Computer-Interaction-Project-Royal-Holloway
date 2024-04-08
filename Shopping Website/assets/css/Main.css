@@ -432,7 +432,7 @@ h2.dark-mode,
   background-color: #007bff;
 }
 .step-2-color {
-  background-color: #28a745;
+  background-color: #343a40;
 }
 .step-3-color {
   background-color: #17a2b8;
@@ -447,7 +447,7 @@ h2.dark-mode,
   background-color: #6f42c1;
 }
 .step-7-color {
-  background-color: #343a40;
+  background-color: #28a745;
 } /* Visual cues for progress or steps in a process, using distinct colors for clear differentiation */
 
 
