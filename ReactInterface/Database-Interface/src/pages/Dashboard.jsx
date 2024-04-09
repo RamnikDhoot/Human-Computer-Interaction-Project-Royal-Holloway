@@ -7,6 +7,7 @@ import { Line, Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "/src/assets/CSS/dashboard.css";
+import Tooltip from "./Tooltip";
 import {
   FileText,
   Home,
@@ -106,10 +107,12 @@ function Dashboard() {
             <button className="btn btn-sm btn-outline-secondary">Share</button>
             <button className="btn btn-sm btn-outline-secondary">Export</button>
           </div>
+          <Tooltip text="View today's data and metrics">
           <button className="btn btn-sm btn-outline-secondary dropdown-toggle">
             <Calendar className="feather" />
             Todays data
           </button>
+          </Tooltip>
         </div>
       </div>
 
@@ -336,26 +339,38 @@ function Dashboard() {
       </div>
       {/* Charts */}
       <div className="row my-4">
+      <Tooltip text="Sales trends over the last three months">
         <div className="col-md-6">
           <h4>Sales Trends</h4>
           <Line data={salesChartData} />
         </div>
+        </Tooltip>
+
+        <Tooltip text="Current inventory levels by product">
         <div className="col-md-6">
           <h4>Inventory Levels</h4>
           <Bar data={inventoryChartData} />
         </div>
+        </Tooltip>
+
       </div>
 
       <div className="d-flex justify-content-around my-3 p-3 bg-light rounded shadow-sm">
+      <Tooltip text="Add a new product to your inventory">
         <button type="button" className="btn btn-primary">
           Add Product
         </button>
+        </Tooltip>
+        <Tooltip text="Create a new order for your customers">
         <button type="button" className="btn btn-secondary">
           New Order
         </button>
+        </Tooltip>
+        <Tooltip text="Generate the latest reports for review">
         <button type="button" className="btn btn-success">
           Generate Report
         </button>
+        </Tooltip>
       </div>
       <div className="my-3 p-3 bg-body rounded shadow-sm">
         <h6 className="border-bottom pb-2 mb-0">Recent Activity</h6>
@@ -402,6 +417,7 @@ function Dashboard() {
         </div>
         <ul className="list-group">
           {tasks.map((task, index) => (
+           <Tooltip text={`Click to toggle task status. Double-click to remove task.`} key={index}>
             <li
               className={`list-group-item ${
                 task.checked ? "list-group-item-secondary" : ""
@@ -416,6 +432,7 @@ function Dashboard() {
             >
               {task.text}
             </li>
+            </Tooltip>
           ))}
         </ul>
       </div>

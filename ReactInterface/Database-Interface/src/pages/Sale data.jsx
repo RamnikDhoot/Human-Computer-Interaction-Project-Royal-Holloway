@@ -5,6 +5,7 @@
 import React from "react";
 import { Doughnut, Bar, Line, Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
+import Tooltip from "./Tooltip";
 
 /**
  * Functional component representing the SaleData section.
@@ -97,11 +98,21 @@ function SaleData() {
             <table className="table table-striped table-sm">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Date</th>
-                  <th>Product</th>
-                  <th>Quantity Sold</th>
-                  <th>Sales Revenue</th>
+                  <Tooltip text="Data row number">
+                    <th>#</th>
+                  </Tooltip>
+                  <Tooltip text="Date of sale">
+                    <th>Date</th>
+                  </Tooltip>
+                  <Tooltip text="Product sold">
+                    <th>Product</th>
+                  </Tooltip>
+                  <Tooltip text="Quantity sold">
+                    <th>Quantity Sold</th>
+                  </Tooltip>
+                  <Tooltip text="Total sales revenue">
+                    <th>Sales Revenue</th>
+                  </Tooltip>
                 </tr>
               </thead>
               <tbody>
@@ -168,23 +179,31 @@ function SaleData() {
           {/* Chart Sections */}
           <div className="row">
             <div className="col-md-6">
-              <h4>Top Performing Products</h4>
+              <Tooltip text="View sales volume for top performing products">
+                <h4>Top Performing Products</h4>
+              </Tooltip>
               <div style={{ height: "400px", width: "600px" }}>
                 <Bar data={topProductsData} />
               </div>
             </div>
             <div className="col-md-6">
-              <h4>Sales Trends</h4>
+              <Tooltip text="Analyze sales trends over time">
+                <h4>Sales Trends</h4>
+              </Tooltip>
               <div style={{ height: "400px", width: "600px" }}>
                 <Line data={salesTrendsData} />
               </div>
             </div>
             <div className="col-md-6">
-              <h4>Sales by Category</h4>
+              <Tooltip text="Examine sales distribution by product category">
+                <h4>Sales by Category</h4>
+              </Tooltip>
               <Pie data={salesByCategoryData} />
             </div>
             <div className="col-md-6">
-              <h4>Revenue by Region</h4>
+              <Tooltip text="Review revenue distribution across regions">
+                <h4>Revenue by Region</h4>
+              </Tooltip>
               <Doughnut data={revenueByRegionData} />
             </div>
           </div>

@@ -43,6 +43,6 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
     "jsdoc": "^4.0.2",
-    "vite": "^5.2.4"
+    "vite": "^5.2.8"
   }
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "/src/assets/CSS/main.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import Tooltip from "./Tooltip";
 
 /**
  * CoverPage component representing the landing page of the DBMS Inventory Management system.
@@ -28,9 +29,11 @@ function CoverPage() {
             <div className="navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
+                <Tooltip text="Need help? Click here!">
                   <button className="btn btn-primary" onClick={toggleModal}>
                     Help
                   </button>
+                  </Tooltip>
                 </li>
               </ul>
             </div>
@@ -45,40 +48,50 @@ function CoverPage() {
               system powered by advanced database management technologies.
             </p>
             <div className="mb-2">
+            <Tooltip text="Click to log in">
               <button
                 className="btn btn-custom btn-primary-custom"
                 onClick={() => navigate("/signin")}
               >
                 Login
               </button>
+              </Tooltip>
             </div>
             <div className="mb-2">
+            <Tooltip text="Start by creating an account">
               <button
                 className="btn btn-custom btn-secondary-custom"
                 onClick={() => navigate("/signup")}
               >
                 Create Account
               </button>
+              </Tooltip>
             </div>
           </main>
 
           <div className="row text-start">
             <div className="col-md-4 feature">
+            <Tooltip text="View your data in real time for maximum efficiency">
               <h3>Real-Time Data</h3>
+              </Tooltip>
               <p>
                 Access and manage your inventory in real-time, ensuring data
                 accuracy and efficiency.
               </p>
             </div>
             <div className="col-md-4 feature">
+            <Tooltip text="Your data is safe with our advanced security">
               <h3>Secure Access</h3>
+              </Tooltip>
               <p>
                 Advanced security protocols to protect your data and provide
                 secure access from anywhere.
               </p>
             </div>
             <div className="col-md-4 feature">
+            <Tooltip text="Our system grows with your business">
               <h3>Scalability</h3>
+              </Tooltip>
               <p>
                 Easily scalable solutions to grow with your business, handling
                 increasing data volumes effortlessly.

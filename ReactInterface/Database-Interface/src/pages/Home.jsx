@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { PlusCircle } from "react-feather";
 import "/src/assets/CSS/Home.css";
 import InventoryCard from "../components/InventoryCard";
+import Tooltip from "./Tooltip";
 
 /**
  * Functional component representing the home page.
@@ -49,12 +50,14 @@ function HomePage() {
           />
         ))}
       </div>
+      <Tooltip text="Click to add a new inventory item">
       <button
         className="btn btn-primary btn-lg position-fixed bottom-0 end-0 m-4"
         onClick={addInventoryItem}
       >
         <PlusCircle className="feather" /> Add Inventory Item
       </button>
+      </Tooltip>
     </main>
   );
 }

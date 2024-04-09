@@ -1,0 +1,28 @@
+/* Tooltip.css */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 100; 
+  }
+  
+  .tooltip-content.top {
+    bottom: 100%;
+    margin-bottom: 10px; 
+  }
+  
+  .tooltip-content.bottom {
+    top: 100%;
+    margin-top: 10px; 
+  }
+  

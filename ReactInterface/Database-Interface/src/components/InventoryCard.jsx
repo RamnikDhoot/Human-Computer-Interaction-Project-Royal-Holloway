@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import coverImage from '../assets/images/cover.jpg';
+import Tooltip from '../pages/Tooltip';
 
 /**
  * InventoryCard component which represents items.
@@ -33,34 +34,38 @@ function InventoryCard({ id, title, description }) {
   return (
     <div className="col position-relative">
       <div className="card h-100">
-        <img
-          src={coverImage}
-          className="card-img-top"
-          alt={title}
-        />
+        <img src={coverImage} className="card-img-top" alt={title} />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{description}</p>
         </div>
         <div className="inventory-popup">
-          <label htmlFor={`newName${id}`}>New Name:</label>
-          <input
-            type="text"
-            id={`newName${id}`}
-            placeholder="Enter new name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button onClick={changeInventoryName}>Change Name</button>
+          <Tooltip text="Enter a new name for this inventory item.">
+            <div>
+              <label htmlFor={`newName${id}`}>New Name:</label>
+              <input
+                type="text"
+                id={`newName${id}`}
+                placeholder="Enter new name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <button onClick={changeInventoryName}>Change Name</button>
+            </div>
+          </Tooltip>
 
-          <label htmlFor={`newPhoto${id}`}>New Photo:</label>
-          <input
-            type="file"
-            id={`newPhoto${id}`}
-            accept="image/*"
-            onChange={(e) => setPhoto(e.target.files[0])}
-          />
-          <button onClick={changeInventoryPhoto}>Change Photo</button>
+          <Tooltip text="Upload a new photo for this inventory item.">
+            <div>
+              <label htmlFor={`newPhoto${id}`}>New Photo:</label>
+              <input
+                type="file"
+                id={`newPhoto${id}`}
+                accept="image/*"
+                onChange={(e) => setPhoto(e.target.files[0])}
+              />
+              <button onClick={changeInventoryPhoto}>Change Photo</button>
+            </div>
+          </Tooltip>
         </div>
       </div>
     </div>
