@@ -8,6 +8,7 @@ import {
   Package,
   Mic,
   PlusCircle,
+  Users,
 } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
@@ -51,6 +52,8 @@ function SideBar() {
       alert("You must enter a name to add a new report.");
     }
   };
+  const [userRole, setUserRole] = useState("guest"); // Possible roles: admin, user, guest
+
 
   return (
     <>
@@ -131,6 +134,16 @@ function SideBar() {
                   </NavLink>
                 </li>
               </Tooltip>
+              
+              <Tooltip text="User Management">
+  <li className="nav-item">
+    <NavLink to="/users" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+      <Users className="feather" /> User Management
+    </NavLink>
+  </li>
+</Tooltip>
+
+              
               <Tooltip text="Access Voice controls">
                 <li className="nav-item">
                   <NavLink

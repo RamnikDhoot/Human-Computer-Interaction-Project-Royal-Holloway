@@ -24,6 +24,7 @@ import SaleData from "./pages/Sale data.jsx";
 import SignIn from "./pages/Login pages/SignIn.jsx";
 import TwoFactorAuth from "./pages/Login pages/2FA.jsx";
 import Signup from "./pages/Login pages/Signup.jsx";
+import UserManagement from "./pages/UserManagament.jsx";
 
 /**
  * App is the main function component that uses React Router to define the application's navigation structure.
@@ -75,6 +76,20 @@ import Signup from "./pages/Login pages/Signup.jsx";
           }
         />
         <Route path="/Footer" element={<Footer />} />
+        <Route
+          path="/users"
+          element={
+            <>
+              <NavBar />
+              <div className="container-fluid">
+                <SideBar />
+                <UserManagement />
+              </div>
+            </>
+          }
+        />
+        <Route path="/Footer" element={<Footer />} />
+        
       </Routes>
     </Router>
   );
