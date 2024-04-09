@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Meta tag to ensure proper rendering and touch zooming in mobile browsers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us</title>
+    <!-- Bootstrap CSS for styling, ensuring the page is responsive and mobile-friendly -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Main.css for custom styles specific to this site -->
+    <link rel="stylesheet" href="/Shopping Website/assets/css/Main.css" />
+    <!-- Bootstrap icons for using various icons from Bootstrap's library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Inline CSS styles for specific elements/features on the page -->
+    <style>
+      .featurette {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.05rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Site header with navigation bar -->
+    <header class="site-header sticky-top py-1">
+      <!--Sticks the nav-bar to the top of the page when the user scrolls down-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <!-- Brand logo/link -->
+          <a class="navbar-brand" href="Homepage.html" aria-label="Shopping">Shopping</a>
+          <!-- Toggle button for mobile navigation -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <!--When the page size is reduced past a certain point a menu icon pops up unstead of the full nav-bar-->
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" role="list">
+              <!-- Navigation items -->
+              <li class="nav-item" role="listitem">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="Homepage.html"
+                  aria-label="Navigation">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-house-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                    <path
+                      d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item" role="listitem">
+                <a class="nav-link active" href="Notifications.html" aria-label="Notifications">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-bell-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                  </svg>
+                  Notifications
+                </a>
+              </li>
+              <li class="nav-item" role="listitem">
+                <a class="nav-link active" href="Settings.html" aria-label="Settings">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-gear-fill"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                  </svg>
+                  Settings
+                </a>
+              </li>
+            </ul>
+            <div
+              class="d-flex justify-content-center align-items-center me-0"></div>
+            <!-- Search form -->
+            <form class="d-flex me-auto" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search...."
+                aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit" aria-label="Search">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+              </button>
+            </form>
+          </div>
+          <div class="d-flex flex-row me-1">
+            <!-- Login and Sign up links -->
+            <div
+              class="d-flex flex-column flex-lg-row justify-content-centre align-items-center gap-3">
+              <a href="#login" class="text-white" aria-label="Login">Login</a>
+              <a
+                href="#signup"
+                class="text-white text-decoration-none px-3 py-1 bg-primary rounded-2" aria-label="Sign Up">Sign
+                Up</a>
+            </div>
+            <a href="Basket.html" aria-label="Cart">
+              <!-- Shopping cart button -->
+              <button type="button" class="btn position-relative" aria-label="Cart">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="white"
+                  class="bi bi-cart-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+              </button>
+            </a>
+          </div>
+          <!-- Read screen button that appears when screen reader is enabled in settings -->
+          <button
+            type="button"
+            aria-label="Read Screen"
+            class="btn btn-secondary"
+            id="readScreenButton"
+            onclick="toggleReadScreen()"
+            style="margin-right: 10px">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-book"
+              viewBox="0 0 16 16">
+              <path
+                d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- Main content starts here: Contact Us section, Testimonials, FAQs, Example products -->
+
+    <!-- Contact section with form for users to send a message -->
+    <div class="container my-5">
+      <h2 class="mb-4">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="contact-info">
+            <h4>About Our Website</h4>
+            <p>
+              Learn more about what we do and how we can help you find the best
+              products online.
+            </p>
+            <h4>Contact Information</h4>
+            <p>Email: contact@example.com</p>
+            <p>Phone: +123456789</p>
+            <div class="social-icons">
+              <a href="#" aria-label="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" aria-label="instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameInput"
+                placeholder="Your Name" />
+            </div>
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="emailInput"
+                placeholder="Your Email" />
+            </div>
+            <div class="mb-3">
+              <label for="messageTextarea" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="messageTextarea"
+                rows="3"
+                placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials section where customers share their experiences -->
+    <div class="container my-5">
+      <h2 class="mb-4">What Our Customers Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "This website transformed my shopping experience. I've found
+              products I couldn't find anywhere else, and the customer service
+              is top-notch."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Jane Doe, <cite title="Source Title">Happy Customer</cite>
+            </figcaption>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "Efficient, reliable, and with an incredible range of products. I
+              recommend this site to all my friends."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              John Smith, <cite title="Source Title">Satisfied Shopper</cite>
+            </figcaption>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <blockquote class="blockquote">
+              "Excellent deals and fast shipping. This is now my go-to website
+              for all my needs."
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Alex Johnson, <cite title="Source Title">Frequent Buyer</cite>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ section implemented as an accordion for better UX -->
+    <div class="container my-5">
+      <!-- Question 1 -->
+      <h2 class="mb-4">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne">
+              How do I track my order?
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can track your order by logging into your account and visiting
+              the Orders section.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo">
+              What payment methods do you accept?
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We accept various payment methods including major credit cards
+              (Visa, MasterCard, American Express), PayPal, and other digital
+              wallets.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree">
+              How can I return a product?
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can return products within 30 days of purchase. Please visit
+              our Returns & Refunds page for a step-by-step guide on how to
+              return your product.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour">
+              Do you ship internationally?
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFour"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, we offer international shipping. Shipping costs and delivery
+              times vary depending on the destination. Please check our Shipping
+              Policy for more details.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive">
+              How do I change or cancel my order?
+            </button>
+          </h2>
+          <div
+            id="collapseFive"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFive"
+            data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              If you need to change or cancel your order, please contact us as
+              soon as possible. Orders that have not yet been shipped can
+              usually be modified or canceled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Showcase of example products to attract user interest and highlight specific items -->
+    <div class="container my-5">
+      <h2 class="mb-4">Explore Our Collection</h2>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <a href="Items.html" aria-label="Items">
+            <img
+              src="/Shopping Website/assets/images/OIP (1).jpg"
+              class="img-fluid"
+              alt="Product 1" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="Items.html" aria-label="Items">
+            <img
+              src="/Shopping Website/assets/images/OIP (2).jpg"
+              class="img-fluid"
+              alt="Product 2" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="Items.html" aria-label="Items">
+            <img
+              src="/Shopping Website/assets/images/OIP.jpg"
+              class="img-fluid"
+              alt="Product 3" />
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a href="Items.html" aria-label="Items">
+            <img
+              src="/Shopping Website/assets/images/IMG_5400.jpg"
+              class="img-fluid"
+              alt="Product 4" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer section with additional links and information -->
+    <footer class="py-3 my-4 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>Explore, Shop, Enjoy!</h3>
+            <p>
+              Welcome to This shopping website, your go-to destination for an
+              unparalleled shopping experience. We're dedicated to making your
+              online shopping journey seamless and enjoyable.
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled" role="list">
+              <li role="listitem"><a href="Homepage.html" aria-label="Home">Home</a></li>
+              <li role="listitem"><a href="Items.html" aria-label="Shop">Shop</a></li>
+              <li role="listitem"><a href="Deals.html" aria-label="Deals">Deals</a></li>
+              <li role="listitem"><a href="Contact.html" aria-label="Contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h5>Customer Support</h5>
+            <p>
+              Have questions or need assistance? Reach out to us at
+              <a href="mailto:your-support@email.com" aria-label="Email">Example@email.com</a>.
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <h5>Connect With Us</h5>
+            <div class="social-icons">
+              <a class="text-light" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a class="text-light" aria-label="Discord"><i class="bi bi-discord"></i></a>
+              <a class="text-light" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a class="text-light" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-1 text-right">
+            <a
+              href="#"
+              id="backToTopBtn"
+              class="text-light"
+              title="Back to Top"
+              aria-label="Back to top">
+              Back to Top
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-arrow-up-circle"
+                viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Microphone Button for voice control, enabled in setting page -->
+    <div
+      id="floatingMicrophone"
+      class="floating-microphone"
+      style="display: none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-mic-mute-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4 4 0 0 0 12 8V7a.5.5 0 0 1 1 0zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a5 5 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4m3-9v4.879L5.158 2.037A3.001 3.001 0 0 1 11 3" />
+        <path
+          d="M9.486 10.607 5 6.12V8a3 3 0 0 0 4.486 2.607m-7.84-9.253 12 12 .708-.708-12-12z" />
+      </svg>
+    </div>
+
+    <!-- Bootstrap Bundle script for enabling interactive components like modals and accordions -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <!-- Main JavaScript file for site-specific scripts -->
+    <script src="/Shopping Website/assets/js/Main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+/* Enhances background aesthetics while ensuring text readability with sufficient padding and contrasting text color, adhering to aesthetic and minimalist design principles. */
+.text-center {
+    background-image: url('/src/assets/images/port-1845350_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #fff; /* Ensures high contrast between text and background for better readability. */
+}
+
+/* Provides a visually cohesive navigation area, enhancing user orientation and navigability within the application. */
+.navbar {
+    background-color: #343a40; /* Offers contrast with other elements and contributes to a professional look. */
+}
+.navbar-brand {
+    color: #ffffff; /* Ensures the brand is easily noticeable against the navbar background. */
+}
+
+/* Centers content and provides a distinct area for focused user interaction, contributing to spatial familiarity and content grouping. */
+.cover-container {
+    max-width: 42em;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent background enhances focus on the container's content. */
+    color: #fff; /* High contrast for text readability. */
+    border-radius: 10px;
+    margin-top: 80px;
+}
+
+/* Styles images to fit within content areas while maintaining aspect ratios, improving the visual hierarchy and content organization. */
+.middle-image {
+    max-width: 80%; /* Ensures images are not overwhelmingly large. */
+    height: auto;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adds depth to the image, making it stand out. */
+}
+
+/* Margin adjustments help to space out features within the UI, aiding in content differentiation and user focus. */
+.feature {
+    margin-bottom: 30px;
+}
+
+/* Testimonial styling creates a distinct area for user reviews or comments, contributing to social proof and community engagement. */
+.testimonial {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparency adds depth and focus. */
+    border-radius: 5px;
+    color: #fff; /* Maintains readability against the lighter background. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle depth. */
+}
+
+/* Testimonial quotes are styled for emphasis, guiding user attention to personal experiences or critical reviews. */
+.testimonial blockquote {
+    position: relative;
+    padding-left: 1.5rem;
+    font-style: italic; /* Differentiates quote text from other content types. */
+}
+
+/* Footer citation styling complements the main testimonial block, ensuring authorship is clear but subtly differentiated. */
+.testimonial .blockquote-footer {
+    color: #e9ecef; /* Subdued color maintains focus on the main quote. */
+    position: relative;
+    font-style: normal; /* Resets style to distinguish from the main quote. */
+    display: block;
+    margin-top: 10px;
+}
+
+.testimonial .blockquote-footer::before {
+    content: '\2014 \00A0'; 
+}
+
+.testimonial cite {
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Contact form styling ensures it stands out from other content types, encouraging user interaction. */
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background focuses user attention on form inputs. */
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 40px;
+    color: #fff; /* Ensures text within the form is readable against the semi-transparent background. */
+}
+
+/* Enhances the usability of form elements by providing clear visual separation and focus areas, encouraging user interaction. */
+.contact-form input, .contact-form textarea, .contact-form button {
+    margin-top: 10px;
+}
+
+/* Custom button styling provides a distinct, interactive feel to important actions, improving user engagement and clarity on possible actions. */
+.btn-custom {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Rounded edges contribute to a modern, friendly UI aesthetic. */
+    border: none;
+    transition: all 0.3s; /* Smooth transition effects for interactive feedback, enhancing the perceived responsiveness. */
+    margin: 0 10px; 
+}
+
+/* Primary and secondary custom button variations provide visual cues to users about the nature of the action, enhancing decision-making. */
+.btn-primary-custom {
+    background-color: #007bff; /* Standard color for primary actions, suggesting importance. */
+    color: #fff; /* Contrasts strongly with the button color for readability. */
+}
+
+.btn-secondary-custom {
+    background-color: #6c757d; /* Secondary actions are visually differentiated but still easily identifiable. */
+    color: #fff;
+}
+
+/* Hover effects increase the interactive feel of buttons, providing immediate feedback to user actions, which is essential for an engaging UI. */
+.btn-primary-custom:hover, .btn-secondary-custom:hover {
+    background-color: #0056b3; /* Darkens on hover to indicate an actionable item. */
+    color: #ffffff;
+    transform: scale(1.1); /* Slightly enlarges button to attract attention and confirm interactivity. */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3); /* Adds depth and focus, making the button stand out. */
+}
+
+/* Ensures modal dialogs are readable against various backgrounds, focusing user attention on dialog content. */
+.modal-dialog{
+    color: black; /* Contrasts with typical modal backgrounds for readability. */
+}

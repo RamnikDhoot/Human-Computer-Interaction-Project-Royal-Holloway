@@ -1,0 +1,119 @@
+/* The background image enhances aesthetic appeal, with cover size ensuring full background coverage. Adequate padding at the top prevents content overlap, adhering to the HCI principle of aesthetic and minimalist design. Setting a minimum height ensures full viewport coverage, important for creating immersive experiences. */
+.text-center {
+    background-image: url('/src/assets/images/port-1845350_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 60px; 
+    color: #343a40;
+    min-height: 100vh; 
+}
+
+
+/* Consistent background and text color across the navbar enhance readability and navigation ease, aligning with the HCI principle of visibility of system status. Removing border and outline minimizes distractions, focusing on content. */
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none; 
+    outline: none; 
+    box-shadow: none; 
+}
+
+/* Centers authentication forms on the page, providing a focused interaction space. The use of shadows subtly separates form containers from the background, applying the HCI principle of direct manipulation by delineating interactive areas. */
+.sign-up-container, .sign-in-container, .two-factor-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.password-container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 0.5%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Centralized form headings provide a clear entry point for interaction, aligning with HCI principles of match between the system and the real world by using familiar form structures. */
+.form-signup-heading, .form-signin-heading, .form-2fa-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for form controls*/
+.form-control, .input-group-text, .input-group button {
+    margin-bottom: 15px;
+    height: calc(2.25rem + 2px);
+}
+
+/* The footer is fixed at the bottom, always visible, providing constant access to global information, aligning with the HCI principle of visibility of system status. */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* FAQ and password info sections use background differentiation to highlight help resources, aligning with the HCI principle of error prevention by providing easily accessible information. */
+.faq-link, .password-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.password-info-heading {
+    text-align: center;
+    margin-bottom: 15px;
+}
+/* The social sign-in button styles facilitate easy access to alternative login methods, adhering to the HCI principle of flexibility and efficiency of use. */
+.social-signin-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* The microphone icon animation visually communicates the listening state, adhering to the HCI principle of feedback. The change in color to red serves as a clear indicator of active listening, enhancing user understanding and interaction. */
+.fa-microphone {
+    cursor: pointer;
+}
+.listening {
+    animation: pulseAnimation 1s infinite;
+    color: red;
+}
+/* The .btn-listening class is used for buttons in an active listening state. Removing the border and background emphasizes the icon or text inside, focusing user attention solely on the interactive element's state, not its container. This design decision supports the HCI principle of direct manipulation, allowing users to clearly understand that the system is ready to receive voice input. */
+.btn-listening {
+    border: none !important;
+    background-color: transparent !important;
+}
+/* Keyframes for the pulseAnimation used in the .listening class. The animation enlarges the element slightly and changes its opacity, creating a pulsing effect. This visual feedback is crucial for indicating an active process, such as listening for voice commands, in line with the HCI principles of feedback and visibility of system status. It reassures users that the system is engaged in a specific mode of operation. */
+@keyframes pulseAnimation {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+.resend-code button {
+    color: #007bff;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .resend-code button:disabled {
+    color: grey;
+    cursor: default;
+  }
+  
+ 
+  

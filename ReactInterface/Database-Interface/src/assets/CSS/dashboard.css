@@ -1,0 +1,149 @@
+/* Ensures text is legible and comfortable for extended reading, crucial for business professionals dealing with data and reports. */
+body {
+  font-size: .875rem;
+}
+
+/* Icon size is optimized for clarity and recognition, aiding quick navigation and action within the application. */
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/* Charts and graphs are ensured a minimum size for clear data visualization, crucial for managerial decision-making. */
+canvas {
+  min-width: 400px;
+  min-height: 400px;
+}
+
+
+/*
+The sidebar is fixed, ensuring constant access to navigation regardless of page scroll, supporting efficient workflow navigation.
+The shadow effect subtly separates the navigation from the content area, reducing cognitive load by defining areas visually.
+*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+/* Adjusts the sidebar's position for better accessibility on smaller devices, acknowledging the diverse device usage in professional environments. */
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+/* Ensures the sidebar content is accessible through scrolling, addressing varying screen sizes and content length without overwhelming the user. */
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* for Scrollable contents if viewport is shorter than content. */
+}
+
+/* Navigation link styling is designed for readability and distinction, aiding in the identification and selection of different sections. */
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Active state and hover effects on navigation items provide clear feedback to users about their current selection or potential action. */
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+/* Headings within the sidebar are styled for emphasis on structure, guiding the user through the application’s organization. */
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/* Enhances the visibility and aesthetic alignment of the navbar brand, contributing to the application’s visual identity. */
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+/* Form control focus states are crucial for accessibility, indicating active elements to users, including those using assistive technologies. */
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+
+/* to do list css */
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.todo-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  background-color: #f8f9fa; 
+  margin-bottom: 0.5rem; 
+}
+
+/* The to-do list is designed for visual clarity and task management efficiency, essential for busy professionals managing tasks or notes. */
+#taskList li.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Login pages/Signup.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Login pages/Signup.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Signup component for user registration.
+ * This component allows users to sign up by providing their username, email, and password.
+ * 
+ */
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { User, Mail, Lock } from "react-feather";
+import "/src/assets/CSS/Signin.css";
+
+/**
+ * Functional component representing the sign-up page.
+ * 
+ * @returns {JSX.Element} JSX representing the Signup component.
+ */
+function Signup() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [passwordStrength, setPasswordStrength] = useState(0);
+  const [passwordDescription, setPasswordDescription] = useState(
+    "Enter a password to see its strength."
+  );
+  const [progressBarColor, setProgressBarColor] = useState("");
+  const navigate = useNavigate(); 
+
+   /**
+   * Function to calculate the strength of the password.
+   * Calculates the strength based on various criteria such as length, uppercase, lowercase, numbers, and special characters.
+   * Updates the password strength state and displays the description and color accordingly.
+   */
+  useEffect(() => {
+    calculateStrength();
+  }, [formData.password]);
+
+  const calculateStrength = () => {
+    let strength = 0;
+    const { password } = formData;
+    if (password.length >= 6) strength += 20;
+    if (/[A-Z]/.test(password)) strength += 20;
+    if (/[a-z]/.test(password)) strength += 20;
+    if (/[0-9]/.test(password)) strength += 20;
+    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+
+    setPasswordStrength(strength);
+
+    let description = "";
+    let color = "";
+    if (strength &lt; 40) {
+      description = "Weak - Try adding numbers or special characters.";
+      color = "bg-danger";
+    } else if (strength &lt; 60) {
+      description = "Moderate - Improve strength with mixed case letters.";
+      color = "bg-warning";
+    } else if (strength &lt;= 80) {
+      description = "Good - Make it stronger with more unique characters.";
+      color = "bg-info";
+    } else {
+      description = "Strong - Great job!";
+      color = "bg-success";
+    }
+
+    setPasswordDescription(description);
+    setProgressBarColor(color);
+  };
+
+  /**
+   * Function to handle input change in the form fields.
+   * Updates the formData state with the new values.
+   * 
+   * @param {Event} e - The input change event.
+   */
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  /**
+   * Function to handle form submission.
+   * Validates the form data such as password match and strength.
+   * Alerts the user accordingly and clears the input fields if there's an error.
+   * 
+   * @param {Event} e - The form submission event.
+   */
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      formData.password === formData.confirmPassword &amp;&amp;
+      passwordStrength >= 60
+    ) {
+      alert("Your account has been created successfully!");
+      navigate("/signin");
+    } else {
+      alert(
+        "Please ensure the passwords match and meet the strength requirements."
+      );
+      setFormData({ ...formData, password: "", confirmPassword: "" });
+    }
+  };
+
+  return (
+    &lt;div className="text-center">
+      &lt;nav className="navbar navbar-expand-md navbar-dark fixed-top">
+        &lt;div className="container-fluid">
+          &lt;a className="navbar-brand">
+            Inventory System
+          &lt;/a>
+        &lt;/div>
+      &lt;/nav>
+
+      &lt;div className="sign-up-container">
+        &lt;form className="form-signup" onSubmit={handleSubmit}>
+          &lt;h1 className="h3 mb-3 font-weight-normal form-signup-heading">
+            Sign Up
+          &lt;/h1>
+
+          &lt;div className="input-group mb-3">
+            &lt;span className="input-group-text">
+              &lt;User />
+            &lt;/span>
+            &lt;input
+              type="text"
+              id="inputUsername"
+              className="form-control"
+              placeholder="Username"
+              name="username"
+              required
+              autoFocus
+              value={formData.username}
+              onChange={handleInputChange}
+            />
+          &lt;/div>
+
+          &lt;div className="input-group mb-3">
+            &lt;span className="input-group-text">
+              &lt;Mail />
+            &lt;/span>
+            &lt;input
+              type="email"
+              id="inputEmail"
+              className="form-control"
+              placeholder="Email address"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          &lt;/div>
+
+          &lt;div className="input-group mb-3">
+            &lt;span className="input-group-text">
+              &lt;Lock />
+            &lt;/span>
+            &lt;input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              name="password"
+              required
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          &lt;/div>
+
+          &lt;div className="input-group mb-3">
+            &lt;span className="input-group-text">
+              &lt;Lock />
+            &lt;/span>
+            &lt;input
+              type="password"
+              id="inputConfirmPassword"
+              className="form-control"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              required
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+            />
+          &lt;/div>
+
+          &lt;button className="btn btn-lg btn-success btn-block" type="submit">
+            Sign up
+          &lt;/button>
+
+          &lt;p className="mt-3" onClick={() => navigate("/signin")}>
+            Already have an account? &lt;a href="">Sign In&lt;/a>
+          &lt;/p>
+        &lt;/form>
+      &lt;/div>
+
+      &lt;div className="password-container">
+        &lt;div
+          id="passwordStrength"
+          className="progress "
+          style={{ height: "8px", marginTop: "5px" }}
+        >
+          &lt;div
+            className={`progress-bar ${progressBarColor}`}
+            role="progressbar"
+            style={{ width: `${passwordStrength}%` }}
+            aria-valuenow={passwordStrength}
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >&lt;/div>
+        &lt;/div>
+
+        &lt;div className="password-explanation faq-link">
+          &lt;h3 className="password-explanation-heading">Password Strength&lt;/h3>
+          &lt;p id="passwordDescription">{passwordDescription}&lt;/p>
+        &lt;/div>
+      &lt;/div>
+      &lt;footer className="footer">
+        &lt;p>&amp;copy; 2023 Inventory Management System. All rights reserved.&lt;/p>
+      &lt;/footer>
+    &lt;/div>
+  );
+}
+
+export default Signup;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CoverPage">CoverPage</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#HomePage">HomePage</a></li><li><a href="global.html#InventoryCard">InventoryCard</a></li><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#SaleData">SaleData</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#SignIn">SignIn</a></li><li><a href="global.html#Signup">Signup</a></li><li><a href="global.html#TwoFactorAuth">TwoFactorAuth</a></li><li><a href="global.html#mockNavigate">mockNavigate</a></li><li><a href="global.html#renderSideBar">renderSideBar</a></li><li><a href="global.html#renderWithRouter">renderWithRouter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 08 2024 11:36:22 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
