@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import coverImage from '../assets/images/cover.jpg';
+import coverImage from '../assets/images/7527289.png';
 import Tooltip from '../pages/Tooltip';
 
 /**

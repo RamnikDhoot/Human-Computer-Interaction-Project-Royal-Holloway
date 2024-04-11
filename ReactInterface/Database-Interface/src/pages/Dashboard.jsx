@@ -339,19 +339,15 @@ function Dashboard() {
       </div>
       {/* Charts */}
       <div className="row my-4">
-      <Tooltip text="Sales trends over the last three months">
         <div className="col-md-6">
           <h4>Sales Trends</h4>
           <Line data={salesChartData} />
         </div>
-        </Tooltip>
 
-        <Tooltip text="Current inventory levels by product">
         <div className="col-md-6">
           <h4>Inventory Levels</h4>
           <Bar data={inventoryChartData} />
         </div>
-        </Tooltip>
 
       </div>
 
