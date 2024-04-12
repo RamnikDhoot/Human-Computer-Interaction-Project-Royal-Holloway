@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import InventoryCard from '../components/InventoryCard';
 
 // Mock the coverImage import
-jest.mock('../assets/images/cover.jpg', () => 'dummy-image-url');
+jest.mock('../assets/images/7527289.png', () => 'dummy-image-url');
 // Mock the alert function
 window.alert = jest.fn();
 
